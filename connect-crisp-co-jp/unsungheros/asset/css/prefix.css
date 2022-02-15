@@ -1,0 +1,23 @@
+.d-h1-t span,
+.d-h2-t span,
+.d-h3-t span,
+.d-h4-t span,
+.delivery-t span,
+.makeing-t span{
+  margin-right: 1em;
+  display: inline-block;
+}
+
+
+
+  /*
+.d-h1-t,
+.d-h2-t,
+.d-h3-t,
+.d-h4-t{
+clear: both;
+ display: block;
+ overflow:hidden;
+}
+*/
+
