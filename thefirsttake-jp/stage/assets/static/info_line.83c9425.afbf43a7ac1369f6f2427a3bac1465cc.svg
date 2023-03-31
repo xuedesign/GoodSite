@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="46.563" height="12.32" viewBox="0 0 46.563 12.32">
+  <defs>
+    <style>
+      .cls-1 {
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <path id="info_line.svg" class="cls-1" d="M616.644,6439.83v12.33h7.618v-1.84h-5.65v-10.49h-1.968Zm15.344,0v12.33H630.02v-12.33h1.968Zm8.368,3.01,6.61,9.32h2.144v-12.33h-1.968V6449l-6.53-9.17h-2.224v12.33h1.968v-9.32Zm15.152-3.01v12.33h7.7v-1.84h-5.729v-3.33h4.977v-1.84h-4.977v-3.48h5.729v-1.84h-7.7Z" transform="translate(-616.656 -6439.84)"/>
+</svg>
