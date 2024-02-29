@@ -1,0 +1,230 @@
+%base {
+  font-family: "Arial", sans-serif;
+  font-weight: bold;
+}
+
+%din {
+  font-family: "DINAlternate-Bold", "Arial", sans-serif;
+  font-weight: bold;
+}
+
+%futura {
+  font-family: "Futura", "Futura-Medium", "Arial", sans-serif;
+  font-weight: normal;
+}
+
+%palatino {
+  font-family: "Palatino Linotype", "PalatinoLinotype-Roman", "Palatino-Roman",
+    "TimesNewRomanPSMT", "Times", serif;
+}
+
+%subpixel {
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+
+body {
+  @extend %palatino;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  color: $global-color;
+}
+
+// heading
+#{headings()} {
+  @include reset-box-model;
+  font-weight: normal;
+  @extend %din;
+  @include trailer(1);
+}
+h1,
+%h1 {
+  @include adjust-font-size-to($font-size-l);
+  color: white;
+}
+h2 {
+  @include adjust-font-size-to($font-size-m);
+  color: white;
+}
+h3 {
+  @include adjust-font-size-to($font-size-m);
+  @include reset-box-model;
+  @include leader(1);
+}
+h4 {
+  @include adjust-font-size-to($font-size-s);
+  @include reset-box-model;
+}
+h5 {
+  @include adjust-font-size-to($font-size-s);
+  @include reset-box-model;
+}
+h6 {
+  @include adjust-font-size-to($font-size-s);
+  @include reset-box-model;
+}
+
+.main .back {
+  cursor: pointer;
+  @extend %base;
+  position: fixed;
+  z-index: 3000;
+  top: 1em;
+  left: 0;
+  padding: 0 5em 0 0.8em;
+  @include adjust-font-size-to(16px, 2);
+  background: rgba(black, 0.7);
+  @include background(
+    linear-gradient(to right, rgba(#111, 0.7) 50%, rgba(#111, 0))
+  );
+  color: white;
+  text-decoration: none;
+  &:hover,
+  &:active {
+    color: black;
+    text-decoration: none;
+    background: rgba(white, 0.7);
+    @include background(
+      linear-gradient(to right, rgba(white, 0.7) 50%, rgba(white, 0))
+    );
+  }
+}
+
+.sub-header {
+  @extend %din;
+  @extend %h1;
+  @include leader(2.5);
+  @include at-breakpoint($desktop) {
+    @include leader(4.5);
+  }
+}
+
+hr {
+  display: block;
+  border: none;
+  border-top: 1px solid darken($background-gray, 30%);
+  width: 60%;
+  // margin: 0 auto;
+  margin-left: 0;
+  @include trailer(3);
+  @include leader(3);
+}
+
+p {
+  @include leader(0);
+  @include trailer(1);
+  @include adjust-font-size-to($base-font-size);
+  & + & {
+    text-indent: 2em;
+  }
+}
+
+em,
+i {
+  font-family: "Courier New", "Monaco", monospace;
+  font-style: normal;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: white;
+  font-size: 14px;
+}
+
+strong,
+b {
+  @extend %din;
+  color: white;
+}
+
+abbr {
+  cursor: help;
+}
+
+// 引用他處文獻
+blockquote {
+  @include reset-box-model;
+  @include leader(1);
+  @include trailer(1);
+  border-left: 3px solid $global-divider;
+  padding-left: rhythm(1);
+  @include adjust-font-size-to($base-font-size);
+  cite {
+    display: block;
+    color: $global-muted-color;
+    &:before {
+      content: "\2014 \00A0";
+    }
+  }
+}
+
+// code 示範區
+pre {
+  code {
+    font-family: "Monaco", MonoSpace, sans-serif;
+    display: block;
+    @include leader(1);
+    @include trailer(1);
+    border: 1px solid $global-divider;
+    padding: rhythm(1);
+    background-color: $global-spectail-block;
+    @include adjust-font-size-to($base-font-size * 0.75);
+  }
+}
+
+// list
+ol,
+ul {
+  @include leader(1);
+  @include trailer(1);
+  ol,
+  ul {
+    margin: 0;
+  }
+}
+
+dl {
+  @include leader(1);
+  @include trailer(1);
+  dt {
+    font-weight: bold;
+  }
+  dd {
+    margin: 0;
+  }
+}
+
+// inline style
+a {
+  @include link-colors(white);
+  @include hover-link;
+  img {
+    border: none;
+  }
+}
+
+img {
+  max-width: 100%;
+  @include trailer(1);
+}
+
+.main {
+  a {
+    font-weight: bold;
+    text-decoration: underline;
+  }
+}
+
+.thanks {
+  @include leader(5);
+  text-align: center;
+  p {
+    line-height: 2;
+    strong {
+      display: block;
+      @include leader(1);
+      @include adjust-font-size-to(32px);
+    }
+  }
+  p + p {
+    text-indent: 0;
+  }
+}

@@ -1,0 +1,1345 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="utf-8">
+    <meta content="initial-scale=1, minimum-scale=1, width=device-width" name="viewport">
+    <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+    <meta name="referrer" content="no-referrer">
+    <link rel="shortcut icon" href="https://ssl.gstatic.com/images/branding/product/2x/hh_docs_36dp.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Symbols+Outlined%7CRoboto:100,300,400,500,700%7CGoogle+Sans+Text:400,500,700,400i,500i,700i%7CGoogle+Sans:400,500%7CProduct+Sans:400&amp;lang=zh-TW&amp;display=swap" nonce="VqSPNNQRwUIWGLfDKRuAUQ">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons&amp;display=swap" rel="stylesheet" nonce="VqSPNNQRwUIWGLfDKRuAUQ">
+    <link href="static/css/index.min.css" rel="stylesheet" nonce="VqSPNNQRwUIWGLfDKRuAUQ">
+    <link href="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.css" rel="stylesheet" nonce="VqSPNNQRwUIWGLfDKRuAUQ">
+    <meta name="twitter:url" content="https://twitter.com/googledocs">
+    <meta name="twitter:title" content="Google 文件：線上文件編輯器 | Google Workspace">
+    <meta name="twitter:image" content="https://kstatic.googleusercontent.com/files/97ecc831526fbe8c60fe88ef0d7a6cbf06361809f0acf857326681f6a1f35740d3bd7d69bf4a5381f5c31a863bccace4d9d1660379182901f73d24ef137f6fb4">
+    <meta name="twitter:description" content="使用 Google 文件建立及協作處理線上文件。您可以在任何裝置上安全地即時共用內容，與他人共同編輯。">
+    <meta name="twitter:creator" content="Google">
+    <meta property="og:url" content="https://www.facebook.com/GoogleDocs/">
+    <meta content="Google 文件：線上文件編輯器 | Google Workspace" property="og:title">
+    <meta content="https://kstatic.googleusercontent.com/files/97ecc831526fbe8c60fe88ef0d7a6cbf06361809f0acf857326681f6a1f35740d3bd7d69bf4a5381f5c31a863bccace4d9d1660379182901f73d24ef137f6fb4" property="og:image">
+    <meta content="使用 Google 文件建立及協作處理線上文件。您可以在任何裝置上安全地即時共用內容，與他人共同編輯。" property="og:description">
+    <meta property="og:type" content="website">
+    <title>
+      Google 文件：線上文件編輯器 | Google Workspace
+    </title>
+    <meta name="description" content="使用 Google 文件建立及協作處理線上文件。您可以在任何裝置上安全地即時共用內容，與他人共同編輯。">
+    <link href="../../intl/zh-TW/docs/about/index.html" rel="canonical">
+    <script nonce="VqSPNNQRwUIWGLfDKRuAUQ">
+    function glueCookieNotificationBarLoaded(){(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-THMG5X6');}
+    </script>
+    <style>@media screen and (min-width: 1024px) {
+        .bg-img-docs-supercharge {
+          background-image: url(https://lh3.googleusercontent.com/LdYwcT1HsIt_MlYbQvGFff1uRr0QTdnDsKVkD4-PqFR0vaPk5MPPGkjkfJmucjam6QGijZ_vwpn3dDtJp7fQvCxyXClNfu8flxJCk1oss7JijH61IPk=w1024);
+        }
+      }
+      @media screen and (min-width: 1700px) {
+        .bg-img-docs-supercharge {
+          background-image: url(https://lh3.googleusercontent.com/w31V3-kAcYjwDYoHLWVpc4BaMBmfk76mBljUelxl8ozgzyCMa0kMNNl7IvEsl47bUnMsk5ogVW8iV54aT-nujBtTgtwAfFk66boC6S1FLo8DWXS7I6k=w1700);
+        }
+      }
+    </style>
+    <style>@media screen and (min-width: 1024px) {
+        .bg-img-docs-write {
+          background-image: url(https://lh3.googleusercontent.com/-_yE8i04XneR2Xbsn9rOZKnWucDzIY60RDFIJa5Cq2-vs8L3nyvRC5HzHVX-BRNWL9-EIg4lrq5L881cWVaaREb7LxZwxQZoycnKYbt9SlEUk6sA8XY=w1024);
+        }
+      }
+      @media screen and (min-width: 1700px) {
+        .bg-img-docs-write {
+          background-image: url(https://lh3.googleusercontent.com/CQAGW9SKCFpxyIs0ml_ZKW2Y2uwHL6MnpkLHOq3lEar-4D25aurT-C2shV2kDYprEi3iLeO8MNuFcONlx4AvyKCCHkWwaHX3kD-HIQT2L9CsRpmdRQ=w1700);
+        }
+      }
+    </style>
+    <style>@media screen and (min-width: 1024px) {
+        .bg-img-docs-seamless {
+          background-image: url(https://lh3.googleusercontent.com/XTMYoa9c1pGX9RpR36coczN6guA-am-pY1NCgZSbl5_Mi2QwhKp7VE--dZGE5QomzRJrfoMtkIw1xLZeDFNDPwSq4RoWsrKQZH7Kk142JfgxO_4gIrA=w1024);
+        }
+      }
+      @media screen and (min-width: 1700px) {
+        .bg-img-docs-seamless {
+          background-image: url(https://lh3.googleusercontent.com/JVxOxPVkTj1D3F2LhYEGJYkoAm63TIDScX2nhJ6h6TWw4VVLpNIj5pv25a1iVN0edZK44-JwiRgDCmThVR-TlyDIIii6l-jAr46fWxcu5NJD7BOUhA=w1700);
+        }
+      }
+    </style>
+    <style>@media screen and (min-width: 1024px) {
+        .bg-img-security {
+          background-image: url(https://lh3.googleusercontent.com/yZpn6aefEiMGwAiVZiDDoUjVLMQa1C4okqks_VEOFWBkUURnVS51HeoLqIFKeC_oa5FT_hLRD06a9w8XWfreM26RBSLJQTrZvNny47vCCbC1llYrF7E=w1024);
+        }
+      }
+      @media screen and (min-width: 1700px) {
+        .bg-img-security {
+          background-image: url(https://lh3.googleusercontent.com/sXg52B-Y5snlmpYl0WQny30A2OoTMUSwZwlydeFSQ3ErGOZtaOe4HhakM12nsywi8jPiJkd3W1FPPZqzriUdTYm-eFELVNKfv2J0HiCflu88oVXYA7xW=w1700);
+        }
+      }
+    </style>
+    <style>@media screen and (min-width: 1024px) {
+        .bg-img-collaborate {
+          background-image: url(https://lh3.googleusercontent.com/hWl6SS7ryc7NY1-OEnUKcLSosWSGWXesIVH-TmBD4AOKVfQL5MzEQuXcy8jFI5NIs2dTftP_J9BpbEJkGiP44CN2YkaRTcZUPVV6M40QLJxPj4WpJI0=w1024);
+        }
+      }
+      @media screen and (min-width: 1700px) {
+        .bg-img-collaborate {
+          background-image: url(https://lh3.googleusercontent.com/USZ88AS3NgxGYDilOEHfZ5oQPjlJ11oRtsfPNvGPm_vD3BxagRzEdUAPuO1w7A9WR8ztgiW59s0r5XzFbJX-6v9spBAWy1VNy_X8hpxw8gzSrXARoJM=w1700);
+        }
+      }
+    </style>
+    <style>@media screen and (min-width: 1024px) {
+        .bg-img-started {
+          background-image: url(https://lh3.googleusercontent.com/5ENDQP8kSi6cTdflVOyjCg-zrUJPQ1EfxYKiEkWkwrSNp8TaqrBmFVpKfhOOQ4tM9ST5D7956nobaowYGzlhfUqIEklaJTeOhJnlCmRGrYnoHmHAMv4=w1024);
+        }
+      }
+      @media screen and (min-width: 1700px) {
+        .bg-img-started {
+          background-image: url(https://lh3.googleusercontent.com/dqDaz7K1MgwLzGapf5IvCe7wwyPjeiYL1XflqMvx2WVfPstd1fpsfjhI-XPDCVFc99LDWPK-nUQB6FJJmCeDSQNpW1cpvEFChJRWAfSnSmCWH9t6_SQJ=w1700);
+        }
+      }
+    </style>
+  </head>
+  <body class="glue-body">
+    <header class="glue-header glue-header--single">
+      <div class="overlay is-visible"></div>
+      <div class="glue-header__bar glue-header__bar--mobile">
+        <div class="glue-header__tier">
+          <div class="glue-header__container">
+            <a href="#content" class="glue-header__link glue-header__skip-content" data-category="main nav" data-action="header logo" data-label="na">跳至內容</a>
+            <div class="glue-header__lock-up">
+              <div class="glue-header__hamburger glue-header__hamburger--first-tier">
+                <div class="glue-header__hamburger-wrapper">
+                  <button type="button" class="glue-header__drawer-toggle-btn" aria-controls="glue-drawer" aria-haspopup="true" aria-expanded="false" aria-label="開啟導覽匣"><svg role="presentation" aria-hidden="true" class="glue-icon glue-icon--24px">
+                  <use href="/docs/about/static/img/glue-icons.svg#menu"></use></svg></button>
+                </div>
+              </div>
+              <div class="glue-header__logo">
+                <a class="glue-header__logo-link" href="../../intl/zh-TW/docs/about/index.html" title="Google Docs" data-category="main nav" data-action="header logo" data-label="na" aria-label="Google Docs"><img src="https://kstatic.googleusercontent.com/files/97ecc831526fbe8c60fe88ef0d7a6cbf06361809f0acf857326681f6a1f35740d3bd7d69bf4a5381f5c31a863bccace4d9d1660379182901f73d24ef137f6fb4" alt="docs 圖示">
+                <div class="glue-header__logo-container">
+                  <svg role="presentation" aria-hidden="true" class="glue-icon glue-icon--24px glue-header__logo-svg">
+                  <use href="/docs/about/static/img/glue-icons.svg#google-solid-logo"></use></svg>
+                </div>
+                <p class="glue-header__logo--product">
+                  Docs
+                </p></a>
+              </div>
+            </div>
+          </div>
+          <div class="glue-header__container">
+            <div class="glue-header__cta">
+              <a href="https://docs.google.com/document/u/0/?ec=asw-docs-globalnav-signin" class="sign-in--link" target="_blank" rel="noopener noreferrer" data-ios-href="https://docs.new" data-category="cta" data-action="sign in" data-label="header">登入</a> <a href="https://docs.google.com/document/u/0/?ec=asw-docs-globalnav-goto" class="glue-button glue-button--medium-emphasis glue-header__cta-secondary" target="_blank" rel="noopener noreferrer" data-ios-href="https://docs.new" data-category="cta" data-action="go to docs" data-label="header">前往文件</a> <a href="https://workspace.google.com/intl/zh-TW/features/?utm_source=docsforwork&amp;utm_medium=et&amp;utm_content=trydocsforwork&amp;utm_campaign=globalnav" class="glue-button glue-button--high-emphasis js-editor-btn glue-header__cta-primary" target="_blank" rel="noopener noreferrer" data-category="cta" data-action="try docs for work" data-label="header">試用文件企業版</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="glue-drawer" class="glue-header__bar glue-header__bar--desktop glue-header__drawer">
+        <div class="glue-header__tier">
+          <div class="glue-header__container">
+            <a href="#content" class="glue-header__link glue-header__skip-content" data-category="main nav" data-action="header logo" data-label="na">跳至內容</a>
+            <div class="glue-header__lock-up">
+              <div class="glue-header__logo">
+                <a class="glue-header__logo-link" href="../../intl/zh-TW/docs/about/index.html" title="Google Docs" data-category="main nav" data-action="header logo" data-label="na" aria-label="Google Docs"><img src="https://kstatic.googleusercontent.com/files/97ecc831526fbe8c60fe88ef0d7a6cbf06361809f0acf857326681f6a1f35740d3bd7d69bf4a5381f5c31a863bccace4d9d1660379182901f73d24ef137f6fb4" alt="docs 圖示">
+                <div class="glue-header__logo-container">
+                  <svg role="presentation" aria-hidden="true" class="glue-icon glue-icon--24px glue-header__logo-svg">
+                  <use href="/docs/about/static/img/glue-icons.svg#google-solid-logo"></use></svg>
+                </div>
+                <p class="glue-header__logo--product">
+                  Docs
+                </p></a>
+              </div>
+            </div>
+          </div>
+          <div class="glue-header__container glue-header__container--flex-auto">
+            <nav class="glue-header__link-bar">
+              <ul class="glue-header__list glue-header__link-bar--arrow">
+                <li class="glue-header__item nav-items" aria-level="1" id="overview">
+                  <a href="#overview" class="glue-header__link" data-category="main nav" data-action="overview" data-label="na" title="簡介">簡介</a>
+                </li>
+                <li class="glue-header__item nav-items" aria-level="1" id="features">
+                  <a href="#features" class="glue-header__link" data-category="main nav" data-action="features" data-label="na" title="功能">功能</a>
+                </li>
+                <li class="glue-header__item nav-items" aria-level="1" id="security">
+                  <a href="#security" class="glue-header__link" data-category="main nav" data-action="security" data-label="na" title="安全性">安全性</a>
+                </li>
+                <li class="glue-header__item nav-items" aria-level="1" id="pricing">
+                  <a href="#pricing" class="glue-header__link" data-category="main nav" data-action="pricing" data-label="na" title="定價">定價</a>
+                </li>
+                <li class="glue-header__item site-name workspace-icon">
+                  <a href="javascript:" class="glue-header__link workspace-icon-link mega-menu-btn" data-category="main nav" data-action="more tools" data-label="na" title="更多工具">更多工具 <svg role="presentation" aria-hidden="true" class="glue-icon glue-icon--24px mega-menu-expand">
+                  <use href="/docs/about/static/img/glue-icons.svg#expand-more"></use></svg></a>
+                  <ul class="glue-header__list glue-header__list--nested mobile-only">
+                    <li class="glue-header__item" aria-level="2">
+                      <a class="glue-header__link" href="../../drive/index%EF%B9%96hl=zh-TW.html" tabindex="0" target="_blank" rel="noopener noreferrer" data-category="main nav" data-action="more tools" data-label="drive"><img src="https://kstatic.googleusercontent.com/files/d57b24106c34c7e50ef3d98423b94ddaf35ad2da73a9b9d4d12f52dbb9dd4c08c2957f6255ab8690d5ef0b32cff8287e09577d05e479d263e872160c4c9e8363" alt="Google 雲端硬碟圖示"><span>Drive</span></a>
+                    </li>
+                    <li class="glue-header__item" aria-level="2">
+                      <a class="glue-header__link" href="../../gmail/about/index%EF%B9%96hl=zh-TW.html" tabindex="0" target="_blank" rel="noopener noreferrer" data-category="main nav" data-action="more tools" data-label="gmail"><img src="https://kstatic.googleusercontent.com/files/6d2a2dbaad1a3fe4c323dd6a4688db96e47b423de4175611399a97dc5b64a4ad7490d703aa0af80f28936e842e9d2448b1d74a530a2fe479a306d92281678efa" alt="Gmail 圖示"><span>Gmail</span></a>
+                    </li>
+                    <li class="glue-header__item" aria-level="2">
+                      <a class="glue-header__link" href="https://apps.google.com/meet/?hl=zh-TW" tabindex="0" target="_blank" rel="noopener noreferrer" data-category="main nav" data-action="more tools" data-label="meet"><img src="https://kstatic.googleusercontent.com/files/2c19e911a3a8404b51c5c92087c9df618f6903c14e4ba28ba4ec1fe577dec6c08e158172897eb0ed31738aac610409999fd2c4376548f1159f375387aadce233" alt="Meet 圖示"><span>Meet</span></a>
+                    </li>
+                    <li class="glue-header__item" aria-level="2">
+                      <a class="glue-header__link" href="https://workspace.google.com/intl/zh-TW/products/calendar/?utm_source=docsforwork&amp;utm_medium=et&amp;utm_content=calendar&amp;utm_campaign=globalnav" tabindex="0" target="_blank" rel="noopener noreferrer" data-category="main nav" data-action="more tools" data-label="calendar"><img src="https://kstatic.googleusercontent.com/files/e5bae7cd1a971c0ecd82e839e79e9c436d16842cada6dd01a51b81bd8c3722914d7dbb9bfd927abb4de8b11d6a4a7083b861c78ea1b911f357d8e648b2c18beb" alt="Google 日曆圖示"><span>Calendar</span></a>
+                    </li>
+                    <li class="glue-header__item" aria-level="2">
+                      <a class="glue-header__link" href="index.html" tabindex="0" data-category="main nav" data-action="more tools" data-label="docs"><img src="https://kstatic.googleusercontent.com/files/97ecc831526fbe8c60fe88ef0d7a6cbf06361809f0acf857326681f6a1f35740d3bd7d69bf4a5381f5c31a863bccace4d9d1660379182901f73d24ef137f6fb4" alt="docs 圖示"><span>Docs</span></a>
+                    </li>
+                    <li class="glue-header__item" aria-level="2">
+                      <a class="glue-header__link" href="../../sheets/about/index.html" tabindex="0" data-category="main nav" data-action="more tools" data-label="sheets"><img src="https://kstatic.googleusercontent.com/files/adf55cdf4c7f8fb38efbf8df6c2792660fbeff2d05be05f2ec8e9c265a179b51c64b9679d8aee00e09cad19ce419d90a2d999b82cea4200abbe78c73e6bfaacf" alt="sheets 圖示"><span>Sheets</span></a>
+                    </li>
+                    <li class="glue-header__item" aria-level="2">
+                      <a class="glue-header__link" href="../../slides/about/index.html" tabindex="0" data-category="main nav" data-action="more tools" data-label="slides"><img src="https://kstatic.googleusercontent.com/files/deedce50760a1686790a49aaa7fac8d4a5cea4fd0fcdd19baef121569c47473a2398e063d2e68fe017ba73bc9088268d3f2758793bd9eb25a4cbdf62aea0adfc" alt="slides 圖示"><span>Slides</span></a>
+                    </li>
+                    <li class="glue-header__item" aria-level="2">
+                      <a class="glue-header__link" href="../../forms/about/index.html" tabindex="0" data-category="main nav" data-action="more tools" data-label="forms"><img src="https://kstatic.googleusercontent.com/files/9f04faac24aed8bf8fb381029de951128d1d36373f89675265a6654d0c47b74b2d83a26b68b834ce2eea3bfe8001966f76895888138f135a81d099fc207c73bb" alt="forms 圖示"><span>Forms</span></a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </nav>
+          </div>
+          <div class="glue-header__container mega-menu-background">
+            <section class="mega-menu mega-menu-hide">
+              <div class="glue-page">
+                <div class="glue-grid">
+                  <div class="glue-grid__col glue-grid__col--span-7 mega-menu-list">
+                    <div class="glue-grid">
+                      <div class="glue-grid__col glue-grid__col--span-3">
+                        <div class="glue-grid__col glue-grid__col--span-3 glue-mod-spacer-3-bottom">
+                          <div class="mega-menu-item">
+                            <div class="mega-menu-content">
+                              <a aria-label="drive" class="mega-menu-link" href="../../drive/index%EF%B9%96hl=zh-TW.html" target="_blank" rel="noopener noreferrer" data-category="main nav" data-action="more tools" data-label="drive"><img src="https://kstatic.googleusercontent.com/files/d57b24106c34c7e50ef3d98423b94ddaf35ad2da73a9b9d4d12f52dbb9dd4c08c2957f6255ab8690d5ef0b32cff8287e09577d05e479d263e872160c4c9e8363" alt="Google 雲端硬碟圖示" role="presentation"> Drive
+                              <p class="glue-headline glue-headline--headline-6 headline mega-menu-content-title">
+                                雲端儲存空間
+                              </p></a>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="glue-grid__col glue-grid__col--span-3 glue-mod-spacer-3-bottom">
+                          <div class="mega-menu-item">
+                            <div class="mega-menu-content">
+                              <a aria-label="gmail" class="mega-menu-link" href="../../gmail/about/index%EF%B9%96hl=zh-TW.html" target="_blank" rel="noopener noreferrer" data-category="main nav" data-action="more tools" data-label="gmail"><img src="https://kstatic.googleusercontent.com/files/6d2a2dbaad1a3fe4c323dd6a4688db96e47b423de4175611399a97dc5b64a4ad7490d703aa0af80f28936e842e9d2448b1d74a530a2fe479a306d92281678efa" alt="Gmail 圖示" role="presentation"> Gmail
+                              <p class="glue-headline glue-headline--headline-6 headline mega-menu-content-title">
+                                企業專屬電子郵件
+                              </p></a>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="glue-grid__col glue-grid__col--span-3 glue-mod-spacer-3-bottom">
+                          <div class="mega-menu-item">
+                            <div class="mega-menu-content">
+                              <a aria-label="meet" class="mega-menu-link" href="https://apps.google.com/meet/?hl=zh-TW" target="_blank" rel="noopener noreferrer" data-category="main nav" data-action="more tools" data-label="meet"><img src="https://kstatic.googleusercontent.com/files/2c19e911a3a8404b51c5c92087c9df618f6903c14e4ba28ba4ec1fe577dec6c08e158172897eb0ed31738aac610409999fd2c4376548f1159f375387aadce233" alt="Meet 圖示" role="presentation"> Meet
+                              <p class="glue-headline glue-headline--headline-6 headline mega-menu-content-title">
+                                視訊和語音會議
+                              </p></a>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="glue-grid__col glue-grid__col--span-3">
+                          <div class="mega-menu-item">
+                            <div class="mega-menu-content">
+                              <a aria-label="calendar" class="mega-menu-link" href="https://workspace.google.com/intl/zh-TW/products/calendar/?utm_source=docsforwork&amp;utm_medium=et&amp;utm_content=calendar&amp;utm_campaign=globalnav" target="_blank" rel="noopener noreferrer" data-category="main nav" data-action="more tools" data-label="calendar"><img src="https://kstatic.googleusercontent.com/files/e5bae7cd1a971c0ecd82e839e79e9c436d16842cada6dd01a51b81bd8c3722914d7dbb9bfd927abb4de8b11d6a4a7083b861c78ea1b911f357d8e648b2c18beb" alt="Google 日曆圖示" role="presentation"> Calendar
+                              <p class="glue-headline glue-headline--headline-6 headline mega-menu-content-title">
+                                共用日曆
+                              </p></a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="glue-grid__col glue-grid__col--span-3">
+                        <div class="glue-grid__col glue-grid__col--span-3 glue-mod-spacer-3-bottom">
+                          <div class="mega-menu-item">
+                            <div class="mega-menu-content">
+                              <a aria-label="docs" class="mega-menu-link" href="index.html" data-category="main nav" data-action="more tools" data-label="docs"><img src="https://kstatic.googleusercontent.com/files/97ecc831526fbe8c60fe88ef0d7a6cbf06361809f0acf857326681f6a1f35740d3bd7d69bf4a5381f5c31a863bccace4d9d1660379182901f73d24ef137f6fb4" alt="docs 圖示" role="presentation"> Docs
+                              <p class="glue-headline glue-headline--headline-6 headline mega-menu-content-title">
+                                文書處理
+                              </p></a>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="glue-grid__col glue-grid__col--span-3 glue-mod-spacer-3-bottom">
+                          <div class="mega-menu-item">
+                            <div class="mega-menu-content">
+                              <a aria-label="sheets" class="mega-menu-link" href="../../sheets/about/index.html" data-category="main nav" data-action="more tools" data-label="sheets"><img src="https://kstatic.googleusercontent.com/files/adf55cdf4c7f8fb38efbf8df6c2792660fbeff2d05be05f2ec8e9c265a179b51c64b9679d8aee00e09cad19ce419d90a2d999b82cea4200abbe78c73e6bfaacf" alt="sheets 圖示" role="presentation"> Sheets
+                              <p class="glue-headline glue-headline--headline-6 headline mega-menu-content-title">
+                                試算表
+                              </p></a>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="glue-grid__col glue-grid__col--span-3 glue-mod-spacer-3-bottom">
+                          <div class="mega-menu-item">
+                            <div class="mega-menu-content">
+                              <a aria-label="slides" class="mega-menu-link" href="../../slides/about/index.html" data-category="main nav" data-action="more tools" data-label="slides"><img src="https://kstatic.googleusercontent.com/files/deedce50760a1686790a49aaa7fac8d4a5cea4fd0fcdd19baef121569c47473a2398e063d2e68fe017ba73bc9088268d3f2758793bd9eb25a4cbdf62aea0adfc" alt="slides 圖示" role="presentation"> Slides
+                              <p class="glue-headline glue-headline--headline-6 headline mega-menu-content-title">
+                                簡報製作工具
+                              </p></a>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="glue-grid__col glue-grid__col--span-3">
+                          <div class="mega-menu-item">
+                            <div class="mega-menu-content">
+                              <a aria-label="forms" class="mega-menu-link" href="../../forms/about/index.html" data-category="main nav" data-action="more tools" data-label="forms"><img src="https://kstatic.googleusercontent.com/files/9f04faac24aed8bf8fb381029de951128d1d36373f89675265a6654d0c47b74b2d83a26b68b834ce2eea3bfe8001966f76895888138f135a81d099fc207c73bb" alt="forms 圖示" role="presentation"> Forms
+                              <p class="glue-headline glue-headline--headline-6 headline mega-menu-content-title">
+                                問卷調查製作工具
+                              </p></a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="glue-grid__col glue-grid__col--span-4 mega-menu-right-panel">
+                    <a href="https://workspace.google.com/intl/zh-TW/?utm_source=docsforwork&amp;utm_medium=et&amp;utm_content=learnmore&amp;utm_campaign=globalnav" target="_blank" rel="noopener noreferrer" class="mega-menu-right-panel-link" data-category="main nav" data-action="more tools" data-label="learn more">
+                    <div class="mega-menu-section">
+                      <img src="https://kstatic.googleusercontent.com/files/7359d898838174e2e7f226ca7a0d0e457051d564ced52af60e70f8abd729f8153f461dc01eb4bc27e3b9bc15fbe6a86cbed0f1b08f627aff21c21d97d3a3382c" class="mega-menu-section-icon" alt="Google Workspace" role="presentation">
+                      <p class="mega-menu-section-heading glue-mod-spacer-1-bottom">
+                        Google Workspace
+                      </p>
+                    </div>
+                    <p class="mega-menu-section-description">
+                      採用 Google AI 技術的整合式套件，內含多項安全的雲端原生協作和效率提升應用程式。
+                    </p>
+                    <div class="mega-menu-section-link glue-link">
+                      瞭解詳情
+                    </div></a>
+                  </div>
+                </div><button class="mega-menu-btn-override" title="關閉" type="button"><svg role="img" class="mega-menu-close-btn glue-icon glue-icon--24px" title="關閉" alt="關閉">
+                <use href="/docs/about/static/img/glue-icons.svg#close"></use></svg></button>
+              </div>
+            </section>
+          </div>
+          <div class="glue-header__container glue-header__container--cta">
+            <div class="glue-header__cta">
+              <a href="https://docs.google.com/document/u/0/?ec=asw-docs-globalnav-signin" class="sign-in--link" target="_blank" rel="noopener noreferrer" data-ios-href="https://docs.new" data-category="cta" data-action="sign in" data-label="header">登入</a> <a href="https://docs.google.com/document/u/0/?ec=asw-docs-globalnav-goto" class="glue-button glue-button--medium-emphasis glue-header__cta-secondary" target="_blank" rel="noopener noreferrer" data-ios-href="https://docs.new" data-category="cta" data-action="go to docs" data-label="header">前往文件</a> <a href="https://workspace.google.com/intl/zh-TW/features/?utm_source=docsforwork&amp;utm_medium=et&amp;utm_content=trydocsforwork&amp;utm_campaign=globalnav" class="glue-button glue-button--high-emphasis js-editor-btn glue-header__cta-primary" target="_blank" rel="noopener noreferrer" data-category="cta" data-action="try docs for work" data-label="header">試用文件企業版</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="glue-header__drawer-backdrop"></div>
+    </header>
+    <main class="page-wrapper docs-page" id="content">
+      <div class="page-content">
+        <section class="docs-hero-section hero glue-mod-spacer-7-top glue-mod-spacer-6-bottom" id="js-overview">
+          <div class="glue-page">
+            <div class="glue-grid hero-wrapper">
+              <div class="glue-grid__col glue-grid__col--span-12 glue-grid__col--span-6-lg glue-grid__col--span-5-xl glue-grid__col--align-middle">
+                <div class="hero-content">
+                  <h1 class="glue-headline glue-headline--headline-2 hero-heading">
+                    <span><span style="display: inline-block;" class="budou">在</span> Google Docs <span style="display: inline-block;" class="budou">中共同</span><span style="display: inline-block;" class="budou">激盪出</span><span style="display: inline-block;" class="budou">最棒</span><span style="display: inline-block;" class="budou">的</span><span style="display: inline-block;" class="budou">構想</span></span>
+                  </h1>
+                  <div class="glue-mod-spacer-3-top">
+                    <p class="hero-description glue-mod-font-weight-regular">
+                      在任何裝置上即時建立及協作處理線上文件。
+                    </p>
+                  </div>
+                  <div class="hero-cta glue-mod-spacer-3-top" id="hero-cta-wrapper">
+                    <a href="https://workspace.google.com/intl/zh-TW/features/?utm_source=docsforwork&amp;utm_medium=et&amp;utm_content=trydocsforwork&amp;utm_campaign=hero" class="glue-button glue-button--high-emphasis hero-btn" target="_blank" rel="noopener noreferrer" data-category="cta" data-action="try docs for work" data-label="hero">試用文件企業版</a> <a href="https://docs.google.com/document/u/0/?ec=asw-docs-hero-goto" class="glue-button glue-button--medium-emphasis" target="_blank" rel="noopener noreferrer" data-ios-href="https://docs.new" data-category="cta" data-action="go to docs" data-label="hero">前往文件</a>
+                  </div>
+                  <div class="hero-dropdown glue-mod-spacer-4-top">
+                    還沒有帳戶嗎？
+                    <div class="hero-dropdown-container">
+                      <button class="hero-dropdown-cta glue-button glue-button--low-emphasis">免費註冊</button>
+                      <ul class="hero-dropdown-list hide">
+                        <li>
+                          <a href="https://accounts.google.com/signup/v2/webcreateaccount?biz=false&amp;flowName=GlifWebSignIn&amp;flowEntry=SignUp&amp;hl=zh-TW&amp;ec=asw-docs-hero-create" target="_blank" rel="noopener noreferrer" data-category="cta" data-action="sign up" data-label="hero-dropdown">個人用途</a>
+                        </li>
+                        <li>
+                          <a href="https://workspace.google.com/getgws/chooseemail?utm_source=docsforwork&amp;utm_medium=et&amp;utm_content=forworkormybusiness&amp;utm_campaign=hero&amp;hl=zh-TW" target="_blank" rel="noopener noreferrer" data-category="cta" data-action="try docs for work" data-label="hero-dropdown">用於工作或管理個人業務</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="hero-image glue-grid__col glue-grid__col--span-12 glue-grid__col--span-6-lg glue-grid__col--span-7-xl glue-grid__col--align-middle">
+                <div class="gdoc-animation-wrap" aria-label="「每週同步會議」動畫" role="img" alt="「每週同步會議」動畫">
+                  <div aria-hidden="true">
+                    <div class="gdoc-animation-wrap">
+                      <div class="gdoc-animation">
+                        <div class="nav">
+                          <div class="nav-right">
+                            <div class="meet-btn-click">
+                              <img alt="icon for meet button" class="hover opacity-zero" src="https://lh3.googleusercontent.com/qYQkXSB8hgnnVWWHCogrVzUwFfMeoBpHUQUaY83LcWK0Xuu6fnxyIm1HSFJf3gnT5t7jhXBJUrG-P5X8vCyrGvR1MtXglOttPtEswaJjFS0CohKqNg=s0"><img alt="icon for meet button" class="active opacity-zero" src="https://lh3.googleusercontent.com/3LCynjv94Z6RfnGZidibpweeXbjQJFkf63E1Ts8BsET2-QvTTVxCIc8AEBnro87ZYCEYkUbNwKFzHAKDKnRMMi3jsr0POnPkraMjNnCNt5OzTnWeLQ=s0">
+                            </div>
+                          </div>
+                        </div>
+                        <div class="meeting-prompt">
+                          <div class="prompt-wrap">
+                            <img alt="prompt to start a meeting" class="default" src="https://lh3.googleusercontent.com/i7vLVImbk4_M-DqHOIK1zuX4noB5ge09s-MqdfUFX6YihaUJXyZQi_88yku-ZPbl6DSE81ND5_tS1Xcy0o1SWhY8I1J48cwp-H4Ulz9whiSWD5bnNJo=s0"><img alt="prompt to start a meeting" class="hover" src="https://lh3.googleusercontent.com/cz3etTRmRZHo4Vv5jKpXqr6gaYgqWA-V5ybv5vvq1iSaja3xCo0lJ7IstchEAS3NFv2KfMiKx3UDZWaBRnX7_Xn6cIDn6V4WZqnJyt5El49i26XjojE=s0">
+                          </div>
+                        </div>
+                        <div class="add-creator-wrap">
+                          <div class="add-creator">
+                            <div class="creator-select">
+                              <img alt="At sign" class="at" src="https://lh3.googleusercontent.com/bol_e5ryq2qR0KXoD2FD2hzorH5KRR2KwoBK_FVr9cRPNWyhT4yBX5XfbmP7Bw9jTrkCqAJwAg6dPoZMpvEyWMsJTGi_x6phPQrjMAzwjUOWkn88iw=s0"><img alt="Selected creator chip" class="chip" src="https://lh3.googleusercontent.com/jyG-6brZq3e4D-WaIhNpoW55yJT45iRiHztNuUNbe61GmgjkvAl0p3ivJ1R56etT3mZ2xDSRhuizXHO62ss4X6ANu8eCA-lTEty0Sk-ko3AfK3NTmipT=s0">
+                            </div>
+                            <div class="creator-canvas">
+                              <img alt="Smart canvas suggestions" class="default" src="https://lh3.googleusercontent.com/frzMscLepeiMne4FniI2J27mtgtaF-VEf6acZOekOUy2E6F6VlkX5_0ze7eUkkYa7_jUUgoUutQLVcLhZrcXIJNTwshlCoHLMkw7kAh1qL2aTf-JtWMY=s0"><img alt="Smart canvas suggestions highlighted" class="hover" src="https://lh3.googleusercontent.com/JvgwSDf7qU-KacdgTJbxkVcs-5uODUJERGco7Qc8LRh6E_y5zjNbBy0upVTp4wlunplg4ar47sZJFX46AQ217Y4h0419nmHVpOlNgvYSYrkrzD3Bmw=s0"><img alt="Smart canvas suggestions clicked" class="active" src="https://lh3.googleusercontent.com/QG1E4bHAMupuUOn7D9KErsA1Kt1oCWHtUzBCX_uq0sufOKLqN8Ez4pU16IvRboVIU84USs0lbcOopqQgyKT2ab4X8-ZTbOoSp53dOgI3xD146_E4lA=s0">
+                            </div>
+                          </div>
+                        </div>
+                        <div class="content">
+                          <div class="content-blocks content-blocks-1">
+                            <div class="content">
+                              <div class="type-animation-wrap">
+                                <p class="type">
+                                  I
+                                </p>
+                                <p class="type">
+                                  d
+                                </p>
+                                <p class="type">
+                                  e
+                                </p>
+                                <p class="type">
+                                  a
+                                </p>
+                                <p class="type">
+                                  s
+                                </p>
+                              </div><img alt="Google Doc cursor graphic with Liam as the username" class="flag-img" src="https://lh3.googleusercontent.com/72JpjxXjIgo4wHH7xZe4uEnmzLUK-V9ahshLU43XZeRmsw0PXgBBRpn8RQJ2TOi6aihZr56kKx92guHUAByvw8FQw9qHIKVU4Hdo70btwb9UoSqsJw=s0">
+                            </div>
+                          </div>
+                          <div class="content-blocks content-blocks-2">
+                            <div class="content">
+                              <div class="type-animation-wrap">
+                                &nbsp;
+                              </div><img alt="Google Doc cursor graphic with Sarah as the username" class="flag-img" src="https://lh3.googleusercontent.com/7avKduwUAh4JDDI4vFQ7MTxVJJEVNI5rhzZsHizKm05X4xndLp2LEqGl8T8_RCF-04sbGXVtXN0BStwnMnQbwxM3c0E_RZZICPJdI9pt176TtTkW6w=s0">
+                            </div>
+                          </div>
+                          <div class="content-blocks content-blocks-3">
+                            <div class="content">
+                              <div class="type-animation-wrap">
+                                &nbsp;
+                              </div><img alt="Google Doc cursor graphic with Helen as the username" class="flag-img" src="https://lh3.googleusercontent.com/IKrH-jzzXIuVJ8gN75xMCsWpP37QbrHkKQnZJ32zWVU6DCg8BYY36Dmmvz3kzZi_N7VFPEioC_RffRomWWYx_8F34yXH1ZYGKcgJ-nxoNDI15UTxZA=s0">
+                            </div>
+                          </div>
+                          <div class="meeting-side-bar">
+                            <img alt="meeting side bar" class="callers" src="https://lh3.googleusercontent.com/8ayBYCLkFBLVGmRSZwoADC9bqlUfjbpFNvcyuQTz09O1XMatRRY67_JUt0_xez8Y0_QU0oUJMkfbEvdXMxQRUkp702kkG7Q-kax6kSHx0KE3gSKSa6i5=s0">
+                            <div class="audio-icon">
+                              <div class="lines">
+                                <div class="line line1">
+                                  &nbsp;
+                                </div>
+                                <div class="line line2">
+                                  &nbsp;
+                                </div>
+                                <div class="line line1">
+                                  &nbsp;
+                                </div>
+                              </div>
+                            </div>
+                          </div><img alt="Cursor" class="cursor opacity-zero" src="https://lh3.googleusercontent.com/rXuJ3S4B5ZszSqkKviqehZbwMZkCl2Yp70QnwTM8KRtyYk6Rb-MFI-FqzpPDpkepWjPvqx6JxZrCL5wY8p-FOcW9Rp2kqhvi2OAICivR4awT7eMakEg=s0"><img alt="Google Doc UI" src="https://lh3.googleusercontent.com/4BcOYDs5e95hVbpGR0kDVKXRVAldcyYoHrM3q7Ashp2JrVARBVgglUwS_xPaIg_yuqWZJEpwlIjHUcQ63i9SPZBMq5E-t3A9EH5VX1y_mcRY_IbhYbg=s0" style="width: 100%;">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="section-page-break glue-mod-spacer-6-bottom glue-mod-spacer-3-top">
+          <div class="glue-page">
+            <hr aria-hidden="true">
+            <div class="glue-mod-text-center glue-mod-spacer-4-top glue-mod-spacer-1-bottom glue-headline glue-headline--headline-6">
+              <a href="#features" class="nav-features">瞭解 Google Docs 的功能 <svg role="presentation" aria-hidden="true" class="glue-icon glue-icon--24px">
+              <use href="/docs/about/static/img/glue-icons.svg#expand-more"></use></svg></a>
+            </div>
+          </div>
+        </section>
+        <section class="docs-features-section features" id="js-features">
+          <div class="glue-page">
+            <div class="bg-image bg-img-docs-supercharge right-top"></div>
+            <div class="glue-grid glue-mod-spacer-7-bottom features-wrapper">
+              <div class="glue-grid__col glue-grid__col--span-12 glue-grid__col--span-5-xl glue-grid__col--span-6-lg glue-mod-order-1-sm glue-mod-order-4-lg glue-mod-order-3-xl features-column-item">
+                <div class="features-content">
+                  <h2 class="glue-headline glue-headline--headline-3 features-content-heading">
+                    <span><span style="display: inline-block;" class="budou">隨時</span><span style="display: inline-block;" class="budou">隨地</span><span style="display: inline-block;" class="budou">順暢</span><span style="display: inline-block;" class="budou">協作</span></span>
+                  </h2>
+                  <div class="glue-mod-font-weight-regular glue-mod-spacer-3-top features-content-text">
+                    <p class="features-text glue-mod-font-weight-regular">
+                      透過簡單好用的共用功能，即時協作編輯文件，並使用註解、建議和操作項目推動工作進展。另外，還能運用 @ 符號提及功能，將相關人員、檔案和活動集中到您的線上文件中，全面展開協作。
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="glue-grid__col glue-grid__col--span-12 glue-grid__col--span-7-xl glue-grid__col--span-6-lg glue-mod-order-2-sm glue-mod-order-3-lg glue-mod-order-2-xl glue-grid__col--align-middle">
+                <picture class="features-desktop"><source srcset="https://lh3.googleusercontent.com/4f3H_lxFHLFe0VlteoDi_6LbZhFgQaPp0ilivjwFd0IWg4lAAh1imwbw7QG60BqDJI8Xvo0vNjAumbMPmd_5f2jrTZ3_Gee0ZliDUymrOa7MEwjsOoI=w0-l80-sg-rj-c0xffffff, https://lh3.googleusercontent.com/4f3H_lxFHLFe0VlteoDi_6LbZhFgQaPp0ilivjwFd0IWg4lAAh1imwbw7QG60BqDJI8Xvo0vNjAumbMPmd_5f2jrTZ3_Gee0ZliDUymrOa7MEwjsOoI=w0-l80-sg-rj-c0xffffff 2x"> <img src="https://lh3.googleusercontent.com/4f3H_lxFHLFe0VlteoDi_6LbZhFgQaPp0ilivjwFd0IWg4lAAh1imwbw7QG60BqDJI8Xvo0vNjAumbMPmd_5f2jrTZ3_Gee0ZliDUymrOa7MEwjsOoI=w-l80-sg-rj-c0xffffff" class="features-desktop-image" alt="Docs：大幅提升團隊合作效率"></picture> <picture class="features-mobile"><source srcset="https://lh3.googleusercontent.com/a3oCt5cmLLE8e_p1F9bclmnj_GnjsNYD7NRoOStc3rOgAikNiR9frrii6h-4jNS8LHtzkE9_DvgxGsJY_waLkL8m4P9AMwkOKhNIsUskR_ELmOoXkQ=w0-l80-sg-rj-c0xffffff, https://lh3.googleusercontent.com/a3oCt5cmLLE8e_p1F9bclmnj_GnjsNYD7NRoOStc3rOgAikNiR9frrii6h-4jNS8LHtzkE9_DvgxGsJY_waLkL8m4P9AMwkOKhNIsUskR_ELmOoXkQ=w0-l80-sg-rj-c0xffffff 2x"> <img src="https://lh3.googleusercontent.com/a3oCt5cmLLE8e_p1F9bclmnj_GnjsNYD7NRoOStc3rOgAikNiR9frrii6h-4jNS8LHtzkE9_DvgxGsJY_waLkL8m4P9AMwkOKhNIsUskR_ELmOoXkQ=w-l80-sg-rj-c0xffffff" class="features-mobile-image" alt="Docs：大幅提升團隊合作效率"></picture>
+              </div>
+            </div>
+            <div class="bg-image bg-img-docs-write left-top"></div>
+            <div class="glue-grid glue-mod-spacer-7-bottom features-wrapper">
+              <div class="glue-grid__col glue-grid__col--span-1-xl glue-grid__col--span-0-md glue-grid__col--span-1-lg"></div>
+              <div class="glue-grid__col glue-grid__col--span-12 glue-grid__col--span-5-xl glue-grid__col--span-5-lg glue-mod-order-1-sm glue-mod-order-2-xl glue-mod-order-3-lg features-column-item">
+                <div class="features-content">
+                  <h2 class="glue-headline glue-headline--headline-3 features-content-heading">
+                    <span><span style="display: inline-block;" class="budou">透過</span><span style="display: inline-block;" class="budou">內建</span><span style="display: inline-block;" class="budou">智慧</span><span style="display: inline-block;" class="budou">功能</span><span style="display: inline-block;" class="budou">快速</span><span style="display: inline-block;" class="budou">撰寫</span><span style="display: inline-block;" class="budou">內容</span></span>
+                  </h2>
+                  <div class="glue-mod-font-weight-regular glue-mod-spacer-3-top features-content-text">
+                    <p class="features-text glue-mod-font-weight-regular">
+                      智慧撰寫等輔助功能可以協助快速撰寫內容並減少錯誤，讓您集中精力構想。此外，拼字與文法修訂建議、語音輸入和文件快速翻譯功能也能幫助您節省時間。
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="glue-grid__col glue-grid__col--span-12 glue-grid__col--span-5-xl glue-grid__col--span-5-lg glue-mod-order-2-sm glue-mod-order-4-lg glue-mod-order-3-xl glue-grid__col--align-middle features-offset features-offset-gutter-image">
+                <picture class="features-desktop"><source srcset="https://lh3.googleusercontent.com/A_neLI_Y9XZ4hPDnesAhVSzYlfEQh8UZfo_IE4HBEgn6wq6qK-eqMdn3Awy_s_2qJ2aJQ-gCQn-OM5xc6vXxOaDBPAJb8XqDlrDvaDVwkX087rwwtg=w0-l80-sg-rj-c0xffffff, https://lh3.googleusercontent.com/A_neLI_Y9XZ4hPDnesAhVSzYlfEQh8UZfo_IE4HBEgn6wq6qK-eqMdn3Awy_s_2qJ2aJQ-gCQn-OM5xc6vXxOaDBPAJb8XqDlrDvaDVwkX087rwwtg=w0-l80-sg-rj-c0xffffff 2x"> <img src="https://lh3.googleusercontent.com/A_neLI_Y9XZ4hPDnesAhVSzYlfEQh8UZfo_IE4HBEgn6wq6qK-eqMdn3Awy_s_2qJ2aJQ-gCQn-OM5xc6vXxOaDBPAJb8XqDlrDvaDVwkX087rwwtg=w-l80-sg-rj-c0xffffff" class="features-desktop-image" alt="Docs：加快撰寫速度"></picture> <picture class="features-mobile"><source srcset="https://lh3.googleusercontent.com/Hv8H_AXK6YSG7XrNXGVJX7pZgpqD136DKiW2bPolNFTkmaivuLLDc1rErlsXydUEWK-sitqr9PiYl0aldVwRbFzWeGxgrF7SvrfmkOMl570iSQinSLg=w0-l80-sg-rj-c0xffffff, https://lh3.googleusercontent.com/Hv8H_AXK6YSG7XrNXGVJX7pZgpqD136DKiW2bPolNFTkmaivuLLDc1rErlsXydUEWK-sitqr9PiYl0aldVwRbFzWeGxgrF7SvrfmkOMl570iSQinSLg=w0-l80-sg-rj-c0xffffff 2x"> <img src="https://lh3.googleusercontent.com/Hv8H_AXK6YSG7XrNXGVJX7pZgpqD136DKiW2bPolNFTkmaivuLLDc1rErlsXydUEWK-sitqr9PiYl0aldVwRbFzWeGxgrF7SvrfmkOMl570iSQinSLg=w-l80-sg-rj-c0xffffff" class="features-mobile-image" alt="Docs：加快撰寫速度"></picture>
+              </div>
+            </div>
+            <div class="bg-image bg-img-docs-seamless right-center"></div>
+            <div class="glue-grid glue-mod-spacer-7-bottom features-wrapper">
+              <div class="glue-grid__col glue-grid__col--span-12 glue-grid__col--span-5-xl glue-grid__col--span-6-lg glue-mod-order-1-sm glue-mod-order-4-lg glue-mod-order-3-xl features-column-item">
+                <div class="features-content">
+                  <h2 class="glue-headline glue-headline--headline-3 features-content-heading">
+                    <span><span style="display: inline-block;" class="budou">與</span><span style="display: inline-block;" class="budou">其他</span> Google <span style="display: inline-block;" class="budou">應用</span><span style="display: inline-block;" class="budou">程式</span><span style="display: inline-block;" class="budou">完美</span><span style="display: inline-block;" class="budou">整合</span></span>
+                  </h2>
+                  <div class="glue-mod-font-weight-regular glue-mod-spacer-3-top features-content-text">
+                    <p class="features-text glue-mod-font-weight-regular">
+                      Docs 已與您慣用的其他 Google 應用程式妥善整合，可節省作業時間。您可以直接透過 Gmail 回覆註解、從 Google Sheets 嵌入圖表，並藉由 Google Meet 輕鬆分享內容。此外，甚至還能搜尋網路上和 Google 雲端硬碟中的相關內容和圖片，完全不必離開 Docs。
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="glue-grid__col glue-grid__col--span-12 glue-grid__col--span-7-xl glue-grid__col--span-6-lg glue-mod-order-2-sm glue-mod-order-3-lg glue-mod-order-2-xl glue-grid__col--align-middle">
+                <picture class="features-desktop"><source srcset="https://lh3.googleusercontent.com/Jq71j34mW1A6ESvh63ZNOSBy1mDdZQp-4f7Psqz1x8ugkv0RSo5RkdTGqssdONlZEe6JKqAiOiNjyN8nSDTK-VBTpeHLj5wSXB4NUP59ou3E8ke_Jg=w0-l80-sg-rj-c0xffffff, https://lh3.googleusercontent.com/Jq71j34mW1A6ESvh63ZNOSBy1mDdZQp-4f7Psqz1x8ugkv0RSo5RkdTGqssdONlZEe6JKqAiOiNjyN8nSDTK-VBTpeHLj5wSXB4NUP59ou3E8ke_Jg=w0-l80-sg-rj-c0xffffff 2x"> <img src="https://lh3.googleusercontent.com/Jq71j34mW1A6ESvh63ZNOSBy1mDdZQp-4f7Psqz1x8ugkv0RSo5RkdTGqssdONlZEe6JKqAiOiNjyN8nSDTK-VBTpeHLj5wSXB4NUP59ou3E8ke_Jg=w-l80-sg-rj-c0xffffff" class="features-desktop-image" alt="Docs 與其他服務完美整合"></picture> <picture class="features-mobile"><source srcset="https://lh3.googleusercontent.com/BWyAPKVEyO3PuDH6YJref2cXMAA4QY3VqI1lXmv7tc82VYAYhB4FZSMk1I-LD5eBS-ibesPRflblBP5ynJUfVP_n0IaJGAlBb3X8m1DZl2nZ3LL_o34=w0-l80-sg-rj-c0xffffff, https://lh3.googleusercontent.com/BWyAPKVEyO3PuDH6YJref2cXMAA4QY3VqI1lXmv7tc82VYAYhB4FZSMk1I-LD5eBS-ibesPRflblBP5ynJUfVP_n0IaJGAlBb3X8m1DZl2nZ3LL_o34=w0-l80-sg-rj-c0xffffff 2x"> <img src="https://lh3.googleusercontent.com/BWyAPKVEyO3PuDH6YJref2cXMAA4QY3VqI1lXmv7tc82VYAYhB4FZSMk1I-LD5eBS-ibesPRflblBP5ynJUfVP_n0IaJGAlBb3X8m1DZl2nZ3LL_o34=w-l80-sg-rj-c0xffffff" class="features-mobile-image" alt="Docs 與其他服務完美整合"></picture>
+              </div>
+            </div>
+            <div class="glue-grid glue-mod-spacer-7-bottom features-wrapper">
+              <div class="glue-grid__col glue-grid__col--span-12 glue-grid__col--span-5-xl glue-grid__col--span-6-lg glue-mod-order-1-sm glue-mod-order-2-xl glue-mod-order-3-lg features-column-item">
+                <div class="features-content">
+                  <h2 class="glue-headline glue-headline--headline-3 features-content-heading">
+                    <span><span style="display: inline-block;" class="budou">將</span><span style="display: inline-block;" class="budou">協作</span><span style="display: inline-block;" class="budou">與</span><span style="display: inline-block;" class="budou">智慧</span><span style="display: inline-block;" class="budou">功能</span><span style="display: inline-block;" class="budou">的</span><span style="display: inline-block;" class="budou">適用</span><span style="display: inline-block;" class="budou">範圍</span><span style="display: inline-block;" class="budou">擴</span><span style="display: inline-block;" class="budou">及</span><span style="display: inline-block;" class="budou">其他</span><span style="display: inline-block;" class="budou">檔案</span><span style="display: inline-block;" class="budou">類型</span></span>
+                  </h2>
+                  <div class="glue-mod-font-weight-regular glue-mod-spacer-3-top features-content-text">
+                    <p class="features-text glue-mod-font-weight-regular">
+                      不必轉換就能在線上輕鬆編輯 Microsoft Word 檔案，還能使用 Docs 中經過強化的協作與輔助功能，例如操作項目和智慧撰寫。此外，您也可以匯入 PDF，完成後就能立刻開始編輯。
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="glue-grid__col glue-grid__col--span-12 glue-grid__col--span-7-xl glue-grid__col--span-6-lg glue-mod-order-2-sm glue-mod-order-4-lg glue-mod-order-3-xl glue-grid__col--align-middle features-offset">
+                <picture class="features-desktop"><source srcset="https://lh3.googleusercontent.com/ZJ6ogeWydApOIBDkc0OEstT4Sh6HpQEop9LOxLg3Gt3xNOlsjcvl-He4dXcSrNqp9aCVke86Y4gycBW4Ib4IggWYqoH1Q5OzpA3sX7m9ZMWDNi8ZWQw=w0-l80-sg-rj-c0xffffff, https://lh3.googleusercontent.com/ZJ6ogeWydApOIBDkc0OEstT4Sh6HpQEop9LOxLg3Gt3xNOlsjcvl-He4dXcSrNqp9aCVke86Y4gycBW4Ib4IggWYqoH1Q5OzpA3sX7m9ZMWDNi8ZWQw=w0-l80-sg-rj-c0xffffff 2x"> <img src="https://lh3.googleusercontent.com/ZJ6ogeWydApOIBDkc0OEstT4Sh6HpQEop9LOxLg3Gt3xNOlsjcvl-He4dXcSrNqp9aCVke86Y4gycBW4Ib4IggWYqoH1Q5OzpA3sX7m9ZMWDNi8ZWQw=w-l80-sg-rj-c0xffffff" class="features-desktop-image" alt="Docs 協作"></picture> <picture class="features-mobile"><source srcset="https://lh3.googleusercontent.com/87ywP_2kVYFfCPSSLugvn1MJq038I4WtS4Dz4DGUeShs4ZIUET0EI_PjY_lTv2Ltoeuw7zXVUGkH7QqiEc4fBAhRrZst-0xPfbXxTgFyxMNK8s-PFf67=w0-l80-sg-rj-c0xffffff, https://lh3.googleusercontent.com/87ywP_2kVYFfCPSSLugvn1MJq038I4WtS4Dz4DGUeShs4ZIUET0EI_PjY_lTv2Ltoeuw7zXVUGkH7QqiEc4fBAhRrZst-0xPfbXxTgFyxMNK8s-PFf67=w0-l80-sg-rj-c0xffffff 2x"> <img src="https://lh3.googleusercontent.com/87ywP_2kVYFfCPSSLugvn1MJq038I4WtS4Dz4DGUeShs4ZIUET0EI_PjY_lTv2Ltoeuw7zXVUGkH7QqiEc4fBAhRrZst-0xPfbXxTgFyxMNK8s-PFf67=w-l80-sg-rj-c0xffffff" class="features-mobile-image" alt="Docs 協作"></picture>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="docs-advantages-section column-content">
+          <div class="glue-page">
+            <div class="glue-grid">
+              <div class="glue-grid__col glue-grid__col--span-4 column-content-items">
+                <img src="https://kstatic.googleusercontent.com/files/e547d38be0ec8948b86e5c1ba18d9080fe9ca6f007ad6c2c43273e3df7301370d9472003e2068fa6ef6aaef3b1592a3176c12933a08ad06c659f016049819180" class="column-content-icon" alt="使用外掛程式執行更多操作" role="presentation">
+                <h3 class="glue-headline glue-headline--headline-5 column-content-heading glue-mod-spacer-4-top">
+                  <span><span style="display: inline-block;" class="budou">使用</span><span style="display: inline-block;" class="budou">外掛</span><span style="display: inline-block;" class="budou">程式</span><span style="display: inline-block;" class="budou">執行</span><span style="display: inline-block;" class="budou">更多</span><span style="display: inline-block;" class="budou">操作</span></span>
+                </h3>
+                <p class="column-content-description glue-mod-spacer-2-top">
+                  直接從 Google 文件中存取各種第三方應用程式。無論是電子簽名應用程式還是專案管理工具，都可以從 Google 文件中直接開啟，讓工作更有效率。
+                </p>
+              </div>
+              <div class="glue-grid__col glue-grid__col--span-4 column-content-items">
+                <img src="https://kstatic.googleusercontent.com/files/d6ebdd2f225717f334673356dd333a46f439b57f44f546e2fd77f55cb4af927a072b878dbf8d2e66e2f8fa23af1338359c99f13b7012cba7df372ca0dd3c21a8" class="column-content-icon" alt="隨時處理最新內容" role="presentation">
+                <h3 class="glue-headline glue-headline--headline-5 column-content-heading glue-mod-spacer-4-top">
+                  <span><span style="display: inline-block;" class="budou">處理</span><span style="display: inline-block;" class="budou">最新</span><span style="display: inline-block;" class="budou">內容</span></span>
+                </h3>
+                <p class="column-content-description glue-mod-spacer-2-top">
+                  有了 Google 文件，所有人都能即時處理最新版本的文件內容。此外，由於系統會自動將編輯內容儲存到版本記錄中，所以您可以輕鬆追蹤或復原任何編輯項目。
+                </p>
+              </div>
+              <div class="glue-grid__col glue-grid__col--span-4 column-content-items">
+                <img src="https://kstatic.googleusercontent.com/files/8358b43dceca4b4ec386db7b75b7fde124d64e9b1bb7d6b3d7885b0693aca681993b7ac7150c54889e9b13ee3de964e21085318decbc9984d873136d497919ce" class="column-content-icon" alt="即使離線也能維持工作效率" role="presentation">
+                <h3 class="glue-headline glue-headline--headline-5 column-content-heading glue-mod-spacer-4-top">
+                  <span><span style="display: inline-block;" class="budou">即使</span><span style="display: inline-block;" class="budou">離線</span><span style="display: inline-block;" class="budou">也</span><span style="display: inline-block;" class="budou">能維持</span><span style="display: inline-block;" class="budou">工作</span><span style="display: inline-block;" class="budou">效率</span></span>
+                </h3>
+                <p class="column-content-description glue-mod-spacer-2-top">
+                  即使沒有網路連線，您也能存取、建立及編輯文件，隨時隨地保持工作效率。
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="docs-security-section centered-columns glue-mod-spacer-7-top glue-mod-spacer-7-bottom" id="js-security">
+          <div class="bg-image bg-img-security left-center"></div>
+          <div class="glue-page">
+            <h2 class="glue-headline glue-headline--headline-3 glue-mod-text-center centered-columns-heading">
+              <span><span style="display: inline-block;" class="budou">安全性、</span><span style="display: inline-block;" class="budou">法規</span><span style="display: inline-block;" class="budou">遵循</span><span style="display: inline-block;" class="budou">與</span><span style="display: inline-block;" class="budou">隱私權</span></span>
+            </h2>
+            <div class="centered-columns-logos glue-mod-text-center glue-mod-spacer-6-bottom glue-mod-spacer-5-top">
+              <img src="https://kstatic.googleusercontent.com/files/48c0c742580aa9bc5130ebaae6f2efae7fd1a8891eefdc541cfc04dba83458c4dadd6f6720a190ac9d22a60b62efaf8db45b5e4410a47a4ecfa03c653977d95a" class="centered-columns-security-icon" alt="ISO/IEC 標誌"> <img src="https://kstatic.googleusercontent.com/files/771f4977d427fbd34e9a50ad53c5774696b061aae16ba09bcc400500fd1dd73120cc7e0343e1f4e40038eebc9cee7e24718dd3d11ab5573d0082884761ec8e64" class="centered-columns-security-icon" alt="SOC 標誌"> <img src="https://kstatic.googleusercontent.com/files/d29ea4d4da81601639629b0aa55124ab52dced5b2050f52a2ddc013b08a6d2c0d7ab9df8375ddee399a719bca60823612953a13200704e4ad06b29b733cc6762" class="centered-columns-security-icon" alt="FR 標誌"> <img src="https://kstatic.googleusercontent.com/files/13d90cf131b426d77c108c12cc21519858ca937646730c2f06b7d90d69c784cf0c8bf069b0f2d95d1411ffa76f52298a2562f3d3a98380e9a41c317a32bb5f33" class="centered-columns-security-icon" alt="《健康保險流通與責任法案》標誌">
+            </div>
+            <div class="glue-mod-spacer-5-top">
+              <div class="glue-grid grid-container">
+                <div class="glue-grid__col glue-grid__col--span-6 centered-columns-points">
+                  <div class="glue-mod-spacer-4-bottom">
+                    <h3 class="glue-headline glue-headline--headline-5">
+                      預設將安全性納入考量
+                    </h3>
+                    <p>
+                      我們採用領先業界的安全性措施，包括進階惡意軟體防護功能，確保您的資料安全無虞。此外，文件也是雲端原生服務，不需要將檔案存放在裝置上，因此能最大限度地降低裝置風險。
+                    </p>
+                  </div>
+                  <div class="glue-mod-spacer-4-bottom">
+                    <h3 class="glue-headline glue-headline--headline-5">
+                      傳輸中資料與靜態資料的加密機制
+                    </h3>
+                    <p>
+                      凡是上傳到 Google 雲端硬碟或透過文件建立的檔案，無論是傳輸中的資料還是靜態資料，都會受到加密保護。
+                    </p>
+                  </div>
+                  <div class="glue-mod-spacer-4-bottom">
+                    <h3 class="glue-headline glue-headline--headline-5">
+                      遵循各項法規規定
+                    </h3>
+                    <p>
+                      我們的產品 (包括文件) 會定期接受有關安全性、隱私權和<a href="https://cloud.google.com/security/compliance?hl=zh-TW" rel="nofollow noopener" target="_blank">法規遵循管理</a>的獨立驗證審查。
+                    </p>
+                  </div>
+                </div>
+                <div class="glue-grid__col glue-grid__col--span-6 centered-columns-right-section">
+                  <h3 class="glue-headline glue-headline--headline-5 right-section-heading">
+                    <span><span style="display: inline-block;" class="budou">採用</span><span style="display: inline-block;" class="budou">隱私</span><span style="display: inline-block;" class="budou">保護</span><span style="display: inline-block;" class="budou">設計</span></span>
+                  </h3>
+                  <p>
+                    文件提供與其他 <a href="https://cloud.google.com/security/privacy?hl=zh-TW" rel="noopener" target="_blank">Google Cloud 企業服務</a>相同的完善隱私權承諾和資料保護措施。
+                  </p><img src="https://kstatic.googleusercontent.com/files/414f4b785bb92fe29694c47cfd1e8741913b655e923294f6924d59e68b02a852f2b7ea9965738f1fbf2ba89cba6b1ee303c8e215bc0960a4a7f5ad63e259dbc1" class="glue-mod-spacer-6-top" alt="隱私權圖示" role="presentation">
+                  <div class="glue-mod-spacer-2-top centered-column-content">
+                    <h4 class="glue-headline glue-headline--headline-6 glue-mod-spacer-2-top glue-mod-spacer-2-bottom glue-mod-font-weight-medium">
+                      <span><span style="display: inline-block;" class="budou">您</span><span style="display: inline-block;" class="budou">的</span><span style="display: inline-block;" class="budou">資料</span><span style="display: inline-block;" class="budou">由</span><span style="display: inline-block;" class="budou">您</span><span style="display: inline-block;" class="budou">掌控。</span></span>
+                    </h4>
+                    <hr aria-hidden="true">
+                    <h4 class="glue-headline glue-headline--headline-6 glue-mod-spacer-2-top glue-mod-spacer-2-bottom glue-mod-font-weight-medium">
+                      <span><span style="display: inline-block;" class="budou">絕</span><span style="display: inline-block;" class="budou">不</span><span style="display: inline-block;" class="budou">將</span><span style="display: inline-block;" class="budou">您</span><span style="display: inline-block;" class="budou">的</span><span style="display: inline-block;" class="budou">文件</span><span style="display: inline-block;" class="budou">內容</span><span style="display: inline-block;" class="budou">用於</span><span style="display: inline-block;" class="budou">廣告</span><span style="display: inline-block;" class="budou">用途。</span></span>
+                    </h4>
+                    <hr aria-hidden="true">
+                    <h4 class="glue-headline glue-headline--headline-6 glue-mod-spacer-2-top glue-mod-spacer-2-bottom glue-mod-font-weight-medium">
+                      <span><span style="display: inline-block;" class="budou">絕</span><span style="display: inline-block;" class="budou">不</span><span style="display: inline-block;" class="budou">將</span><span style="display: inline-block;" class="budou">您</span><span style="display: inline-block;" class="budou">的</span><span style="display: inline-block;" class="budou">個人</span><span style="display: inline-block;" class="budou">資訊</span><span style="display: inline-block;" class="budou">販售給</span><span style="display: inline-block;" class="budou">第三方。</span></span>
+                    </h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="docs-pricing-section pricing glue-mod-text-center" id="js-pricing">
+          <div class="glue-page">
+            <h2 class="glue-headline glue-headline--headline-3">
+              <span><span style="display: inline-block;" class="budou">尋找</span><span style="display: inline-block;" class="budou">適合</span><span style="display: inline-block;" class="budou">您</span><span style="display: inline-block;" class="budou">的</span><span style="display: inline-block;" class="budou">方案</span></span>
+            </h2>
+            <h3 class="glue-headline glue-headline--headline-6 glue-mod-spacer-2-top pricing-subheading">
+              <span>Google <span style="display: inline-block;" class="budou">文件</span><span style="display: inline-block;" class="budou">已</span><span style="display: inline-block;" class="budou">整合到</span> Google Workspace</span>
+            </h3>
+            <div class="glue-mod-spacer-3-top glue-mod-spacer-2-bottom">
+              <p class="glue-eyebrow pricing-eyebrow glue-mod-font-weight-medium">
+                所有方案都包含
+              </p>
+              <ul class="pricing-product-icons">
+                <li>
+                  <a href="https://workspace.google.com/intl/zh-TW/products/docs/?utm_source=docsforwork&amp;utm_medium=et&amp;utm_content=docs&amp;utm_campaign=body" target="_blank" rel="noopener noreferrer" data-category="cta" data-action="docs" data-label="pricing" title="文件"><img src="https://kstatic.googleusercontent.com/files/97ecc831526fbe8c60fe88ef0d7a6cbf06361809f0acf857326681f6a1f35740d3bd7d69bf4a5381f5c31a863bccace4d9d1660379182901f73d24ef137f6fb4" alt="docs 圖示" role="presentation"></a>
+                  <p class="glue-mod-spacer-1-top" aria-hidden="true">
+                    文件
+                  </p>
+                </li>
+                <li>
+                  <a href="https://workspace.google.com/intl/zh-TW/products/sheets/?utm_source=docsforwork&amp;utm_medium=et&amp;utm_content=sheets&amp;utm_campaign=body" target="_blank" rel="noopener noreferrer" data-category="cta" data-action="sheets" data-label="pricing" title="試算表"><img src="https://kstatic.googleusercontent.com/files/adf55cdf4c7f8fb38efbf8df6c2792660fbeff2d05be05f2ec8e9c265a179b51c64b9679d8aee00e09cad19ce419d90a2d999b82cea4200abbe78c73e6bfaacf" alt="sheets 圖示" role="presentation"></a>
+                  <p class="glue-mod-spacer-1-top" aria-hidden="true">
+                    試算表
+                  </p>
+                </li>
+                <li>
+                  <a href="https://workspace.google.com/intl/zh-TW/products/slides/?utm_source=docsforwork&amp;utm_medium=et&amp;utm_content=slides&amp;utm_campaign=body" target="_blank" rel="noopener noreferrer" data-category="cta" data-action="slides" data-label="pricing" title="簡報"><img src="https://kstatic.googleusercontent.com/files/deedce50760a1686790a49aaa7fac8d4a5cea4fd0fcdd19baef121569c47473a2398e063d2e68fe017ba73bc9088268d3f2758793bd9eb25a4cbdf62aea0adfc" alt="slides 圖示" role="presentation"></a>
+                  <p class="glue-mod-spacer-1-top" aria-hidden="true">
+                    簡報
+                  </p>
+                </li>
+                <li>
+                  <a href="https://workspace.google.com/intl/zh-TW/products/forms/?utm_source=docsforwork&amp;utm_medium=et&amp;utm_content=forms&amp;utm_campaign=body" target="_blank" rel="noopener noreferrer" data-category="cta" data-action="forms" data-label="pricing" title="表單"><img src="https://kstatic.googleusercontent.com/files/9f04faac24aed8bf8fb381029de951128d1d36373f89675265a6654d0c47b74b2d83a26b68b834ce2eea3bfe8001966f76895888138f135a81d099fc207c73bb" alt="forms 圖示" role="presentation"></a>
+                  <p class="glue-mod-spacer-1-top" aria-hidden="true">
+                    表單
+                  </p>
+                </li>
+                <li>
+                  <a href="https://workspace.google.com/intl/zh-TW/products/keep/?utm_source=docsforwork&amp;utm_medium=et&amp;utm_content=keep&amp;utm_campaign=body" target="_blank" rel="noopener noreferrer" data-category="cta" data-action="keep" data-label="pricing" title="Keep"><img src="https://kstatic.googleusercontent.com/files/ddb573245976a21aba0f45d4fe548fdc89318ae8707c25e75e9c3940b6568bd44069b57c08698007f94d19c8d558ca994528710c6a9c3f8b932dd83f391b16e6" alt="Keep 圖示" role="presentation"></a>
+                  <p class="glue-mod-spacer-1-top" aria-hidden="true">
+                    Keep
+                  </p>
+                </li>
+                <li>
+                  <a href="https://workspace.google.com/intl/zh-TW/products/sites/?utm_source=docsforwork&amp;utm_medium=et&amp;utm_content=sites&amp;utm_campaign=body" target="_blank" rel="noopener noreferrer" data-category="cta" data-action="sites" data-label="pricing" title="協作平台"><img src="https://kstatic.googleusercontent.com/files/ae343be0ecf95ae733f568f2fdf30ddb0a1da74ca00721a5bea239d0949759558b60b9ba5bf902929563695b793f32eb57e4a0ac0d67129836d973b359b2d596" alt="Google 協作平台圖示" role="presentation"></a>
+                  <p class="glue-mod-spacer-1-top" aria-hidden="true">
+                    協作平台
+                  </p>
+                </li>
+                <li>
+                  <a href="https://workspace.google.com/intl/zh-TW/products/drive/?utm_source=docsforwork&amp;utm_medium=et&amp;utm_content=drive&amp;utm_campaign=body" target="_blank" rel="noopener noreferrer" data-category="cta" data-action="drive" data-label="pricing" title="雲端硬碟"><img src="https://kstatic.googleusercontent.com/files/d57b24106c34c7e50ef3d98423b94ddaf35ad2da73a9b9d4d12f52dbb9dd4c08c2957f6255ab8690d5ef0b32cff8287e09577d05e479d263e872160c4c9e8363" alt="Google 雲端硬碟圖示" role="presentation"></a>
+                  <p class="glue-mod-spacer-1-top" aria-hidden="true">
+                    雲端硬碟
+                  </p>
+                </li>
+                <li>
+                  <a href="https://workspace.google.com/intl/zh-TW/products/gmail/?utm_source=docsforwork&amp;utm_medium=et&amp;utm_content=gmail&amp;utm_campaign=body" target="_blank" rel="noopener noreferrer" data-category="cta" data-action="gmail" data-label="pricing" title="Gmail"><img src="https://kstatic.googleusercontent.com/files/6d2a2dbaad1a3fe4c323dd6a4688db96e47b423de4175611399a97dc5b64a4ad7490d703aa0af80f28936e842e9d2448b1d74a530a2fe479a306d92281678efa" alt="Gmail 圖示" role="presentation"></a>
+                  <p class="glue-mod-spacer-1-top" aria-hidden="true">
+                    Gmail
+                  </p>
+                </li>
+                <li>
+                  <a href="https://workspace.google.com/intl/zh-TW/products/meet/?utm_source=docsforwork&amp;utm_medium=et&amp;utm_content=meet&amp;utm_campaign=body" target="_blank" rel="noopener noreferrer" data-category="cta" data-action="meet" data-label="pricing" title="Meet"><img src="https://kstatic.googleusercontent.com/files/2c19e911a3a8404b51c5c92087c9df618f6903c14e4ba28ba4ec1fe577dec6c08e158172897eb0ed31738aac610409999fd2c4376548f1159f375387aadce233" alt="Meet 圖示" role="presentation"></a>
+                  <p class="glue-mod-spacer-1-top" aria-hidden="true">
+                    Meet
+                  </p>
+                </li>
+                <li>
+                  <a href="https://workspace.google.com/intl/zh-TW/products/calendar/?utm_source=docsforwork&amp;utm_medium=et&amp;utm_content=calendar&amp;utm_campaign=body" target="_blank" rel="noopener noreferrer" data-category="cta" data-action="calendar" data-label="pricing" title="日曆"><img src="https://kstatic.googleusercontent.com/files/e5bae7cd1a971c0ecd82e839e79e9c436d16842cada6dd01a51b81bd8c3722914d7dbb9bfd927abb4de8b11d6a4a7083b861c78ea1b911f357d8e648b2c18beb" alt="Google 日曆圖示" role="presentation"></a>
+                  <p class="glue-mod-spacer-1-top" aria-hidden="true">
+                    日曆
+                  </p>
+                </li>
+                <li>
+                  <a href="https://workspace.google.com/intl/zh-TW/products/chat/?utm_source=docsforwork&amp;utm_medium=et&amp;utm_content=chat&amp;utm_campaign=body" target="_blank" rel="noopener noreferrer" data-category="cta" data-action="chat" data-label="pricing" title="Chat"><img src="https://kstatic.googleusercontent.com/files/6ab61ad546b8f76d3721655674c108fa553d44865bb62881003aef4826170b5fe07f25bc88633b46c2397cdab297120d695695a76eb7afb008a2187ad021a2e9" alt="Chat 圖示" role="presentation"></a>
+                  <p class="glue-mod-spacer-1-top" aria-hidden="true">
+                    Chat
+                  </p>
+                </li>
+              </ul>
+            </div>
+            <table class="glue-table glue-table--comparisontable pricing-plans glue-mod-spacer-5-top">
+              <thead class="section-sticky">
+                <tr>
+                  <th>
+                    <p>
+                      <a href="https://workspace.google.com/intl/zh-TW/features/?utm_source=docsforwork&amp;utm_medium=et&amp;utm_content=trydocsforwork&amp;utm_campaign=pricing" target="_blank" rel="noopener noreferrer" data-category="cta" data-action="try docs for work" data-label="pricing">試用文件企業版</a>
+                    </p>
+                  </th>
+                  <th>
+                    <h4 class="glue-headline glue-headline--headline-5 glue-mod-spacer-1-bottom pricing-plans-column-heading">
+                      個人用途 <span class="pricing-plans-heading-suffix">(免費)</span>
+                    </h4>
+                    <p class="pricing-plans-header-cta">
+                      <a href="https://docs.google.com/document/u/0/?ec=asw-docs-pricing-goto" class="glue-button glue-button--medium-emphasis go-to-docs" target="_blank" rel="noopener noreferrer" data-ios-href="https://docs.new" data-category="cta" data-action="go to docs" data-label="pricing">前往文件</a>
+                    </p>
+                  </th>
+                  <th>
+                    <h4 class="glue-headline glue-headline--headline-5 glue-mod-spacer-1-bottom pricing-plans-column-heading">
+                      Business Standard
+                    </h4>
+                    <p class="pricing-plans-price glue-mod-font-weight-regular">
+                      <span>$12</span> <span>USD</span>
+                    </p>
+                    <div class="pricing-clarification">
+                      <span class="pricing-plans-criteria glue-mod-font-weight-regular">為每位使用者的月費 (綁約 1 年)</span> <span data-sku-id="Business Standard" class="pricing-popover glue-popover" data-glue-popover-trigger="hover" data-glue-popover-takefocus="false"><span class="glue-popover__trigger material-symbols-outlined info-icon">info</span> <span class="glue-popover__dialog">或每位使用者每月 $14.40 (按月付款)</span></span>
+                    </div>
+                    <p class="pricing-plans-header-cta">
+                      <a href="https://workspace.google.com/signup/businessstandard/welcome?utm_source=docsforwork&amp;utm_medium=et&amp;utm_content=getstarted&amp;utm_campaign=pricing&amp;hl=zh-TW&amp;sku=businessstandard" class="glue-button glue-button--high-emphasis" target="_blank" rel="noopener noreferrer" data-category="cta" data-action="get started" data-label="pricing">開始使用</a>
+                    </p>
+                    <p class="pricing-plans-header-cta">
+                      <a href="https://workspace.google.com/intl/zh-TW/pricing.html?utm_source=docsforwork&amp;utm_medium=et&amp;utm_content=seemoreplans&amp;utm_campaign=pricing" class="pricing-plans-see-more" target="_blank" rel="noopener noreferrer" data-category="cta" data-action="see more plans" data-label="pricing">查看更多方案</a>
+                    </p>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="pricing-feature">
+                    <div class="pricing-feature-wrap">
+                      <img src="https://kstatic.googleusercontent.com/files/a5617a06f7abb155dec95cbc8f1ace5e0d051a901c86edb01e6c038d42c22baf83e83ad3599a201870734edf8d6fa14dbe518290eb3d4bd9e8a37882905eb420" class="pricing-feature-icon" alt="Google Docs" role="presentation">
+                      <div class="pricing-feature-wrap-content">
+                        <strong class="glue-mod-font-weight-bold pricing-feature-wrap-heading">文件、試算表、簡報和表單</strong>
+                        <p class="pricing-feature-wrap-description">
+                          內容製作
+                        </p>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <p class="glue-mod-font-weight-medium pricing-feature-details category-icon">
+                      <span class="material-icons pricing-feature-done-icon">done</span>
+                    </p>
+                  </td>
+                  <td>
+                    <p class="glue-mod-font-weight-medium pricing-feature-details category-icon">
+                      <span class="material-icons pricing-feature-done-icon">done</span>
+                    </p>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="pricing-feature">
+                    <div class="pricing-feature-wrap">
+                      <img src="https://kstatic.googleusercontent.com/files/f68020013a9353617a2fca28b197c46b3983aaf07b02aead0035d49ea2e1bbe1fec94b5b473ae7fbb90df20d59cc901da44a05097220c7f9c64b42e638c5158c" class="pricing-feature-icon" alt="Google 雲端硬碟" role="presentation">
+                      <div class="pricing-feature-wrap-content">
+                        <strong class="glue-mod-font-weight-bold pricing-feature-wrap-heading">雲端硬碟</strong>
+                        <p class="pricing-feature-wrap-description">
+                          安全的雲端儲存空間
+                        </p>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <p class="glue-mod-font-weight-medium pricing-feature-details">
+                      每位使用者 15 GB
+                    </p>
+                  </td>
+                  <td>
+                    <p class="glue-mod-font-weight-medium pricing-feature-details">
+                      每位使用者 2 TB
+                    </p>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="pricing-feature">
+                    <div class="pricing-feature-wrap">
+                      <div class="pricing-feature-wrap-margin"></div>
+                      <div class="pricing-feature-wrap-content">
+                        <p class="pricing-feature-wrap-description">
+                          團隊專用的共用雲端硬碟
+                        </p>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <p class="glue-mod-font-weight-medium pricing-feature-details category-icon">
+                      <span class="material-icons pricing-feature-remove-icon">remove</span>
+                    </p>
+                  </td>
+                  <td>
+                    <p class="glue-mod-font-weight-medium pricing-feature-details category-icon">
+                      <span class="material-icons pricing-feature-done-icon">done</span>
+                    </p>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="pricing-feature">
+                    <div class="pricing-feature-wrap">
+                      <img src="https://kstatic.googleusercontent.com/files/5b321d934598617d1fa9af3dd53c3cea5f6d8e833ad6d017608f6aad8d21f0c840af802101044998174e8fab35db3fd69c25b97524fe8fe2dad01438f708781f" class="pricing-feature-icon" alt="Google Gmail" role="presentation">
+                      <div class="pricing-feature-wrap-content">
+                        <strong class="glue-mod-font-weight-bold pricing-feature-wrap-heading">Gmail</strong>
+                        <p class="pricing-feature-wrap-description">
+                          安全的電子郵件服務
+                        </p>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <p class="glue-mod-font-weight-medium pricing-feature-details category-icon">
+                      <span class="material-icons pricing-feature-done-icon">done</span>
+                    </p>
+                  </td>
+                  <td>
+                    <p class="glue-mod-font-weight-medium pricing-feature-details category-icon">
+                      <span class="material-icons pricing-feature-done-icon">done</span>
+                    </p>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="pricing-feature">
+                    <div class="pricing-feature-wrap">
+                      <div class="pricing-feature-wrap-margin"></div>
+                      <div class="pricing-feature-wrap-content">
+                        <p class="pricing-feature-wrap-description">
+                          企業專屬電子郵件
+                        </p>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <p class="glue-mod-font-weight-medium pricing-feature-details category-icon">
+                      <span class="material-icons pricing-feature-remove-icon">remove</span>
+                    </p>
+                  </td>
+                  <td>
+                    <p class="glue-mod-font-weight-medium pricing-feature-details category-icon">
+                      <span class="material-icons pricing-feature-done-icon">done</span>
+                    </p>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="pricing-feature">
+                    <div class="pricing-feature-wrap">
+                      <img src="https://kstatic.googleusercontent.com/files/2e2debc73abc6a71ab90a794cecfd67671650be650d0b51a08c843385028b9aab25dd80eb3a20c9dd1f61695f61690a521740ffcaf4dac01c87739d47c02cef9" class="pricing-feature-icon" alt="Google Meet" role="presentation">
+                      <div class="pricing-feature-wrap-content">
+                        <strong class="glue-mod-font-weight-bold pricing-feature-wrap-heading">Meet</strong>
+                        <p class="pricing-feature-wrap-description">
+                          視訊和語音會議
+                        </p>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <p class="glue-mod-font-weight-medium pricing-feature-details">
+                      100 位參與者
+                    </p>
+                  </td>
+                  <td>
+                    <p class="glue-mod-font-weight-medium pricing-feature-details">
+                      150 位參與者
+                    </p>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="pricing-feature">
+                    <div class="pricing-feature-wrap">
+                      <div class="pricing-feature-wrap-margin"></div>
+                      <div class="pricing-feature-wrap-content">
+                        <p class="pricing-feature-wrap-description">
+                          將會議錄製內容儲存至雲端硬碟
+                        </p>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <p class="glue-mod-font-weight-medium pricing-feature-details category-icon">
+                      <span class="material-icons pricing-feature-remove-icon">remove</span>
+                    </p>
+                  </td>
+                  <td>
+                    <p class="glue-mod-font-weight-medium pricing-feature-details category-icon">
+                      <span class="material-icons pricing-feature-done-icon">done</span>
+                    </p>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="pricing-feature">
+                    <div class="pricing-feature-wrap">
+                      <img src="https://kstatic.googleusercontent.com/files/3fcd194cc873a0294755a047e1b65b3be0a63eb0226648b3d8d758342cd9ae877b5e05e5701bd12e7bc704398e14df7e751661b9b392b8d61c338ce56fa559a8" class="pricing-feature-icon" alt="安全性管理" role="presentation">
+                      <div class="pricing-feature-wrap-content">
+                        <strong class="glue-mod-font-weight-bold pricing-feature-wrap-heading">管理控制台</strong>
+                        <p class="pricing-feature-wrap-description">
+                          集中式管理
+                        </p>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <p class="glue-mod-font-weight-medium pricing-feature-details category-icon">
+                      <span class="material-icons pricing-feature-remove-icon">remove</span>
+                    </p>
+                  </td>
+                  <td>
+                    <p class="glue-mod-font-weight-medium pricing-feature-details category-icon">
+                      <span class="material-icons pricing-feature-done-icon">done</span>
+                    </p>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="pricing-feature">
+                    <div class="pricing-feature-wrap">
+                      <div class="pricing-feature-wrap-margin"></div>
+                      <div class="pricing-feature-wrap-content">
+                        <p class="pricing-feature-wrap-description">
+                          依群組調整的安全性政策控制項
+                        </p>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <p class="glue-mod-font-weight-medium pricing-feature-details category-icon">
+                      <span class="material-icons pricing-feature-remove-icon">remove</span>
+                    </p>
+                  </td>
+                  <td>
+                    <p class="glue-mod-font-weight-medium pricing-feature-details category-icon">
+                      <span class="material-icons pricing-feature-done-icon">done</span>
+                    </p>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="pricing-feature">
+                    <div class="pricing-feature-wrap">
+                      <div class="pricing-feature-wrap-margin"></div>
+                      <div class="pricing-feature-wrap-content">
+                        <p class="pricing-feature-wrap-description">
+                          客戶服務
+                        </p>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <p class="glue-mod-font-weight-medium pricing-feature-details">
+                      自助式線上社群論壇
+                    </p>
+                  </td>
+                  <td>
+                    <p class="glue-mod-font-weight-medium pricing-feature-details">
+                      全年無休的線上支援與社群論壇
+                    </p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+        <section class="docs-collaborate-section centered-content glue-mod-text-center glue-mod-spacer-7-bottom glue-mod-spacer-7-top">
+          <div class="glue-page">
+            <h2 class="centered-content-heading glue-headline glue-headline--headline-3">
+              <span><span style="display: inline-block;" class="budou">隨時</span><span style="display: inline-block;" class="budou">隨地</span><span style="display: inline-block;" class="budou">透過</span><span style="display: inline-block;" class="budou">任何</span><span style="display: inline-block;" class="budou">裝置</span><span style="display: inline-block;" class="budou">進行</span><span style="display: inline-block;" class="budou">協作</span></span>
+            </h2>
+            <div class="centered-content-sub-heading glue-mod-spacer-2-top">
+              <p>
+                無論您身在何處，使用任何行動裝置、平板電腦或電腦，都能直接存取、建立及編輯文件，即使離線也無妨。
+              </p>
+            </div>
+            <div class="centered-content-icon glue-mod-spacer-4-top">
+              <a href="https://play.google.com/store/apps/details?id=com.google.android.apps.docs.editors.docs&amp;hl=zh-TW" class="centered-device" target="_blank" rel="noopener noreferrer" data-category="cta" data-action="get google meet on the play store" data-label="collaborate" aria-label="Google Play 立即下載"><img src="https://kstatic.googleusercontent.com/files/50b583f316fcf6f093ba245061ad4d80a73ee084e4f80c361764255461083164df7e27195604053fc9ae907d89cf6d03809e7d0d7cd7781a82975a64b1bfb238" alt="Google Play 商店" role="presentation"></a> <a href="https://apps.apple.com/app/google-docs-sync-edit-share/id842842640/?l=zh-TW" class="centered-device" target="_blank" rel="noopener noreferrer" data-category="cta" data-action="get google meet on the apple app store" data-label="collaborate" aria-label="前往 App Store 下載"><img src="https://kstatic.googleusercontent.com/files/eccdd755cc2df4ba7a71a1fe725853117d55833b240dcca998b13820043190b581450a48a32a6c2975b09eb2f0c216077755ed6fadeef59c69237fe2a86958f2" alt="Apple App Store" role="presentation"></a>
+            </div>
+          </div>
+          <div class="bg-image bg-img-collaborate right-center"></div>
+        </section>
+        <section class="docs-cards-carousel-section carousel glue-mod-text-center glue-mod-spacer-7-top">
+          <div class="glue-page">
+            <h2 class="glue-headline glue-headline--headline-3 carousel-heading">
+              <span><span style="display: inline-block;" class="budou">率先</span><span style="display: inline-block;" class="budou">使用</span><span style="display: inline-block;" class="budou">各種</span><span style="display: inline-block;" class="budou">範本</span></span>
+            </h2>
+            <div class="glue-mod-spacer-2-top glue-mod-spacer-5-bottom">
+              <h3 class="carousel-description">
+                <span><span style="display: inline-block;" class="budou">從</span><span style="display: inline-block;" class="budou">各種</span><span style="display: inline-block;" class="budou">資訊</span><span style="display: inline-block;" class="budou">主頁、</span><span style="display: inline-block;" class="budou">專案</span><span style="display: inline-block;" class="budou">追蹤表</span><span style="display: inline-block;" class="budou">和</span><span style="display: inline-block;" class="budou">其他</span><span style="display: inline-block;" class="budou">專業</span><span style="display: inline-block;" class="budou">設計</span><span style="display: inline-block;" class="budou">的</span><span style="display: inline-block;" class="budou">範本</span><span style="display: inline-block;" class="budou">中</span><span style="display: inline-block;" class="budou">選擇，</span><span style="display: inline-block;" class="budou">快速</span><span style="display: inline-block;" class="budou">展開</span><span style="display: inline-block;" class="budou">工作。</span></span>
+              </h3>
+            </div>
+          </div>
+          <div class="carousel-icon glue-mod-spacer-3-top sm-only glue-page">
+            <div class="carousel-wrapper">
+              <h3 class="glue-headline glue-headline--headline-6 glue-mod-spacer-2-bottom">
+                專案
+              </h3><picture class="carousel-card"><source srcset="https://lh3.googleusercontent.com/U-cqBsztaJQzYoG8Ys2lJmCAIZDWah7CQ-BjqM0yMiJFV3NULOlbtIOYZbE9t1a1d2lawT8LA6YAY4NOEddCOhSpdnqGi7AiFCz3O3dDb1DY-i-A8mI=w0-l80-sg-rj-c0xffffff, https://lh3.googleusercontent.com/U-cqBsztaJQzYoG8Ys2lJmCAIZDWah7CQ-BjqM0yMiJFV3NULOlbtIOYZbE9t1a1d2lawT8LA6YAY4NOEddCOhSpdnqGi7AiFCz3O3dDb1DY-i-A8mI=w0-l80-sg-rj-c0xffffff 2x"> <img src="https://lh3.googleusercontent.com/U-cqBsztaJQzYoG8Ys2lJmCAIZDWah7CQ-BjqM0yMiJFV3NULOlbtIOYZbE9t1a1d2lawT8LA6YAY4NOEddCOhSpdnqGi7AiFCz3O3dDb1DY-i-A8mI=w-l80-sg-rj-c0xffffff" class="carousel-card-images" alt="Docs 的專案範本"></picture>
+            </div>
+            <div class="carousel-wrapper">
+              <h3 class="glue-headline glue-headline--headline-6 glue-mod-spacer-2-bottom">
+                銷售
+              </h3><picture class="carousel-card"><source srcset="https://lh3.googleusercontent.com/iIrS5IlnEvjgY3SC3TzcFnkKcnZJ0mfYID1H9aYy7QfFGag8CelT1r7BSsqwJqzZvHWCS2HO3zXhpSyDcRKeqasoIp8BUTX7LP2-Fvl55cOQE87SBYY=w0-l80-sg-rj-c0xffffff, https://lh3.googleusercontent.com/iIrS5IlnEvjgY3SC3TzcFnkKcnZJ0mfYID1H9aYy7QfFGag8CelT1r7BSsqwJqzZvHWCS2HO3zXhpSyDcRKeqasoIp8BUTX7LP2-Fvl55cOQE87SBYY=w0-l80-sg-rj-c0xffffff 2x"> <img src="https://lh3.googleusercontent.com/iIrS5IlnEvjgY3SC3TzcFnkKcnZJ0mfYID1H9aYy7QfFGag8CelT1r7BSsqwJqzZvHWCS2HO3zXhpSyDcRKeqasoIp8BUTX7LP2-Fvl55cOQE87SBYY=w-l80-sg-rj-c0xffffff" class="carousel-card-images" alt="Docs 的銷售報價範本"></picture>
+            </div>
+            <div class="carousel-wrapper">
+              <h3 class="glue-headline glue-headline--headline-6 glue-mod-spacer-2-bottom">
+                食譜
+              </h3><picture class="carousel-card"><source srcset="https://lh3.googleusercontent.com/kQu_K_az8mOj8Pt-m-JUX8-9SSd1WcV0YWshkOpPIB1zOlDrduj3q8GDj2h_ohEN5ztfEpWh0CutDEVT-na1OZ6joEBEw968kmqb5T15QxHotP-gStIz=w0-l80-sg-rj-c0xffffff, https://lh3.googleusercontent.com/kQu_K_az8mOj8Pt-m-JUX8-9SSd1WcV0YWshkOpPIB1zOlDrduj3q8GDj2h_ohEN5ztfEpWh0CutDEVT-na1OZ6joEBEw968kmqb5T15QxHotP-gStIz=w0-l80-sg-rj-c0xffffff 2x"> <img src="https://lh3.googleusercontent.com/kQu_K_az8mOj8Pt-m-JUX8-9SSd1WcV0YWshkOpPIB1zOlDrduj3q8GDj2h_ohEN5ztfEpWh0CutDEVT-na1OZ6joEBEw968kmqb5T15QxHotP-gStIz=w-l80-sg-rj-c0xffffff" class="carousel-card-images" alt="Docs 的食譜範本"></picture>
+            </div>
+            <div class="carousel-wrapper">
+              <h3 class="glue-headline glue-headline--headline-6 glue-mod-spacer-2-bottom">
+                報告
+              </h3><picture class="carousel-card"><source srcset="https://lh3.googleusercontent.com/tyPvdumuZjLcKBSpSaYBX0alXy4Tdu1F4t5SU7raLgzSkK2nTaR9cXwmXQN3Euu5z_JTz9QpJvEfjHhCwy2WNY19lJkxRpS7KIXMHhQXcaOJf1-Dh8H4=w0-l80-sg-rj-c0xffffff, https://lh3.googleusercontent.com/tyPvdumuZjLcKBSpSaYBX0alXy4Tdu1F4t5SU7raLgzSkK2nTaR9cXwmXQN3Euu5z_JTz9QpJvEfjHhCwy2WNY19lJkxRpS7KIXMHhQXcaOJf1-Dh8H4=w0-l80-sg-rj-c0xffffff 2x"> <img src="https://lh3.googleusercontent.com/tyPvdumuZjLcKBSpSaYBX0alXy4Tdu1F4t5SU7raLgzSkK2nTaR9cXwmXQN3Euu5z_JTz9QpJvEfjHhCwy2WNY19lJkxRpS7KIXMHhQXcaOJf1-Dh8H4=w-l80-sg-rj-c0xffffff" class="carousel-card-images" alt="Docs 的報告範本"></picture>
+            </div>
+          </div>
+          <div class="carousel-slides">
+            <div class="glue-grid">
+              <div id="carousel-cards" class="glue-carousel glue-grid__col glue-grid__col--span-12" aria-label="輪轉介面簡報">
+                <div class="glue-carousel__viewport">
+                  <div class="glue-carousel__list">
+                    <div class="glue-carousel__item" id="glue-carousel-1">
+                      <div class="carousel-item">
+                        <h3 class="glue-headline glue-headline--headline-6">
+                          專案
+                        </h3><picture class="carousel-list"><source srcset="https://lh3.googleusercontent.com/uU7MWYap3rU9DjB0Qao0vOnllHZnAnCORfi51qzTrZNG33UwLl9yxsKrxqQiQdbgyXgNopzkf1o7bhMuC67rNVDBA0A75mEl_1pPc92MRbgQnESr6zYW=w0-l80-sg-rj-c0xffffff, https://lh3.googleusercontent.com/uU7MWYap3rU9DjB0Qao0vOnllHZnAnCORfi51qzTrZNG33UwLl9yxsKrxqQiQdbgyXgNopzkf1o7bhMuC67rNVDBA0A75mEl_1pPc92MRbgQnESr6zYW=w0-l80-sg-rj-c0xffffff 2x"> <img src="https://lh3.googleusercontent.com/uU7MWYap3rU9DjB0Qao0vOnllHZnAnCORfi51qzTrZNG33UwLl9yxsKrxqQiQdbgyXgNopzkf1o7bhMuC67rNVDBA0A75mEl_1pPc92MRbgQnESr6zYW=w-l80-sg-rj-c0xffffff" class="carousel-list-images" alt="Docs 的專案範本"></picture>
+                      </div>
+                      <div class="carousel-item">
+                        <h3 class="glue-headline glue-headline--headline-6">
+                          銷售
+                        </h3><picture class="carousel-list"><source srcset="https://lh3.googleusercontent.com/PKJ6K5CJcVSaZ3sREUvdXe8l46sVEPeWFKW27RTyK5QmFNYul-xax31aiQOF1-khFJopvgqHCEQOeX91oqwcFkZeV9pM_w5ybTWyAULzeD7zbS00gEw=w0-l80-sg-rj-c0xffffff, https://lh3.googleusercontent.com/PKJ6K5CJcVSaZ3sREUvdXe8l46sVEPeWFKW27RTyK5QmFNYul-xax31aiQOF1-khFJopvgqHCEQOeX91oqwcFkZeV9pM_w5ybTWyAULzeD7zbS00gEw=w0-l80-sg-rj-c0xffffff 2x"> <img src="https://lh3.googleusercontent.com/PKJ6K5CJcVSaZ3sREUvdXe8l46sVEPeWFKW27RTyK5QmFNYul-xax31aiQOF1-khFJopvgqHCEQOeX91oqwcFkZeV9pM_w5ybTWyAULzeD7zbS00gEw=w-l80-sg-rj-c0xffffff" class="carousel-list-images" alt="Docs 的銷售報價範本"></picture>
+                      </div>
+                    </div>
+                    <div class="glue-carousel__item" id="glue-carousel-2">
+                      <div class="carousel-item">
+                        <h3 class="glue-headline glue-headline--headline-6">
+                          食譜
+                        </h3><picture class="carousel-list"><source srcset="https://lh3.googleusercontent.com/q88_8sgVk6jAcWEWT1cg4EFiU9Hp74KPrV0eeeEi-yy9oPM275l4fYm3YJelIjUEVPfOIrLa_hp9SLZP8SgiQjvQZxn3tMmys7_awhoUoqKtsJuF4w=w0-l80-sg-rj-c0xffffff, https://lh3.googleusercontent.com/q88_8sgVk6jAcWEWT1cg4EFiU9Hp74KPrV0eeeEi-yy9oPM275l4fYm3YJelIjUEVPfOIrLa_hp9SLZP8SgiQjvQZxn3tMmys7_awhoUoqKtsJuF4w=w0-l80-sg-rj-c0xffffff 2x"> <img src="https://lh3.googleusercontent.com/q88_8sgVk6jAcWEWT1cg4EFiU9Hp74KPrV0eeeEi-yy9oPM275l4fYm3YJelIjUEVPfOIrLa_hp9SLZP8SgiQjvQZxn3tMmys7_awhoUoqKtsJuF4w=w-l80-sg-rj-c0xffffff" class="carousel-list-images" alt="Docs 的食譜範本"></picture>
+                      </div>
+                      <div class="carousel-item">
+                        <h3 class="glue-headline glue-headline--headline-6">
+                          報告
+                        </h3><picture class="carousel-list"><source srcset="https://lh3.googleusercontent.com/-gIESccuHMTxP8LeWF54VIfzK-nk4O5PvLu1V2tMqL8KxsK1Fxo4OMWxOjXA627w3blfOFTk41AcXuSe_do4Ob9KCUxdbJ3dCsFM_c98n10T70UjXgM=w0-l80-sg-rj-c0xffffff, https://lh3.googleusercontent.com/-gIESccuHMTxP8LeWF54VIfzK-nk4O5PvLu1V2tMqL8KxsK1Fxo4OMWxOjXA627w3blfOFTk41AcXuSe_do4Ob9KCUxdbJ3dCsFM_c98n10T70UjXgM=w0-l80-sg-rj-c0xffffff 2x"> <img src="https://lh3.googleusercontent.com/-gIESccuHMTxP8LeWF54VIfzK-nk4O5PvLu1V2tMqL8KxsK1Fxo4OMWxOjXA627w3blfOFTk41AcXuSe_do4Ob9KCUxdbJ3dCsFM_c98n10T70UjXgM=w-l80-sg-rj-c0xffffff" class="carousel-list-images" alt="Docs 的報告範本"></picture>
+                      </div>
+                    </div>
+                  </div>
+                </div><button class="glue-carousel__button glue-carousel__button--prev" aria-label="返回上一張投影片"><svg role="presentation" aria-hidden="true" class="glue-icon glue-icon--24px">
+                <use href="/docs/about/static/img/glue-icons.svg#chevron-left"></use></svg></button> <button class="glue-carousel__button glue-carousel__button--next" aria-label="前往下一張投影片"><svg role="presentation" aria-hidden="true" class="glue-icon glue-icon--24px">
+                <use href="/docs/about/static/img/glue-icons.svg#chevron-right"></use></svg></button>
+                <ul class="glue-carousel__navigation" aria-label="選擇要顯示的投影片"></ul>
+              </div>
+            </div>
+          </div>
+          <div class="glue-mod-spacer-5-top glue-mod-spacer-7-bottom glue-page">
+            <p class="carousel-link">
+              如要查看更多文件範本，請前往<a href="https://docs.google.com/document/u/0/?ftv=1&amp;tgif=c" rel="noopener noreferrer" target="_blank">文件範本庫</a>。
+            </p>
+          </div>
+          <hr aria-hidden="true">
+        </section>
+        <section class="docs-get-started-section centered-content glue-mod-text-center glue-mod-spacer-7-bottom glue-mod-spacer-7-top">
+          <div class="glue-page">
+            <h2 class="centered-content-heading glue-headline glue-headline--headline-3">
+              <span><span style="display: inline-block;" class="budou">準備</span><span style="display: inline-block;" class="budou">好</span><span style="display: inline-block;" class="budou">開始</span><span style="display: inline-block;" class="budou">使用</span><span style="display: inline-block;" class="budou">了</span><span style="display: inline-block;" class="budou">嗎？</span></span>
+            </h2>
+            <div class="centered-content-icon glue-mod-spacer-4-top">
+              <a href="https://workspace.google.com/intl/zh-TW/features/?utm_source=docsforwork&amp;utm_medium=et&amp;utm_content=trydocsforwork&amp;utm_campaign=footer" class="glue-button glue-button--high-emphasis centered-started" target="_blank" rel="noopener noreferrer" data-category="cta" data-action="try docs for work" data-label="get started">試用文件企業版</a> <a href="https://docs.google.com/document/u/0/?ec=asw-docs-footer-goto" class="glue-button glue-button--medium-emphasis centered-started" target="_blank" rel="noopener noreferrer" data-ios-href="https://docs.new" data-category="cta" data-action="go to docs" data-label="get-started">前往文件</a>
+            </div>
+          </div>
+          <div class="bg-image bg-img-started left-bottom"></div>
+        </section>
+      </div>
+    </main>
+    <footer class="glue-footer">
+      <h3 class="glue-mod-visually-hidden">
+        頁尾連結
+      </h3>
+      <section class="glue-footer__upper">
+        <section class="glue-social">
+          <div class="glue-social__group">
+            <h4 class="glue-social__title glue-social__title--inline glue-mod-font-weight-medium">
+              追蹤我們的&nbsp; <a href="https://cloud.google.com/blog/products/workspace" class="blog-link" target="_blank" rel="noopener noreferrer" title="網誌">網誌</a>
+            </h4>
+            <ul class="glue-social__list glue-no-bullet" role="list">
+              <li class="glue-social__item">
+                <a href="https://www.youtube.com/channel/UCBmwzQnSoj9b6HzNmFrg_yw" class="glue-social__link" target="_blank" rel="noopener noreferrer" title="透過 YouTube 追蹤我們的最新動態"><svg role="presentation" aria-hidden="true" class="glue-icon glue-icon--24px glue-icon--social">
+                <use href="/docs/about/static/img/glue-icons.svg#video-youtube"></use></svg></a>
+              </li>
+              <li class="glue-social__item">
+                <a href="https://twitter.com/googledocs" class="glue-social__link" target="_blank" rel="noopener noreferrer" title="透過 Twitter 追蹤我們的最新動態"><svg role="presentation" aria-hidden="true" class="glue-icon glue-icon--24px glue-icon--social">
+                <use href="/docs/about/static/img/glue-icons.svg#twitter"></use></svg></a>
+              </li>
+              <li class="glue-social__item">
+                <a href="https://www.facebook.com/GoogleDocs/" class="glue-social__link" target="_blank" rel="noopener noreferrer" title="透過 Facebook 追蹤我們的最新動態"><svg role="presentation" aria-hidden="true" class="glue-icon glue-icon--24px glue-icon--social">
+                <use href="/docs/about/static/img/glue-icons.svg#post-facebook"></use></svg></a>
+              </li>
+            </ul>
+          </div>
+        </section>
+      </section>
+      <section class="glue-footer__global">
+        <div class="glue-footer__logo">
+          <a href="../../index.html" class="footer-logo" target="_blank" rel="noopener noreferrer" title="Google"><svg role="presentation" aria-hidden="true" class="glue-icon glue-icon--24px glue-footer__logo-img">
+          <use href="/docs/about/static/img/glue-icons.svg#google-solid-logo"></use></svg></a>
+        </div>
+        <ul class="glue-footer__global-links glue-no-bullet" role="list">
+          <li class="glue-footer__global-links-list-item">
+            <a href="https://about.google/" class="glue-footer__link" target="_blank" rel="noopener noreferrer" title="關於 Google">關於 Google</a>
+          </li>
+          <li class="glue-footer__global-links-list-item">
+            <a href="https://about.google/products/" class="glue-footer__link" target="_blank" rel="noopener noreferrer" title="Google 產品">Google 產品</a>
+          </li>
+          <li class="glue-footer__global-links-list-item">
+            <a href="https://policies.google.com/privacy?hl=zh-TW" class="glue-footer__link" target="_blank" rel="noopener noreferrer" title="隱私權">隱私權</a>
+          </li>
+          <li class="glue-footer__global-links-list-item">
+            <a href="https://policies.google.com/terms?hl=zh-TW" class="glue-footer__link" target="_blank" rel="noopener noreferrer" title="條款">條款</a>
+          </li>
+        </ul>
+        <ul class="glue-footer__global-links glue-footer__global-links--extra glue-no-bullet" role="list">
+          <li class="glue-footer__global-links-list-item glue-footer__global-links-list-item--extra">
+            <a href="https://support.google.com/?hl=zh-TW" class="glue-footer__link" target="_blank" rel="noopener noreferrer"><svg role="presentation" aria-hidden="true" class="glue-icon glue-icon--24px glue-icon--footer-help">
+            <use href="/docs/about/static/img/glue-icons.svg#help"></use></svg> 說明</a>
+          </li>
+          <li class="glue-footer__global-links-list-item glue-footer__global-links-list-item--extra">
+            <select aria-label="變更語言或地區" name="lang-selector" id="lang-selector" class="glue-form__dropdown glue-footer__lang-dropdown" onchange="window.location.href=this.value">
+              <option value="/intl/af/docs/about/">
+                Afrikaans
+              </option>
+              <option value="/intl/en/docs/about/">
+                English
+              </option>
+              <option value="/intl/am/docs/about/">
+                አማርኛ
+              </option>
+              <option value="/intl/ar/docs/about/">
+                العربية
+              </option>
+              <option value="/intl/az/docs/about/">
+                azərbaycan
+              </option>
+              <option value="/intl/bg/docs/about/">
+                български
+              </option>
+              <option value="/intl/bn/docs/about/">
+                বাংলা
+              </option>
+              <option value="/intl/ca/docs/about/">
+                català
+              </option>
+              <option value="/intl/cs/docs/about/">
+                čeština
+              </option>
+              <option value="/intl/da/docs/about/">
+                dansk
+              </option>
+              <option value="/intl/de/docs/about/">
+                Deutsch
+              </option>
+              <option value="/intl/el/docs/about/">
+                Ελληνικά
+              </option>
+              <option value="/intl/en-GB/docs/about/">
+                English (United Kingdom)
+              </option>
+              <option value="/intl/es-419/docs/about/">
+                español (Latinoamérica)
+              </option>
+              <option value="/intl/es/docs/about/">
+                español
+              </option>
+              <option value="/intl/et/docs/about/">
+                eesti
+              </option>
+              <option value="/intl/eu/docs/about/">
+                euskara
+              </option>
+              <option value="/intl/fa/docs/about/">
+                فارسی
+              </option>
+              <option value="/intl/fi/docs/about/">
+                suomi
+              </option>
+              <option value="/intl/fil/docs/about/">
+                Filipino
+              </option>
+              <option value="/intl/fr-CA/docs/about/">
+                français (Canada)
+              </option>
+              <option value="/intl/fr/docs/about/">
+                français
+              </option>
+              <option value="/intl/gl/docs/about/">
+                galego
+              </option>
+              <option value="/intl/gu/docs/about/">
+                ગુજરાતી
+              </option>
+              <option value="/intl/hi/docs/about/">
+                हिन्दी
+              </option>
+              <option value="/intl/hr/docs/about/">
+                hrvatski
+              </option>
+              <option value="/intl/hu/docs/about/">
+                magyar
+              </option>
+              <option value="/intl/hy/docs/about/">
+                հայերեն
+              </option>
+              <option value="/intl/id/docs/about/">
+                Indonesia
+              </option>
+              <option value="/intl/is/docs/about/">
+                íslenska
+              </option>
+              <option value="/intl/it/docs/about/">
+                italiano
+              </option>
+              <option value="/intl/iw/docs/about/">
+                עברית (ישראל)
+              </option>
+              <option value="/intl/ja/docs/about/">
+                日本語
+              </option>
+              <option value="/intl/ka/docs/about/">
+                ქართული
+              </option>
+              <option value="/intl/km/docs/about/">
+                ខ្មែរ
+              </option>
+              <option value="/intl/kn/docs/about/">
+                ಕನ್ನಡ
+              </option>
+              <option value="/intl/ko/docs/about/">
+                한국어
+              </option>
+              <option value="/intl/lo/docs/about/">
+                ລາວ
+              </option>
+              <option value="/intl/lt/docs/about/">
+                lietuvių
+              </option>
+              <option value="/intl/lv/docs/about/">
+                latviešu
+              </option>
+              <option value="/intl/ml/docs/about/">
+                മലയാളം
+              </option>
+              <option value="/intl/mn/docs/about/">
+                монгол
+              </option>
+              <option value="/intl/mr/docs/about/">
+                मराठी
+              </option>
+              <option value="/intl/ms/docs/about/">
+                Melayu
+              </option>
+              <option value="/intl/ne/docs/about/">
+                नेपाली
+              </option>
+              <option value="/intl/nl/docs/about/">
+                Nederlands
+              </option>
+              <option value="/intl/no/docs/about/">
+                norsk bokmål (Norge)
+              </option>
+              <option value="/intl/pl/docs/about/">
+                polski
+              </option>
+              <option value="/intl/pt-BR/docs/about/">
+                português (Brasil)
+              </option>
+              <option value="/intl/pt-PT/docs/about/">
+                português (Portugal)
+              </option>
+              <option value="/intl/ro/docs/about/">
+                română
+              </option>
+              <option value="/intl/ru/docs/about/">
+                русский
+              </option>
+              <option value="/intl/si/docs/about/">
+                සිංහල
+              </option>
+              <option value="/intl/sk/docs/about/">
+                slovenčina
+              </option>
+              <option value="/intl/sl/docs/about/">
+                slovenščina
+              </option>
+              <option value="/intl/sr/docs/about/">
+                српски
+              </option>
+              <option value="/intl/sv/docs/about/">
+                svenska
+              </option>
+              <option value="/intl/sw/docs/about/">
+                Kiswahili
+              </option>
+              <option value="/intl/ta/docs/about/">
+                தமிழ்
+              </option>
+              <option value="/intl/te/docs/about/">
+                తెలుగు
+              </option>
+              <option value="/intl/th/docs/about/">
+                ไทย
+              </option>
+              <option value="/intl/tr/docs/about/">
+                Türkçe
+              </option>
+              <option value="/intl/uk/docs/about/">
+                українська
+              </option>
+              <option value="/intl/ur/docs/about/">
+                اردو
+              </option>
+              <option value="/intl/vi/docs/about/">
+                Tiếng Việt
+              </option>
+              <option value="/intl/zh-CN/docs/about/">
+                中文 (简体)
+              </option>
+              <option value="/intl/zh-HK/docs/about/">
+                中文
+              </option>
+              <option value="/intl/zh-TW/docs/about/" selected>
+                中文 (繁體)
+              </option>
+              <option value="/intl/zu/docs/about/">
+                isiZulu
+              </option>
+            </select>
+          </li>
+        </ul>
+      </section>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/hammerjs/2.0.8/hammer.min.js" nonce="VqSPNNQRwUIWGLfDKRuAUQ"></script> 
+    <script src="static/js/index.min.js" nonce="VqSPNNQRwUIWGLfDKRuAUQ"></script> 
+    <script src="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.js" data-glue-cookie-notification-bar-category="2B" data-glue-cookie-notification-bar-language="zh-TW" data-glue-cookie-notification-bar-site-id="google.com/docs/about" nonce="VqSPNNQRwUIWGLfDKRuAUQ"></script>
+  </body>
+</html>

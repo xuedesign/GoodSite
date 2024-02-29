@@ -1,0 +1,195 @@
+// 基本設定
+$total-columns  : 4;
+$column-width   : 72px;
+$gutter-width   : 24px;
+$grid-padding   : 0;
+
+// add media
+$pad-columns  : 8;
+$pad-break    : 480px;
+$pad: $pad-break $pad-columns;
+
+$desktop-columns  : 12;
+$desktop-break    : 800px;
+$desktop: $desktop-break $desktop-columns;
+
+// debug
+// @import "layout-debug";
+
+
+html, body {
+  background: $background-black;
+  height: 100%;
+  @include at-breakpoint($desktop) {
+    height: auto;
+  }
+}
+
+#{$page-container} {
+  $container-style: fluid;
+  @include container();
+}
+
+.page {
+  height: 100%;
+  position: relative;
+  @include at-breakpoint($desktop) {
+    height: auto;
+    margin: 0;
+    max-width: 1440px;
+  }
+}
+
+$off-canvas-menu-width: 100%;
+$off-canvas-main-bg-color: white;
+.menu {
+  position: absolute;
+  top: 0px;
+  left: -$off-canvas-menu-width;
+  z-index: 200;
+  height: 100%;
+  width: 100%;
+}
+
+.menu-inner {
+  height: 100%;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.main {
+  @include padding-leader(1);
+  position: relative;
+  z-index: 100;
+  &:after,
+  &:before {
+    content: "";
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    z-index: 200;
+    pointer-events: none;
+  }
+  &:before {
+    bottom: auto;
+    @include background(
+      linear-gradient( to bottom, rgba($background-black,.75), rgba($background-black,.25), rgba($background-black,0) )
+      );
+  }
+  // &:after {
+  //   top: auto;
+  //   @include background(
+  //     linear-gradient( to top, rgba($background-black,.5), rgba($background-black,.25), rgba($background-black,.02), rgba($background-black,0) )
+  //     );
+  // }
+}
+.main-inner {
+  position: relative;
+  z-index: 110;
+  padding: 0 $gutter-width 5em;
+  height: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  width: 80%;
+}
+
+
+// 打開外側選單時的狀態
+.open-menu {
+
+  .page {
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .menu {
+    left: 0;
+  }
+  .menu-inner {
+
+  }
+
+  .main {
+    display: none;
+  }
+
+}
+
+
+@include at-breakpoint($pad) {
+  .menu {
+
+  }
+  .main {
+
+  }
+
+  .open-menu {
+    .menu {
+
+    }
+    .main {
+    }
+  }
+
+
+}
+
+@include at-breakpoint($desktop) {
+  $off-canvas-menu-width: 3;
+  .toggle-menu-btn, .back {
+    display: none;
+  }
+  .menu {
+    position: fixed;
+    left: 0;
+    right: auto;
+    @include span-columns($off-canvas-menu-width);
+    max-width: 267px;
+    @media (max-height: 620px) {
+      position: relative;
+    }
+  }
+  .menu-inner {
+    height: auto;
+    overflow: visible;
+  }
+  .main {
+    @include padding-leader(1);
+    display: block;
+    @include span-columns( ( $total_columns - $off-canvas-menu-width ) omega, $total_columns);
+  }
+  .open-menu {
+    .page {
+      overflow: visible;
+    }
+    .menu {
+    }
+    .menu-inner {
+      overflow: visible;
+    }
+    .main {
+      display: block;
+    }
+  }
+
+}
+
+
+.main-foot {
+  @include padding-leader(3);
+  text-align: center;
+  .logo-4amtw {
+    @include inline-block;
+    @include trailer(.5);
+    position: relative;
+    left: -13px;
+  }
+  p {
+    @include adjust-font-size-to(13px);
+    @extend %din;
+  }
+}

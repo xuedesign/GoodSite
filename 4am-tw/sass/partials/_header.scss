@@ -1,0 +1,176 @@
+.header {
+  background: #111;
+  position: relative;
+  @include pie-clearfix;
+  height: 88.5%;
+  min-height: 400px;
+  @include padding-leader(.5);
+  @include at-breakpoint($pad) {
+    height: 93.5%;
+  }
+  @include at-breakpoint($desktop) {
+    background: transparent;
+    position: static;
+    min-height: 0;
+  }
+  .logo {
+    // normal style
+    @include reset-box-model;
+    @include adjust-font-size-to(28px);
+    @extend %futura;
+    em { font-style: normal; display: block; }
+    a { color: $color-gray; display: block; }
+    // style
+    @include trailer(.5);
+    width: 80%;
+    margin-left: 6px;
+    @include at-breakpoint($desktop) {
+      width: 125%;
+    }
+  }
+  img {
+    cursor: pointer;
+    display: block;
+    @include reset-box-model;
+    width: columns(1.7);
+    position: absolute;
+    bottom: 15%;
+    right: 0;
+    opacity: .75;
+    // @include trailer(1);
+    @include at-breakpoint($pad) {
+      width: columns(2);
+    }
+    @include at-breakpoint($desktop) {
+      cursor: default;
+      position: static;
+      width: columns(1.2, 3);
+      @include leader(2.5);
+      // @include trailer(.5);
+    }
+  }
+  a.story {
+    @include adjust-font-size-to(16px);
+    position: absolute;
+    bottom: 15%;
+    right: columns(1.2, 3);
+    color: $color-gray;
+    padding-right: .5em;
+    &:after {
+      content: " →";
+    }
+    @include at-breakpoint($pad) {
+      right: columns(2, 8);
+    }
+    @include at-breakpoint($desktop) {
+      display: none;
+    }
+  }
+  .slogan {
+    position: absolute;
+    bottom: 0;
+    z-index: 1000;
+    // clear float first
+    clear: both;
+    // normal style
+    @include adjust-font-size-to(13px);
+    @extend %futura;
+    color: $color-gray;
+    width: 85%;
+    @include at-breakpoint($pad) {
+      width: 400px;
+    }
+    @include at-breakpoint($desktop) {
+      opacity: .7;
+      width: 320px;
+      left: -.5em;
+      @media (max-height: 620px) {
+        bottom: -3em;
+      }
+    }
+  }
+}
+
+.menu-list {
+  @include reset-box-model;
+  @include reset-list-style;
+  background: $background-gray;
+  li {
+    border-top: 1px solid #ccc;
+  }
+  a {
+    @include clearfix;
+    @include unstyled-link;
+    @include adjust-font-size-to(18px);
+    display: block;
+    color: #444;
+    padding: .5em 15px;
+
+    &:after {
+      @include adjust-font-size-to(20px, 1);
+      content: " ›";
+      color: #999;
+      color: rgba(black,.3);
+      float: right;
+      text-decoration: none;
+    }
+  }
+  @include at-breakpoint($desktop) {
+    @include trailer(2);
+    background: transparent;
+    li { border: none }
+    a {
+      position: relative;
+      @include adjust-font-size-to(16px);
+      color: $color-gray;
+      @include transition(background-color 1s);
+      @include ellipsis;
+      padding: .4em 1.2em .4em 15px;
+    }
+    a:after {
+      position: absolute;
+      top: -4px;
+      right: 0;
+      color: $color-gray;
+      padding: .4em .5em .4em 2px;
+      text-decoration: none;
+    }
+    a:hover, a.active {
+      text-decoration: none;
+      background: rgba($background-gray,.3);
+      &:after { text-decoration: none; }
+    }
+  }
+  .social {
+    @include clearfix;
+    background: $background-gray;
+    @include reset-box-model;
+    @include reset-list-style;
+    h2 {
+      @include reset-box-model;
+      padding: 0 15px;
+      background: rgba($background-black, .2);
+      font-weight: normal;
+      @include adjust-font-size-to(12px);
+    }
+    li {
+      width: 50%;
+      float: left;
+    }
+    a:after {
+      float: none;
+      top: 0;
+    }
+    @include at-breakpoint($desktop) {
+      @include leader(.5);
+      background: transparent;
+      a { padding-right: 0; }
+      a:after {
+        padding: 0;
+        float: none;
+        position: static;
+      }
+    }
+  }
+}
+

@@ -1,0 +1,19 @@
+doctype 5
+html lang="en"
+  head
+    = render "/layout_head"
+    = render "/layout_og"
+  body.off-canvas
+    .page
+      .menu
+        .menu-inner#scrollable
+          = render "/partials/header"
+      .main
+        .main-inner
+          a.back href="/" ← Home
+          = yield
+          = render "/main-foot"
+
+
+    = render "/layout_foot"
+    = render "/layout_livereload"
