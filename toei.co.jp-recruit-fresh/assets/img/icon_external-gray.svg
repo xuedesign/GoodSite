@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25">
+<defs><style>.svg--fill{fill: #D2D2D2;}</style></defs>
+<rect width="25" height="25" style="fill: none"/>
+<g class="svg--fill">
+  <polygon points="14.69 2.75 14.69 4.75 18.84 4.75 11.79 11.79 13.21 13.21 20.25 6.16 20.25 10.31 22.25 10.31 22.25 2.75 14.69 2.75"/>
+  <polygon points="17.33 18.79 6.21 18.79 6.21 7.67 11.04 7.67 11.04 5.67 4.21 5.67 4.21 20.79 19.33 20.79 19.33 13.96 17.33 13.96 17.33 18.79"/>
+</g>
+</svg>

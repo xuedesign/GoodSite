@@ -1,0 +1,1149 @@
+<!DOCTYPE html>
+
+<html lang="zh-Hant-TW"><head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# website: http://ogp.me/ns/website#">
+
+    <meta charset="UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no"><script id="lang-redirect-v8">
+(() => {
+
+    const COOKIE_NAME = 'langPref';
+    const COOKIE_DAYS = 14;
+
+    // --- Cookie Helpers ---
+    function setCookie(name, value, days) {
+        const date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        const expires = "expires=" + date.toUTCString();
+        const secure = window.location.protocol === 'https:' ? ';Secure;SameSite=Lax' : '';
+        document.cookie = name + "=" + value + ";" + expires + ";path=/" + secure;
+    }
+
+    function getCookie(name) {
+        const cname = name + "=";
+        const decodedCookie = decodeURIComponent(document.cookie);
+        const ca = decodedCookie.split(';');
+        for (let i = 0; i < ca.length; i++) {
+            let c = ca[i].trim();
+            if (c.indexOf(cname) === 0) {
+                return c.substring(cname.length, c.length);
+            }
+        }
+        return "";
+    }
+
+    // --- Language Detection ---
+    function getBrowserLanguage() {
+        const lang = navigator.language || navigator.userLanguage;
+        return lang === 'zh-TW' || lang === 'zh-Hant-TW' ? 'zh-Hant-TW' : 'en-US';
+    }
+
+    function getCurrentLangFromUrl() {
+        const path = window.location.pathname;
+        return path.includes('/en/') ? 'en-US' : 'zh-Hant-TW';
+    }
+
+    // --- Environment-based redirect setup ---
+
+    let redirectToLang;
+
+        redirectToLang = function (lang) {
+            const currentPath = window.location.pathname;
+            let newPath;
+
+            if (lang === 'en-US' && !currentPath.includes('/en/')) {
+                newPath = currentPath === '/' ? '/en/' : '/en' + currentPath;
+            } else if (lang === 'zh-Hant-TW' && currentPath.includes('/en/')) {
+                newPath = currentPath.replace('/en', '');
+                if (newPath === '') newPath = '/';
+            } else {
+                return;
+            }
+
+            if (window.location.pathname !== newPath) {
+                window.location.assign(window.location.origin + newPath);
+            }
+        };
+
+
+    // --- Auto redirect logic ---
+    (function () {
+        const cookieLang = getCookie(COOKIE_NAME);
+        const browserLang = getBrowserLanguage();
+        const currentLang = getCurrentLangFromUrl();
+
+        if (cookieLang) {
+            if (cookieLang !== currentLang) {
+                redirectToLang(cookieLang);
+            }
+        } else {
+            if (browserLang !== currentLang) {
+                setCookie(COOKIE_NAME, browserLang, COOKIE_DAYS);
+                // 延遲以確保 iOS 15–17 可讀取 cookie
+                setTimeout(() => redirectToLang(browserLang), 100);
+            }
+        }
+    })();
+
+    // --- DOM-based language switch UI ---
+    document.addEventListener('DOMContentLoaded', function () {
+
+        const languageLinks = document.querySelectorAll('.lang-option');
+
+        if (!languageLinks.length) return;
+
+        const currentLang = getCurrentLangFromUrl();
+        languageLinks.forEach(link => {
+            if (link.getAttribute('data-lang') === currentLang) {
+                link.classList.add('current-option');
+            } else {
+                link.classList.remove('current-option');
+            }
+        });
+
+        languageLinks.forEach(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+                const selectedLang = this.getAttribute('data-lang');
+                setCookie(COOKIE_NAME, selectedLang, COOKIE_DAYS);
+                redirectToLang(selectedLang);
+            });
+        });
+    });
+
+})();
+</script><link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://res.cloudinary.com">
+
+    <!-- reduce google fonts cls payload -->
+    <link rel="preload" as="font" type="font/woff2" href="https://fonts.gstatic.com/s/onest/v9/gNMKW3F-SZuj7xmf-HYoEoey.woff2">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400..700&amp;display=fallback" media="print" onload="media='all'">
+
+
+        <title>製造設備 - 川正製造所</title>
+
+        <link rel="stylesheet" href="../assets/styles/cnc-main.css">
+        <link rel="stylesheet" href="../assets/styles/cnc-deferred.css" media="print" onload="media='all'"><meta name="description" content="最大行程 X 1,400 / Y 750 / Z 700 mm，公差±5 µm；近年積極建置設備，榮獲ISO 9001/14001驗證，低碳足跡、高準度、高效率台北CNC加工，對應金屬、非金屬等多樣化材料，適合眾多應用領域">
+
+<meta property="og:locale" content="zh_TW"><meta property="og:type" content="article">
+        <meta property="og:title" content="製造設備 - 川正製造所">
+        <meta property="article:publisher" content="https://www.facebook.com/profile.php?id=100066731870710"><meta property="og:description" content="最大行程 X 1,400 / Y 750 / Z 700 mm，公差±5 µm；近年積極建置設備，榮獲ISO 9001/14001驗證，低碳足跡、高準度、高效率台北CNC加工，對應金屬、非金屬等多樣化材料，適合眾多應用領域">
+        <meta property="og:url" content="https://kawamasa.com.tw/manufacturing-equipment/"><meta property="og:site_name" content="Kawamasa CNC Precision">
+        <meta property="og:image:width" content="2400">
+        <meta property="og:image:height" content="1260"><meta property="og:image" content="https://kawamasa.com.tw/assets/fbog/kwms-fbog-manufacturing-equipment.png"><script type="application/ld+json" id="local-biz-zhtw">
+    {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "川正製造所 Kawamasa CNC Precision",
+    "legalName": "川正有限公司 Kawamasa CNC Precision Co., Ltd.",
+    "telephone": "+886222028808",
+    "faxNumber": "+886222028836",
+    "email": "kawamasa.hello@gmail.com",
+    "contactPoint": [
+        {
+        "@type": "ContactPoint",
+        "contactType": "customer service",
+        "telephone": "+886222028808"
+        }
+    ],
+    "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "民安東路 166 號",
+        "addressLocality": "新莊區",
+        "addressRegion": "新北市",
+        "postalCode": "242",
+        "addressCountry": "TW"
+    },
+    "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 25.020413421855594,
+        "longitude": 121.43229703481227
+    },
+    "openingHoursSpecification": [
+        {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday"
+        ],
+        "opens": "09:00",
+        "closes": "18:00"
+        }
+    ]
+    }
+    </script><style>:root {
+  
+            
+                
+                
+                
+                    --color-prim: rgb(116, 81, 0);
+                
+            
+                
+                
+                
+                    --color-prim-tl: rgba(106, 81, 0, 0.5);
+                
+            
+                
+                
+                
+                    --color-snd: rgba(219, 255, 249, 0.8);
+                
+            
+                
+                
+                
+                    --color-tert: rgba(255, 252, 245, 0.75);
+                
+            
+            
+        }
+
+    </style>
+
+
+
+
+
+    <link rel="icon" href="../favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../touch-icon-192x192.png"><link rel="alternate" hreflang="zh-TW" href="index.html" />
+        <link rel="alternate" hreflang="en-US" href="../en/manufacturing-equipment/index.html" />
+        <link rel="alternate" hreflang="x-default" href="../en/manufacturing-equipment/index.html" /></head><body id="uni" class="page-body wb wa page-manufacturing-equipment has-lightbox has-scrollout has-scrollout-fade lang-zh-hant-tw wb"><picture class="fullscreen-bg-pic wb wa">
+
+  <source media="(max-width: 500px)" srcset="
+
+      https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_1400/kawamasa/bg/sketch-equip-mobile 1400w,
+      https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_1284/kawamasa/bg/sketch-equip-mobile 1284w,
+      https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_1080/kawamasa/bg/sketch-equip-mobile 1080w,
+      https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_900/kawamasa/bg/sketch-equip-mobile 900w,
+      https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_640/kawamasa/bg/sketch-equip-mobile 640w
+  
+  " width="1400" height="1371">
+
+  <source media="(min-width: 501px)" srcset="
+  
+      https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_2400/kawamasa/bg/sketch-equip-dktp 2400w,
+      https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_1600/kawamasa/bg/sketch-equip-dktp 1600w
+  
+  " width="2400" height="1371">
+
+
+  <img
+    class="fullscreen-bg-img"
+    alt="Kawamasa CNC Precision Co., Ltd."
+    loading="eager"
+    decoding="sync"
+    fetchpriority="high"
+    src="https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_2400/kawamasa/bg/sketch-equip-dktp"
+    width="2400"
+    height="1371"
+    sizes="100%"
+    >
+
+</picture>
+
+
+
+<div class="aux-outer" aria-hidden="true">
+
+      <div class="aux-inner">
+
+            <div class="aux aux-1"></div>
+            <div class="aux aux-2"></div>
+            <div class="aux aux-3"></div>
+            <div class="aux aux-4"></div>
+      
+      </div>
+
+</div>
+            
+<div class="site-header">
+
+      <a class="back-home" href="../index.html" aria-label="返回首頁 Back to Homepage"><svg class="svg-logo svg-logo-filled" viewBox="0 0 140 24" width="158" height="27"><use xlink:href="#logo"></use></svg></a>
+      
+      <nav id="site-megamenu" class="vanilla-megamenu v-mm">
+
+            <ul class="mm-prim"><li class="mm-prim-li mm-prim-item ">
+                                    <a href="../index.html">
+                                    首頁
+                                    </a>
+                              </li><li class="mm-prim-li mm-prim-item  mm-prim-current ">
+                                    <a href="index.html">
+                                    製造設備
+                                    </a>
+                              </li><li class="mm-prim-li mm-prim-item ">
+                                    <a href="../quality-control/index.html">
+                                    品質檢測
+                                    </a>
+                              </li><li class="mm-prim-li mm-prim-item ">
+                                    <a href="../product-showcase/index.html">
+                                    產品展示
+                                    </a>
+                              </li><li class="mm-prim-li mm-prim-item ">
+                                    <a href="../production-workflow/index.html">
+                                    工作流程
+                                    </a>
+                              </li><li class="mm-prim-li mm-prim-item ">
+                                    <a href="../faq/index.html">
+                                    常見問答
+                                    </a>
+                              </li><li class="mm-prim-li mm-prim-item ">
+                                    <a href="../contact-us/index.html">
+                                    聯絡我們
+                                    </a>
+                              </li></ul>
+            
+
+            <input type="checkbox" id="mm-trigger-lang" class="mm-trigger mm-trigger-lang"><label for="mm-trigger-lang" class="mm-label" role="button" aria-label="語言選單 Language Selector"><svg class="svg-icon svg-icon-globe" width="22" height="22" viewBox="0 0 24 24"><use xlink:href="#globe"></use></svg><span class="lang-label-span">Languages</span>&nbsp;<span class="lang-arrow" aria-hidden="true"></span></label>
+  
+            <div class="mm-snd mm-snd-lang mm-lang-list">
+
+                  <ul class="mm-snd-list"><li class="mm-snd-item"><a class="mm-snd-link lang-option wb wa v2 current-option" href="#current_lang" data-lang="zh-Hant-TW"><span>中文 台灣</span></a></li>
+                        
+                        <li class="mm-snd-item"><a class="mm-snd-link lang-option v2 wb wa" href="../en/manufacturing-equipment/index.html" data-lang="en-US"><span>English - US</span></a></li><li class="cookie-notes lh-reduced"><p>您的語言偏好，預設留存 14 天</p><p>By default, your language preference will be remembered for 14 days.</p>
+
+                  </li>
+            
+                  </ul>
+
+            </div>
+
+
+            <input type="checkbox" id="mm-trigger-mobile" class="mm-trigger mm-trigger-mobile"><label for="mm-trigger-mobile" class="mm-label" role="button" aria-label="行動版選單"><span class="mobile-label-span">&nbsp;</span></label>
+  
+            <div class="mm-snd mm-snd-mobile">
+
+                  <p class="ribbon-outer wb"><span class="ribbon-text">Kawamasa</span></p>
+
+                  <ul class="mm-snd-list mm-menu-mobile"><li class="mm-mobile-li mm-mobile-item wb wa " style="--delay: 0.07s; --delay-slow: 0.3s"><a class="mm-link" href="../index.html">
+                                          
+                                          <span class="mm-icon-wrapper wb"><svg class="mm-icon" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"><use xlink:href="#mm-home"></use></svg></span>
+                                          <span class="mm-title">首頁</span>
+
+                                    </a>
+
+                              </li><li class="mm-mobile-li mm-mobile-item wb wa  mm-mobile-current " style="--delay: 0.14s; --delay-slow: 0.4s"><a class="mm-link" href="index.html">
+                                          
+                                          <span class="mm-icon-wrapper wb"><svg class="mm-icon" xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"><use xlink:href="#mm-equip"></use></svg></span>
+                                          <span class="mm-title">製造設備</span>
+
+                                    </a>
+
+                              </li><li class="mm-mobile-li mm-mobile-item wb wa " style="--delay: 0.21s; --delay-slow: 0.5s"><a class="mm-link" href="../quality-control/index.html">
+                                          
+                                          <span class="mm-icon-wrapper wb"><svg class="mm-icon" xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"><use xlink:href="#mm-tick"></use></svg></span>
+                                          <span class="mm-title">品質檢測</span>
+
+                                    </a>
+
+                              </li><li class="mm-mobile-li mm-mobile-item wb wa " style="--delay: 0.28s; --delay-slow: 0.6s"><a class="mm-link" href="../product-showcase/index.html">
+                                          
+                                          <span class="mm-icon-wrapper wb"><svg class="mm-icon" xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"><use xlink:href="#mm-showcase"></use></svg></span>
+                                          <span class="mm-title">產品展示</span>
+
+                                    </a>
+
+                              </li><li class="mm-mobile-li mm-mobile-item wb wa " style="--delay: 0.35s; --delay-slow: 0.7s"><a class="mm-link" href="../production-workflow/index.html">
+                                          
+                                          <span class="mm-icon-wrapper wb"><svg class="mm-icon" xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"><use xlink:href="#mm-workflow"></use></svg></span>
+                                          <span class="mm-title">工作流程</span>
+
+                                    </a>
+
+                              </li><li class="mm-mobile-li mm-mobile-item wb wa " style="--delay: 0.42s; --delay-slow: 0.8s"><a class="mm-link" href="../faq/index.html">
+                                          
+                                          <span class="mm-icon-wrapper wb"><svg class="mm-icon" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"><use xlink:href="#mm-faq"></use></svg></span>
+                                          <span class="mm-title">常見問答</span>
+
+                                    </a>
+
+                              </li><li class="mm-mobile-li mm-mobile-item wb wa " style="--delay: 0.49s; --delay-slow: 0.9s"><a class="mm-link" href="../contact-us/index.html">
+                                          
+                                          <span class="mm-icon-wrapper wb"><svg class="mm-icon" xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"><use xlink:href="#mm-contact"></use></svg></span>
+                                          <span class="mm-title">聯絡我們</span>
+
+                                    </a>
+
+                              </li><span class="main-menu-deco bg-stripes wb" aria-hidden="true"></span>
+
+                  </ul>
+
+                  
+
+            </div>
+
+
+      </nav>
+
+</div><main id="site-main" class="site-main l-col-triple">
+
+                  
+                  <div class="primary wb wa">
+
+                        <header class="page-header z-upper">
+
+      <p class="title-1st title-uppercase has-blink-cursor hello-world wow"><span>Accurate Machining, Delivered Fast<span class="blink-cursor" aria-hidden="true"></span></span><span>Kawamasa <span class="trail-1">CNC </span><span class="trail-2">Precision</span><span class="trail-3"> Co., Ltd.</span></span></p>
+
+      <h1 class="hero-title hero-title-snd title-lv3"><span>製造設備。</span><span>川正製造所。</span></h1>
+      <p class="hero-title hero-title-prim title-lv1 wow"><!--
+    --><span><span class="anim-span" data-letters="Manu&shy;facturing" style="--delay: 0.25s">Manu&shy;facturing</span><span class="nbsp">&nbsp;</span></span><!--
+    --><span><span class="anim-span" data-letters="Equipment" style="--delay: 0.35s">Equipment</span></p>
+
+    <div id="capabilities" class="deco-diamond">
+
+        <div class="header-deco img-clip clip-diamond wow">
+
+          <picture class="clip-inner-pic" style="--delay: 0.2s">
+
+              <img class="clip-inner-img" width="545" height="800" alt="廠內 CNC 機台 Maxmill HQM-1260" loading="eager" decoding="async" srcset="
+              
+                https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_500/kawamasa/equipment/equip-maxmill-1260-cnc 500w,
+                https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_420/kawamasa/equipment/equip-maxmill-1260-cnc 420w,
+                https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_300/kawamasa/equipment/equip-maxmill-1260-cnc 300w,
+
+              " sizes="(max-width: 490px) 163px, 205px">
+        
+          </picture>
+        
+        </div>
+
+        <div class="header-deco svg-text-wrapper quick-specs wb wa wow">
+
+          <h2 class="title-lv6 quick-specs-title wow wb wa" style="--delay: 0.2s"><span style="--delay: 0.3s">最大行程&nbsp;</span><span class="qs-title-en" style="--delay: 0.35s">Max. Travels</span></h2><svg clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 166 94" xmlns="http://www.w3.org/2000/svg" aria-label="最大行程 X 1,400 mm / Y 750 mm / Z 700 mm" class="svg-text svg-text-filled svg-text-max-axes"><g fill-rule="nonzero"><path d="m.656-0v-.012c-.07-.008-.082-.024-.126-.095-.055-.086-.107-.177-.166-.273.05-.074.091-.134.122-.175.047-.06.062-.072.133-.081v-.012h-.23v.012c.081.015.088.024.061.072-.026.047-.057.102-.099.163-.045-.076-.079-.131-.106-.182-.016-.029-.014-.041.047-.053v-.012h-.268v.012c.065.007.077.019.115.081.049.08.094.157.144.244-.071.108-.115.172-.163.236-.031.042-.061.057-.114.063v.012h.231v-.012c-.078-.015-.09-.024-.064-.073.032-.06.07-.123.124-.205.068.119.104.18.122.212.021.039.018.051-.05.066v.012z" transform="matrix(32.00000564796 0 0 32.00000564796 -.12798897392 21.21600728647)"/><path d="m.382-0v-.012c-.082-.007-.087-.021-.087-.099v-.524c-.068.023-.135.041-.194.052v.009l.033.003c.052.005.056.012.056.065v.395c0 .077-.006.092-.088.099v.012z" transform="matrix(32.00000564796 0 0 32.00000564796 26.27201550144 21.21600728647)"/><path d="m.091-.127c-.023 0-.046.017-.046.042 0 .014.007.023.01.024.039.007.061.031.061.064 0 .039-.024.068-.073.091l.008.012c.061-.017.127-.059.127-.13 0-.064-.05-.103-.087-.103z" transform="matrix(32.00000564796 0 0 32.00000564796 41.34401938721 21.21600728647)"/><path d="m.453-.18v-.04h-.088v-.411h-.042c-.097.127-.203.276-.307.427v.024h.246v.075c0 .068-.006.084-.087.093v.012h.267v-.012c-.071-.007-.077-.023-.077-.088v-.08zm-.191-.04h-.193c.07-.117.134-.211.191-.291h.002z" transform="matrix(32.00000564796 0 0 32.00000564796 48.48001914113 21.21600728647)"/><path d="m.371-.663c-.218 0-.335.175-.335.345 0 .187.135.333.324.333.183 0 .331-.138.331-.347 0-.194-.146-.331-.32-.331zm-.02.023c.13 0 .215.125.215.336 0 .193-.081.296-.187.296-.135 0-.218-.145-.218-.335 0-.188.087-.297.19-.297z" transform="matrix(32.00000564796 0 0 32.00000564796 63.5520230269 21.21600728647)"/><path d="m.371-.663c-.218 0-.335.175-.335.345 0 .187.135.333.324.333.183 0 .331-.138.331-.347 0-.194-.146-.331-.32-.331zm-.02.023c.13 0 .215.125.215.336 0 .193-.081.296-.187.296-.135 0-.218-.145-.218-.335 0-.188.087-.297.19-.297z" transform="matrix(32.00000564796 0 0 32.00000564796 87.23202735376 21.21600728647)"/><path d="m.768-0v-.012c-.053-.009-.056-.008-.056-.078v-.199c0-.098-.044-.153-.121-.153-.029 0-.05.011-.075.027-.024.016-.05.033-.075.051-.018-.048-.059-.078-.108-.078-.027 0-.051.011-.086.033-.022.014-.039.027-.058.04v-.076c-.051.018-.11.031-.149.039v.01c.044.011.049.016.049.085v.215c0 .073-.008.078-.066.084v.012h.216v-.012c-.041-.006-.05-.012-.05-.078v-.258c.026-.021.055-.036.083-.036.051 0 .078.03.078.104v.19c0 .067-.005.072-.056.078v.012h.212v-.012c-.047-.006-.055-.011-.055-.078v-.21c0-.02-.002-.033-.004-.046.034-.026.061-.037.086-.037.049 0 .079.031.079.109v.175c0 .076-.006.081-.058.087v.012z" transform="matrix(32.00000564796 0 0 32.00000564796 116.16003092693 21.21600728647)"/><path d="m.768-0v-.012c-.053-.009-.056-.008-.056-.078v-.199c0-.098-.044-.153-.121-.153-.029 0-.05.011-.075.027-.024.016-.05.033-.075.051-.018-.048-.059-.078-.108-.078-.027 0-.051.011-.086.033-.022.014-.039.027-.058.04v-.076c-.051.018-.11.031-.149.039v.01c.044.011.049.016.049.085v.215c0 .073-.008.078-.066.084v.012h.216v-.012c-.041-.006-.05-.012-.05-.078v-.258c.026-.021.055-.036.083-.036.051 0 .078.03.078.104v.19c0 .067-.005.072-.056.078v.012h.212v-.012c-.047-.006-.055-.011-.055-.078v-.21c0-.02-.002-.033-.004-.046.034-.026.061-.037.086-.037.049 0 .079.031.079.109v.175c0 .076-.006.081-.058.087v.012z" transform="matrix(32.00000564796 0 0 32.00000564796 141.31203594095 21.21600728647)"/><path d="m.602-.648h-.205v.012c.075.008.081.021.06.071-.027.067-.081.171-.116.24-.043-.083-.089-.169-.13-.252-.019-.037-.016-.049.05-.059v-.012h-.257v.012c.055.006.065.016.107.094.056.102.097.18.123.23.011.023.014.035.014.056v.126c0 .104-.009.111-.09.118v.012h.29v-.012c-.084-.007-.092-.014-.092-.118v-.142c0-.024.003-.037.015-.059.047-.097.078-.15.124-.223.037-.06.045-.074.107-.082z" transform="matrix(32.00000564796 0 0 32.00000564796 -.12798897392 57.21601517547)"/><path d="m.446-.623h-.383c-.005.043-.011.095-.021.153h.013c.029-.06.039-.066.104-.066h.231c-.086.178-.188.361-.301.538l.006.01.078-.011c.092-.203.186-.41.279-.614z" transform="matrix(32.00000564796 0 0 32.00000564796 24.60801621965 57.21601517547)"/><path d="m.129-.536h.252l.03-.079-.003-.008h-.298l-.039.308c.023-.01.061-.02.101-.02.097 0 .151.065.151.16 0 .083-.033.146-.108.146-.057 0-.098-.035-.122-.057-.011-.01-.019-.015-.028-.008-.012.009-.024.027-.024.041 0 .011.004.02.018.033.015.013.054.032.096.032.056-.001.121-.027.178-.072.064-.049.092-.105.092-.165 0-.082-.067-.163-.189-.163-.026 0-.083.016-.135.038z" transform="matrix(32.00000564796 0 0 32.00000564796 39.68001764935 57.21601517547)"/><path d="m.371-.663c-.218 0-.335.175-.335.345 0 .187.135.333.324.333.183 0 .331-.138.331-.347 0-.194-.146-.331-.32-.331zm-.02.023c.13 0 .215.125.215.336 0 .193-.081.296-.187.296-.135 0-.218-.145-.218-.335 0-.188.087-.297.19-.297z" transform="matrix(32.00000564796 0 0 32.00000564796 54.75202153512 57.21601517547)"/><path d="m.768-0v-.012c-.053-.009-.056-.008-.056-.078v-.199c0-.098-.044-.153-.121-.153-.029 0-.05.011-.075.027-.024.016-.05.033-.075.051-.018-.048-.059-.078-.108-.078-.027 0-.051.011-.086.033-.022.014-.039.027-.058.04v-.076c-.051.018-.11.031-.149.039v.01c.044.011.049.016.049.085v.215c0 .073-.008.078-.066.084v.012h.216v-.012c-.041-.006-.05-.012-.05-.078v-.258c.026-.021.055-.036.083-.036.051 0 .078.03.078.104v.19c0 .067-.005.072-.056.078v.012h.212v-.012c-.047-.006-.055-.011-.055-.078v-.21c0-.02-.002-.033-.004-.046.034-.026.061-.037.086-.037.049 0 .079.031.079.109v.175c0 .076-.006.081-.058.087v.012z" transform="matrix(32.00000564796 0 0 32.00000564796 83.68002510829 57.21601517547)"/><path d="m.768-0v-.012c-.053-.009-.056-.008-.056-.078v-.199c0-.098-.044-.153-.121-.153-.029 0-.05.011-.075.027-.024.016-.05.033-.075.051-.018-.048-.059-.078-.108-.078-.027 0-.051.011-.086.033-.022.014-.039.027-.058.04v-.076c-.051.018-.11.031-.149.039v.01c.044.011.049.016.049.085v.215c0 .073-.008.078-.066.084v.012h.216v-.012c-.041-.006-.05-.012-.05-.078v-.258c.026-.021.055-.036.083-.036.051 0 .078.03.078.104v.19c0 .067-.005.072-.056.078v.012h.212v-.012c-.047-.006-.055-.011-.055-.078v-.21c0-.02-.002-.033-.004-.046.034-.026.061-.037.086-.037.049 0 .079.031.079.109v.175c0 .076-.006.081-.058.087v.012z" transform="matrix(32.00000564796 0 0 32.00000564796 108.8320301223 57.21601517547)"/><path d="m.562-.171c-.018.052-.034.085-.055.109-.028.031-.089.039-.196.039-.069 0-.111-.002-.145-.006.131-.211.257-.408.388-.61l-.004-.009h-.403c-.033 0-.045-.002-.059-.025h-.011c-.002.047-.007.125-.011.177l.013.002c.012-.045.022-.07.033-.09.017-.031.035-.041.149-.041h.158c-.129.204-.262.414-.396.616l.006.009h.512c.011-.04.027-.131.034-.168z" transform="matrix(32.00000564796 0 0 32.00000564796 -.12798897392 93.2160206084)"/><path d="m.446-.623h-.383c-.005.043-.011.095-.021.153h.013c.029-.06.039-.066.104-.066h.231c-.086.178-.188.361-.301.538l.006.01.078-.011c.092-.203.186-.41.279-.614z" transform="matrix(32.00000564796 0 0 32.00000564796 24.22401657432 93.2160206084)"/><path d="m.371-.663c-.218 0-.335.175-.335.345 0 .187.135.333.324.333.183 0 .331-.138.331-.347 0-.194-.146-.331-.32-.331zm-.02.023c.13 0 .215.125.215.336 0 .193-.081.296-.187.296-.135 0-.218-.145-.218-.335 0-.188.087-.297.19-.297z" transform="matrix(32.00000564796 0 0 32.00000564796 39.29601800401 93.2160206084)"/><path d="m.371-.663c-.218 0-.335.175-.335.345 0 .187.135.333.324.333.183 0 .331-.138.331-.347 0-.194-.146-.331-.32-.331zm-.02.023c.13 0 .215.125.215.336 0 .193-.081.296-.187.296-.135 0-.218-.145-.218-.335 0-.188.087-.297.19-.297z" transform="matrix(32.00000564796 0 0 32.00000564796 62.97602233087 93.2160206084)"/><path d="m.768-0v-.012c-.053-.009-.056-.008-.056-.078v-.199c0-.098-.044-.153-.121-.153-.029 0-.05.011-.075.027-.024.016-.05.033-.075.051-.018-.048-.059-.078-.108-.078-.027 0-.051.011-.086.033-.022.014-.039.027-.058.04v-.076c-.051.018-.11.031-.149.039v.01c.044.011.049.016.049.085v.215c0 .073-.008.078-.066.084v.012h.216v-.012c-.041-.006-.05-.012-.05-.078v-.258c.026-.021.055-.036.083-.036.051 0 .078.03.078.104v.19c0 .067-.005.072-.056.078v.012h.212v-.012c-.047-.006-.055-.011-.055-.078v-.21c0-.02-.002-.033-.004-.046.034-.026.061-.037.086-.037.049 0 .079.031.079.109v.175c0 .076-.006.081-.058.087v.012z" transform="matrix(32.00000564796 0 0 32.00000564796 91.90402836011 93.2160206084)"/><path d="m.768-0v-.012c-.053-.009-.056-.008-.056-.078v-.199c0-.098-.044-.153-.121-.153-.029 0-.05.011-.075.027-.024.016-.05.033-.075.051-.018-.048-.059-.078-.108-.078-.027 0-.051.011-.086.033-.022.014-.039.027-.058.04v-.076c-.051.018-.11.031-.149.039v.01c.044.011.049.016.049.085v.215c0 .073-.008.078-.066.084v.012h.216v-.012c-.041-.006-.05-.012-.05-.078v-.258c.026-.021.055-.036.083-.036.051 0 .078.03.078.104v.19c0 .067-.005.072-.056.078v.012h.212v-.012c-.047-.006-.055-.011-.055-.078v-.21c0-.02-.002-.033-.004-.046.034-.026.061-.037.086-.037.049 0 .079.031.079.109v.175c0 .076-.006.081-.058.087v.012z" transform="matrix(32.00000564796 0 0 32.00000564796 117.05603091806 93.2160206084)"/></g></svg><h2 class="title-lv6 quick-specs-title wow wb wa" style="--delay: 0.35s"><span style="--delay: 0.35s">加工公差&nbsp;</span><span class="qs-title-en" style="--delay: 0.4s">Tolerance</span></h2><svg clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 77 29" width="93" height="35" xmlns="http://www.w3.org/2000/svg" aria-label="加工公差可達 ± 5 µm" class="svg-text svg-text-filled svg-text-tolerance">
+<g fill-rule="nonzero"><path d="m.473-.283v-.043h-.19v-.175h-.051v.175h-.19v.043h.19v.187h.051v-.187zm0 .283v-.043h-.431v.043z" transform="matrix(32 0 0 32 -1.344 19.936)"/><path d="m.129-.536h.252l.03-.079-.003-.008h-.298l-.039.308c.023-.01.061-.02.101-.02.097 0 .151.065.151.16 0 .083-.033.146-.108.146-.057 0-.098-.035-.122-.057-.011-.01-.019-.015-.028-.008-.012.009-.024.027-.024.041 0 .011.004.02.018.033.015.013.054.032.096.032.056-.001.121-.027.178-.072.064-.049.092-.105.092-.165 0-.082-.067-.163-.189-.163-.026 0-.083.016-.135.038z" transform="matrix(32 0 0 32 15.104 19.936)"/><path d="m.488-.048c-.009.004-.022.008-.032.008-.019-.001-.039-.017-.039-.072v-.332l-.099.02v.335c-.02.022-.047.041-.076.041-.034 0-.077-.027-.077-.119v-.165c0-.045 0-.091-.002-.112l-.102.02c.002.022.003.056.003.103v.291c0 .149-.003.242 0 .261.021.019.06.034.079.036l.005-.008c-.012-.037-.033-.194-.033-.274v-.013h.002c.015.023.042.04.082.04s.083-.035.119-.076h.002c.007.051.038.076.078.076.043 0 .082-.026.096-.049z" transform="matrix(32 0 0 32 35.84 19.936)"/><path d="m.768-0v-.012c-.053-.009-.056-.008-.056-.078v-.199c0-.098-.044-.153-.121-.153-.029 0-.05.011-.075.027-.024.016-.05.033-.075.051-.018-.048-.059-.078-.108-.078-.027 0-.051.011-.086.033-.022.014-.039.027-.058.04v-.076c-.051.018-.11.031-.149.039v.01c.044.011.049.016.049.085v.215c0 .073-.008.078-.066.084v.012h.216v-.012c-.041-.006-.05-.012-.05-.078v-.258c.026-.021.055-.036.083-.036.051 0 .078.03.078.104v.19c0 .067-.005.072-.056.078v.012h.212v-.012c-.047-.006-.055-.011-.055-.078v-.21c0-.02-.002-.033-.004-.046.034-.026.061-.037.086-.037.049 0 .079.031.079.109v.175c0 .076-.006.081-.058.087v.012z" transform="matrix(32 0 0 32 51.712 19.936)"/></g>
+</svg><span class="pseudo-bg" aria-hidden="true"></span></div>
+
+    </div>
+
+</header>
+
+<section class="sec-std machine-group" id="machines">
+
+  <h2 class="circular-title title-lv5 wow"><span class="wb wa" style="--delay: 0.1s">加</span><span class="wb wa" style="--delay: 0.15s">工</span><span class="wb wa" style="--delay: 0.2s">中</span><span class="wb wa" style="--delay: 0.25s">心</span><span class="wb wa" style="--delay: 0.3s">機</span></h2><article class="machine" data-scroll data-scroll-fade>
+    <div class="title-wrapper-w-svg">
+      <h3 class="machine-title title-grad title-lv3 lh-reduced">Maxmill HQM-1260</h3>
+    </div>
+
+    <div class="machine-spec wow machine-axes wb lh-reduced" style="--bar-width: calc( (1 - 0.6923076923076923) * 25.5rem + 0.6923076923076923 * (100% - 0.4125rem) ); --bar-width-mobile: calc( (1 - 0.6923076923076923) * 70dvw + 0.6923076923076923 * 80dvw ); --delay: 0.08s">
+      <p class="spec-title">行程</p>
+      <p class="x-axis"><span class="spec-type">X</span><span class="spec-value">1200</span><span class="spec-unit">mm</span></p>
+      <p class="y-axis"><span class="spec-type">Y</span><span class="spec-value">700</span><span class="spec-unit">mm</span></p>
+      <p class="z-axis"><span class="spec-type">Z</span><span class="spec-value">630</span><span class="spec-unit">mm</span></p>
+    </div>
+
+    
+    <div class="machine-spec machine-accuracy">
+      <p class="spec-title">定位精度</p>
+      <p class="accuracy-positioning"><span class="spec-type">P</span><span class="spec-value">0.01</span><span class="spec-unit">mm</span></p>
+      <p class="spec-title">重複精度</p>
+      <p class="accuracy-positioning"><span class="spec-type">Ps</span><span class="spec-value">0.006</span><span class="spec-unit">mm</span></p>
+    </div>
+    
+  </article><article class="machine" data-scroll data-scroll-fade>
+    <div class="title-wrapper-w-svg">
+      <h3 class="machine-title title-grad title-lv3 lh-reduced">Maxmill QMC-1050</h3>
+    </div>
+
+    <div class="machine-spec wow machine-axes wb lh-reduced" style="--bar-width: calc( (1 - 0.4615384615384615) * 25.5rem + 0.4615384615384615 * (100% - 0.4125rem) ); --bar-width-mobile: calc( (1 - 0.4615384615384615) * 70dvw + 0.4615384615384615 * 80dvw ); --delay: 0.15s">
+      <p class="spec-title">行程</p>
+      <p class="x-axis"><span class="spec-type">X</span><span class="spec-value">1050</span><span class="spec-unit">mm</span></p>
+      <p class="y-axis"><span class="spec-type">Y</span><span class="spec-value">550</span><span class="spec-unit">mm</span></p>
+      <p class="z-axis"><span class="spec-type">Z</span><span class="spec-value">560</span><span class="spec-unit">mm</span></p>
+    </div>
+
+    
+    <div class="machine-spec machine-accuracy">
+      <p class="spec-title">定位精度</p>
+      <p class="accuracy-positioning"><span class="spec-type">P</span><span class="spec-value">0.01</span><span class="spec-unit">mm</span></p>
+      <p class="spec-title">重複精度</p>
+      <p class="accuracy-positioning"><span class="spec-type">Ps</span><span class="spec-value">0.006</span><span class="spec-unit">mm</span></p>
+    </div>
+    
+  </article><article class="machine" data-scroll data-scroll-fade>
+    <div class="title-wrapper-w-svg">
+      <h3 class="machine-title title-grad title-lv3 lh-reduced">Wele VQ1470</h3>
+    </div>
+
+    <div class="machine-spec wow machine-axes wb lh-reduced" style="--bar-width: calc( 100% - 0.4125rem ); --bar-width-mobile: 80dvw; --delay: 0.23s">
+      <p class="spec-title">行程</p>
+      <p class="x-axis"><span class="spec-type">X</span><span class="spec-value">1400</span><span class="spec-unit">mm</span></p>
+      <p class="y-axis"><span class="spec-type">Y</span><span class="spec-value">750</span><span class="spec-unit">mm</span></p>
+      <p class="z-axis"><span class="spec-type">Z</span><span class="spec-value">700</span><span class="spec-unit">mm</span></p>
+    </div>
+
+    
+    <div class="machine-spec machine-accuracy">
+      <p class="spec-title">定位精度</p>
+      <p class="accuracy-positioning"><span class="spec-type">P</span><span class="spec-value">0.005</span><span class="spec-unit">mm</span></p>
+      <p class="spec-title">重複精度</p>
+      <p class="accuracy-positioning"><span class="spec-type">Ps</span><span class="spec-value">0.003</span><span class="spec-unit">mm</span></p>
+    </div>
+    
+  </article><article class="machine" data-scroll data-scroll-fade>
+    <div class="title-wrapper-w-svg">
+      <h3 class="machine-title title-grad title-lv3 lh-reduced">Shinzawa SV-1365S</h3>
+    </div>
+
+    <div class="machine-spec wow machine-axes wb lh-reduced" style="--bar-width: calc( (1 - 0.8461538461538461) * 25.5rem + 0.8461538461538461 * (100% - 0.4125rem) ); --bar-width-mobile: calc( (1 - 0.8461538461538461) * 70dvw + 0.8461538461538461 * 80dvw ); --delay: 0.3s">
+      <p class="spec-title">行程</p>
+      <p class="x-axis"><span class="spec-type">X</span><span class="spec-value">1300</span><span class="spec-unit">mm</span></p>
+      <p class="y-axis"><span class="spec-type">Y</span><span class="spec-value">650</span><span class="spec-unit">mm</span></p>
+      <p class="z-axis"><span class="spec-type">Z</span><span class="spec-value">600</span><span class="spec-unit">mm</span></p>
+    </div>
+
+    
+  </article><article class="machine" data-scroll data-scroll-fade>
+    <div class="title-wrapper-w-svg">
+      <h3 class="machine-title title-grad title-lv3 lh-reduced">Shinzawa SV-1165S</h3>
+    </div>
+
+    <div class="machine-spec wow machine-axes wb lh-reduced" style="--bar-width: calc( (1 - 0.5384615384615385) * 25.5rem + 0.5384615384615385 * (100% - 0.4125rem) ); --bar-width-mobile: calc( (1 - 0.5384615384615385) * 70dvw + 0.5384615384615385 * 80dvw ); --delay: 0.38s">
+      <p class="spec-title">行程</p>
+      <p class="x-axis"><span class="spec-type">X</span><span class="spec-value">1100</span><span class="spec-unit">mm</span></p>
+      <p class="y-axis"><span class="spec-type">Y</span><span class="spec-value">650</span><span class="spec-unit">mm</span></p>
+      <p class="z-axis"><span class="spec-type">Z</span><span class="spec-value">600</span><span class="spec-unit">mm</span></p>
+    </div>
+
+    
+  </article><article class="machine" data-scroll data-scroll-fade>
+    <div class="title-wrapper-w-svg">
+      <h3 class="machine-title title-grad title-lv3 lh-reduced">Campro CNV 850</h3>
+    </div>
+
+    <div class="machine-spec wow machine-axes wb lh-reduced" style="--bar-width: calc( (1 - 0.15384615384615385) * 25.5rem + 0.15384615384615385 * (100% - 0.4125rem) ); --bar-width-mobile: calc( (1 - 0.15384615384615385) * 70dvw + 0.15384615384615385 * 80dvw ); --delay: 0.45s">
+      <p class="spec-title">行程</p>
+      <p class="x-axis"><span class="spec-type">X</span><span class="spec-value">850</span><span class="spec-unit">mm</span></p>
+      <p class="y-axis"><span class="spec-type">Y</span><span class="spec-value">520</span><span class="spec-unit">mm</span></p>
+      <p class="z-axis"><span class="spec-type">Z</span><span class="spec-value">520</span><span class="spec-unit">mm</span></p>
+    </div>
+
+    
+    <div class="machine-spec machine-accuracy">
+      <p class="spec-title">定位精度</p>
+      <p class="accuracy-positioning"><span class="spec-type">P</span><span class="spec-value">0.005</span><span class="spec-unit">mm</span></p>
+      <p class="spec-title">重複精度</p>
+      <p class="accuracy-positioning"><span class="spec-type">Ps</span><span class="spec-value">0.002</span><span class="spec-unit">mm</span></p>
+    </div>
+    
+  </article><article class="machine" data-scroll data-scroll-fade>
+    <div class="title-wrapper-w-svg">
+      <h3 class="machine-title title-grad title-lv3 lh-reduced">Shinzawa SV-76S</h3>
+    </div>
+
+    <div class="machine-spec wow machine-axes wb lh-reduced" style="--bar-width: calc( (1 - 0.015384615384615384) * 25.5rem + 0.015384615384615384 * (100% - 0.4125rem) ); --bar-width-mobile: calc( (1 - 0.015384615384615384) * 70dvw + 0.015384615384615384 * 80dvw ); --delay: 0.53s">
+      <p class="spec-title">行程</p>
+      <p class="x-axis"><span class="spec-type">X</span><span class="spec-value">760</span><span class="spec-unit">mm</span></p>
+      <p class="y-axis"><span class="spec-type">Y</span><span class="spec-value">430</span><span class="spec-unit">mm</span></p>
+      <p class="z-axis"><span class="spec-type">Z</span><span class="spec-value">450</span><span class="spec-unit">mm</span></p>
+    </div>
+
+    
+  </article><article class="machine" data-scroll data-scroll-fade>
+    <div class="title-wrapper-w-svg">
+      <h3 class="machine-title title-grad title-lv3 lh-reduced">Campro CNV 750</h3>
+    </div>
+
+    <div class="machine-spec wow machine-axes wb lh-reduced" style="--bar-width: 25.5rem; --bar-width-mobile: 70dvw; --delay: 0.6s">
+      <p class="spec-title">行程</p>
+      <p class="x-axis"><span class="spec-type">X</span><span class="spec-value">750</span><span class="spec-unit">mm</span></p>
+      <p class="y-axis"><span class="spec-type">Y</span><span class="spec-value">430</span><span class="spec-unit">mm</span></p>
+      <p class="z-axis"><span class="spec-type">Z</span><span class="spec-value">480</span><span class="spec-unit">mm</span></p>
+    </div>
+
+    
+    <div class="machine-spec machine-accuracy">
+      <p class="spec-title">定位精度</p>
+      <p class="accuracy-positioning"><span class="spec-type">P</span><span class="spec-value">0.005</span><span class="spec-unit">mm</span></p>
+      <p class="spec-title">重複精度</p>
+      <p class="accuracy-positioning"><span class="spec-type">Ps</span><span class="spec-value">0.002</span><span class="spec-unit">mm</span></p>
+    </div>
+    
+  </article><article class="machine" data-scroll data-scroll-fade>
+    <div class="title-wrapper-w-svg">
+      <h3 class="machine-title title-grad title-lv3 lh-reduced">Campro CPV 750</h3>
+    </div>
+
+    <div class="machine-spec wow machine-axes wb lh-reduced" style="--bar-width: 25.5rem; --bar-width-mobile: 70dvw; --delay: 0.68s">
+      <p class="spec-title">行程</p>
+      <p class="x-axis"><span class="spec-type">X</span><span class="spec-value">750</span><span class="spec-unit">mm</span></p>
+      <p class="y-axis"><span class="spec-type">Y</span><span class="spec-value">430</span><span class="spec-unit">mm</span></p>
+      <p class="z-axis"><span class="spec-type">Z</span><span class="spec-value">480</span><span class="spec-unit">mm</span></p>
+    </div>
+
+    
+    <div class="machine-spec machine-accuracy">
+      <p class="spec-title">定位精度</p>
+      <p class="accuracy-positioning"><span class="spec-type">P</span><span class="spec-value">0.005</span><span class="spec-unit">mm</span></p>
+      <p class="spec-title">重複精度</p>
+      <p class="accuracy-positioning"><span class="spec-type">Ps</span><span class="spec-value">0.002</span><span class="spec-unit">mm</span></p>
+    </div>
+    
+  </article>
+  <div class="deco-xoxo">
+
+      <div class="header-deco img-clip clip-cross">
+   
+        <picture class="clip-inner-pic wa wow" style="--delay: 0.45s">
+   
+          <img class="clip-inner-img lazyload" width="545" height="800" alt="廠內 CNC 機台 Shinzawa SV-1165S" loading="lazy" decoding="async" srcset="
+          
+          https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_360/kawamasa/equipment/equip-shinzawa-sv1165s 360w,
+          https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_240/kawamasa/equipment/equip-shinzawa-sv1165s 240w,
+          https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_180/kawamasa/equipment/equip-shinzawa-sv1165s 180w,
+          https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_144/kawamasa/equipment/equip-shinzawa-sv1165s 144w
+
+          " data-sizes="auto">
+   
+        </picture>
+   
+      </div>
+
+      <div class="header-deco img-pseudo-clip clip-circular-frame">
+   
+        <picture class="clip-inner-pic wa wow" style="--delay: 0.65s">
+   
+            <img class="clip-inner-img lazyload" width="545" height="800" alt="Metal Closeup" loading="lazy" decoding="async" srcset="
+
+            https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_375/kawamasa/equipment/equip-cnc-metal-closeup 375w,
+            https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_250/kawamasa/equipment/equip-cnc-metal-closeup 250w,
+            https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_200/kawamasa/equipment/equip-cnc-metal-closeup 200w,
+            https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_144/kawamasa/equipment/equip-cnc-metal-closeup 144w
+            
+            " data-sizes="auto">
+   
+        </picture>
+   
+      </div>
+ 
+      <div class="header-deco img-clip clip-cross">
+   
+        <picture class="clip-inner-pic wa wow" style="--delay: 0.85s">
+   
+            <img class="clip-inner-img lazyload" width="545" height="800" alt="Milling Closeup" loading="lazy" decoding="async" srcset="
+
+            https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_360/kawamasa/equipment/equip-milling-closeup 360w,
+            https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_240/kawamasa/equipment/equip-milling-closeup 240w,
+            https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_180/kawamasa/equipment/equip-milling-closeup 180w,
+            https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_144/kawamasa/equipment/equip-milling-closeup 144w
+            
+            " data-sizes="auto">
+   
+        </picture>
+   
+      </div>
+
+      <div class="header-deco img-pseudo-clip clip-circular-frame">
+   
+        <picture class="clip-inner-pic wa wow" style="--delay: 1.05s">
+   
+            <img class="clip-inner-img lazyload" width="545" height="800" alt="工廠現場" loading="lazy" decoding="async" srcset="
+
+            https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_375/kawamasa/equipment/equip-the-site 375w,
+            https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_250/kawamasa/equipment/equip-the-site 250w,
+            https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_200/kawamasa/equipment/equip-the-site 200w,
+            https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_144/kawamasa/equipment/equip-the-site 144w       
+            
+            " data-sizes="auto">
+   
+        </picture>
+   
+      </div>
+ 
+    </div><article class="machine" data-scroll data-scroll-fade>
+    <div class="title-wrapper-w-svg">
+      <h3 class="machine-title title-grad title-lv3 lh-reduced">Maxmill HQM-1260</h3>
+    </div>
+
+    <div class="machine-spec wow machine-axes wb lh-reduced" style="--bar-width: calc( (1 - 0.6923076923076923) * 25.5rem + 0.6923076923076923 * (100% - 0.4125rem) ); --bar-width-mobile: calc( (1 - 0.6923076923076923) * 70dvw + 0.6923076923076923 * 80dvw ); --delay: 0.08s">
+      <p class="spec-title">行程</p>
+      <p class="x-axis"><span class="spec-type">X</span><span class="spec-value">1200</span><span class="spec-unit">mm</span></p>
+      <p class="y-axis"><span class="spec-type">Y</span><span class="spec-value">700</span><span class="spec-unit">mm</span></p>
+      <p class="z-axis"><span class="spec-type">Z</span><span class="spec-value">630</span><span class="spec-unit">mm</span></p>
+    </div>
+
+    
+    <div class="machine-spec machine-accuracy">
+      <p class="spec-title">定位精度</p>
+      <p class="accuracy-positioning"><span class="spec-type">P</span><span class="spec-value">0.01</span><span class="spec-unit">mm</span></p>
+      <p class="spec-title">重複精度</p>
+      <p class="accuracy-positioning"><span class="spec-type">Ps</span><span class="spec-value">0.006</span><span class="spec-unit">mm</span></p>
+    </div>
+    
+  </article><article class="machine" data-scroll data-scroll-fade>
+    <div class="title-wrapper-w-svg">
+      <h3 class="machine-title title-grad title-lv3 lh-reduced">Maxmill QMC-1050</h3>
+    </div>
+
+    <div class="machine-spec wow machine-axes wb lh-reduced" style="--bar-width: calc( (1 - 0.4615384615384615) * 25.5rem + 0.4615384615384615 * (100% - 0.4125rem) ); --bar-width-mobile: calc( (1 - 0.4615384615384615) * 70dvw + 0.4615384615384615 * 80dvw ); --delay: 0.15s">
+      <p class="spec-title">行程</p>
+      <p class="x-axis"><span class="spec-type">X</span><span class="spec-value">1050</span><span class="spec-unit">mm</span></p>
+      <p class="y-axis"><span class="spec-type">Y</span><span class="spec-value">550</span><span class="spec-unit">mm</span></p>
+      <p class="z-axis"><span class="spec-type">Z</span><span class="spec-value">560</span><span class="spec-unit">mm</span></p>
+    </div>
+
+    
+    <div class="machine-spec machine-accuracy">
+      <p class="spec-title">定位精度</p>
+      <p class="accuracy-positioning"><span class="spec-type">P</span><span class="spec-value">0.01</span><span class="spec-unit">mm</span></p>
+      <p class="spec-title">重複精度</p>
+      <p class="accuracy-positioning"><span class="spec-type">Ps</span><span class="spec-value">0.006</span><span class="spec-unit">mm</span></p>
+    </div>
+    
+  </article><article class="machine" data-scroll data-scroll-fade>
+    <div class="title-wrapper-w-svg">
+      <h3 class="machine-title title-grad title-lv3 lh-reduced">Wele VQ1470</h3>
+    </div>
+
+    <div class="machine-spec wow machine-axes wb lh-reduced" style="--bar-width: calc( 100% - 0.4125rem ); --bar-width-mobile: 80dvw; --delay: 0.23s">
+      <p class="spec-title">行程</p>
+      <p class="x-axis"><span class="spec-type">X</span><span class="spec-value">1400</span><span class="spec-unit">mm</span></p>
+      <p class="y-axis"><span class="spec-type">Y</span><span class="spec-value">750</span><span class="spec-unit">mm</span></p>
+      <p class="z-axis"><span class="spec-type">Z</span><span class="spec-value">700</span><span class="spec-unit">mm</span></p>
+    </div>
+
+    
+    <div class="machine-spec machine-accuracy">
+      <p class="spec-title">定位精度</p>
+      <p class="accuracy-positioning"><span class="spec-type">P</span><span class="spec-value">0.005</span><span class="spec-unit">mm</span></p>
+      <p class="spec-title">重複精度</p>
+      <p class="accuracy-positioning"><span class="spec-type">Ps</span><span class="spec-value">0.003</span><span class="spec-unit">mm</span></p>
+    </div>
+    
+  </article><article class="machine" data-scroll data-scroll-fade>
+    <div class="title-wrapper-w-svg">
+      <h3 class="machine-title title-grad title-lv3 lh-reduced">Shinzawa SV-1365S</h3>
+    </div>
+
+    <div class="machine-spec wow machine-axes wb lh-reduced" style="--bar-width: calc( (1 - 0.8461538461538461) * 25.5rem + 0.8461538461538461 * (100% - 0.4125rem) ); --bar-width-mobile: calc( (1 - 0.8461538461538461) * 70dvw + 0.8461538461538461 * 80dvw ); --delay: 0.3s">
+      <p class="spec-title">行程</p>
+      <p class="x-axis"><span class="spec-type">X</span><span class="spec-value">1300</span><span class="spec-unit">mm</span></p>
+      <p class="y-axis"><span class="spec-type">Y</span><span class="spec-value">650</span><span class="spec-unit">mm</span></p>
+      <p class="z-axis"><span class="spec-type">Z</span><span class="spec-value">600</span><span class="spec-unit">mm</span></p>
+    </div>
+
+    
+  </article><article class="machine" data-scroll data-scroll-fade>
+    <div class="title-wrapper-w-svg">
+      <h3 class="machine-title title-grad title-lv3 lh-reduced">Shinzawa SV-1165S</h3>
+    </div>
+
+    <div class="machine-spec wow machine-axes wb lh-reduced" style="--bar-width: calc( (1 - 0.5384615384615385) * 25.5rem + 0.5384615384615385 * (100% - 0.4125rem) ); --bar-width-mobile: calc( (1 - 0.5384615384615385) * 70dvw + 0.5384615384615385 * 80dvw ); --delay: 0.38s">
+      <p class="spec-title">行程</p>
+      <p class="x-axis"><span class="spec-type">X</span><span class="spec-value">1100</span><span class="spec-unit">mm</span></p>
+      <p class="y-axis"><span class="spec-type">Y</span><span class="spec-value">650</span><span class="spec-unit">mm</span></p>
+      <p class="z-axis"><span class="spec-type">Z</span><span class="spec-value">600</span><span class="spec-unit">mm</span></p>
+    </div>
+
+    
+  </article><article class="machine" data-scroll data-scroll-fade>
+    <div class="title-wrapper-w-svg">
+      <h3 class="machine-title title-grad title-lv3 lh-reduced">Campro CNV 850</h3>
+    </div>
+
+    <div class="machine-spec wow machine-axes wb lh-reduced" style="--bar-width: calc( (1 - 0.15384615384615385) * 25.5rem + 0.15384615384615385 * (100% - 0.4125rem) ); --bar-width-mobile: calc( (1 - 0.15384615384615385) * 70dvw + 0.15384615384615385 * 80dvw ); --delay: 0.45s">
+      <p class="spec-title">行程</p>
+      <p class="x-axis"><span class="spec-type">X</span><span class="spec-value">850</span><span class="spec-unit">mm</span></p>
+      <p class="y-axis"><span class="spec-type">Y</span><span class="spec-value">520</span><span class="spec-unit">mm</span></p>
+      <p class="z-axis"><span class="spec-type">Z</span><span class="spec-value">520</span><span class="spec-unit">mm</span></p>
+    </div>
+
+    
+    <div class="machine-spec machine-accuracy">
+      <p class="spec-title">定位精度</p>
+      <p class="accuracy-positioning"><span class="spec-type">P</span><span class="spec-value">0.005</span><span class="spec-unit">mm</span></p>
+      <p class="spec-title">重複精度</p>
+      <p class="accuracy-positioning"><span class="spec-type">Ps</span><span class="spec-value">0.002</span><span class="spec-unit">mm</span></p>
+    </div>
+    
+  </article><article class="machine" data-scroll data-scroll-fade>
+    <div class="title-wrapper-w-svg">
+      <h3 class="machine-title title-grad title-lv3 lh-reduced">Shinzawa SV-76S</h3>
+    </div>
+
+    <div class="machine-spec wow machine-axes wb lh-reduced" style="--bar-width: calc( (1 - 0.015384615384615384) * 25.5rem + 0.015384615384615384 * (100% - 0.4125rem) ); --bar-width-mobile: calc( (1 - 0.015384615384615384) * 70dvw + 0.015384615384615384 * 80dvw ); --delay: 0.53s">
+      <p class="spec-title">行程</p>
+      <p class="x-axis"><span class="spec-type">X</span><span class="spec-value">760</span><span class="spec-unit">mm</span></p>
+      <p class="y-axis"><span class="spec-type">Y</span><span class="spec-value">430</span><span class="spec-unit">mm</span></p>
+      <p class="z-axis"><span class="spec-type">Z</span><span class="spec-value">450</span><span class="spec-unit">mm</span></p>
+    </div>
+
+    
+  </article><article class="machine" data-scroll data-scroll-fade>
+    <div class="title-wrapper-w-svg">
+      <h3 class="machine-title title-grad title-lv3 lh-reduced">Campro CNV 750</h3>
+    </div>
+
+    <div class="machine-spec wow machine-axes wb lh-reduced" style="--bar-width: 25.5rem; --bar-width-mobile: 70dvw; --delay: 0.6s">
+      <p class="spec-title">行程</p>
+      <p class="x-axis"><span class="spec-type">X</span><span class="spec-value">750</span><span class="spec-unit">mm</span></p>
+      <p class="y-axis"><span class="spec-type">Y</span><span class="spec-value">430</span><span class="spec-unit">mm</span></p>
+      <p class="z-axis"><span class="spec-type">Z</span><span class="spec-value">480</span><span class="spec-unit">mm</span></p>
+    </div>
+
+    
+    <div class="machine-spec machine-accuracy">
+      <p class="spec-title">定位精度</p>
+      <p class="accuracy-positioning"><span class="spec-type">P</span><span class="spec-value">0.005</span><span class="spec-unit">mm</span></p>
+      <p class="spec-title">重複精度</p>
+      <p class="accuracy-positioning"><span class="spec-type">Ps</span><span class="spec-value">0.002</span><span class="spec-unit">mm</span></p>
+    </div>
+    
+  </article><article class="machine" data-scroll data-scroll-fade>
+    <div class="title-wrapper-w-svg">
+      <h3 class="machine-title title-grad title-lv3 lh-reduced">Campro CPV 750</h3>
+    </div>
+
+    <div class="machine-spec wow machine-axes wb lh-reduced" style="--bar-width: 25.5rem; --bar-width-mobile: 70dvw; --delay: 0.68s">
+      <p class="spec-title">行程</p>
+      <p class="x-axis"><span class="spec-type">X</span><span class="spec-value">750</span><span class="spec-unit">mm</span></p>
+      <p class="y-axis"><span class="spec-type">Y</span><span class="spec-value">430</span><span class="spec-unit">mm</span></p>
+      <p class="z-axis"><span class="spec-type">Z</span><span class="spec-value">480</span><span class="spec-unit">mm</span></p>
+    </div>
+
+    
+    <div class="machine-spec machine-accuracy">
+      <p class="spec-title">定位精度</p>
+      <p class="accuracy-positioning"><span class="spec-type">P</span><span class="spec-value">0.005</span><span class="spec-unit">mm</span></p>
+      <p class="spec-title">重複精度</p>
+      <p class="accuracy-positioning"><span class="spec-type">Ps</span><span class="spec-value">0.002</span><span class="spec-unit">mm</span></p>
+    </div>
+    
+  </article>
+</section>
+
+<span class="endmark-medium-fat bg-halftone wb" aria-hidden="true"></span>
+
+
+                  </div><aside class="site-sidebar sidebar-first">
+
+      <div class="sidebar-cont grid-sidebar-fix">
+
+            <ul class="toc accor-group"><li class="accor-set accor-set_toc">
+                  <input name="sidebar-accor_toc" id="sidebar-accor_toc" class="accor-control" type="checkbox" autocomplete="off">
+
+                        <label for="sidebar-accor_toc" class="accor-label title-uppercase ">頁面導覽<span class="accor-icon"></span></label>
+            
+                        <div class="accor-cont">
+            
+                              <div class="accor-cont-inner">
+
+                                    <ul class="accor-list">
+                                          
+                                          
+                                          <li class="wb wa wow" style="--delay: 0.1s">
+                                                <a class="toc-link" href="#capabilities">加工範圍</a>
+                                          </li>
+                                          
+                                          
+                                          <li class="wb wa wow" style="--delay: 0.2s">
+                                                <a class="toc-link" href="#machines">機台介紹</a>
+                                          </li>
+                                          
+                                          
+                                    </ul>
+            
+                              </div>
+                              
+                        </div>
+
+                  </li><li class="accor-set accor-set_toc">
+            
+                        <input name="sidebar-accor_line-at" id="sidebar-accor_line-at" class="accor-control" type="checkbox" autocomplete="off">
+                        <label for="sidebar-accor_line-at" class="accor-label title-uppercase">業務諮詢<span class="accor-icon"></span></label>
+            
+                        <div class="accor-cont">
+            
+                              <div class="accor-cont-inner"><h2 class="title-lv6 sidebar-corp-name">川正製造所</h2>
+
+                                    <ul class="sidebar-contact">
+
+                                          <li><span class="contact-item-title">電話</span><a href="tel:+886222028808">(02) 2202-8808<span class=" contact-item-cont"></span></a></li>
+
+                                          <li><span class="contact-item-title">傳真</span><span class=" contact-item-cont">(02) 2202-8836</span></li>
+
+                                          <li class="qrtty sidebar"></li>
+
+                                    </ul><div class="qqqsss-at-wrapper">
+                                          <h2 class="title-lv6 qrcode-action"><span class="wb wow">寄送 Email</span></h2>
+                                          <svg id="qqqsss-svg" viewBox="0 0 128 128" width="128" height="128"><use xlink:href="#qqqsss"></use></svg>
+                                    </div>
+
+                              </div>
+
+                        </div>
+
+                  </li>
+
+                  
+            </ul>
+
+      </div>
+
+</aside></main><footer class="site-footer z-upper">
+
+      <div class="footer-lang-switcher">
+
+            <div class="lang-switcher-svgs wow">
+
+                  <svg class="svg-icon svg-icon-circle" width="100" height="100" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" stroke-width="1" fill="none"></circle></svg>
+                  <svg class="svg-icon svg-icon-multi-lang" viewBox="0 0 512 512" width="38" height="38"><use xlink:href="#multi-lang"></use></svg>
+
+            </div>
+
+            <div class="lang-switcher-cont">
+                  
+                  <p>本頁面同時提供下列語言版本<br>This page is also available in the following language:</p>
+
+                  <ul class="lang-list-footer"><li class="lang-footer-item"><a class="lang-footer-link lang-option v2 wb wa" href="../en/manufacturing-equipment/index.html" data-lang="en-US"><span>English - US</span></a></li></ul>
+                        
+            </div>
+
+      </div><picture class="footer-deco-pic wa wb wow">
+    
+    <source media="(max-width: 500px)" srcset="
+
+        https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_1400/kawamasa/bg/sketch-equip-mobile 1400w,
+        https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_1284/kawamasa/bg/sketch-equip-mobile 1284w,
+        https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_1080/kawamasa/bg/sketch-equip-mobile 1080w,
+        https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_900/kawamasa/bg/sketch-equip-mobile 900w,
+        https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_640/kawamasa/bg/sketch-equip-mobile 640w
+
+    " width="1400" height="1371">
+
+    <source media="(min-width: 501px)" srcset="
+
+        https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_2400/kawamasa/bg/sketch-equip-dktp 2400w,
+        https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_1600/kawamasa/bg/sketch-equip-dktp 1600w
+
+    " width="2400" height="1371">
+
+    <img class="footer-deco-img lazyload" data-sizes="auto"
+         style="--footer-deco-opacity: 0.7; --footer-deco-position: 0"
+         loading="lazy" decoding="async"
+         width="2400" height="1371"
+         alt="CNC Illustration"
+         src="https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_2400/kawamasa/bg/sketch-equip-dktp">
+  </picture><h5 class="title-lv3 lh-reduced title-footer-contact wow"><span class="wb" style="--delay: 0.15s">川正有限公司</span><br><span class="wb" style="--delay: 0.45s">Kawamasa CNC Precision Co., Ltd.</span>
+      </h5>
+
+      <ul class="contact-sns">
+
+            <li class="contact-sns-item wow" style="--delay: 0.15s">
+                  <a class="contact-sns-link anchor-block no-hover-border wow" href="https://www.facebook.com/profile.php?id=100066731870710" target="_blank" rel="noreferrer noopener"><svg class="contact-svg icon-svg contact-svg-fb" viewBox="0 0 24 24" width="45" height="45"><use xlink:href="#fb"></use></svg></a>
+            </li>
+
+            <li class="contact-sns-item wow" style="--delay: 0.22s">
+                  <a class="contact-sns-link anchor-block no-hover-border" href="https://www.linkedin.com/in/%E8%A3%BD%E4%BD%9C-%E5%B7%9D%E6%AD%A3-387624168/" target="_blank" rel="noreferrer noopener"><svg class="contact-svg icon-svg contact-svg-linkedin" viewBox="0 0 24 24" width="45" height="45"><use xlink:href="#linkedin"></use></svg></a>
+            </li>
+
+            <li class="contact-sns-item wow" style="--delay: 0.29s">
+                  <a class="contact-sns-link anchor-block no-hover-border wow" href="https://line.me/ti/p/test" target="_blank" rel="noreferrer noopener"><svg class="contact-svg icon-svg contact-svg-line-app" viewBox="0 0 24 24" widht="47" height="47"><use xlink:href="#line-app"></use></svg></a>
+            </li>
+
+            <li class="contact-sns-item wow" style="--delay: 0.36s">
+                  <a class="contact-sns-link anchor-block no-hover-border wow" href="https://maps.app.goo.gl/teausi1oe2j8hDXLA" target="_blank" rel="noreferrer noopener"><svg class="contact-svg icon-svg contact-svg-gmaps" viewBox="0 0 216.975 216.975" width="33" width="33"><use xlink:href="#google-maps"></use></svg></a>
+            </li>
+
+      </ul><ul class="contact-list contact-list--footer">
+
+            <li class="biz-hours"><span class="contact-item-title contact-item-title--optional">時間&nbsp;</span><span class=" contact-item-cont">週一至週五 09:00 – 18:00 國定及例假日除外</span></li>
+            <li><span class="contact-item-title contact-item-title--optional">Email&nbsp;</span><span class="qrtty contact-item-cont"></span></li>
+            <li><span class="contact-item-title">電話&nbsp;</span><a href="tel:+886222028808">(02) 2202-8808<span class=" contact-item-cont"></span></a></li>
+
+
+            <li><span class="contact-item-title">傳真&nbsp;</span><span class=" contact-item-cont">(02) 2202-8836</span></li>
+
+            <li class="addr-long"><span class="contact-item-title contact-item-title--optional">地址&nbsp;</span><!-- 
+            --><span class=" contact-item-cont">242 新北市新莊區民安東路 166 號<br>No. 166, Min'an E. Rd., Xinzhuang Dist., 242 New Taipei City - Taiwan</span></li>
+
+      </ul>
+      
+      <p class="copyright">Copyright &copy; Kawamasa CNC Precision Co., Ltd. All rights reserved.</p><p class="back-to-page-top"><a href="#uni">回頁面頂端</a></p>
+
+</footer><div class="fcta-wrapper">
+
+      <ul class="fcta-list">
+
+            <li class="fcta-contact wb fcta-item" style="--t-delay: 0.1s">
+                  <a class="fcta-link modal-trigger z-upper" data-modal="contact" href="#footer-contact" role="button" aria-label="聯絡方式"><svg class="fcta-svg" viewBox="0 0 24 24" width="24" height="24"><use xlink:href="#phone"></use></svg></a>
+            </li>
+
+            <li class="fcta-share wb fcta-item" style="--t-delay: 0.2s" >
+                  <a class="fcta-link modal-trigger z-upper" data-modal="social-share" href="#share" role="button" aria-label="社群網站分享"><svg class="fcta-svg" viewBox="0 0 24 24" width="24" height="24"><use xlink:href="#share"></use></svg></a>
+            </li>
+
+            <li class="fcta-page-top wb fcta-item" style="--t-delay: 0.3s">
+                  <a class="fcta-link z-upper" href="#uni" role="button" aria-label="回頁面頂端"><svg class="fcta-svg" viewBox="0 0 24 24" width="24" height="24"><use xlink:href="#arrow-up"></use></svg></a>
+            </li>
+
+      </ul>
+
+</div><aside id="modal-contact" class="modal modal-contact modal-mini wb wa">
+
+      <div class="modal-close-wrapper close-wrapper wb"><button class="modal-close close wb" aria-label="關閉視窗"><span class="modal-close-title close-title wb">關閉視窗</span></button></div>
+
+      <span class="modal-deco-contact bg-stripes wb" aria-hidden="true"></span>
+
+      <div class="modal-inner wb wa">
+
+            <h2 class="modal-title-prim title-lv3">聯絡我們</h2>
+
+            <div class="modal-cont">
+
+                  <ul class="contact-sns">
+            
+                        <li class="contact-sns-item wow" style="--delay: 0.15s">
+                              <a class="contact-sns-link anchor-block no-hover-border wow" href="https://www.facebook.com/profile.php?id=100066731870710" target="_blank" rel="noreferrer noopener"><svg class="contact-svg icon-svg contact-svg-fb" viewBox="0 0 24 24" width="45" height="45"><use xlink:href="#fb"></use></svg></a>
+                        </li>
+
+                        <li class="contact-sns-item wow" style="--delay: 0.22s">
+                              <a class="contact-sns-link anchor-block no-hover-border" href="https://www.linkedin.com/in/%E8%A3%BD%E4%BD%9C-%E5%B7%9D%E6%AD%A3-387624168/" target="_blank" rel="noreferrer noopener"><svg class="contact-svg icon-svg contact-svg-linkedin" viewBox="0 0 24 24" width="45" height="45"><use xlink:href="#linkedin"></use></svg></a>
+                        </li>
+
+                        <li class="contact-sns-item wow" style="--delay: 0.29s">
+                              <a class="contact-sns-link anchor-block no-hover-border wow" href="https://line.me/ti/p/test" target="_blank" rel="noreferrer noopener"><svg class="contact-svg icon-svg contact-svg-line-app" viewBox="0 0 24 24" widht="47" height="47"><use xlink:href="#line-app"></use></svg></a>
+                        </li>
+
+                        <li class="contact-sns-item wow" style="--delay: 0.36s">
+                              <a class="contact-sns-link anchor-block no-hover-border wow" href="https://maps.app.goo.gl/teausi1oe2j8hDXLA" target="_blank" rel="noreferrer noopener"><svg class="contact-svg icon-svg contact-svg-gmaps" viewBox="0 0 216.975 216.975" width="33" width="33"><use xlink:href="#google-maps"></use></svg></a>
+                        </li>
+            
+                  </ul>
+
+                  <h5 class="title-lv6 lh-reduced title-modal-contact wow"><span class="wb" style="--delay: 0.15s">川正有限公司</span>&nbsp;<span class="wb" style="--delay: 0.45s">Kawamasa CNC Precision Co., Ltd.</span>
+                  </h5><ul class="contact-list contact-list--footer">
+
+                        <li class="biz-hours"><span class="contact-item-title contact-item-title--optional">時間&nbsp;</span><span class=" contact-item-cont">週一至週五 09:00 – 18:00 國定及例假日除外</span></li>
+
+                        <li><span class="contact-item-title contact-item-title--optional">Email&nbsp;</span><span class="qrtty contact-item-cont"></span></li>
+
+                        <li><span class="contact-item-title">電話&nbsp;</span><a href="tel:+886222028808">(02) 2202-8808<span class=" contact-item-cont"></span></a></li>
+
+                        <li><span class="contact-item-title">傳真&nbsp;</span><span class=" contact-item-cont">(02) 2202-8836</span></li>
+                        
+                        <li class="addr-long"><span class="contact-item-title contact-item-title--optional">地址&nbsp;</span><!-- 
+                        --><span class=" contact-item-cont">242 新北市新莊區民安東路 166 號<br>No. 166, Min'an E. Rd., Xinzhuang Dist., 242 New Taipei City - Taiwan</span></li>
+
+                  </ul>
+
+            </div>
+
+           
+
+
+      </div>
+      
+      
+
+</aside><aside id="modal-social-share" class="modal modal-social-share modal-mini wb wa">
+
+      <div class="modal-close-wrapper close-wrapper wb"><button class="modal-close close wb" aria-label="關閉視窗"><span class="modal-close-title close-title wb">關閉視窗</span></button></div>
+
+      <div class="modal-inner wb wa">
+
+
+            <h2 class="modal-title-prim title-lv3">社群分享</h2>
+
+            <div class="modal-cont">
+
+                  <ul class="share-list">
+
+                  
+                
+                        <li class="share-fb share-item type-btn icon-wrapper wb">
+                            <svg class="share-svg icon-svg share-svg-fb" viewBox="0 0 24 24" width="45" height="45" style="--delay: 0.15s"><use xlink:href="#fb"></use></svg><button aria-label="分享至臉書" title="分享至臉書" class="share-link share-fb type-btn" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=https://kawamasa.com.tw/manufacturing-equipment/', 'fbshare', 'width=555,height=660');"></button>
+                        </li>
+                        
+                        <li class="share-fb-msg share-item type-href icon-wrapper wb">
+                            <a aria-label="分享至臉書訊息 (僅限行動版)" class="share-link anchor-block no-hover-border" href="fb-messenger://share?link=https://kawamasa.com.tw/manufacturing-equipment/" target="_blank" rel="noopener noreferrer" title="分享至臉書訊息 (僅限行動版)">
+                                <svg class="share-svg icon-svg share-svg-fbmsg" viewBox="0 0 24 24" width="45" height="45" style="--delay: 0.25s"><use xlink:href="#fb-msg"></use></svg>
+                            </a>
+                        </li>
+                
+                        <li class="share-linkedin share-item type-btn icon-wrapper wb"><svg class="share-svg icon-svg share-svg-linkedin" viewBox="0 0 24 24" width="45" height="45" style="--delay: 0.35s"><use xlink:href="#linkedin"></use></svg><button aria-label="分享至 LinkedIn" title="分享至 LinkedIn" class="share-link share-linkedin type-button" onclick="window.open('https://www.linkedin.com/shareArticle?mini=true&amp;url=https://kawamasa.com.tw/manufacturing-equipment/&amp;display=popup', 'linkedinshare', 'width=555,height=450');"></button>
+                        </li>
+                        
+                        <li class="share-line-app share-item type-btn icon-wrapper wb">
+                            <svg class="share-svg icon-svg share-svg-line-app" viewBox="0 0 24 24" widht="47" height="47" style="--delay: 0.45s"><use xlink:href="#line-app"></use></svg><button aria-label="分享至 LINE" title="分享至 LINE" class="share-link share-line-app type-btn" onclick="window.open('https://line.me/R/msg/text/%E5%88%86%E4%BA%AB%E7%B5%A6%E6%82%A8%EF%BC%9Ahttps://kawamasa.com.tw/manufacturing-equipment/', 'lineatshare', 'width=640,height=500');"></button>
+                        </li>
+                
+                  </ul>
+                
+                  <div class="url-copier">
+                
+                        <input id="url-copier-input" class="url-copier-input wb" readonly value="kawamasa.com.tw/manufacturing-equipment/">
+                
+                        <button id="url-copier-btn" class="url-copier-btn wb wa"><span class="copier-text z-upper"><b>複製</b></span></button>
+                
+                  </div>
+
+            </div>
+
+      </div>
+
+      <span class="bg-stripes wb modal-deco-social-share" aria-hidden="true"></span>
+
+</aside>
+
+<script src="../assets/js/widgets.min.js" defer></script><script src="../assets/js/simple-lightbox.js" defer></script><script id="svg-inject">
+
+  /* MIT License - https://github.com/iconfu/svg-sprite-inject/blob/master/LICENSE */
+
+  !function(e,s){var t="createElement",u=s[t]("a"),p=s[t]("div");function d(e,t,n){for(var r=0;r<t.length;++r){var o=t[r];o.hasOwnProperty(e)&&n(o[e])}}var c={};function n(e,t){t=t||{};var n,r=(n=e,u.href=n,u.href),o=c[r];if(o){var i=o.svgSprite;i?t.onInjected&&t.onInjected(i):o.optionsArr.push(t)}else{var a=!1;c[r]=o={spriteHandler:{remove:function(){if(!a){var e=o.svgSprite;if(e){var t=e.parentNode;t&&t.removeChild(e),o.svgSprite=null}delete c[r],a=!0}}},svgSprite:null,optionsArr:[t]},function(e,t,n){if(e){var r=new XMLHttpRequest;r.onreadystatechange=function(){4==r.readyState&&200==r.status&&t(r.responseText)},r.onerror=n,r.open("GET",e,!0),r.send()}}(e,function(e){var t=function(e,t){p.innerHTML=e;var n=p.removeChild(p.firstChild);return n.setAttribute("data-inject-url",t),n}(e,r);a||(o.svgSprite=t,s.documentElement.appendChild(t),d("afterInject",o.optionsArr,function(e){e(t)}))},function(t){d("onLoadFail",o.optionsArr,function(e){e(t)})})}return o.spriteHandler}"object"==typeof module&&"object"==typeof module.exports&&(module.exports=n),e.SVGSpriteInject=n}(window,document);
+
+  SVGSpriteInject('../assets/icons/sprites.svg');
+
+  </script><script id="scrollout">
+
+    var ScrollOut=function(){"use strict"
+    function S(e,t,n){return e<t?t:n<e?n:e}function T(e){return+(0<e)-+(e<0)}var q,t={}
+    function n(e){return"-"+e[0].toLowerCase()}function d(e){return t[e]||(t[e]=e.replace(/([A-Z])/g,n))}function v(e,t){return e&&0!==e.length?e.nodeName?[e]:[].slice.call(e[0].nodeName?e:(t||document.documentElement).querySelectorAll(e)):[]}function h(e,t){for(var n in t)n.indexOf("_")&&e.setAttribute("data-"+d(n),t[n])}var z=[]
+    function e(){q=0,z.slice().forEach(function(e){return e()}),F()}function F(){!q&&z.length&&(q=requestAnimationFrame(e))}function N(e,t,n,r){return"function"==typeof e?e(t,n,r):e}function m(){}return function(L){var i,P,_,H,o=(L=L||{}).onChange||m,l=L.onHidden||m,c=L.onShown||m,s=L.onScroll||m,f=L.cssProps?(i=L.cssProps,function(e,t){for(var n in t)n.indexOf("_")&&(!0===i||i[n])&&e.style.setProperty("--"+d(n),(r=t[n],Math.round(1e4*r)/1e4))
+    var r}):m,e=L.scrollingElement,A=e?v(e)[0]:window,W=e?v(e)[0]:document.documentElement,x=!1,O={},y=[]
+    function t(){y=v(L.targets||"[data-scroll]",v(L.scope||W)[0]).map(function(e){return{element:e}})}function n(){var e=W.clientWidth,t=W.clientHeight,n=T(-P+(P=W.scrollLeft||window.pageXOffset)),r=T(-_+(_=W.scrollTop||window.pageYOffset)),i=W.scrollLeft/(W.scrollWidth-e||1),o=W.scrollTop/(W.scrollHeight-t||1)
+    x=x||O.scrollDirX!==n||O.scrollDirY!==r||O.scrollPercentX!==i||O.scrollPercentY!==o,O.scrollDirX=n,O.scrollDirY=r,O.scrollPercentX=i,O.scrollPercentY=o
+    for(var l,c=!1,s=0;s<y.length;s++){for(var f=y[s],u=f.element,a=u,d=0,v=0;d+=a.offsetLeft,v+=a.offsetTop,(a=a.offsetParent)&&a!==A;);var h=u.clientHeight||u.offsetHeight||0,m=u.clientWidth||u.offsetWidth||0,g=(S(d+m,P,P+e)-S(d,P,P+e))/m,p=(S(v+h,_,_+t)-S(v,_,_+t))/h,w=1===g?0:T(d-P),X=1===p?0:T(v-_),Y=S((P-(m/2+d-e/2))/(e/2),-1,1),b=S((_-(h/2+v-t/2))/(t/2),-1,1),D=void 0
+    D=L.offset?N(L.offset,u,f,W)>_?0:1:(N(L.threshold,u,f,W)||0)<g*p?1:0
+    var E=f.visible!==D;(f._changed||E||f.visibleX!==g||f.visibleY!==p||f.index!==s||f.elementHeight!==h||f.elementWidth!==m||f.offsetX!==d||f.offsetY!==v||f.intersectX!=f.intersectX||f.intersectY!=f.intersectY||f.viewportX!==Y||f.viewportY!==b)&&(c=!0,f._changed=!0,f._visibleChanged=E,f.visible=D,f.elementHeight=h,f.elementWidth=m,f.index=s,f.offsetX=d,f.offsetY=v,f.visibleX=g,f.visibleY=p,f.intersectX=w,f.intersectY=X,f.viewportX=Y,f.viewportY=b,f.visible=D)}H||!x&&!c||(l=C,z.push(l),F(),H=function(){!(z=z.filter(function(e){return e!==l})).length&&q&&(cancelAnimationFrame(q),q=0)})}function C(){u(),x&&(x=!1,h(W,{scrollDirX:O.scrollDirX,scrollDirY:O.scrollDirY}),f(W,O),s(W,O,y))
+    for(var e=y.length-1;-1<e;e--){var t=y[e],n=t.element,r=t.visible,i=n.hasAttribute("scrollout-once")||!1
+    t._changed&&(t._changed=!1,f(n,t)),t._visibleChanged&&(h(n,{scroll:r?"in":"out"}),o(n,t,W),(r?c:l)(n,t,W)),r&&(L.once||i)&&y.splice(e,1)}}function u(){H&&(H(),H=void 0)}t(),n(),C()
+    var r=0,a=function(){r=r||setTimeout(function(){r=0,n()},0)}
+    return window.addEventListener("resize",a),A.addEventListener("scroll",a),{index:t,update:n,teardown:function(){u(),window.removeEventListener("resize",a),A.removeEventListener("scroll",a)}}}}();
+    
+    ScrollOut({});
+    
+</script><div class="overlay"></div><div id="cookie-consent" class="cookie-consent">
+      <p><span class="cookie-consent-message">繼續瀏覽，表示您同意本網站透過 Cookie 等技術提升體驗</p><!-- 
+            --><button id="accept-cookie" class="ibvt cookie-consent-button">OK</button>
+</div><script type="application/ld+json" id="rs-breadcrumb">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "首頁",
+        "item": "https://kawamasa.com.tw/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "製造設備",
+        "item": "https://kawamasa.com.tw/manufacturing-equipment/"
+      }]
+}
+</script>
+</body>
+
+      
+
+</html>

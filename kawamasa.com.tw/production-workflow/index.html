@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+
+<html lang="zh-Hant-TW"><head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# website: http://ogp.me/ns/website#">
+
+    <meta charset="UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no"><script id="lang-redirect-v8">
+(() => {
+
+    const COOKIE_NAME = 'langPref';
+    const COOKIE_DAYS = 14;
+
+    // --- Cookie Helpers ---
+    function setCookie(name, value, days) {
+        const date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        const expires = "expires=" + date.toUTCString();
+        const secure = window.location.protocol === 'https:' ? ';Secure;SameSite=Lax' : '';
+        document.cookie = name + "=" + value + ";" + expires + ";path=/" + secure;
+    }
+
+    function getCookie(name) {
+        const cname = name + "=";
+        const decodedCookie = decodeURIComponent(document.cookie);
+        const ca = decodedCookie.split(';');
+        for (let i = 0; i < ca.length; i++) {
+            let c = ca[i].trim();
+            if (c.indexOf(cname) === 0) {
+                return c.substring(cname.length, c.length);
+            }
+        }
+        return "";
+    }
+
+    // --- Language Detection ---
+    function getBrowserLanguage() {
+        const lang = navigator.language || navigator.userLanguage;
+        return lang === 'zh-TW' || lang === 'zh-Hant-TW' ? 'zh-Hant-TW' : 'en-US';
+    }
+
+    function getCurrentLangFromUrl() {
+        const path = window.location.pathname;
+        return path.includes('/en/') ? 'en-US' : 'zh-Hant-TW';
+    }
+
+    // --- Environment-based redirect setup ---
+
+    let redirectToLang;
+
+        redirectToLang = function (lang) {
+            const currentPath = window.location.pathname;
+            let newPath;
+
+            if (lang === 'en-US' && !currentPath.includes('/en/')) {
+                newPath = currentPath === '/' ? '/en/' : '/en' + currentPath;
+            } else if (lang === 'zh-Hant-TW' && currentPath.includes('/en/')) {
+                newPath = currentPath.replace('/en', '');
+                if (newPath === '') newPath = '/';
+            } else {
+                return;
+            }
+
+            if (window.location.pathname !== newPath) {
+                window.location.assign(window.location.origin + newPath);
+            }
+        };
+
+
+    // --- Auto redirect logic ---
+    (function () {
+        const cookieLang = getCookie(COOKIE_NAME);
+        const browserLang = getBrowserLanguage();
+        const currentLang = getCurrentLangFromUrl();
+
+        if (cookieLang) {
+            if (cookieLang !== currentLang) {
+                redirectToLang(cookieLang);
+            }
+        } else {
+            if (browserLang !== currentLang) {
+                setCookie(COOKIE_NAME, browserLang, COOKIE_DAYS);
+                // 延遲以確保 iOS 15–17 可讀取 cookie
+                setTimeout(() => redirectToLang(browserLang), 100);
+            }
+        }
+    })();
+
+    // --- DOM-based language switch UI ---
+    document.addEventListener('DOMContentLoaded', function () {
+
+        const languageLinks = document.querySelectorAll('.lang-option');
+
+        if (!languageLinks.length) return;
+
+        const currentLang = getCurrentLangFromUrl();
+        languageLinks.forEach(link => {
+            if (link.getAttribute('data-lang') === currentLang) {
+                link.classList.add('current-option');
+            } else {
+                link.classList.remove('current-option');
+            }
+        });
+
+        languageLinks.forEach(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+                const selectedLang = this.getAttribute('data-lang');
+                setCookie(COOKIE_NAME, selectedLang, COOKIE_DAYS);
+                redirectToLang(selectedLang);
+            });
+        });
+    });
+
+})();
+</script><link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://res.cloudinary.com">
+
+    <!-- reduce google fonts cls payload -->
+    <link rel="preload" as="font" type="font/woff2" href="https://fonts.gstatic.com/s/onest/v9/gNMKW3F-SZuj7xmf-HYoEoey.woff2">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400..700&amp;display=fallback" media="print" onload="media='all'">
+
+
+        <title>工作流程 - 川正製造所</title>
+
+        <link rel="stylesheet" href="../assets/styles/cnc-main.css">
+        <link rel="stylesheet" href="../assets/styles/cnc-deferred.css" media="print" onload="media='all'"><meta name="description" content="一般原物料 Lead Time 1 – 2 小時可備妥，快速投產、碳足跡低、符合 ESG ，從製前準備、製造程序到出貨，一站式服務，品管嚴謹；按客訂需求，執行多樣化的研磨加工及表面處理工序">
+
+<meta property="og:locale" content="zh_TW"><meta property="og:type" content="article">
+        <meta property="og:title" content="工作流程 - 川正製造所">
+        <meta property="article:publisher" content="https://www.facebook.com/profile.php?id=100066731870710"><meta property="og:description" content="一般原物料 Lead Time 1 – 2 小時可備妥，快速投產、碳足跡低、符合 ESG ，從製前準備、製造程序到出貨，一站式服務，品管嚴謹；按客訂需求，執行多樣化的研磨加工及表面處理工序">
+        <meta property="og:url" content="https://kawamasa.com.tw/production-workflow/"><meta property="og:site_name" content="Kawamasa CNC Precision">
+        <meta property="og:image:width" content="2400">
+        <meta property="og:image:height" content="1260"><meta property="og:image" content="https://kawamasa.com.tw/assets/fbog/kwms-fbog-workflow.png"><script type="application/ld+json" id="local-biz-zhtw">
+    {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "川正製造所 Kawamasa CNC Precision",
+    "legalName": "川正有限公司 Kawamasa CNC Precision Co., Ltd.",
+    "telephone": "+886222028808",
+    "faxNumber": "+886222028836",
+    "email": "kawamasa.hello@gmail.com",
+    "contactPoint": [
+        {
+        "@type": "ContactPoint",
+        "contactType": "customer service",
+        "telephone": "+886222028808"
+        }
+    ],
+    "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "民安東路 166 號",
+        "addressLocality": "新莊區",
+        "addressRegion": "新北市",
+        "postalCode": "242",
+        "addressCountry": "TW"
+    },
+    "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 25.020413421855594,
+        "longitude": 121.43229703481227
+    },
+    "openingHoursSpecification": [
+        {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday"
+        ],
+        "opens": "09:00",
+        "closes": "18:00"
+        }
+    ]
+    }
+    </script><style>:root {
+  
+            
+                
+                
+                
+                    --color-prim: rgb(11, 6, 175);
+                
+            
+                
+                
+                
+                    --color-prim-tl: rgba(11, 6, 175, 0.5);
+                
+            
+                
+                
+                
+                    --color-snd: rgba(255, 254, 191, 0.95);
+                
+            
+                
+                
+                
+            
+            
+        }
+
+    </style>
+
+
+
+
+
+    <link rel="icon" href="../favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../touch-icon-192x192.png"><link rel="alternate" hreflang="zh-TW" href="index.html" />
+        <link rel="alternate" hreflang="en-US" href="../en/production-workflow/index.html" />
+        <link rel="alternate" hreflang="x-default" href="../en/production-workflow/index.html" /></head><body id="uni" class="page-body wb wa page-production-workflow has-lightbox lang-zh-hant-tw wb"><picture class="fullscreen-bg-pic wb wa">
+
+  <source media="(max-width: 500px)" srcset="
+
+      https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_1400/kawamasa/bg/sketch-workflow-mobile 1400w,
+      https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_1284/kawamasa/bg/sketch-workflow-mobile 1284w,
+      https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_1080/kawamasa/bg/sketch-workflow-mobile 1080w,
+      https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_900/kawamasa/bg/sketch-workflow-mobile 900w,
+      https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_640/kawamasa/bg/sketch-workflow-mobile 640w
+  
+  " width="1400" height="1371">
+
+  <source media="(min-width: 501px)" srcset="
+  
+      https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_2400/kawamasa/bg/sketch-workflow-dktp 2400w,
+      https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_1600/kawamasa/bg/sketch-workflow-dktp 1600w
+  
+  " width="2400" height="1371">
+
+
+  <img
+    class="fullscreen-bg-img"
+    alt="Kawamasa CNC Precision Co., Ltd."
+    loading="eager"
+    decoding="sync"
+    fetchpriority="high"
+    src="https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_2400/kawamasa/bg/sketch-workflow-dktp"
+    width="2400"
+    height="1371"
+    sizes="100%"
+    >
+
+</picture>
+
+
+
+<div class="aux-outer" aria-hidden="true">
+
+      <div class="aux-inner">
+
+            <div class="aux aux-1"></div>
+            <div class="aux aux-2"></div>
+            <div class="aux aux-3"></div>
+            <div class="aux aux-4"></div>
+      
+      </div>
+
+</div>
+            
+<div class="site-header">
+
+      <a class="back-home" href="../index.html" aria-label="返回首頁 Back to Homepage"><svg class="svg-logo svg-logo-filled" viewBox="0 0 140 24" width="158" height="27"><use xlink:href="#logo"></use></svg></a>
+      
+      <nav id="site-megamenu" class="vanilla-megamenu v-mm">
+
+            <ul class="mm-prim"><li class="mm-prim-li mm-prim-item ">
+                                    <a href="../index.html">
+                                    首頁
+                                    </a>
+                              </li><li class="mm-prim-li mm-prim-item ">
+                                    <a href="../manufacturing-equipment/index.html">
+                                    製造設備
+                                    </a>
+                              </li><li class="mm-prim-li mm-prim-item ">
+                                    <a href="../quality-control/index.html">
+                                    品質檢測
+                                    </a>
+                              </li><li class="mm-prim-li mm-prim-item ">
+                                    <a href="../product-showcase/index.html">
+                                    產品展示
+                                    </a>
+                              </li><li class="mm-prim-li mm-prim-item  mm-prim-current ">
+                                    <a href="index.html">
+                                    工作流程
+                                    </a>
+                              </li><li class="mm-prim-li mm-prim-item ">
+                                    <a href="../faq/index.html">
+                                    常見問答
+                                    </a>
+                              </li><li class="mm-prim-li mm-prim-item ">
+                                    <a href="../contact-us/index.html">
+                                    聯絡我們
+                                    </a>
+                              </li></ul>
+            
+
+            <input type="checkbox" id="mm-trigger-lang" class="mm-trigger mm-trigger-lang"><label for="mm-trigger-lang" class="mm-label" role="button" aria-label="語言選單 Language Selector"><svg class="svg-icon svg-icon-globe" width="22" height="22" viewBox="0 0 24 24"><use xlink:href="#globe"></use></svg><span class="lang-label-span">Languages</span>&nbsp;<span class="lang-arrow" aria-hidden="true"></span></label>
+  
+            <div class="mm-snd mm-snd-lang mm-lang-list">
+
+                  <ul class="mm-snd-list"><li class="mm-snd-item"><a class="mm-snd-link lang-option wb wa v2 current-option" href="#current_lang" data-lang="zh-Hant-TW"><span>中文 台灣</span></a></li>
+                        
+                        <li class="mm-snd-item"><a class="mm-snd-link lang-option v2 wb wa" href="../en/production-workflow/index.html" data-lang="en-US"><span>English - US</span></a></li><li class="cookie-notes lh-reduced"><p>您的語言偏好，預設留存 14 天</p><p>By default, your language preference will be remembered for 14 days.</p>
+
+                  </li>
+            
+                  </ul>
+
+            </div>
+
+
+            <input type="checkbox" id="mm-trigger-mobile" class="mm-trigger mm-trigger-mobile"><label for="mm-trigger-mobile" class="mm-label" role="button" aria-label="行動版選單"><span class="mobile-label-span">&nbsp;</span></label>
+  
+            <div class="mm-snd mm-snd-mobile">
+
+                  <p class="ribbon-outer wb"><span class="ribbon-text">Kawamasa</span></p>
+
+                  <ul class="mm-snd-list mm-menu-mobile"><li class="mm-mobile-li mm-mobile-item wb wa " style="--delay: 0.07s; --delay-slow: 0.3s"><a class="mm-link" href="../index.html">
+                                          
+                                          <span class="mm-icon-wrapper wb"><svg class="mm-icon" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"><use xlink:href="#mm-home"></use></svg></span>
+                                          <span class="mm-title">首頁</span>
+
+                                    </a>
+
+                              </li><li class="mm-mobile-li mm-mobile-item wb wa " style="--delay: 0.14s; --delay-slow: 0.4s"><a class="mm-link" href="../manufacturing-equipment/index.html">
+                                          
+                                          <span class="mm-icon-wrapper wb"><svg class="mm-icon" xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"><use xlink:href="#mm-equip"></use></svg></span>
+                                          <span class="mm-title">製造設備</span>
+
+                                    </a>
+
+                              </li><li class="mm-mobile-li mm-mobile-item wb wa " style="--delay: 0.21s; --delay-slow: 0.5s"><a class="mm-link" href="../quality-control/index.html">
+                                          
+                                          <span class="mm-icon-wrapper wb"><svg class="mm-icon" xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"><use xlink:href="#mm-tick"></use></svg></span>
+                                          <span class="mm-title">品質檢測</span>
+
+                                    </a>
+
+                              </li><li class="mm-mobile-li mm-mobile-item wb wa " style="--delay: 0.28s; --delay-slow: 0.6s"><a class="mm-link" href="../product-showcase/index.html">
+                                          
+                                          <span class="mm-icon-wrapper wb"><svg class="mm-icon" xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"><use xlink:href="#mm-showcase"></use></svg></span>
+                                          <span class="mm-title">產品展示</span>
+
+                                    </a>
+
+                              </li><li class="mm-mobile-li mm-mobile-item wb wa  mm-mobile-current " style="--delay: 0.35s; --delay-slow: 0.7s"><a class="mm-link" href="index.html">
+                                          
+                                          <span class="mm-icon-wrapper wb"><svg class="mm-icon" xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"><use xlink:href="#mm-workflow"></use></svg></span>
+                                          <span class="mm-title">工作流程</span>
+
+                                    </a>
+
+                              </li><li class="mm-mobile-li mm-mobile-item wb wa " style="--delay: 0.42s; --delay-slow: 0.8s"><a class="mm-link" href="../faq/index.html">
+                                          
+                                          <span class="mm-icon-wrapper wb"><svg class="mm-icon" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"><use xlink:href="#mm-faq"></use></svg></span>
+                                          <span class="mm-title">常見問答</span>
+
+                                    </a>
+
+                              </li><li class="mm-mobile-li mm-mobile-item wb wa " style="--delay: 0.49s; --delay-slow: 0.9s"><a class="mm-link" href="../contact-us/index.html">
+                                          
+                                          <span class="mm-icon-wrapper wb"><svg class="mm-icon" xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"><use xlink:href="#mm-contact"></use></svg></span>
+                                          <span class="mm-title">聯絡我們</span>
+
+                                    </a>
+
+                              </li><span class="main-menu-deco bg-stripes wb" aria-hidden="true"></span>
+
+                  </ul>
+
+                  
+
+            </div>
+
+
+      </nav>
+
+</div><main id="site-main" class="site-main l-col-triple">
+
+                  
+                  <div class="primary wb wa">
+
+                        <header class="page-header z-upper">
+
+  <p class="title-1st title-uppercase has-blink-cursor hello-world wow"><span>Streamlined for Max Productivity<span class="blink-cursor" aria-hidden="true"></span></span><span>Kawamasa <span class="trail-1">CNC </span><span class="trail-2">Precision</span><span class="trail-3"> Co., Ltd.</span></span></p>
+
+  <h1 class="hero-title hero-title-snd title-lv3"><span>工作流程。</span><span>川正製造所。</span></h1>
+  <p class="hero-title hero-title-prim title-lv1 wow"><!--
+    --><span><span class="anim-span" data-letters="Production" style="--delay: 0.25s">Production</span><span class="nbsp">&nbsp;</span></span><!--
+    --><span><span class="anim-span" data-letters="Workflow" style="--delay: 0.35s">Workflow</span></span><!-- 
+  --></p>
+
+  <div class="deco-grid-2--workflow">
+
+    <div class="header-deco img-clip clip-frame">
+
+      <picture class="clip-inner-pic wa wow" style="--delay: 0.2s">
+
+          <img class="clip-inner-img lazyload" data-sizes="auto" width="600" height="758" alt="廠內 CNC 機台" loading="eager" srcset="
+          
+          https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_500/kawamasa/workflow/workflow-cnc-machine-n1 500w,
+          https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_400/kawamasa/workflow/workflow-cnc-machine-n1 400w,
+          https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_300/kawamasa/workflow/workflow-cnc-machine-n1 300w
+          "
+          
+          >
+
+      </picture>
+
+    </div>    <div class="header-deco svg-text-wrapper">
+      
+<svg width="295" height="30" clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 230 23" ria-label="ISO 9001/14001 檢驗合格" class="svg-text svg-text-filled svg-text-iso" id="iso" xmlns="http://www.w3.org/2000/svg"><g fill-rule="nonzero"><path d="m.305-0v-.012c-.074-.007-.083-.015-.083-.104v-.415c0-.091.009-.098.083-.105v-.012h-.273v.012c.074.007.082.014.082.105v.415c0 .09-.009.097-.082.104v.012z" transform="matrix(32.00000564796 0 0 32.00000564796 -1.02398897393 21.21600728647)"/><path d="m.4-.51c-.007-.05-.013-.092-.017-.129-.027-.009-.072-.024-.128-.024-.13 0-.208.085-.208.186 0 .104.089.156.164.201.072.043.119.081.119.149 0 .07-.043.119-.111.119-.098 0-.156-.109-.176-.178l-.012.006c.002.037.017.14.025.16.013.006.031.014.058.021.028.008.057.014.093.014.134 0 .223-.088.223-.192 0-.107-.084-.156-.167-.203-.082-.047-.123-.08-.123-.148 0-.062.038-.113.104-.113.079 0 .123.073.144.136z" transform="matrix(32.00000564796 0 0 32.00000564796 9.79201372594 21.21600728647)"/><path d="m.371-.663c-.218 0-.335.175-.335.345 0 .187.135.333.324.333.183 0 .331-.138.331-.347 0-.194-.146-.331-.32-.331zm-.02.023c.13 0 .215.125.215.336 0 .193-.081.296-.187.296-.135 0-.218-.145-.218-.335 0-.188.087-.297.19-.297z" transform="matrix(32.00000564796 0 0 32.00000564796 24.38401498496 21.21600728647)"/><path d="m.238-.635c-.138 0-.212.122-.212.212 0 .102.07.183.181.183.018 0 .035-.005.056-.017l.055-.03c-.028.141-.127.258-.268.287l.003.015c.038-.001.109-.015.151-.033.137-.058.234-.19.234-.365 0-.137-.069-.252-.2-.252zm-.017.022c.085 0 .107.123.107.222 0 .027-.001.053-.005.08-.013.009-.039.02-.067.02-.076 0-.12-.08-.12-.172 0-.065.02-.15.085-.15z" transform="matrix(32.00000564796 0 0 32.00000564796 53.3120210142 21.21600728647)"/><path d="m.371-.663c-.218 0-.335.175-.335.345 0 .187.135.333.324.333.183 0 .331-.138.331-.347 0-.194-.146-.331-.32-.331zm-.02.023c.13 0 .215.125.215.336 0 .193-.081.296-.187.296-.135 0-.218-.145-.218-.335 0-.188.087-.297.19-.297z" transform="matrix(32.00000564796 0 0 32.00000564796 68.3840224439 21.21600728647)"/><path d="m.371-.663c-.218 0-.335.175-.335.345 0 .187.135.333.324.333.183 0 .331-.138.331-.347 0-.194-.146-.331-.32-.331zm-.02.023c.13 0 .215.125.215.336 0 .193-.081.296-.187.296-.135 0-.218-.145-.218-.335 0-.188.087-.297.19-.297z" transform="matrix(32.00000564796 0 0 32.00000564796 92.06402677075 21.21600728647)"/><path d="m.382-0v-.012c-.082-.007-.087-.021-.087-.099v-.524c-.068.023-.135.041-.194.052v.009l.033.003c.052.005.056.012.056.065v.395c0 .077-.006.092-.088.099v.012z" transform="matrix(32.00000564796 0 0 32.00000564796 115.32803127716 21.21600728647)"/><path d="m.274-.663h-.039l-.207.707h.039z" transform="matrix(32.00000564796 0 0 32.00000564796 130.40003270686 21.21600728647)"/><path d="m.382-0v-.012c-.082-.007-.087-.021-.087-.099v-.524c-.068.023-.135.041-.194.052v.009l.033.003c.052.005.056.012.056.065v.395c0 .077-.006.092-.088.099v.012z" transform="matrix(32.00000564796 0 0 32.00000564796 140.35203559072 21.21600728647)"/><path d="m.453-.18v-.04h-.088v-.411h-.042c-.097.127-.203.276-.307.427v.024h.246v.075c0 .068-.006.084-.087.093v.012h.267v-.012c-.071-.007-.077-.023-.077-.088v-.08zm-.191-.04h-.193c.07-.117.134-.211.191-.291h.002z" transform="matrix(32.00000564796 0 0 32.00000564796 155.42403702041 21.21600728647)"/><path d="m.371-.663c-.218 0-.335.175-.335.345 0 .187.135.333.324.333.183 0 .331-.138.331-.347 0-.194-.146-.331-.32-.331zm-.02.023c.13 0 .215.125.215.336 0 .193-.081.296-.187.296-.135 0-.218-.145-.218-.335 0-.188.087-.297.19-.297z" transform="matrix(32.00000564796 0 0 32.00000564796 170.49604090618 21.21600728647)"/><path d="m.371-.663c-.218 0-.335.175-.335.345 0 .187.135.333.324.333.183 0 .331-.138.331-.347 0-.194-.146-.331-.32-.331zm-.02.023c.13 0 .215.125.215.336 0 .193-.081.296-.187.296-.135 0-.218-.145-.218-.335 0-.188.087-.297.19-.297z" transform="matrix(32.00000564796 0 0 32.00000564796 194.17604523304 21.21600728647)"/><path d="m.382-0v-.012c-.082-.007-.087-.021-.087-.099v-.524c-.068.023-.135.041-.194.052v.009l.033.003c.052.005.056.012.056.065v.395c0 .077-.006.092-.088.099v.012z" transform="matrix(32.00000564796 0 0 32.00000564796 217.44004728338 21.21600728647)"/></g></svg>
+
+      <svg xmlns="http://www.w3.org/2000/svg" width="292" viewBox="0 0 196 34" class="wow svg-text svg-text-certified">
+        
+        <path id="certified" d="M25.76 27.56C23.76 30.72 20.16 32.84 14.56 32.84C6.40001 32.84 1.60001 28.24 1.60001 21.16C1.60001 14.04 6.40001 9.47999 14.56 9.47999C20.04 9.47999 23.6 11.52 25.64 14.52L23.72 15.52C21.96 12.64 18.48 11.32 14.6 11.32C8.04001 11.32 3.68001 14.72 3.68001 21.16C3.68001 27.56 8.04001 30.96 14.6 30.96C18.52 30.96 22.08 29.6 23.8 26.64L25.76 27.56ZM42.8775 9.47999C50.6375 9.47999 55.2775 13.72 55.3975 20.8C55.3975 21 55.3975 21.12 55.3575 21.2H32.1175C32.1175 27.64 36.3975 31.04 43.0375 31.04C47.6775 31.04 50.6775 29.92 53.3175 27.4L54.6775 28.84C51.7175 31.6 48.1975 32.84 42.9575 32.84C34.7575 32.84 30.0375 28.24 30.0375 21.16C30.0375 14.04 34.7575 9.47999 42.8775 9.47999ZM42.8775 11.24C36.9575 11.24 32.8775 14.12 32.1975 19.48H53.3175C52.5575 13.96 48.5975 11.24 42.8775 11.24ZM64.0709 32H62.0309V10.28H64.0709V16C65.7909 12.2 70.4309 9.91999 75.3109 9.91999V11.76C70.3109 11.76 65.8709 14.04 64.0709 18.6V32ZM93.2713 29.28L94.0713 30.76C92.4313 31.92 90.2713 32.8 87.9913 32.8C84.5513 32.8 81.4313 30.88 81.4313 26.92V12.12H76.9113V10.28H81.4313V5.23999H83.4713V10.28H93.9113V12.12H83.4713V26.64C83.4713 29.52 85.6713 30.96 88.2713 30.96C90.1113 30.96 91.7113 30.24 93.2713 29.28ZM100.143 6.63999C99.1831 6.63999 98.4631 5.95999 98.4631 5.07999C98.4631 4.19999 99.1831 3.55999 100.143 3.55999C101.103 3.55999 101.783 4.19999 101.783 5.07999C101.783 5.95999 101.103 6.63999 100.143 6.63999ZM101.183 10.28V32H99.1431V10.28H101.183ZM117.603 3.23999C115.123 3.23999 113.003 4.55999 113.003 7.47999V10.28H123.403V12.08H113.003V32H110.963V12.08H106.443V10.28H110.963V7.67999C110.963 3.51999 114.123 1.59999 117.443 1.59999C119.723 1.59999 122.043 2.27999 123.683 3.71999L122.683 5.03999C121.123 3.71999 119.483 3.23999 117.603 3.23999ZM129.523 3.55999C130.483 3.55999 131.163 4.19999 131.163 5.07999C131.163 5.95999 130.483 6.63999 129.523 6.63999C128.563 6.63999 127.843 5.95999 127.843 5.07999C127.843 4.19999 128.563 3.55999 129.523 3.55999ZM128.523 32V10.28H130.562V32H128.523ZM150.378 9.47999C158.138 9.47999 162.778 13.72 162.898 20.8C162.898 21 162.898 21.12 162.858 21.2H139.618C139.618 27.64 143.898 31.04 150.538 31.04C155.178 31.04 158.178 29.92 160.818 27.4L162.178 28.84C159.218 31.6 155.698 32.84 150.458 32.84C142.258 32.84 137.538 28.24 137.538 21.16C137.538 14.04 142.258 9.47999 150.378 9.47999ZM150.378 11.24C144.458 11.24 140.378 14.12 139.698 19.48H160.818C160.058 13.96 156.098 11.24 150.378 11.24ZM179.771 9.47999C184.731 9.47999 188.651 11.64 190.731 15.04V2.39999H192.771V32H190.731V27.24C188.651 30.64 184.731 32.8 179.771 32.8C172.251 32.8 167.811 28.08 167.811 21.16C167.811 14.2 172.251 9.47999 179.771 9.47999ZM180.171 30.96C184.771 30.96 188.491 29 190.731 25V17.28C188.491 13.28 184.771 11.32 180.171 11.32C173.691 11.32 169.891 15.04 169.891 21.16C169.891 27.24 173.691 30.96 180.171 30.96Z" stroke-width="2"/>
+      
+      </svg>
+
+  </div></div>
+
+</header>
+
+
+<div class="sec-std is-chart" id="chart">
+
+  
+
+  <section class="chart-group " id="preparation">
+    <div class="chart-group-header wow">
+      <h2 class="chart-group-title-ct title-lv6">製前準備</h2>
+      <p class="chart-group-title-en title-lv3">
+        <strong>
+          <span class="phase-counter wb"><span>1</span></span>&nbsp;
+          
+            <span class="phase-title">Preparation</span>
+          
+        </strong>
+      </p>
+    </div>
+
+    <div class="chart-steps-wrapper">
+
+      
+
+      <section class="step ">
+        <h3 class="step-title title-lv5">原料訂購</h3>
+        <div class="step-desc"><p>位於<mark>下新莊產業聚落</mark>，鋼鐵、鋁材、電木、工程塑膠及 FR4 等一般原物料 <mark>Lead Time 1 – 2 小時可備妥，快速投產、碳足跡低、符合 ESG 要求</mark><br>＊特殊材料或原物料廠旺季滿載時程另計</p></div>
+      </section>
+
+      
+
+      <section class="step ">
+        <h3 class="step-title title-lv5">入料抽驗</h3>
+        <div class="step-desc"><p>原物料送達及上機前嚴格抽驗；若有問題，將即時退換貨，並將問題品隔出、另行標示，確保生產品質</p></div>
+      </section>
+
+      
+
+      <section class="step ">
+        <h3 class="step-title title-lv5">物理處理</h3>
+        <div class="step-desc"><p>按客戶指定需求，進行<mark>裁切、去毛邊</mark>等預處理作業</p></div>
+      </section>
+
+      
+
+    </div>
+  </section>
+
+  
+
+  <section class="chart-group " id="in-production">
+    <div class="chart-group-header wow">
+      <h2 class="chart-group-title-ct title-lv6">製造程序</h2>
+      <p class="chart-group-title-en title-lv3">
+        <strong>
+          <span class="phase-counter wb"><span>2</span></span>&nbsp;
+          
+            <span class="phase-title">In-Production</span>
+          
+        </strong>
+      </p>
+    </div>
+
+    <div class="chart-steps-wrapper">
+
+      
+
+      <section class="step ">
+        <h3 class="step-title title-lv5">機台加工</h3>
+        <div class="step-desc"><p>最大行程 <mark>X 1,400 mm / Y 750 mm / Z 700 mm</mark><br>加工公差可達 <mark>± 5 µm</mark></p></div>
+      </section>
+
+      
+
+      <section class="step ">
+        <h3 class="step-title title-lv5">製程中檢驗</h3>
+        <div class="step-desc"><p>機台生產時，由資深品管人員隨機抽檢，確保加工精度</p></div>
+      </section>
+
+      
+
+      <section class="step ">
+        <h3 class="step-title title-lv5">研磨加工</h3>
+        <div class="step-desc"><p>按客戶指定需求，進行<mark>拋光、研磨</mark>等工序</p></div>
+      </section>
+
+      
+
+      <section class="step ">
+        <h3 class="step-title title-lv5">製程抽驗</h3>
+        <div class="step-desc"><p>加工後抽檢關鍵尺寸，確保整體品質達標</p></div>
+      </section>
+
+      
+
+      <section class="step ">
+        <h3 class="step-title title-lv5">表面處理</h3>
+        <div class="step-desc"><p>按客戶需求，進行<mark>各式陽極處理、無電解鎳、環保黑鋅、黑鎳、烤漆、電泳、染黑</mark>等表面處理工序</p></div>
+      </section>
+
+      
+
+    </div>
+  </section>
+
+  
+
+  <section class="chart-group " id="packaging-and-shipping">
+    <div class="chart-group-header wow">
+      <h2 class="chart-group-title-ct title-lv6">包裝出貨</h2>
+      <p class="chart-group-title-en title-lv3">
+        <strong>
+          <span class="phase-counter wb"><span>3</span></span>&nbsp;
+          
+            <span class="phase-title">Packaging & <br>Shipping</span>
+          
+        </strong>
+      </p>
+    </div>
+
+    <div class="chart-steps-wrapper">
+
+      
+
+      <section class="step ">
+        <h3 class="step-title title-lv5">出貨前抽驗</h3>
+        <div class="step-desc"><p>出貨前，皆由品管人員嚴格檢驗，若有異常，將全面確認問題範圍、核對刀具及程式，並將<mark>修正記錄於現場加工圖面，確保後續生產穩定</mark></p></div>
+      </section>
+
+      
+
+      <section class="step ">
+        <h3 class="step-title title-lv5">包裝</h3>
+        <div class="step-desc"><p>出貨包裝皆依圖面規定分裝；庫存區僅存放合格成品，妥善分類存於溫度適中、無陽光直射處</p></div>
+      </section>
+
+      
+
+      <section class="step ">
+        <h3 class="step-title title-lv5">出貨</h3>
+        <div class="step-desc"><p>確認無誤後，安排物流出貨</p></div>
+      </section>
+
+      
+
+    </div>
+  </section>
+
+  
+
+</div>
+
+<span class="endmark-short-fat bg-halftone wb" aria-hidden="true"></span>
+
+
+                  </div><aside class="site-sidebar sidebar-first">
+
+      <div class="sidebar-cont grid-sidebar-fix">
+
+            <ul class="toc accor-group"><li class="accor-set accor-set_toc">
+                  <input name="sidebar-accor_toc" id="sidebar-accor_toc" class="accor-control" type="checkbox" autocomplete="off">
+
+                        <label for="sidebar-accor_toc" class="accor-label title-uppercase ">頁面導覽<span class="accor-icon"></span></label>
+            
+                        <div class="accor-cont">
+            
+                              <div class="accor-cont-inner">
+
+                                    <ul class="accor-list">
+                                          
+                                          
+                                          <li class="wb wa wow" style="--delay: 0.1s">
+                                                <a class="toc-link" href="#preparation">製前準備</a>
+                                          </li>
+                                          
+                                          
+                                          <li class="wb wa wow" style="--delay: 0.2s">
+                                                <a class="toc-link" href="#in-production">製造程序</a>
+                                          </li>
+                                          
+                                          
+                                          <li class="wb wa wow" style="--delay: 0.3s">
+                                                <a class="toc-link" href="#packaging-and-shipping">包裝出貨</a>
+                                          </li>
+                                          
+                                          
+                                    </ul>
+            
+                              </div>
+                              
+                        </div>
+
+                  </li><li class="accor-set accor-set_toc">
+            
+                        <input name="sidebar-accor_line-at" id="sidebar-accor_line-at" class="accor-control" type="checkbox" autocomplete="off">
+                        <label for="sidebar-accor_line-at" class="accor-label title-uppercase">業務諮詢<span class="accor-icon"></span></label>
+            
+                        <div class="accor-cont">
+            
+                              <div class="accor-cont-inner"><h2 class="title-lv6 sidebar-corp-name">川正製造所</h2>
+
+                                    <ul class="sidebar-contact">
+
+                                          <li><span class="contact-item-title">電話</span><a href="tel:+886222028808">(02) 2202-8808<span class=" contact-item-cont"></span></a></li>
+
+                                          <li><span class="contact-item-title">傳真</span><span class=" contact-item-cont">(02) 2202-8836</span></li>
+
+                                          <li class="qrtty sidebar"></li>
+
+                                    </ul><div class="qqqsss-at-wrapper">
+                                          <h2 class="title-lv6 qrcode-action"><span class="wb wow">寄送 Email</span></h2>
+                                          <svg id="qqqsss-svg" viewBox="0 0 128 128" width="128" height="128"><use xlink:href="#qqqsss"></use></svg>
+                                    </div>
+
+                              </div>
+
+                        </div>
+
+                  </li>
+
+                  
+            </ul>
+
+      </div>
+
+</aside></main><footer class="site-footer z-upper">
+
+      <div class="footer-lang-switcher">
+
+            <div class="lang-switcher-svgs wow">
+
+                  <svg class="svg-icon svg-icon-circle" width="100" height="100" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" stroke-width="1" fill="none"></circle></svg>
+                  <svg class="svg-icon svg-icon-multi-lang" viewBox="0 0 512 512" width="38" height="38"><use xlink:href="#multi-lang"></use></svg>
+
+            </div>
+
+            <div class="lang-switcher-cont">
+                  
+                  <p>本頁面同時提供下列語言版本<br>This page is also available in the following language:</p>
+
+                  <ul class="lang-list-footer"><li class="lang-footer-item"><a class="lang-footer-link lang-option v2 wb wa" href="../en/production-workflow/index.html" data-lang="en-US"><span>English - US</span></a></li></ul>
+                        
+            </div>
+
+      </div><picture class="footer-deco-pic wa wb wow">
+    
+    <source media="(max-width: 500px)" srcset="
+
+        https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_1400/kawamasa/bg/sketch-workflow-mobile 1400w,
+        https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_1284/kawamasa/bg/sketch-workflow-mobile 1284w,
+        https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_1080/kawamasa/bg/sketch-workflow-mobile 1080w,
+        https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_900/kawamasa/bg/sketch-workflow-mobile 900w,
+        https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_640/kawamasa/bg/sketch-workflow-mobile 640w
+
+    " width="1400" height="1371">
+
+    <source media="(min-width: 501px)" srcset="
+
+        https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_2400/kawamasa/bg/sketch-workflow-dktp 2400w,
+        https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_1600/kawamasa/bg/sketch-workflow-dktp 1600w
+
+    " width="2400" height="1371">
+
+    <img class="footer-deco-img lazyload" data-sizes="auto"
+         style="--footer-deco-opacity: 0.7; --footer-deco-position: 0"
+         loading="lazy" decoding="async"
+         width="2400" height="1371"
+         alt="CNC Illustration"
+         src="https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_2400/kawamasa/bg/sketch-workflow-dktp">
+  </picture><h5 class="title-lv3 lh-reduced title-footer-contact wow"><span class="wb" style="--delay: 0.15s">川正有限公司</span><br><span class="wb" style="--delay: 0.45s">Kawamasa CNC Precision Co., Ltd.</span>
+      </h5>
+
+      <ul class="contact-sns">
+
+            <li class="contact-sns-item wow" style="--delay: 0.15s">
+                  <a class="contact-sns-link anchor-block no-hover-border wow" href="https://www.facebook.com/profile.php?id=100066731870710" target="_blank" rel="noreferrer noopener"><svg class="contact-svg icon-svg contact-svg-fb" viewBox="0 0 24 24" width="45" height="45"><use xlink:href="#fb"></use></svg></a>
+            </li>
+
+            <li class="contact-sns-item wow" style="--delay: 0.22s">
+                  <a class="contact-sns-link anchor-block no-hover-border" href="https://www.linkedin.com/in/%E8%A3%BD%E4%BD%9C-%E5%B7%9D%E6%AD%A3-387624168/" target="_blank" rel="noreferrer noopener"><svg class="contact-svg icon-svg contact-svg-linkedin" viewBox="0 0 24 24" width="45" height="45"><use xlink:href="#linkedin"></use></svg></a>
+            </li>
+
+            <li class="contact-sns-item wow" style="--delay: 0.29s">
+                  <a class="contact-sns-link anchor-block no-hover-border wow" href="https://line.me/ti/p/test" target="_blank" rel="noreferrer noopener"><svg class="contact-svg icon-svg contact-svg-line-app" viewBox="0 0 24 24" widht="47" height="47"><use xlink:href="#line-app"></use></svg></a>
+            </li>
+
+            <li class="contact-sns-item wow" style="--delay: 0.36s">
+                  <a class="contact-sns-link anchor-block no-hover-border wow" href="https://maps.app.goo.gl/teausi1oe2j8hDXLA" target="_blank" rel="noreferrer noopener"><svg class="contact-svg icon-svg contact-svg-gmaps" viewBox="0 0 216.975 216.975" width="33" width="33"><use xlink:href="#google-maps"></use></svg></a>
+            </li>
+
+      </ul><ul class="contact-list contact-list--footer">
+
+            <li class="biz-hours"><span class="contact-item-title contact-item-title--optional">時間&nbsp;</span><span class=" contact-item-cont">週一至週五 09:00 – 18:00 國定及例假日除外</span></li>
+            <li><span class="contact-item-title contact-item-title--optional">Email&nbsp;</span><span class="qrtty contact-item-cont"></span></li>
+            <li><span class="contact-item-title">電話&nbsp;</span><a href="tel:+886222028808">(02) 2202-8808<span class=" contact-item-cont"></span></a></li>
+
+
+            <li><span class="contact-item-title">傳真&nbsp;</span><span class=" contact-item-cont">(02) 2202-8836</span></li>
+
+            <li class="addr-long"><span class="contact-item-title contact-item-title--optional">地址&nbsp;</span><!-- 
+            --><span class=" contact-item-cont">242 新北市新莊區民安東路 166 號<br>No. 166, Min'an E. Rd., Xinzhuang Dist., 242 New Taipei City - Taiwan</span></li>
+
+      </ul>
+      
+      <p class="copyright">Copyright &copy; Kawamasa CNC Precision Co., Ltd. All rights reserved.</p><p class="back-to-page-top"><a href="#uni">回頁面頂端</a></p>
+
+</footer><div class="fcta-wrapper">
+
+      <ul class="fcta-list">
+
+            <li class="fcta-contact wb fcta-item" style="--t-delay: 0.1s">
+                  <a class="fcta-link modal-trigger z-upper" data-modal="contact" href="#footer-contact" role="button" aria-label="聯絡方式"><svg class="fcta-svg" viewBox="0 0 24 24" width="24" height="24"><use xlink:href="#phone"></use></svg></a>
+            </li>
+
+            <li class="fcta-share wb fcta-item" style="--t-delay: 0.2s" >
+                  <a class="fcta-link modal-trigger z-upper" data-modal="social-share" href="#share" role="button" aria-label="社群網站分享"><svg class="fcta-svg" viewBox="0 0 24 24" width="24" height="24"><use xlink:href="#share"></use></svg></a>
+            </li>
+
+            <li class="fcta-page-top wb fcta-item" style="--t-delay: 0.3s">
+                  <a class="fcta-link z-upper" href="#uni" role="button" aria-label="回頁面頂端"><svg class="fcta-svg" viewBox="0 0 24 24" width="24" height="24"><use xlink:href="#arrow-up"></use></svg></a>
+            </li>
+
+      </ul>
+
+</div><aside id="modal-contact" class="modal modal-contact modal-mini wb wa">
+
+      <div class="modal-close-wrapper close-wrapper wb"><button class="modal-close close wb" aria-label="關閉視窗"><span class="modal-close-title close-title wb">關閉視窗</span></button></div>
+
+      <span class="modal-deco-contact bg-stripes wb" aria-hidden="true"></span>
+
+      <div class="modal-inner wb wa">
+
+            <h2 class="modal-title-prim title-lv3">聯絡我們</h2>
+
+            <div class="modal-cont">
+
+                  <ul class="contact-sns">
+            
+                        <li class="contact-sns-item wow" style="--delay: 0.15s">
+                              <a class="contact-sns-link anchor-block no-hover-border wow" href="https://www.facebook.com/profile.php?id=100066731870710" target="_blank" rel="noreferrer noopener"><svg class="contact-svg icon-svg contact-svg-fb" viewBox="0 0 24 24" width="45" height="45"><use xlink:href="#fb"></use></svg></a>
+                        </li>
+
+                        <li class="contact-sns-item wow" style="--delay: 0.22s">
+                              <a class="contact-sns-link anchor-block no-hover-border" href="https://www.linkedin.com/in/%E8%A3%BD%E4%BD%9C-%E5%B7%9D%E6%AD%A3-387624168/" target="_blank" rel="noreferrer noopener"><svg class="contact-svg icon-svg contact-svg-linkedin" viewBox="0 0 24 24" width="45" height="45"><use xlink:href="#linkedin"></use></svg></a>
+                        </li>
+
+                        <li class="contact-sns-item wow" style="--delay: 0.29s">
+                              <a class="contact-sns-link anchor-block no-hover-border wow" href="https://line.me/ti/p/test" target="_blank" rel="noreferrer noopener"><svg class="contact-svg icon-svg contact-svg-line-app" viewBox="0 0 24 24" widht="47" height="47"><use xlink:href="#line-app"></use></svg></a>
+                        </li>
+
+                        <li class="contact-sns-item wow" style="--delay: 0.36s">
+                              <a class="contact-sns-link anchor-block no-hover-border wow" href="https://maps.app.goo.gl/teausi1oe2j8hDXLA" target="_blank" rel="noreferrer noopener"><svg class="contact-svg icon-svg contact-svg-gmaps" viewBox="0 0 216.975 216.975" width="33" width="33"><use xlink:href="#google-maps"></use></svg></a>
+                        </li>
+            
+                  </ul>
+
+                  <h5 class="title-lv6 lh-reduced title-modal-contact wow"><span class="wb" style="--delay: 0.15s">川正有限公司</span>&nbsp;<span class="wb" style="--delay: 0.45s">Kawamasa CNC Precision Co., Ltd.</span>
+                  </h5><ul class="contact-list contact-list--footer">
+
+                        <li class="biz-hours"><span class="contact-item-title contact-item-title--optional">時間&nbsp;</span><span class=" contact-item-cont">週一至週五 09:00 – 18:00 國定及例假日除外</span></li>
+
+                        <li><span class="contact-item-title contact-item-title--optional">Email&nbsp;</span><span class="qrtty contact-item-cont"></span></li>
+
+                        <li><span class="contact-item-title">電話&nbsp;</span><a href="tel:+886222028808">(02) 2202-8808<span class=" contact-item-cont"></span></a></li>
+
+                        <li><span class="contact-item-title">傳真&nbsp;</span><span class=" contact-item-cont">(02) 2202-8836</span></li>
+                        
+                        <li class="addr-long"><span class="contact-item-title contact-item-title--optional">地址&nbsp;</span><!-- 
+                        --><span class=" contact-item-cont">242 新北市新莊區民安東路 166 號<br>No. 166, Min'an E. Rd., Xinzhuang Dist., 242 New Taipei City - Taiwan</span></li>
+
+                  </ul>
+
+            </div>
+
+           
+
+
+      </div>
+      
+      
+
+</aside><aside id="modal-social-share" class="modal modal-social-share modal-mini wb wa">
+
+      <div class="modal-close-wrapper close-wrapper wb"><button class="modal-close close wb" aria-label="關閉視窗"><span class="modal-close-title close-title wb">關閉視窗</span></button></div>
+
+      <div class="modal-inner wb wa">
+
+
+            <h2 class="modal-title-prim title-lv3">社群分享</h2>
+
+            <div class="modal-cont">
+
+                  <ul class="share-list">
+
+                  
+                
+                        <li class="share-fb share-item type-btn icon-wrapper wb">
+                            <svg class="share-svg icon-svg share-svg-fb" viewBox="0 0 24 24" width="45" height="45" style="--delay: 0.15s"><use xlink:href="#fb"></use></svg><button aria-label="分享至臉書" title="分享至臉書" class="share-link share-fb type-btn" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=https://kawamasa.com.tw/production-workflow/', 'fbshare', 'width=555,height=660');"></button>
+                        </li>
+                        
+                        <li class="share-fb-msg share-item type-href icon-wrapper wb">
+                            <a aria-label="分享至臉書訊息 (僅限行動版)" class="share-link anchor-block no-hover-border" href="fb-messenger://share?link=https://kawamasa.com.tw/production-workflow/" target="_blank" rel="noopener noreferrer" title="分享至臉書訊息 (僅限行動版)">
+                                <svg class="share-svg icon-svg share-svg-fbmsg" viewBox="0 0 24 24" width="45" height="45" style="--delay: 0.25s"><use xlink:href="#fb-msg"></use></svg>
+                            </a>
+                        </li>
+                
+                        <li class="share-linkedin share-item type-btn icon-wrapper wb"><svg class="share-svg icon-svg share-svg-linkedin" viewBox="0 0 24 24" width="45" height="45" style="--delay: 0.35s"><use xlink:href="#linkedin"></use></svg><button aria-label="分享至 LinkedIn" title="分享至 LinkedIn" class="share-link share-linkedin type-button" onclick="window.open('https://www.linkedin.com/shareArticle?mini=true&amp;url=https://kawamasa.com.tw/production-workflow/&amp;display=popup', 'linkedinshare', 'width=555,height=450');"></button>
+                        </li>
+                        
+                        <li class="share-line-app share-item type-btn icon-wrapper wb">
+                            <svg class="share-svg icon-svg share-svg-line-app" viewBox="0 0 24 24" widht="47" height="47" style="--delay: 0.45s"><use xlink:href="#line-app"></use></svg><button aria-label="分享至 LINE" title="分享至 LINE" class="share-link share-line-app type-btn" onclick="window.open('https://line.me/R/msg/text/%E5%88%86%E4%BA%AB%E7%B5%A6%E6%82%A8%EF%BC%9Ahttps://kawamasa.com.tw/production-workflow/', 'lineatshare', 'width=640,height=500');"></button>
+                        </li>
+                
+                  </ul>
+                
+                  <div class="url-copier">
+                
+                        <input id="url-copier-input" class="url-copier-input wb" readonly value="kawamasa.com.tw/production-workflow/">
+                
+                        <button id="url-copier-btn" class="url-copier-btn wb wa"><span class="copier-text z-upper"><b>複製</b></span></button>
+                
+                  </div>
+
+            </div>
+
+      </div>
+
+      <span class="bg-stripes wb modal-deco-social-share" aria-hidden="true"></span>
+
+</aside>
+
+<script src="../assets/js/widgets.min.js" defer></script><script src="../assets/js/simple-lightbox.js" defer></script><script id="svg-inject">
+
+  /* MIT License - https://github.com/iconfu/svg-sprite-inject/blob/master/LICENSE */
+
+  !function(e,s){var t="createElement",u=s[t]("a"),p=s[t]("div");function d(e,t,n){for(var r=0;r<t.length;++r){var o=t[r];o.hasOwnProperty(e)&&n(o[e])}}var c={};function n(e,t){t=t||{};var n,r=(n=e,u.href=n,u.href),o=c[r];if(o){var i=o.svgSprite;i?t.onInjected&&t.onInjected(i):o.optionsArr.push(t)}else{var a=!1;c[r]=o={spriteHandler:{remove:function(){if(!a){var e=o.svgSprite;if(e){var t=e.parentNode;t&&t.removeChild(e),o.svgSprite=null}delete c[r],a=!0}}},svgSprite:null,optionsArr:[t]},function(e,t,n){if(e){var r=new XMLHttpRequest;r.onreadystatechange=function(){4==r.readyState&&200==r.status&&t(r.responseText)},r.onerror=n,r.open("GET",e,!0),r.send()}}(e,function(e){var t=function(e,t){p.innerHTML=e;var n=p.removeChild(p.firstChild);return n.setAttribute("data-inject-url",t),n}(e,r);a||(o.svgSprite=t,s.documentElement.appendChild(t),d("afterInject",o.optionsArr,function(e){e(t)}))},function(t){d("onLoadFail",o.optionsArr,function(e){e(t)})})}return o.spriteHandler}"object"==typeof module&&"object"==typeof module.exports&&(module.exports=n),e.SVGSpriteInject=n}(window,document);
+
+  SVGSpriteInject('../assets/icons/sprites.svg');
+
+  </script><div class="overlay"></div><div id="cookie-consent" class="cookie-consent">
+      <p><span class="cookie-consent-message">繼續瀏覽，表示您同意本網站透過 Cookie 等技術提升體驗</p><!-- 
+            --><button id="accept-cookie" class="ibvt cookie-consent-button">OK</button>
+</div><script type="application/ld+json" id="rs-breadcrumb">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "首頁",
+        "item": "https://kawamasa.com.tw/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "工作流程",
+        "item": "https://kawamasa.com.tw/production-workflow/"
+      }]
+}
+</script>
+</body>
+
+      
+
+</html>

@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+
+<html lang="en-US"><head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# website: http://ogp.me/ns/website#">
+
+    <meta charset="UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no"><script id="lang-redirect-v8">
+(() => {
+
+    const COOKIE_NAME = 'langPref';
+    const COOKIE_DAYS = 14;
+
+    // --- Cookie Helpers ---
+    function setCookie(name, value, days) {
+        const date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        const expires = "expires=" + date.toUTCString();
+        const secure = window.location.protocol === 'https:' ? ';Secure;SameSite=Lax' : '';
+        document.cookie = name + "=" + value + ";" + expires + ";path=/" + secure;
+    }
+
+    function getCookie(name) {
+        const cname = name + "=";
+        const decodedCookie = decodeURIComponent(document.cookie);
+        const ca = decodedCookie.split(';');
+        for (let i = 0; i < ca.length; i++) {
+            let c = ca[i].trim();
+            if (c.indexOf(cname) === 0) {
+                return c.substring(cname.length, c.length);
+            }
+        }
+        return "";
+    }
+
+    // --- Language Detection ---
+    function getBrowserLanguage() {
+        const lang = navigator.language || navigator.userLanguage;
+        return lang === 'zh-TW' || lang === 'zh-Hant-TW' ? 'zh-Hant-TW' : 'en-US';
+    }
+
+    function getCurrentLangFromUrl() {
+        const path = window.location.pathname;
+        return path.includes('/en/') ? 'en-US' : 'zh-Hant-TW';
+    }
+
+    // --- Environment-based redirect setup ---
+
+    let redirectToLang;
+
+        redirectToLang = function (lang) {
+            const currentPath = window.location.pathname;
+            let newPath;
+
+            if (lang === 'en-US' && !currentPath.includes('/en/')) {
+                newPath = currentPath === '/' ? '/en/' : '/en' + currentPath;
+            } else if (lang === 'zh-Hant-TW' && currentPath.includes('/en/')) {
+                newPath = currentPath.replace('/en', '');
+                if (newPath === '') newPath = '/';
+            } else {
+                return;
+            }
+
+            if (window.location.pathname !== newPath) {
+                window.location.assign(window.location.origin + newPath);
+            }
+        };
+
+
+    // --- Auto redirect logic ---
+    (function () {
+        const cookieLang = getCookie(COOKIE_NAME);
+        const browserLang = getBrowserLanguage();
+        const currentLang = getCurrentLangFromUrl();
+
+        if (cookieLang) {
+            if (cookieLang !== currentLang) {
+                redirectToLang(cookieLang);
+            }
+        } else {
+            if (browserLang !== currentLang) {
+                setCookie(COOKIE_NAME, browserLang, COOKIE_DAYS);
+                // 延遲以確保 iOS 15–17 可讀取 cookie
+                setTimeout(() => redirectToLang(browserLang), 100);
+            }
+        }
+    })();
+
+    // --- DOM-based language switch UI ---
+    document.addEventListener('DOMContentLoaded', function () {
+
+        const languageLinks = document.querySelectorAll('.lang-option');
+
+        if (!languageLinks.length) return;
+
+        const currentLang = getCurrentLangFromUrl();
+        languageLinks.forEach(link => {
+            if (link.getAttribute('data-lang') === currentLang) {
+                link.classList.add('current-option');
+            } else {
+                link.classList.remove('current-option');
+            }
+        });
+
+        languageLinks.forEach(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+                const selectedLang = this.getAttribute('data-lang');
+                setCookie(COOKIE_NAME, selectedLang, COOKIE_DAYS);
+                redirectToLang(selectedLang);
+            });
+        });
+    });
+
+})();
+</script><link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://res.cloudinary.com">
+
+    <!-- reduce google fonts cls payload -->
+    <link rel="preload" as="font" type="font/woff2" href="https://fonts.gstatic.com/s/onest/v9/gNMKW3F-SZuj7xmf-HYoEoey.woff2">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400..700&amp;display=fallback" media="print" onload="media='all'">
+
+
+        <title>Quality Control - Kawamasa CNC Precision</title>
+
+        <link rel="stylesheet" href="../../assets/styles/cnc-main.css">
+        <link rel="stylesheet" href="../../assets/styles/cnc-deferred.css" media="print" onload="media='all'"><meta name="description" content="Equipped with 2.5D CMM, 2D height gauges & Japanese-brand measuring tools, we ensure accurate inspections of dimensions, tolerances & performance. ISO 9001 & 14001 certified.">
+
+<meta property="og:locale" content="zh_TW"><meta property="og:type" content="article">
+        <meta property="og:title" content="Quality Control - Kawamasa CNC Precision">
+        <meta property="article:publisher" content="https://www.facebook.com/profile.php?id=100066731870710"><meta property="og:description" content="Equipped with 2.5D CMM, 2D height gauges & Japanese-brand measuring tools, we ensure accurate inspections of dimensions, tolerances & performance. ISO 9001 & 14001 certified.">
+        <meta property="og:url" content="https://kawamasa.com.tw/en/quality-control/"><meta property="og:site_name" content="Kawamasa CNC Precision">
+        <meta property="og:image:width" content="2400">
+        <meta property="og:image:height" content="1260"><meta property="og:image" content="https://kawamasa.com.tw/assets/fbog/kwms-fbog-quality-control.png"><script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Kawamasa CNC Precision",
+    "legalName": "Kawamasa CNC Precision Co., Ltd.",
+    "telephone": "+886222028808",
+    "faxNumber": "+886222028836",
+    "contactPoint": [
+        {
+        "@type": "ContactPoint",
+        "contactType": "customer service",
+        "telephone": "+886222028808"
+        }
+    ],
+    "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "No. 166, Min'an E. Rd.",
+        "addressLocality": "Xinzhuang District",
+        "addressRegion": "New Taipei City",
+        "postalCode": "242",
+        "addressCountry": "TW"
+    },
+    "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 25.020413421855594,
+        "longitude": 121.43229703481227
+    },
+    "openingHoursSpecification": [
+        {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday"
+        ],
+        "opens": "09:00",
+        "closes": "18:00"
+        }
+    ]
+    }
+    </script><style>:root {
+  
+            
+                
+                
+                
+                    --color-prim: rgb(1, 130, 85);
+                
+            
+                
+                
+                
+                    --color-prim-tl: rgba(1, 130, 85, 0.5);
+                
+            
+                
+                
+                
+                    --color-snd: rgba(210, 190, 255, 0.9);
+                
+            
+                
+                
+                
+                    --color-tert: rgb(80, 0, 160);
+                
+            
+            
+        }
+
+    </style>
+
+
+
+
+
+    <link rel="icon" href="../../favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../../touch-icon-192x192.png"><link rel="alternate" hreflang="zh-TW" href="../../quality-control/index.html" />
+        <link rel="alternate" hreflang="en-US" href="index.html" />
+        <link rel="alternate" hreflang="x-default" href="index.html" /></head><body id="uni" class="page-body wb wa page-quality-control has-scrollout has-scrollout-parallax lang-en-us wb"><picture class="fullscreen-bg-pic wb wa">
+
+  <source media="(max-width: 500px)" srcset="
+
+      https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_1400/kawamasa/bg/sketch-qc-mobile 1400w,
+      https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_1284/kawamasa/bg/sketch-qc-mobile 1284w,
+      https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_1080/kawamasa/bg/sketch-qc-mobile 1080w,
+      https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_900/kawamasa/bg/sketch-qc-mobile 900w,
+      https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_640/kawamasa/bg/sketch-qc-mobile 640w
+  
+  " width="1400" height="1371">
+
+  <source media="(min-width: 501px)" srcset="
+  
+      https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_2400/kawamasa/bg/sketch-qc-dktp 2400w,
+      https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_1600/kawamasa/bg/sketch-qc-dktp 1600w
+  
+  " width="2400" height="1371">
+
+
+  <img
+    class="fullscreen-bg-img"
+    alt="Kawamasa CNC Precision Co., Ltd."
+    loading="eager"
+    decoding="sync"
+    fetchpriority="high"
+    src="https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_2400/kawamasa/bg/sketch-qc-dktp"
+    width="2400"
+    height="1371"
+    sizes="100%"
+    >
+
+</picture>
+
+
+
+<div class="aux-outer" aria-hidden="true">
+
+      <div class="aux-inner">
+
+            <div class="aux aux-1"></div>
+            <div class="aux aux-2"></div>
+            <div class="aux aux-3"></div>
+            <div class="aux aux-4"></div>
+      
+      </div>
+
+</div>
+            
+<div class="site-header">
+
+      <a class="back-home" href="../../index.html" aria-label="返回首頁 Back to Homepage"><svg class="svg-logo svg-logo-filled" viewBox="0 0 140 24" width="158" height="27"><use xlink:href="#logo"></use></svg></a>
+      
+      <nav id="site-megamenu" class="vanilla-megamenu v-mm">
+
+            <ul class="mm-prim"><li class="mm-prim-li mm-prim-item ">
+                                    <a href="../index.html">
+                                    Home
+                                    </a>
+                              </li><li class="mm-prim-li mm-prim-item ">
+                                    <a href="../manufacturing-equipment/index.html">
+                                    Equipment
+                                    </a>
+                              </li><li class="mm-prim-li mm-prim-item  mm-prim-current ">
+                                    <a href="index.html">
+                                    QC
+                                    </a>
+                              </li><li class="mm-prim-li mm-prim-item ">
+                                    <a href="../product-showcase/index.html">
+                                    Showcase
+                                    </a>
+                              </li><li class="mm-prim-li mm-prim-item ">
+                                    <a href="../production-workflow/index.html">
+                                    Workflow
+                                    </a>
+                              </li><li class="mm-prim-li mm-prim-item ">
+                                    <a href="../faq/index.html">
+                                    FAQ
+                                    </a>
+                              </li><li class="mm-prim-li mm-prim-item ">
+                                    <a href="../contact-us/index.html">
+                                    Contact
+                                    </a>
+                              </li></ul>
+            
+
+            <input type="checkbox" id="mm-trigger-lang" class="mm-trigger mm-trigger-lang"><label for="mm-trigger-lang" class="mm-label" role="button" aria-label="語言選單 Language Selector"><svg class="svg-icon svg-icon-globe" width="22" height="22" viewBox="0 0 24 24"><use xlink:href="#globe"></use></svg><span class="lang-label-span">Languages</span>&nbsp;<span class="lang-arrow" aria-hidden="true"></span></label>
+  
+            <div class="mm-snd mm-snd-lang mm-lang-list">
+
+                  <ul class="mm-snd-list"><li class="mm-snd-item"><a class="mm-snd-link lang-option v2 wb wa" href="index.html" data-lang="zh-Hant-TW"><span>中文 台灣</span></a></li>
+                        
+                        <li class="mm-snd-item"><a class="mm-snd-link lang-option current-option v2 wb wa" href="#current_lang" data-lang="en-US"><span>English - US</span></a></li><li class="cookie-notes lh-reduced"><p>By default, your language preference will be remembered for 14 days.</p>
+
+                  </li>
+            
+                  </ul>
+
+            </div>
+
+
+            <input type="checkbox" id="mm-trigger-mobile" class="mm-trigger mm-trigger-mobile"><label for="mm-trigger-mobile" class="mm-label" role="button" aria-label="行動版選單"><span class="mobile-label-span">&nbsp;</span></label>
+  
+            <div class="mm-snd mm-snd-mobile">
+
+                  <p class="ribbon-outer wb"><span class="ribbon-text">Kawamasa</span></p>
+
+                  <ul class="mm-snd-list mm-menu-mobile"><li class="mm-mobile-li mm-mobile-item wb wa " style="--delay: 0.07s; --delay-slow: 0.3s"><a class="mm-link" href="../index.html">
+                                          
+                                          <span class="mm-icon-wrapper wb"><svg class="mm-icon" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"><use xlink:href="#mm-home"></use></svg></span>
+                                          <span class="mm-title">Home</span>
+
+                                    </a>
+
+                              </li><li class="mm-mobile-li mm-mobile-item wb wa " style="--delay: 0.14s; --delay-slow: 0.4s"><a class="mm-link" href="../manufacturing-equipment/index.html">
+                                          
+                                          <span class="mm-icon-wrapper wb"><svg class="mm-icon" xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"><use xlink:href="#mm-equip"></use></svg></span>
+                                          <span class="mm-title">Equipment</span>
+
+                                    </a>
+
+                              </li><li class="mm-mobile-li mm-mobile-item wb wa  mm-mobile-current " style="--delay: 0.21s; --delay-slow: 0.5s"><a class="mm-link" href="index.html">
+                                          
+                                          <span class="mm-icon-wrapper wb"><svg class="mm-icon" xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"><use xlink:href="#mm-tick"></use></svg></span>
+                                          <span class="mm-title">QC</span>
+
+                                    </a>
+
+                              </li><li class="mm-mobile-li mm-mobile-item wb wa " style="--delay: 0.28s; --delay-slow: 0.6s"><a class="mm-link" href="../product-showcase/index.html">
+                                          
+                                          <span class="mm-icon-wrapper wb"><svg class="mm-icon" xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"><use xlink:href="#mm-showcase"></use></svg></span>
+                                          <span class="mm-title">Showcase</span>
+
+                                    </a>
+
+                              </li><li class="mm-mobile-li mm-mobile-item wb wa " style="--delay: 0.35s; --delay-slow: 0.7s"><a class="mm-link" href="../production-workflow/index.html">
+                                          
+                                          <span class="mm-icon-wrapper wb"><svg class="mm-icon" xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"><use xlink:href="#mm-workflow"></use></svg></span>
+                                          <span class="mm-title">Workflow</span>
+
+                                    </a>
+
+                              </li><li class="mm-mobile-li mm-mobile-item wb wa " style="--delay: 0.42s; --delay-slow: 0.8s"><a class="mm-link" href="../faq/index.html">
+                                          
+                                          <span class="mm-icon-wrapper wb"><svg class="mm-icon" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"><use xlink:href="#mm-faq"></use></svg></span>
+                                          <span class="mm-title">FAQ</span>
+
+                                    </a>
+
+                              </li><li class="mm-mobile-li mm-mobile-item wb wa " style="--delay: 0.49s; --delay-slow: 0.9s"><a class="mm-link" href="../contact-us/index.html">
+                                          
+                                          <span class="mm-icon-wrapper wb"><svg class="mm-icon" xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"><use xlink:href="#mm-contact"></use></svg></span>
+                                          <span class="mm-title">Contact</span>
+
+                                    </a>
+
+                              </li><span class="main-menu-deco bg-stripes wb" aria-hidden="true"></span>
+
+                  </ul>
+
+                  
+
+            </div>
+
+
+      </nav>
+
+</div><main id="site-main" class="site-main l-col-triple">
+
+                  
+                  <div class="primary wb wa">
+
+                        <header class="page-header z-upper">
+
+      <p class="title-1st title-uppercase has-blink-cursor hello-world wow"><span>Shape Perfection In Every Cut<span class="blink-cursor" aria-hidden="true"></span></span><span>Kawamasa <span class="trail-1">CNC </span><span class="trail-2">Precision</span><span class="trail-3"> Co., Ltd.</span></span></p>
+
+      <h1 class="hero-title hero-title-prim title-lv1 wow"><!--
+    --><span><span class="anim-span" data-letters="Quality" style="--delay: 0.25s">Quality</span>&nbsp;<span class="anim-span" data-letters="Control" style="--delay: 0.35s">Control</span></span></h1>
+
+  <div class="qc-pic-wrapper wow">
+
+    <picture class="qc-pic">
+
+      <img class="qc-img lazyload" data-sizes="auto" alt="Micormeter 分厘卡" width="1800" height="750" loading="eager" srcset="
+      https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_800/kawamasa/qc/qc-micrometer 800w,
+      https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_1024/kawamasa/qc/qc-micrometer 1024w,
+      https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_1200/kawamasa/qc/qc-micrometer 1200w,
+      https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_1600/kawamasa/qc/qc-micrometer 1600w,
+      https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_1800/kawamasa/qc/qc-micrometer 1800w
+
+      "
+      
+      >
+
+    </picture>
+
+    <svg class="svg-arrow z-upper" viewBox="0 0 24 24" width="100" height="100" data-scroll-parallax><path d="M17 15.586 6.707 5.293 5.293 6.707 15.586 17H7v2h12V7h-2v8.586z"/></svg>
+  
+  </div>
+
+</header>
+
+<section class="sec-std " id="specifications">
+
+  <table class="qc-instruments"><thead>
+
+      <tr>
+
+          <th class="qc-type">Type</th>
+          <th class="qc-model">Brand / Model</th>
+          <th class="qc-range">Range</th>
+          <th class="qc-accuracy">Accuracy</th>
+          <th class="qc-qty">Qty.</th>
+
+      </tr>
+
+    </thead>
+    
+    <tbody>
+
+    <tr class="qc-tr wow" style="--delay: 0.03s">
+        <td class="qc-type">Granite Surface Plate</td>
+        <td class="qc-model">Metrology GN-100100</td>
+        <td class="qc-range">1000 × 1000 × 150 mm</td>
+        <td class="qc-accuracy">0.004 mm</td>
+        <td class="qc-qty">1</td>
+      </tr>
+
+    <tr class="qc-tr wow" style="--delay: 0.06s">
+        <td class="qc-type">3D CMM</td>
+        <td class="qc-model">Aurotek DeMeet-400</td>
+        <td class="qc-range">400 × 250 × 200 mm</td>
+        <td class="qc-accuracy">0.0005 mm</td>
+        <td class="qc-qty">1</td>
+      </tr>
+
+    <tr class="qc-tr wow" style="--delay: 0.09s">
+        <td class="qc-type">2D Height Gauge</td>
+        <td class="qc-model">Trimos Vectra Touch 600 MA</td>
+        <td class="qc-range">0 – 610 mm</td>
+        <td class="qc-accuracy">2 + L(mm)/400 μm</td>
+        <td class="qc-qty">1</td>
+      </tr>
+
+    <tr class="qc-tr wow" style="--delay: 0.12s">
+        <td class="qc-type">2D Height Gauge</td>
+        <td class="qc-model">Trimos V Plus V604+</td>
+        <td class="qc-range">0 – 600 mm</td>
+        <td class="qc-accuracy">2.5 + L(mm)/300 µm</td>
+        <td class="qc-qty">1</td>
+      </tr>
+
+    <tr class="qc-tr wow" style="--delay: 0.15s">
+        <td class="qc-type">Dial Height Gauge</td>
+        <td class="qc-model">Mitutoyo</td>
+        <td class="qc-range">0 – 300 mm</td>
+        <td class="qc-accuracy">0.01 mm</td>
+        <td class="qc-qty">1</td>
+      </tr>
+
+    <tr class="qc-tr wow" style="--delay: 0.18s">
+        <td class="qc-type">Dial Vernier Caliper</td>
+        <td class="qc-model">Mitutoyo</td>
+        <td class="qc-range">0 – 150 200 300 mm</td>
+        <td class="qc-accuracy">0.005 mm</td>
+        <td class="qc-qty">6</td>
+      </tr>
+
+    <tr class="qc-tr wow" style="--delay: 0.21s">
+        <td class="qc-type">3-Point Internal Micrometer</td>
+        <td class="qc-model">Mitutoyo</td>
+        <td class="qc-range">0 – 150 mm</td>
+        <td class="qc-accuracy">0.001 mm</td>
+        <td class="qc-qty">1 Set</td>
+      </tr>
+
+    <tr class="qc-tr wow" style="--delay: 0.24s">
+        <td class="qc-type">3-Point Internal Micrometer</td>
+        <td class="qc-model">Metrology TP-03S</td>
+        <td class="qc-range">0 – 75 mm</td>
+        <td class="qc-accuracy">0.001 mm</td>
+        <td class="qc-qty">1 Set</td>
+      </tr>
+
+    <tr class="qc-tr wow" style="--delay: 0.27s">
+        <td class="qc-type">Digital Internal Micrometer</td>
+        <td class="qc-model">Mitutoyo</td>
+        <td class="qc-range">0 – 25 mm</td>
+        <td class="qc-accuracy">0.001 mm</td>
+        <td class="qc-qty">2</td>
+      </tr>
+
+    <tr class="qc-tr wow" style="--delay: 0.3s">
+        <td class="qc-type">Digital External Micrometer</td>
+        <td class="qc-model">Mitutoyo</td>
+        <td class="qc-range">0 – 25 mm</td>
+        <td class="qc-accuracy">0.001 mm</td>
+        <td class="qc-qty">2</td>
+      </tr>
+
+    <tr class="qc-tr wow" style="--delay: 0.33s">
+        <td class="qc-type">Digital External Micrometer</td>
+        <td class="qc-model">Mitutoyo</td>
+        <td class="qc-range">25 – 50 mm</td>
+        <td class="qc-accuracy">0.001 mm</td>
+        <td class="qc-qty">1</td>
+      </tr>
+
+    <tr class="qc-tr wow" style="--delay: 0.36s">
+        <td class="qc-type">External Micrometer</td>
+        <td class="qc-model">Mitutoyo</td>
+        <td class="qc-range">0 – 100 mm</td>
+        <td class="qc-accuracy">0.005 mm</td>
+        <td class="qc-qty">1 Set</td>
+      </tr>
+
+    <tr class="qc-tr wow" style="--delay: 0.39s">
+        <td class="qc-type">External Micrometer</td>
+        <td class="qc-model">Mitutoyo</td>
+        <td class="qc-range">0 – 200 mm</td>
+        <td class="qc-accuracy">0.005 mm</td>
+        <td class="qc-qty">1 Set</td>
+      </tr>
+
+    <tr class="qc-tr wow" style="--delay: 0.42s">
+        <td class="qc-type">External Micrometer</td>
+        <td class="qc-model">Mitutoyo</td>
+        <td class="qc-range">50 – 75 mm</td>
+        <td class="qc-accuracy">0.01 mm</td>
+        <td class="qc-qty">2</td>
+      </tr>
+
+    <tr class="qc-tr wow" style="--delay: 0.45s">
+        <td class="qc-type">External Micrometer</td>
+        <td class="qc-model">Mitutoyo</td>
+        <td class="qc-range">75 – 100 mm</td>
+        <td class="qc-accuracy">0.01 mm</td>
+        <td class="qc-qty">1</td>
+      </tr>
+
+    <tr class="qc-tr wow" style="--delay: 0.48s">
+        <td class="qc-type">External Micrometer</td>
+        <td class="qc-model">Mitutoyo</td>
+        <td class="qc-range">100 – 125 mm</td>
+        <td class="qc-accuracy">0.01 mm</td>
+        <td class="qc-qty">1</td>
+      </tr>
+
+    <tr class="qc-tr wow" style="--delay: 0.51s">
+        <td class="qc-type">Thickness Gauge</td>
+        <td class="qc-model">Mitutoyo</td>
+        <td class="qc-range">0.05 – 1.00 mm</td>
+        <td class="qc-accuracy">0.01 mm</td>
+        <td class="qc-qty">2</td>
+      </tr>
+
+    <tr class="qc-tr wow" style="--delay: 0.54s">
+        <td class="qc-type">3D Sensor</td>
+        <td class="qc-model">Mitutoyo</td>
+        <td class="qc-range">As per machine range</td>
+        <td class="qc-accuracy">0.001 mm</td>
+        <td class="qc-qty">2</td>
+      </tr>
+
+    <tr class="qc-tr wow" style="--delay: 0.57s">
+        <td class="qc-type">Hole Gauge</td>
+        <td class="qc-model">Mitutoyo</td>
+        <td class="qc-range">10 – 300 mm</td>
+        <td class="qc-accuracy">0.005 mm</td>
+        <td class="qc-qty">1</td>
+      </tr>
+
+    <tr class="qc-tr wow" style="--delay: 0.6s">
+        <td class="qc-type">Gauge Block Set</td>
+        <td class="qc-model">LINKS</td>
+        <td class="qc-range">0.5 – 100 mm</td>
+        <td class="qc-accuracy">0.005 mm</td>
+        <td class="qc-qty">1 Set</td>
+      </tr>
+
+    <tr class="qc-tr wow" style="--delay: 0.63s">
+        <td class="qc-type">Gauge Block Set</td>
+        <td class="qc-model">Metrology</td>
+        <td class="qc-range">0.5 – 200 mm</td>
+        <td class="qc-accuracy">0.005 mm</td>
+        <td class="qc-qty">1 Set</td>
+      </tr>
+
+    <tr class="qc-tr wow" style="--delay: 0.66s">
+        <td class="qc-type">Granite Straight Edge</td>
+        <td class="qc-model">Mitutoyo</td>
+        <td class="qc-range">0 – 800 mm</td>
+        <td class="qc-accuracy">0.001 mm</td>
+        <td class="qc-qty">1</td>
+      </tr>
+
+          
+
+    </tbody>
+
+  </table>
+
+</section>
+
+<span class="endmark-short-fat bg-halftone wb" aria-hidden="true"></span>
+
+
+
+                  </div><aside class="site-sidebar sidebar-first">
+
+      <div class="sidebar-cont grid-sidebar-fix">
+
+            <ul class="toc accor-group"><li class="accor-set accor-set_toc">
+            
+                        <input name="sidebar-accor_line-at" id="sidebar-accor_line-at" class="accor-control" type="checkbox" autocomplete="off">
+                        <label for="sidebar-accor_line-at" class="accor-label title-uppercase">Inquiry Now<span class="accor-icon"></span></label>
+            
+                        <div class="accor-cont">
+            
+                              <div class="accor-cont-inner"><h2 class="title-lv6 sidebar-corp-name">Kawamasa CNC Precision<br>Co., Ltd.</h2>
+
+                                    <ul class="sidebar-contact">
+
+                                          <li><span class="contact-item-title">Tel</span><a href="tel:+886222028808">+886 2 2202 8808<span class=" contact-item-cont"></span></a></li>
+
+                                          <li><span class="contact-item-title">Fax</span><span class=" contact-item-cont">+886 2 2202 8836</span></li>
+
+                                          <li class="qrtty sidebar"></li>
+
+                                    </ul><div class="qqqsss-at-wrapper">
+                                          <h2 class="title-lv6 qrcode-action"><span class="wb wow">Email Us</span></h2>
+                                          <svg id="qqqsss-svg" viewBox="0 0 128 128" width="128" height="128"><use xlink:href="#qqqsss"></use></svg>
+                                    </div>
+
+                              </div>
+
+                        </div>
+
+                  </li>
+
+                  
+            </ul>
+
+      </div>
+
+</aside></main><footer class="site-footer z-upper">
+
+      <div class="footer-lang-switcher">
+
+            <div class="lang-switcher-svgs wow">
+
+                  <svg class="svg-icon svg-icon-circle" width="100" height="100" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" stroke-width="1" fill="none"></circle></svg>
+                  <svg class="svg-icon svg-icon-multi-lang" viewBox="0 0 512 512" width="38" height="38"><use xlink:href="#multi-lang"></use></svg>
+
+            </div>
+
+            <div class="lang-switcher-cont">
+                  
+                  <p>This page is also available in the following language:</p>
+
+                  <ul class="lang-list-footer"><li class="lang-footer-item"><a class="mm-snd-link lang-option v2 wb wa" href="index.html" data-lang="zh-Hant-TW"><span>中文 台灣</span></a></li></ul>
+                        
+            </div>
+
+      </div><picture class="footer-deco-pic wa wb wow">
+    
+    <source media="(max-width: 500px)" srcset="
+
+        https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_1400/kawamasa/bg/sketch-qc-mobile 1400w,
+        https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_1284/kawamasa/bg/sketch-qc-mobile 1284w,
+        https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_1080/kawamasa/bg/sketch-qc-mobile 1080w,
+        https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_900/kawamasa/bg/sketch-qc-mobile 900w,
+        https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_640/kawamasa/bg/sketch-qc-mobile 640w
+
+    " width="1400" height="1371">
+
+    <source media="(min-width: 501px)" srcset="
+
+        https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_2400/kawamasa/bg/sketch-qc-dktp 2400w,
+        https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_1600/kawamasa/bg/sketch-qc-dktp 1600w
+
+    " width="2400" height="1371">
+
+    <img class="footer-deco-img lazyload" data-sizes="auto"
+         style="--footer-deco-opacity: 0.725; --footer-deco-position: 0"
+         loading="lazy" decoding="async"
+         width="2400" height="1371"
+         alt="CNC Illustration"
+         src="https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_2400/kawamasa/bg/sketch-qc-dktp">
+  </picture><h5 class="title-lv3 lh-reduced title-footer-contact wow"><span class="wb" style="--delay: 0.45s">Kawamasa CNC Precision Co., Ltd.</span>
+      </h5>
+
+      <ul class="contact-sns">
+
+            <li class="contact-sns-item wow" style="--delay: 0.15s">
+                  <a class="contact-sns-link anchor-block no-hover-border wow" href="https://www.facebook.com/profile.php?id=100066731870710" target="_blank" rel="noreferrer noopener"><svg class="contact-svg icon-svg contact-svg-fb" viewBox="0 0 24 24" width="45" height="45"><use xlink:href="#fb"></use></svg></a>
+            </li>
+
+            <li class="contact-sns-item wow" style="--delay: 0.22s">
+                  <a class="contact-sns-link anchor-block no-hover-border" href="https://www.linkedin.com/in/%E8%A3%BD%E4%BD%9C-%E5%B7%9D%E6%AD%A3-387624168/" target="_blank" rel="noreferrer noopener"><svg class="contact-svg icon-svg contact-svg-linkedin" viewBox="0 0 24 24" width="45" height="45"><use xlink:href="#linkedin"></use></svg></a>
+            </li>
+
+            <li class="contact-sns-item wow" style="--delay: 0.29s">
+                  <a class="contact-sns-link anchor-block no-hover-border wow" href="https://line.me/ti/p/test" target="_blank" rel="noreferrer noopener"><svg class="contact-svg icon-svg contact-svg-line-app" viewBox="0 0 24 24" widht="47" height="47"><use xlink:href="#line-app"></use></svg></a>
+            </li>
+
+            <li class="contact-sns-item wow" style="--delay: 0.36s">
+                  <a class="contact-sns-link anchor-block no-hover-border wow" href="https://maps.app.goo.gl/teausi1oe2j8hDXLA" target="_blank" rel="noreferrer noopener"><svg class="contact-svg icon-svg contact-svg-gmaps" viewBox="0 0 216.975 216.975" width="33" width="33"><use xlink:href="#google-maps"></use></svg></a>
+            </li>
+
+      </ul><ul class="contact-list contact-list--footer">
+
+            <li class="biz-hours"><span class="contact-item-title contact-item-title--optional">Hours&nbsp;</span><span class=" contact-item-cont">Monday to Friday, 9:00 AM – 6:00 PM (UTC+8), excluding public holidays in Taiwan</span></li>
+            <li><span class="contact-item-title contact-item-title--optional">Email&nbsp;</span><span class="qrtty contact-item-cont"></span></li>
+            <li><span class="contact-item-title">Tel&nbsp;</span><a href="tel:+886222028808">+886 2 2202 8808<span class=" contact-item-cont"></span></a></li>
+
+
+            <li><span class="contact-item-title">Fax&nbsp;</span><span class=" contact-item-cont">+886 2 2202 8836</span></li>
+
+            <li class="addr-long"><span class="contact-item-title contact-item-title--optional">Addr.&nbsp;</span><!-- 
+            -->No. 166, Min'an E. Rd., Xinzhuang Dist., 242 New Taipei City - Taiwan</span></li>
+
+      </ul>
+      
+      <p class="copyright">Copyright &copy; Kawamasa CNC Precision Co., Ltd. All rights reserved.</p><p class="back-to-page-top"><a href="#uni">Back to page top</a></p>
+
+</footer><div class="fcta-wrapper">
+
+      <ul class="fcta-list">
+
+            <li class="fcta-contact wb fcta-item" style="--t-delay: 0.1s">
+                  <a class="fcta-link modal-trigger z-upper" data-modal="contact" href="#footer-contact" role="button" aria-label="聯絡方式"><svg class="fcta-svg" viewBox="0 0 24 24" width="24" height="24"><use xlink:href="#phone"></use></svg></a>
+            </li>
+
+            <li class="fcta-share wb fcta-item" style="--t-delay: 0.2s" >
+                  <a class="fcta-link modal-trigger z-upper" data-modal="social-share" href="#share" role="button" aria-label="社群網站分享"><svg class="fcta-svg" viewBox="0 0 24 24" width="24" height="24"><use xlink:href="#share"></use></svg></a>
+            </li>
+
+            <li class="fcta-page-top wb fcta-item" style="--t-delay: 0.3s">
+                  <a class="fcta-link z-upper" href="#uni" role="button" aria-label="回頁面頂端"><svg class="fcta-svg" viewBox="0 0 24 24" width="24" height="24"><use xlink:href="#arrow-up"></use></svg></a>
+            </li>
+
+      </ul>
+
+</div><aside id="modal-contact" class="modal modal-contact modal-mini wb wa">
+
+      <div class="modal-close-wrapper close-wrapper wb"><button class="modal-close close wb" aria-label="Close"><span class="modal-close-title close-title wb">Close</span></button></div>
+
+      <span class="modal-deco-contact bg-stripes wb" aria-hidden="true"></span>
+
+      <div class="modal-inner wb wa">
+
+            <h2 class="modal-title-prim title-lv3">Contact Us</h2>
+
+            <div class="modal-cont">
+
+                  <ul class="contact-sns">
+            
+                        <li class="contact-sns-item wow" style="--delay: 0.15s">
+                              <a class="contact-sns-link anchor-block no-hover-border wow" href="https://www.facebook.com/profile.php?id=100066731870710" target="_blank" rel="noreferrer noopener"><svg class="contact-svg icon-svg contact-svg-fb" viewBox="0 0 24 24" width="45" height="45"><use xlink:href="#fb"></use></svg></a>
+                        </li>
+
+                        <li class="contact-sns-item wow" style="--delay: 0.22s">
+                              <a class="contact-sns-link anchor-block no-hover-border" href="https://www.linkedin.com/in/%E8%A3%BD%E4%BD%9C-%E5%B7%9D%E6%AD%A3-387624168/" target="_blank" rel="noreferrer noopener"><svg class="contact-svg icon-svg contact-svg-linkedin" viewBox="0 0 24 24" width="45" height="45"><use xlink:href="#linkedin"></use></svg></a>
+                        </li>
+
+                        <li class="contact-sns-item wow" style="--delay: 0.29s">
+                              <a class="contact-sns-link anchor-block no-hover-border wow" href="https://line.me/ti/p/test" target="_blank" rel="noreferrer noopener"><svg class="contact-svg icon-svg contact-svg-line-app" viewBox="0 0 24 24" widht="47" height="47"><use xlink:href="#line-app"></use></svg></a>
+                        </li>
+
+                        <li class="contact-sns-item wow" style="--delay: 0.36s">
+                              <a class="contact-sns-link anchor-block no-hover-border wow" href="https://maps.app.goo.gl/teausi1oe2j8hDXLA" target="_blank" rel="noreferrer noopener"><svg class="contact-svg icon-svg contact-svg-gmaps" viewBox="0 0 216.975 216.975" width="33" width="33"><use xlink:href="#google-maps"></use></svg></a>
+                        </li>
+            
+                  </ul>
+
+                  <h5 class="title-lv6 lh-reduced title-modal-contact wow"><span class="wb" style="--delay: 0.45s">Kawamasa CNC Precision Co., Ltd.</span>
+                  </h5><ul class="contact-list contact-list--footer">
+
+                        <li class="biz-hours"><span class="contact-item-title contact-item-title--optional">Hours&nbsp;</span><span class=" contact-item-cont">Monday to Friday, 9:00 AM – 6:00 PM (UTC+8), excluding public holidays in Taiwan</span></li>
+
+                        <li><span class="contact-item-title contact-item-title--optional">Email&nbsp;</span><span class="qrtty contact-item-cont"></span></li>
+
+                        <li><span class="contact-item-title">Tel&nbsp;</span><a href="tel:+886222028808">+886 2 2202 8808<span class=" contact-item-cont"></span></a></li>
+
+                        <li><span class="contact-item-title">Fax&nbsp;</span><span class=" contact-item-cont">+886 2 2202 8836</span></li>
+                        
+                        <li class="addr-long"><span class="contact-item-title contact-item-title--optional">Addr.&nbsp;</span><!-- 
+                        -->No. 166, Min'an E. Rd., Xinzhuang Dist., 242 New Taipei City - Taiwan</span></li>
+
+                  </ul>
+
+            </div>
+
+           
+
+
+      </div>
+      
+      
+
+</aside><aside id="modal-social-share" class="modal modal-social-share modal-mini wb wa">
+
+      <div class="modal-close-wrapper close-wrapper wb"><button class="modal-close close wb" aria-label="Close"><span class="modal-close-title close-title wb">Close</span></button></div>
+
+      <div class="modal-inner wb wa">
+
+
+            <h2 class="modal-title-prim title-lv3">Social Share</h2>
+
+            <div class="modal-cont">
+
+                  <ul class="share-list">
+
+                  
+                
+                        <li class="share-fb share-item type-btn icon-wrapper wb">
+                            <svg class="share-svg icon-svg share-svg-fb" viewBox="0 0 24 24" width="45" height="45" style="--delay: 0.15s"><use xlink:href="#fb"></use></svg><button aria-label="Share to Facebook" title="Share to Facebook" class="share-link share-fb type-btn" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=https://kawamasa.com.tw/en/quality-control/', 'fbshare', 'width=555,height=660');"></button>
+                        </li>
+                        
+                        <li class="share-fb-msg share-item type-href icon-wrapper wb">
+                            <a aria-label="Share to Facebook Messenger (Mobile Only)" class="share-link anchor-block no-hover-border" href="fb-messenger://share?link=https://kawamasa.com.tw/en/quality-control/" target="_blank" rel="noopener noreferrer" title="Share to Facebook Messenger (Mobile Only)">
+                                <svg class="share-svg icon-svg share-svg-fbmsg" viewBox="0 0 24 24" width="45" height="45" style="--delay: 0.25s"><use xlink:href="#fb-msg"></use></svg>
+                            </a>
+                        </li>
+                
+                        <li class="share-linkedin share-item type-btn icon-wrapper wb"><svg class="share-svg icon-svg share-svg-linkedin" viewBox="0 0 24 24" width="45" height="45" style="--delay: 0.35s"><use xlink:href="#linkedin"></use></svg><button aria-label="Share to LinkedIn" title="Share to LinkedIn" class="share-link share-linkedin type-button" onclick="window.open('https://www.linkedin.com/shareArticle?mini=true&amp;url=https://kawamasa.com.tw/en/quality-control/&amp;display=popup', 'linkedinshare', 'width=555,height=450');"></button>
+                        </li>
+                        
+                        <li class="share-line-app share-item type-btn icon-wrapper wb">
+                            <svg class="share-svg icon-svg share-svg-line-app" viewBox="0 0 24 24" widht="47" height="47" style="--delay: 0.45s"><use xlink:href="#line-app"></use></svg><button aria-label="Share to LINE" title="Share to LINE" class="share-link share-line-app type-btn" onclick="window.open('https://line.me/R/msg/text/%E5%88%86%E4%BA%AB%E7%B5%A6%E6%82%A8%EF%BC%9Ahttps://kawamasa.com.tw/en/quality-control/', 'lineatshare', 'width=640,height=500');"></button>
+                        </li>
+                
+                  </ul>
+                
+                  <div class="url-copier">
+                
+                        <input id="url-copier-input" class="url-copier-input wb" readonly value="kawamasa.com.tw/en/quality-control/">
+                
+                        <button id="url-copier-btn" class="url-copier-btn wb wa"><span class="copier-text z-upper"><b>Copy</b></span></button>
+                
+                  </div>
+
+            </div>
+
+      </div>
+
+      <span class="bg-stripes wb modal-deco-social-share" aria-hidden="true"></span>
+
+</aside>
+
+<script src="../../assets/js/widgets.min.js" defer></script><script id="svg-inject">
+
+  /* MIT License - https://github.com/iconfu/svg-sprite-inject/blob/master/LICENSE */
+
+  !function(e,s){var t="createElement",u=s[t]("a"),p=s[t]("div");function d(e,t,n){for(var r=0;r<t.length;++r){var o=t[r];o.hasOwnProperty(e)&&n(o[e])}}var c={};function n(e,t){t=t||{};var n,r=(n=e,u.href=n,u.href),o=c[r];if(o){var i=o.svgSprite;i?t.onInjected&&t.onInjected(i):o.optionsArr.push(t)}else{var a=!1;c[r]=o={spriteHandler:{remove:function(){if(!a){var e=o.svgSprite;if(e){var t=e.parentNode;t&&t.removeChild(e),o.svgSprite=null}delete c[r],a=!0}}},svgSprite:null,optionsArr:[t]},function(e,t,n){if(e){var r=new XMLHttpRequest;r.onreadystatechange=function(){4==r.readyState&&200==r.status&&t(r.responseText)},r.onerror=n,r.open("GET",e,!0),r.send()}}(e,function(e){var t=function(e,t){p.innerHTML=e;var n=p.removeChild(p.firstChild);return n.setAttribute("data-inject-url",t),n}(e,r);a||(o.svgSprite=t,s.documentElement.appendChild(t),d("afterInject",o.optionsArr,function(e){e(t)}))},function(t){d("onLoadFail",o.optionsArr,function(e){e(t)})})}return o.spriteHandler}"object"==typeof module&&"object"==typeof module.exports&&(module.exports=n),e.SVGSpriteInject=n}(window,document);
+
+  SVGSpriteInject('../../assets/icons/sprites.svg');
+
+  </script><script id="scrollout">
+
+    var ScrollOut=function(){"use strict"
+    function S(e,t,n){return e<t?t:n<e?n:e}function T(e){return+(0<e)-+(e<0)}var q,t={}
+    function n(e){return"-"+e[0].toLowerCase()}function d(e){return t[e]||(t[e]=e.replace(/([A-Z])/g,n))}function v(e,t){return e&&0!==e.length?e.nodeName?[e]:[].slice.call(e[0].nodeName?e:(t||document.documentElement).querySelectorAll(e)):[]}function h(e,t){for(var n in t)n.indexOf("_")&&e.setAttribute("data-"+d(n),t[n])}var z=[]
+    function e(){q=0,z.slice().forEach(function(e){return e()}),F()}function F(){!q&&z.length&&(q=requestAnimationFrame(e))}function N(e,t,n,r){return"function"==typeof e?e(t,n,r):e}function m(){}return function(L){var i,P,_,H,o=(L=L||{}).onChange||m,l=L.onHidden||m,c=L.onShown||m,s=L.onScroll||m,f=L.cssProps?(i=L.cssProps,function(e,t){for(var n in t)n.indexOf("_")&&(!0===i||i[n])&&e.style.setProperty("--"+d(n),(r=t[n],Math.round(1e4*r)/1e4))
+    var r}):m,e=L.scrollingElement,A=e?v(e)[0]:window,W=e?v(e)[0]:document.documentElement,x=!1,O={},y=[]
+    function t(){y=v(L.targets||"[data-scroll]",v(L.scope||W)[0]).map(function(e){return{element:e}})}function n(){var e=W.clientWidth,t=W.clientHeight,n=T(-P+(P=W.scrollLeft||window.pageXOffset)),r=T(-_+(_=W.scrollTop||window.pageYOffset)),i=W.scrollLeft/(W.scrollWidth-e||1),o=W.scrollTop/(W.scrollHeight-t||1)
+    x=x||O.scrollDirX!==n||O.scrollDirY!==r||O.scrollPercentX!==i||O.scrollPercentY!==o,O.scrollDirX=n,O.scrollDirY=r,O.scrollPercentX=i,O.scrollPercentY=o
+    for(var l,c=!1,s=0;s<y.length;s++){for(var f=y[s],u=f.element,a=u,d=0,v=0;d+=a.offsetLeft,v+=a.offsetTop,(a=a.offsetParent)&&a!==A;);var h=u.clientHeight||u.offsetHeight||0,m=u.clientWidth||u.offsetWidth||0,g=(S(d+m,P,P+e)-S(d,P,P+e))/m,p=(S(v+h,_,_+t)-S(v,_,_+t))/h,w=1===g?0:T(d-P),X=1===p?0:T(v-_),Y=S((P-(m/2+d-e/2))/(e/2),-1,1),b=S((_-(h/2+v-t/2))/(t/2),-1,1),D=void 0
+    D=L.offset?N(L.offset,u,f,W)>_?0:1:(N(L.threshold,u,f,W)||0)<g*p?1:0
+    var E=f.visible!==D;(f._changed||E||f.visibleX!==g||f.visibleY!==p||f.index!==s||f.elementHeight!==h||f.elementWidth!==m||f.offsetX!==d||f.offsetY!==v||f.intersectX!=f.intersectX||f.intersectY!=f.intersectY||f.viewportX!==Y||f.viewportY!==b)&&(c=!0,f._changed=!0,f._visibleChanged=E,f.visible=D,f.elementHeight=h,f.elementWidth=m,f.index=s,f.offsetX=d,f.offsetY=v,f.visibleX=g,f.visibleY=p,f.intersectX=w,f.intersectY=X,f.viewportX=Y,f.viewportY=b,f.visible=D)}H||!x&&!c||(l=C,z.push(l),F(),H=function(){!(z=z.filter(function(e){return e!==l})).length&&q&&(cancelAnimationFrame(q),q=0)})}function C(){u(),x&&(x=!1,h(W,{scrollDirX:O.scrollDirX,scrollDirY:O.scrollDirY}),f(W,O),s(W,O,y))
+    for(var e=y.length-1;-1<e;e--){var t=y[e],n=t.element,r=t.visible,i=n.hasAttribute("scrollout-once")||!1
+    t._changed&&(t._changed=!1,f(n,t)),t._visibleChanged&&(h(n,{scroll:r?"in":"out"}),o(n,t,W),(r?c:l)(n,t,W)),r&&(L.once||i)&&y.splice(e,1)}}function u(){H&&(H(),H=void 0)}t(),n(),C()
+    var r=0,a=function(){r=r||setTimeout(function(){r=0,n()},0)}
+    return window.addEventListener("resize",a),A.addEventListener("scroll",a),{index:t,update:n,teardown:function(){u(),window.removeEventListener("resize",a),A.removeEventListener("scroll",a)}}}}();
+    
+    ScrollOut({cssProps: {
+              scrollPercentY: true
+            }});
+    
+</script><div class="overlay"></div><div id="cookie-consent" class="cookie-consent">
+      <p><span class="cookie-consent-message">By continuing, you agree this site uses cookies to enhance experience</p><!-- 
+            --><button id="accept-cookie" class="ibvt cookie-consent-button">OK</button>
+</div><script type="application/ld+json" id="rs-breadcrumb">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://kawamasa.com.tw/en/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Quality Control",
+        "item": "https://kawamasa.com.tw/en/quality-control/"
+      }]
+}
+</script>
+</body>
+
+      
+
+</html>

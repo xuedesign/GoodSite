@@ -1,0 +1,1378 @@
+<!DOCTYPE html>
+
+<html lang="en-US"><head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# website: http://ogp.me/ns/website#">
+
+    <meta charset="UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no"><script id="lang-redirect-v8">
+(() => {
+
+    const COOKIE_NAME = 'langPref';
+    const COOKIE_DAYS = 14;
+
+    // --- Cookie Helpers ---
+    function setCookie(name, value, days) {
+        const date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        const expires = "expires=" + date.toUTCString();
+        const secure = window.location.protocol === 'https:' ? ';Secure;SameSite=Lax' : '';
+        document.cookie = name + "=" + value + ";" + expires + ";path=/" + secure;
+    }
+
+    function getCookie(name) {
+        const cname = name + "=";
+        const decodedCookie = decodeURIComponent(document.cookie);
+        const ca = decodedCookie.split(';');
+        for (let i = 0; i < ca.length; i++) {
+            let c = ca[i].trim();
+            if (c.indexOf(cname) === 0) {
+                return c.substring(cname.length, c.length);
+            }
+        }
+        return "";
+    }
+
+    // --- Language Detection ---
+    function getBrowserLanguage() {
+        const lang = navigator.language || navigator.userLanguage;
+        return lang === 'zh-TW' || lang === 'zh-Hant-TW' ? 'zh-Hant-TW' : 'en-US';
+    }
+
+    function getCurrentLangFromUrl() {
+        const path = window.location.pathname;
+        return path.includes('/en/') ? 'en-US' : 'zh-Hant-TW';
+    }
+
+    // --- Environment-based redirect setup ---
+
+    let redirectToLang;
+
+        redirectToLang = function (lang) {
+            const currentPath = window.location.pathname;
+            let newPath;
+
+            if (lang === 'en-US' && !currentPath.includes('/en/')) {
+                newPath = currentPath === '/' ? '/en/' : '/en' + currentPath;
+            } else if (lang === 'zh-Hant-TW' && currentPath.includes('/en/')) {
+                newPath = currentPath.replace('/en', '');
+                if (newPath === '') newPath = '/';
+            } else {
+                return;
+            }
+
+            if (window.location.pathname !== newPath) {
+                window.location.assign(window.location.origin + newPath);
+            }
+        };
+
+
+    // --- Auto redirect logic ---
+    (function () {
+        const cookieLang = getCookie(COOKIE_NAME);
+        const browserLang = getBrowserLanguage();
+        const currentLang = getCurrentLangFromUrl();
+
+        if (cookieLang) {
+            if (cookieLang !== currentLang) {
+                redirectToLang(cookieLang);
+            }
+        } else {
+            if (browserLang !== currentLang) {
+                setCookie(COOKIE_NAME, browserLang, COOKIE_DAYS);
+                // 延遲以確保 iOS 15–17 可讀取 cookie
+                setTimeout(() => redirectToLang(browserLang), 100);
+            }
+        }
+    })();
+
+    // --- DOM-based language switch UI ---
+    document.addEventListener('DOMContentLoaded', function () {
+
+        const languageLinks = document.querySelectorAll('.lang-option');
+
+        if (!languageLinks.length) return;
+
+        const currentLang = getCurrentLangFromUrl();
+        languageLinks.forEach(link => {
+            if (link.getAttribute('data-lang') === currentLang) {
+                link.classList.add('current-option');
+            } else {
+                link.classList.remove('current-option');
+            }
+        });
+
+        languageLinks.forEach(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+                const selectedLang = this.getAttribute('data-lang');
+                setCookie(COOKIE_NAME, selectedLang, COOKIE_DAYS);
+                redirectToLang(selectedLang);
+            });
+        });
+    });
+
+})();
+</script><link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://res.cloudinary.com">
+
+    <!-- reduce google fonts cls payload -->
+    <link rel="preload" as="font" type="font/woff2" href="https://fonts.gstatic.com/s/onest/v9/gNMKW3F-SZuj7xmf-HYoEoey.woff2">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400..700&amp;display=fallback" media="print" onload="media='all'">
+
+
+        <title>Kawamasa | CNC Machining Taipei Expert – ESG & ±5μm</title>
+
+        <link rel="stylesheet" href="../assets/styles/cnc-main.css">
+        <link rel="stylesheet" href="../assets/styles/cnc-deferred.css" media="print" onload="media='all'"><meta name="description" content="Taipei CNC machining expert. ±5μm precision, ISO 9001 & 14001 certified, ESG. Serving drones, automation & semiconductor industries since 2013—Get quote now!">
+
+<meta property="og:locale" content="zh_TW"><meta property="og:type" content="website">
+        <meta property="og:title" content="Kawamasa | CNC Machining Taipei Expert – ESG & ±5μm"><meta property="og:description" content="Taipei CNC machining expert. ±5μm precision, ISO 9001 & 14001 certified, ESG. Serving drones, automation & semiconductor industries since 2013—Get quote now!">
+        <meta property="og:url" content="https://kawamasa.com.tw/en/"><meta property="og:site_name" content="Kawamasa CNC Precision">
+        <meta property="og:image:width" content="2400">
+        <meta property="og:image:height" content="1260"><meta property="og:image" content="https://kawamasa.com.tw/assets/fbog/kwms-fbog-home.png"><script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Kawamasa CNC Precision",
+    "legalName": "Kawamasa CNC Precision Co., Ltd.",
+    "telephone": "+886222028808",
+    "faxNumber": "+886222028836",
+    "contactPoint": [
+        {
+        "@type": "ContactPoint",
+        "contactType": "customer service",
+        "telephone": "+886222028808"
+        }
+    ],
+    "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "No. 166, Min'an E. Rd.",
+        "addressLocality": "Xinzhuang District",
+        "addressRegion": "New Taipei City",
+        "postalCode": "242",
+        "addressCountry": "TW"
+    },
+    "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 25.020413421855594,
+        "longitude": 121.43229703481227
+    },
+    "openingHoursSpecification": [
+        {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday"
+        ],
+        "opens": "09:00",
+        "closes": "18:00"
+        }
+    ]
+    }
+    </script><style>:root {
+  
+            
+                
+                
+                
+                    --color-prim: rgba(99, 34, 9, 1);
+                
+            
+                
+                
+                
+                    --color-prim-tl: rgba(99, 34, 9, 0.5);
+                
+            
+                
+                
+                
+                    --color-snd: rgba(234, 255, 188, 0.8);
+                
+            
+            
+        }
+
+    </style>
+
+
+
+
+
+    <link rel="icon" href="../favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../touch-icon-192x192.png"><link rel="alternate" hreflang="zh-TW" href="../index.html" />
+        <link rel="alternate" hreflang="en-US" href="index.html" />
+        <link rel="alternate" hreflang="x-default" href="index.html" /></head><body id="uni" class="page-body wb wa page-index has-lightbox lang-en-us wb"><picture class="fullscreen-bg-pic wb wa">
+
+  <source media="(max-width: 500px)" srcset="
+
+      https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_1400/kawamasa/bg/sketch-home-mobile-sepia-v5 1400w,
+      https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_1284/kawamasa/bg/sketch-home-mobile-sepia-v5 1284w,
+      https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_1080/kawamasa/bg/sketch-home-mobile-sepia-v5 1080w,
+      https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_900/kawamasa/bg/sketch-home-mobile-sepia-v5 900w,
+      https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_640/kawamasa/bg/sketch-home-mobile-sepia-v5 640w
+  
+  " width="1400" height="1371">
+
+  <source media="(min-width: 501px)" srcset="
+  
+      https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_2400/kawamasa/bg/sketch-home-dktp-sepia-v5 2400w,
+      https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_1600/kawamasa/bg/sketch-home-dktp-sepia-v5 1600w
+  
+  " width="2400" height="1371">
+
+
+  <img
+    class="fullscreen-bg-img"
+    alt="Kawamasa CNC Precision Co., Ltd."
+    loading="eager"
+    decoding="sync"
+    fetchpriority="high"
+    src="https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_2400/kawamasa/bg/sketch-home-dktp-sepia-v5"
+    width="2400"
+    height="1371"
+    sizes="100%"
+    >
+
+</picture>
+
+
+
+<div class="aux-outer" aria-hidden="true">
+
+      <div class="aux-inner">
+
+            <div class="aux aux-1"></div>
+            <div class="aux aux-2"></div>
+            <div class="aux aux-3"></div>
+            <div class="aux aux-4"></div>
+      
+      </div>
+
+</div>
+            
+<div class="site-header">
+
+      <a class="back-home" href="../index.html" aria-label="返回首頁 Back to Homepage"><svg class="svg-logo svg-logo-filled" viewBox="0 0 140 24" width="158" height="27"><use xlink:href="#logo"></use></svg></a>
+      
+      <nav id="site-megamenu" class="vanilla-megamenu v-mm">
+
+            <ul class="mm-prim"><li class="mm-prim-li mm-prim-item  mm-prim-current ">
+                                    <a href="index.html">
+                                    Home
+                                    </a>
+                              </li><li class="mm-prim-li mm-prim-item ">
+                                    <a href="manufacturing-equipment/index.html">
+                                    Equipment
+                                    </a>
+                              </li><li class="mm-prim-li mm-prim-item ">
+                                    <a href="quality-control/index.html">
+                                    QC
+                                    </a>
+                              </li><li class="mm-prim-li mm-prim-item ">
+                                    <a href="product-showcase/index.html">
+                                    Showcase
+                                    </a>
+                              </li><li class="mm-prim-li mm-prim-item ">
+                                    <a href="production-workflow/index.html">
+                                    Workflow
+                                    </a>
+                              </li><li class="mm-prim-li mm-prim-item ">
+                                    <a href="faq/index.html">
+                                    FAQ
+                                    </a>
+                              </li><li class="mm-prim-li mm-prim-item ">
+                                    <a href="contact-us/index.html">
+                                    Contact
+                                    </a>
+                              </li></ul>
+            
+
+            <input type="checkbox" id="mm-trigger-lang" class="mm-trigger mm-trigger-lang"><label for="mm-trigger-lang" class="mm-label" role="button" aria-label="語言選單 Language Selector"><svg class="svg-icon svg-icon-globe" width="22" height="22" viewBox="0 0 24 24"><use xlink:href="#globe"></use></svg><span class="lang-label-span">Languages</span>&nbsp;<span class="lang-arrow" aria-hidden="true"></span></label>
+  
+            <div class="mm-snd mm-snd-lang mm-lang-list">
+
+                  <ul class="mm-snd-list"><li class="mm-snd-item"><a class="mm-snd-link lang-option v2 wb wa" href="index.html" data-lang="zh-Hant-TW"><span>中文 台灣</span></a></li>
+                        
+                        <li class="mm-snd-item"><a class="mm-snd-link lang-option current-option v2 wb wa" href="#current_lang" data-lang="en-US"><span>English - US</span></a></li><li class="cookie-notes lh-reduced"><p>By default, your language preference will be remembered for 14 days.</p>
+
+                  </li>
+            
+                  </ul>
+
+            </div>
+
+
+            <input type="checkbox" id="mm-trigger-mobile" class="mm-trigger mm-trigger-mobile"><label for="mm-trigger-mobile" class="mm-label" role="button" aria-label="行動版選單"><span class="mobile-label-span">&nbsp;</span></label>
+  
+            <div class="mm-snd mm-snd-mobile">
+
+                  <p class="ribbon-outer wb"><span class="ribbon-text">Kawamasa</span></p>
+
+                  <ul class="mm-snd-list mm-menu-mobile"><li class="mm-mobile-li mm-mobile-item wb wa  mm-mobile-current " style="--delay: 0.07s; --delay-slow: 0.3s"><a class="mm-link" href="index.html">
+                                          
+                                          <span class="mm-icon-wrapper wb"><svg class="mm-icon" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"><use xlink:href="#mm-home"></use></svg></span>
+                                          <span class="mm-title">Home</span>
+
+                                    </a>
+
+                              </li><li class="mm-mobile-li mm-mobile-item wb wa " style="--delay: 0.14s; --delay-slow: 0.4s"><a class="mm-link" href="manufacturing-equipment/index.html">
+                                          
+                                          <span class="mm-icon-wrapper wb"><svg class="mm-icon" xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"><use xlink:href="#mm-equip"></use></svg></span>
+                                          <span class="mm-title">Equipment</span>
+
+                                    </a>
+
+                              </li><li class="mm-mobile-li mm-mobile-item wb wa " style="--delay: 0.21s; --delay-slow: 0.5s"><a class="mm-link" href="quality-control/index.html">
+                                          
+                                          <span class="mm-icon-wrapper wb"><svg class="mm-icon" xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"><use xlink:href="#mm-tick"></use></svg></span>
+                                          <span class="mm-title">QC</span>
+
+                                    </a>
+
+                              </li><li class="mm-mobile-li mm-mobile-item wb wa " style="--delay: 0.28s; --delay-slow: 0.6s"><a class="mm-link" href="product-showcase/index.html">
+                                          
+                                          <span class="mm-icon-wrapper wb"><svg class="mm-icon" xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"><use xlink:href="#mm-showcase"></use></svg></span>
+                                          <span class="mm-title">Showcase</span>
+
+                                    </a>
+
+                              </li><li class="mm-mobile-li mm-mobile-item wb wa " style="--delay: 0.35s; --delay-slow: 0.7s"><a class="mm-link" href="production-workflow/index.html">
+                                          
+                                          <span class="mm-icon-wrapper wb"><svg class="mm-icon" xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"><use xlink:href="#mm-workflow"></use></svg></span>
+                                          <span class="mm-title">Workflow</span>
+
+                                    </a>
+
+                              </li><li class="mm-mobile-li mm-mobile-item wb wa " style="--delay: 0.42s; --delay-slow: 0.8s"><a class="mm-link" href="faq/index.html">
+                                          
+                                          <span class="mm-icon-wrapper wb"><svg class="mm-icon" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"><use xlink:href="#mm-faq"></use></svg></span>
+                                          <span class="mm-title">FAQ</span>
+
+                                    </a>
+
+                              </li><li class="mm-mobile-li mm-mobile-item wb wa " style="--delay: 0.49s; --delay-slow: 0.9s"><a class="mm-link" href="contact-us/index.html">
+                                          
+                                          <span class="mm-icon-wrapper wb"><svg class="mm-icon" xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"><use xlink:href="#mm-contact"></use></svg></span>
+                                          <span class="mm-title">Contact</span>
+
+                                    </a>
+
+                              </li><span class="main-menu-deco bg-stripes wb" aria-hidden="true"></span>
+
+                  </ul>
+
+                  
+
+            </div>
+
+
+      </nav>
+
+</div><main id="site-main" class="site-main l-col-triple">
+
+                  
+                  <div class="primary wb wa">
+
+                        <header class="page-header z-upper">
+
+  <p class="title-1st title-uppercase has-blink-cursor hello-world wow"><span>Established in 2013<span class="blink-cursor" aria-hidden="true"></span></span><span>Kawamasa <span class="trail-1">CNC </span><span class="trail-2">Precision</span><span class="trail-3"> Co., Ltd.</span></span></p>
+
+  <div class="index-special"><p class="index-hero-p index-hero-p1 hero-title hero-title-prim title-lv1 wow"><!--
+      --><span><span class="anim-span" data-letters="Cut" style="--delay: 0.25s">Cut</span>&nbsp;<span class="anim-span" data-letters="to" style="--delay: 0.35s">to</span>&nbsp;<span class="anim-span" data-letters="Perfection." style="--delay: 0.45s">Perfection.</span></span></p>
+      
+    <p class="index-hero-p index-hero-p2 hero-title hero-title-prim title-lv1 wow"><span><span class="anim-span" data-letters="Build" style="--delay: 0.25s">Build</span>&nbsp;<span class="special-span--for webkit-font-rendering-hack" style="--delay: 0.35s">for</span>&nbsp;<span class="anim-span" data-letters="Excellence." style="--delay: 0.45s">Excellence.</span></span><!-- 
+    --></p>
+
+
+    <div class="pic-std-wrapper wb wa wow"><picture class="pic-std wb wa">
+
+        <source type="image/webp" srcset="
+        
+          https://res.cloudinary.com/tsutshiau/image/upload/f_webp,q_auto,w_1600/kawamasa/general/cnc-machine-closeup 1600w,
+          https://res.cloudinary.com/tsutshiau/image/upload/f_webp,q_auto,w_1200/kawamasa/general/cnc-machine-closeup 1200w,
+          https://res.cloudinary.com/tsutshiau/image/upload/f_webp,q_auto,w_1024/kawamasa/general/cnc-machine-closeup 1024w,
+          https://res.cloudinary.com/tsutshiau/image/upload/f_webp,q_auto,w_900/kawamasa/general/cnc-machine-closeup 900w
+        
+        " width="1600" height="800">
+
+        <img class="img-std lazyload" data-sizes="auto" loading="lazy" decoding="async" srcset="
+
+          https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_1600/kawamasa/general/cnc-machine-closeup 1600w,
+          https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_1200/kawamasa/general/cnc-machine-closeup 1200w,
+          https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_1024/kawamasa/general/cnc-machine-closeup 1024w,
+          https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_900/kawamasa/general/cnc-machine-closeup 900w
+
+        " alt="CNC Milling Closeup" width="1600" height="800" >
+
+      </picture>
+
+    </div>
+
+  </div>
+
+</header>
+
+<section class="sec-std  bg-halftone wb" id="profile">
+
+  <h2 class="sec-title title-mask-reveal title-lv3 wow wa">
+    <span class="inside-title-mask wa">
+      <span style="--delay: 0.35s">Company</span>&nbsp;<!--
+      --><span style="--delay: 0.42s">Profile</span>
+    </span>
+  </h2>
+
+  <div class="corp-intro-wrapper">
+
+    <div class="corp-intro-logo">
+
+      <svg class="svg-logo svg-logo-outline svg-logo-upper wow" viewBox="0 0 140 24" width="252" height="43"><use xlink:href="#logo"></use></svg><svg class="svg-logo svg-logo-filled" viewBox="0 0 140 24" width="252" height="43"><use xlink:href="#logo"></use></svg><svg class="svg-logo svg-logo-outline svg-logo-lower wow" viewBox="0 0 140 24" width="252" height="43"><use xlink:href="#logo"></use></svg>
+
+    </div>
+
+    <div class="corp-intro-bodycopy">
+
+        <p>Established in 2013, <strong>Kawamasa CNC Precision</strong> is dedicated to continuous research and product innovation.</p>
+        
+        <p>Leveraging our key location within the <mark>Xinzhuang Industrial Cluster in Taipei</mark>, we provide swift and precise CNC machining services for industries such as drones, automation, semiconductors, testing equipment, and automotive components.</p>
+
+        <p>We have expanded our equipment portfolio to handle a wider range of materials and further reduce lead times. Certified to <mark>ISO 9001 and ISO 14001</mark>, we comply with global quality management and <mark>ESG</mark> sustainability standards.</p>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section class="sec-std  bg-halftone wb" id="services">
+
+  <h2 class="sec-title title-mask-reveal title-lv3 wow wa">
+    <span class="inside-title-mask wa">
+      <span style="--delay: 0.35s">Services</span>
+    </span>
+  </h2>
+
+  <div class="grid-col3 grid-w-counters bg-stripes wb">
+
+  
+
+  
+
+    <article class="col3-item division-has-counter wow" style="--delay: 0.17s">
+      <h3 class="col3-title title-lv5 title-has-counter wb wa"><span>CNC Turning & Milling</span></h3>
+      <div class="col3-desc wb"><p>Continuously exploring new technologies and materials, we deliver high-quality machining applications with advanced equipment and skilled expertise</p></div>
+    </article>
+    
+    
+
+  
+
+    <article class="col3-item division-has-counter wow" style="--delay: 0.24s">
+      <h3 class="col3-title title-lv5 title-has-counter wb wa"><span>Turn-Mill Complex Machining</span></h3>
+      <div class="col3-desc wb"><p>Integrating turning and milling in a single setup, enabling multi-surface machining with reduced clamping errors and improved production efficiency</p></div>
+    </article>
+    
+    
+
+  
+
+    <article class="col3-item division-has-counter wow" style="--delay: 0.31s">
+      <h3 class="col3-title title-lv5 title-has-counter wb wa"><span>Custom Metal Parts</span></h3>
+      <div class="col3-desc wb"><p>From design consultation and prototyping to mass production, we provide one-stop service ensuring consistent dimensions and quality</p></div>
+    </article>
+    
+    
+
+  
+
+    <article class="col3-item division-has-counter wow" style="--delay: 0.38s">
+      <h3 class="col3-title title-lv5 title-has-counter wb wa"><span>Aluminum Extrusion Parts Manufacturing</span></h3>
+      <div class="col3-desc wb"><p>Consistent aluminum parts production with CNC machining, T6 heat treatment, and surface anodizing/electrophoresis</p></div>
+    </article>
+    
+    
+
+  
+
+    <article class="col3-item division-has-counter wow" style="--delay: 0.45s">
+      <h3 class="col3-title title-lv5 title-has-counter wb wa"><span>CNC Rapid Prototyping</span></h3>
+      <div class="col3-desc wb"><p>High-efficiency CNC prototyping, complemented by First Article Inspection (FAI) reports to provide complete data and quality assurance</p></div>
+    </article>
+    
+    
+
+  
+
+    <article class="col3-item division-has-counter wow" style="--delay: 0.52s">
+      <h3 class="col3-title title-lv5 title-has-counter wb wa"><span>Fixture Design & Development</span></h3>
+      <div class="col3-desc wb"><p>Reducing tolerances through precision craftsmanship to enhance fixture reliability, with accurately documented processes for continuous improvement and maintenance</p></div>
+    </article>
+    
+    
+
+  
+  
+  </div>
+
+</section>
+
+
+<section class="sec-std " id="capabilities">
+
+  <h2 class="sec-title title-mask-reveal title-lv3 wow wa">
+    <span class="inside-title-mask wa">
+      <span style="--delay: 0.35s">Machining</span>&nbsp;<!--
+      --><span style="--delay: 0.42s">Capabilities</span>
+    </span>
+  </h2>
+
+  <div class="grid-col3 grid-w-lines">
+    
+  
+
+  
+
+    <article class="col3-item division-w-lines wow wb wa" style="--delay: 0.17s">
+      <h3 class="col3-title title-lv5 title-w-lines wb wa"><span>Specifications</span></h3>
+      <div class="col3-desc wb"><p><p><span>Max. Travels: </span><mark><span>X 1,400</span> / <span>Y 750</span> / <span>Z 700 mm</span></mark><br />Tolerance: up to <mark>±5 µm</mark></p>
+</p></div>
+    </article>
+    
+    
+
+  
+
+    <article class="col3-item division-w-lines wow wb wa" style="--delay: 0.24s">
+      <h3 class="col3-title title-lv5 title-w-lines wb wa"><span>Materials</span></h3>
+      <div class="col3-desc wb"><p><p>Aluminum, stainless steel, medium-carbon steel, and plastics such as POM, UVE, Bakelite, fiberglass board, acrylic; special materials on request</p>
+</p></div>
+    </article>
+    
+    
+
+  
+
+    <article class="col3-item division-w-lines wow wb wa" style="--delay: 0.31s">
+      <h3 class="col3-title title-lv5 title-w-lines wb wa"><span>Surface Treatments</span></h3>
+      <div class="col3-desc wb"><p><p>Anodizing, electroless nickel, eco black zinc, black nickel, painting, electrophoresis, black dyeing, and more</p>
+</p></div>
+    </article>
+    
+    
+
+  
+  
+  </div>
+
+</section>
+
+
+<section class="sec-std " id="equipment">
+
+  <h2 class="sec-title title-mask-reveal title-lv3 wow wa">
+    <span class="inside-title-mask wa">
+      <span style="--delay: 0.35s">Equipment</span>
+    </span>
+  </h2>
+
+  <div class="grid-col2 grid-w-lines">
+
+  
+
+  
+
+    <article class="col2-item wow wb wa" style="--delay: 0.17s">
+
+      <a class="col2-item-link anchor-block no-hover-border" href="manufacturing-equipment/index.html">
+
+        <div class="pic-std-wrapper wb wa wow">
+
+          
+
+          <picture class="pic-std wb wa">
+
+            <source type="image/webp" srcset="
+            
+                https://res.cloudinary.com/tsutshiau/image/upload/f_webp,q_auto,w_1560/kawamasa/general/placeholder-1 1560w,
+                https://res.cloudinary.com/tsutshiau/image/upload/f_webp,q_auto,w_1200/kawamasa/general/placeholder-1 1200w,
+                https://res.cloudinary.com/tsutshiau/image/upload/f_webp,q_auto,w_1024/kawamasa/general/placeholder-1 1024w,
+                https://res.cloudinary.com/tsutshiau/image/upload/f_webp,q_auto,w_900/kawamasa/general/placeholder-1 900w,
+                https://res.cloudinary.com/tsutshiau/image/upload/f_webp,q_auto,w_800/kawamasa/general/placeholder-1 800w,
+                https://res.cloudinary.com/tsutshiau/image/upload/f_webp,q_auto,w_650/kawamasa/general/placeholder-1 650w
+
+            " width="1200" height="630">
+            
+            <img class="img-std lazyload" data-sizes="auto" loading="lazy" decoding="async"
+
+              alt="" width="1200" height="630"
+              srcset="
+              
+                https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_1560/kawamasa/general/placeholder-1 1560w,
+                https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_1200/kawamasa/general/placeholder-1 1200w,
+                https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_1024/kawamasa/general/placeholder-1 1024w,
+                https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_900/kawamasa/general/placeholder-1 900w,
+                https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_800/kawamasa/general/placeholder-1 800w,
+                https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_650/kawamasa/general/placeholder-1 650w
+
+              ">
+
+          </picture>
+
+        </div>
+
+        <h3 class="col2-title title-lv5 wb wa"><span>Manufacturing</span></h3>
+        <div class="col2-desc">
+          <p>More than 10 machining centers (milling machines) supporting both metal and non-metal processing, suitable for diverse applications</p>
+          <p class="ef-arrow-wrapper wb">More&nbsp;<span class="ef-arrow ef-next" aria-hidden="true"><span></span></span></p>
+        </div>
+      </a>
+    </article>
+
+    
+
+  
+
+    <article class="col2-item wow wb wa" style="--delay: 0.24s">
+
+      <a class="col2-item-link anchor-block no-hover-border" href="quality-control/index.html">
+
+        <div class="pic-std-wrapper wb wa wow">
+
+          
+
+          <picture class="pic-std wb wa">
+
+            <source type="image/webp" srcset="
+            
+                https://res.cloudinary.com/tsutshiau/image/upload/f_webp,q_auto,w_1560/kawamasa/general/placeholder-2 1560w,
+                https://res.cloudinary.com/tsutshiau/image/upload/f_webp,q_auto,w_1200/kawamasa/general/placeholder-2 1200w,
+                https://res.cloudinary.com/tsutshiau/image/upload/f_webp,q_auto,w_1024/kawamasa/general/placeholder-2 1024w,
+                https://res.cloudinary.com/tsutshiau/image/upload/f_webp,q_auto,w_900/kawamasa/general/placeholder-2 900w,
+                https://res.cloudinary.com/tsutshiau/image/upload/f_webp,q_auto,w_800/kawamasa/general/placeholder-2 800w,
+                https://res.cloudinary.com/tsutshiau/image/upload/f_webp,q_auto,w_650/kawamasa/general/placeholder-2 650w
+
+            " width="1200" height="630">
+            
+            <img class="img-std lazyload" data-sizes="auto" loading="lazy" decoding="async"
+
+              alt="" width="1200" height="630"
+              srcset="
+              
+                https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_1560/kawamasa/general/placeholder-2 1560w,
+                https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_1200/kawamasa/general/placeholder-2 1200w,
+                https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_1024/kawamasa/general/placeholder-2 1024w,
+                https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_900/kawamasa/general/placeholder-2 900w,
+                https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_800/kawamasa/general/placeholder-2 800w,
+                https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_650/kawamasa/general/placeholder-2 650w
+
+              ">
+
+          </picture>
+
+        </div>
+
+        <h3 class="col2-title title-lv5 wb wa"><span>Quality Inspection</span></h3>
+        <div class="col2-desc">
+          <p>2.5D CMM, 2D height gauges, Mitutoyo height gauges, and micrometers for precise measurement, ensuring quality standards</p>
+          <p class="ef-arrow-wrapper wb">More&nbsp;<span class="ef-arrow ef-next" aria-hidden="true"><span></span></span></p>
+        </div>
+      </a>
+    </article>
+
+    
+
+  
+
+  </div>
+
+</section>
+
+<section class="sec-std " id="certificates">
+
+  <h2 class="sec-title title-mask-reveal title-lv3 wow wa">
+    <span class="inside-title-mask wa">
+      <span style="--delay: 0.35s">ISO</span>&nbsp;<!--
+      --><span style="--delay: 0.42s">9001/14001</span>&nbsp;<!--
+      --><span style="--delay: 0.49s">Certificates</span>
+    </span>
+  </h2>
+
+  <div class="grid-cert">
+    
+  
+
+    <figure class="cert-figure wb wa wow">
+      <div class="cert-pic-wrapper wb wa">
+
+        
+
+        <picture class="cert-pic wb wa">
+
+          <source type="image/webp" srcset="
+              
+            https://res.cloudinary.com/tsutshiau/image/upload/f_webp,q_auto,w_700/kawamasa/cert/cert-iso9001 700w,
+            https://res.cloudinary.com/tsutshiau/image/upload/f_webp,q_auto,w_600/kawamasa/cert/cert-iso9001 600w,
+            https://res.cloudinary.com/tsutshiau/image/upload/f_webp,q_auto,w_500/kawamasa/cert/cert-iso9001 500w
+
+          " width="700" height="985">
+
+          <img
+            class="cert-img z-upper lazyload" data-sizes="auto" loading="lazy" decoding="async"
+            width="700"
+            height="985"
+            alt="ISO 9001 Certificate"
+            srcset="
+
+            https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_700/kawamasa/cert/cert-iso9001 700w,
+            https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_600/kawamasa/cert/cert-iso9001 600w,
+            https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_500/kawamasa/cert/cert-iso9001 500w
+            
+            ">
+        </picture>
+
+      </div>
+
+      <figcaption class="cert-figcap z-upper">Certified to <strong>ISO 9001:2015</strong>, we deliver consistently reliable contract manufacturing at the highest standard</figcaption>
+    </figure>
+
+  
+
+    <figure class="cert-figure wb wa wow">
+      <div class="cert-pic-wrapper wb wa">
+
+        
+
+        <picture class="cert-pic wb wa">
+
+          <source type="image/webp" srcset="
+              
+            https://res.cloudinary.com/tsutshiau/image/upload/f_webp,q_auto,w_700/kawamasa/cert/cert-iso14001 700w,
+            https://res.cloudinary.com/tsutshiau/image/upload/f_webp,q_auto,w_600/kawamasa/cert/cert-iso14001 600w,
+            https://res.cloudinary.com/tsutshiau/image/upload/f_webp,q_auto,w_500/kawamasa/cert/cert-iso14001 500w
+
+          " width="700" height="985">
+
+          <img
+            class="cert-img z-upper lazyload" data-sizes="auto" loading="lazy" decoding="async"
+            width="700"
+            height="985"
+            alt="ISO 14001 Certificate"
+            srcset="
+
+            https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_700/kawamasa/cert/cert-iso14001 700w,
+            https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_600/kawamasa/cert/cert-iso14001 600w,
+            https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_500/kawamasa/cert/cert-iso14001 500w
+            
+            ">
+        </picture>
+
+      </div>
+
+      <figcaption class="cert-figcap z-upper">Certified to <strong>ISO 14001:2015</strong>, we ensure our processes and products align with ESG and SDG sustainability goals</figcaption>
+    </figure>
+
+  
+  
+  </div>
+
+
+</section>
+
+<section class="sec-std " id="showcase">
+
+  <h2 class="sec-title title-mask-reveal title-lv3 wow wa">
+    <span class="inside-title-mask wa">
+      <span style="--delay: 0.35s">Product</span>&nbsp;<!--
+      --><span style="--delay: 0.42s">Showcase</span>
+    </span>
+  </h2>
+
+  <div class="grid-showcase bg-stripes wb">
+
+    
+    
+    
+
+      <div class="sc-item wow"  style="--delay: 0.05s">
+
+        <a class="lightbox-link sc-link wb no-hover-border has-tip" href="https://res.cloudinary.com/tsutshiau/image/upload/v1764661978/kawamasa/showcase/kwms-showcase-10" data-title="Milled (Front) / Aluminum / Red Anodize">
+
+        <picture class="sc-pic wb wa">
+
+          <img
+            class="sc-img z-upper lazyload" data-sizes="auto" loading="lazy" decoding="async"
+            width="1600"
+            height="900"
+            alt="Milled (Front) / Aluminum / Red Anodize"src="https://res.cloudinary.com/tsutshiau/image/upload/v1764661978/kawamasa/showcase/kwms-showcase-10-tnail?width_15,f_auto,q_auto"
+
+              srcset="
+                https://res.cloudinary.com/tsutshiau/image/upload/v1764661978/kawamasa/showcase/kwms-showcase-10-tnail 1600w,
+                https://res.cloudinary.com/tsutshiau/image/upload/v1764661978/kawamasa/showcase/kwms-showcase-10-tnail?width_1200,f_auto,q_auto 1200w,
+                https://res.cloudinary.com/tsutshiau/image/upload/v1764661978/kawamasa/showcase/kwms-showcase-10-tnail?width_1024,f_auto,q_auto 1024w,
+                https://res.cloudinary.com/tsutshiau/image/upload/v1764661978/kawamasa/showcase/kwms-showcase-10-tnail?width_900,f_auto,q_auto 900w,
+                https://res.cloudinary.com/tsutshiau/image/upload/v1764661978/kawamasa/showcase/kwms-showcase-10-tnail?width_750,f_auto,q_auto 750w,
+                https://res.cloudinary.com/tsutshiau/image/upload/v1764661978/kawamasa/showcase/kwms-showcase-10-tnail?width_600,f_auto,q_auto 600w
+              ">
+        </picture>          
+
+        </a>
+
+      </div>
+      
+
+      <div class="sc-item wow"  style="--delay: 0.1s">
+
+        <a class="lightbox-link sc-link wb no-hover-border has-tip" href="https://res.cloudinary.com/tsutshiau/image/upload/v1764661978/kawamasa/showcase/kwms-showcase-11" data-title="Milled (Back) / Aluminum / Red Anodize">
+
+        <picture class="sc-pic wb wa">
+
+          <img
+            class="sc-img z-upper lazyload" data-sizes="auto" loading="lazy" decoding="async"
+            width="1600"
+            height="900"
+            alt="Milled (Back) / Aluminum / Red Anodize"src="https://res.cloudinary.com/tsutshiau/image/upload/v1764661978/kawamasa/showcase/kwms-showcase-11?width_15,f_auto,q_auto"
+
+              srcset="
+                https://res.cloudinary.com/tsutshiau/image/upload/v1764661978/kawamasa/showcase/kwms-showcase-11 1600w,
+                https://res.cloudinary.com/tsutshiau/image/upload/v1764661978/kawamasa/showcase/kwms-showcase-11?width_1200,f_auto,q_auto 1200w,
+                https://res.cloudinary.com/tsutshiau/image/upload/v1764661978/kawamasa/showcase/kwms-showcase-11?width_1024,f_auto,q_auto 1024w,
+                https://res.cloudinary.com/tsutshiau/image/upload/v1764661978/kawamasa/showcase/kwms-showcase-11?width_900,f_auto,q_auto 900w,
+                https://res.cloudinary.com/tsutshiau/image/upload/v1764661978/kawamasa/showcase/kwms-showcase-11?width_750,f_auto,q_auto 750w,
+                https://res.cloudinary.com/tsutshiau/image/upload/v1764661978/kawamasa/showcase/kwms-showcase-11?width_600,f_auto,q_auto 600w
+              ">
+        </picture>          
+
+        </a>
+
+      </div>
+      
+
+      <div class="sc-item wow"  style="--delay: 0.15s">
+
+        <a class="lightbox-link sc-link wb no-hover-border has-tip" href="https://res.cloudinary.com/tsutshiau/image/upload/v1764660994/kawamasa/showcase/kwms-showcase-23" data-title="Honeycomb / Acryllic">
+
+        <picture class="sc-pic wb wa">
+
+          <img
+            class="sc-img z-upper lazyload" data-sizes="auto" loading="lazy" decoding="async"
+            width="1600"
+            height="900"
+            alt="Honeycomb / Acryllic"src="https://res.cloudinary.com/tsutshiau/image/upload/v1764660994/kawamasa/showcase/kwms-showcase-23?width_15,f_auto,q_auto"
+
+              srcset="
+                https://res.cloudinary.com/tsutshiau/image/upload/v1764660994/kawamasa/showcase/kwms-showcase-23 1600w,
+                https://res.cloudinary.com/tsutshiau/image/upload/v1764660994/kawamasa/showcase/kwms-showcase-23?width_1200,f_auto,q_auto 1200w,
+                https://res.cloudinary.com/tsutshiau/image/upload/v1764660994/kawamasa/showcase/kwms-showcase-23?width_1024,f_auto,q_auto 1024w,
+                https://res.cloudinary.com/tsutshiau/image/upload/v1764660994/kawamasa/showcase/kwms-showcase-23?width_900,f_auto,q_auto 900w,
+                https://res.cloudinary.com/tsutshiau/image/upload/v1764660994/kawamasa/showcase/kwms-showcase-23?width_750,f_auto,q_auto 750w,
+                https://res.cloudinary.com/tsutshiau/image/upload/v1764660994/kawamasa/showcase/kwms-showcase-23?width_600,f_auto,q_auto 600w
+              ">
+        </picture>          
+
+        </a>
+
+      </div>
+      
+
+      <div class="sc-item wow"  style="--delay: 0.2s">
+
+        <a class="lightbox-link sc-link wb no-hover-border has-tip" href="https://res.cloudinary.com/tsutshiau/image/upload/v1764661978/kawamasa/showcase/kwms-showcase-24" data-title="Milled / Aluminum / Clear Anodize">
+
+        <picture class="sc-pic wb wa">
+
+          <img
+            class="sc-img z-upper lazyload" data-sizes="auto" loading="lazy" decoding="async"
+            width="1600"
+            height="900"
+            alt="Milled / Aluminum / Clear Anodize"src="https://res.cloudinary.com/tsutshiau/image/upload/v1764661978/kawamasa/showcase/kwms-showcase-24?width_15,f_auto,q_auto"
+
+              srcset="
+                https://res.cloudinary.com/tsutshiau/image/upload/v1764661978/kawamasa/showcase/kwms-showcase-24 1600w,
+                https://res.cloudinary.com/tsutshiau/image/upload/v1764661978/kawamasa/showcase/kwms-showcase-24?width_1200,f_auto,q_auto 1200w,
+                https://res.cloudinary.com/tsutshiau/image/upload/v1764661978/kawamasa/showcase/kwms-showcase-24?width_1024,f_auto,q_auto 1024w,
+                https://res.cloudinary.com/tsutshiau/image/upload/v1764661978/kawamasa/showcase/kwms-showcase-24?width_900,f_auto,q_auto 900w,
+                https://res.cloudinary.com/tsutshiau/image/upload/v1764661978/kawamasa/showcase/kwms-showcase-24?width_750,f_auto,q_auto 750w,
+                https://res.cloudinary.com/tsutshiau/image/upload/v1764661978/kawamasa/showcase/kwms-showcase-24?width_600,f_auto,q_auto 600w
+              ">
+        </picture>          
+
+        </a>
+
+      </div>
+      
+
+      <div class="sc-item wow"  style="--delay: 0.25s">
+
+        <a class="lightbox-link sc-link wb no-hover-border has-tip" href="https://res.cloudinary.com/tsutshiau/image/upload/v1764661978/kawamasa/showcase/kwms-showcase-13" data-title="Milled / Aluminum / Black Anodize">
+
+        <picture class="sc-pic wb wa">
+
+          <img
+            class="sc-img z-upper lazyload" data-sizes="auto" loading="lazy" decoding="async"
+            width="1600"
+            height="900"
+            alt="Milled / Aluminum / Black Anodize"src="https://res.cloudinary.com/tsutshiau/image/upload/v1764661978/kawamasa/showcase/kwms-showcase-13?width_15,f_auto,q_auto"
+
+              srcset="
+                https://res.cloudinary.com/tsutshiau/image/upload/v1764661978/kawamasa/showcase/kwms-showcase-13 1600w,
+                https://res.cloudinary.com/tsutshiau/image/upload/v1764661978/kawamasa/showcase/kwms-showcase-13?width_1200,f_auto,q_auto 1200w,
+                https://res.cloudinary.com/tsutshiau/image/upload/v1764661978/kawamasa/showcase/kwms-showcase-13?width_1024,f_auto,q_auto 1024w,
+                https://res.cloudinary.com/tsutshiau/image/upload/v1764661978/kawamasa/showcase/kwms-showcase-13?width_900,f_auto,q_auto 900w,
+                https://res.cloudinary.com/tsutshiau/image/upload/v1764661978/kawamasa/showcase/kwms-showcase-13?width_750,f_auto,q_auto 750w,
+                https://res.cloudinary.com/tsutshiau/image/upload/v1764661978/kawamasa/showcase/kwms-showcase-13?width_600,f_auto,q_auto 600w
+              ">
+        </picture>          
+
+        </a>
+
+      </div>
+      
+
+      <div class="sc-item wow"  style="--delay: 0.3s">
+
+        <a class="lightbox-link sc-link wb no-hover-border has-tip" href="https://res.cloudinary.com/tsutshiau/image/upload/v1764661978/kawamasa/showcase/kwms-showcase-9" data-title="Milled / Aluminum">
+
+        <picture class="sc-pic wb wa">
+
+          <img
+            class="sc-img z-upper lazyload" data-sizes="auto" loading="lazy" decoding="async"
+            width="1600"
+            height="900"
+            alt="Milled / Aluminum"src="https://res.cloudinary.com/tsutshiau/image/upload/v1764661978/kawamasa/showcase/kwms-showcase-9?width_15,f_auto,q_auto"
+
+              srcset="
+                https://res.cloudinary.com/tsutshiau/image/upload/v1764661978/kawamasa/showcase/kwms-showcase-9 1600w,
+                https://res.cloudinary.com/tsutshiau/image/upload/v1764661978/kawamasa/showcase/kwms-showcase-9?width_1200,f_auto,q_auto 1200w,
+                https://res.cloudinary.com/tsutshiau/image/upload/v1764661978/kawamasa/showcase/kwms-showcase-9?width_1024,f_auto,q_auto 1024w,
+                https://res.cloudinary.com/tsutshiau/image/upload/v1764661978/kawamasa/showcase/kwms-showcase-9?width_900,f_auto,q_auto 900w,
+                https://res.cloudinary.com/tsutshiau/image/upload/v1764661978/kawamasa/showcase/kwms-showcase-9?width_750,f_auto,q_auto 750w,
+                https://res.cloudinary.com/tsutshiau/image/upload/v1764661978/kawamasa/showcase/kwms-showcase-9?width_600,f_auto,q_auto 600w
+              ">
+        </picture>          
+
+        </a>
+
+      </div>
+      
+
+      <div class="sc-item wow"  style="--delay: 0.4s">
+
+        <a class="lightbox-link sc-link wb no-hover-border has-tip" href="https://res.cloudinary.com/tsutshiau/image/upload/v1764661978/kawamasa/showcase/kwms-showcase-7v" data-title="Milled / Aluminum / Red Anodize">
+
+        <picture class="sc-pic wb wa">
+
+          <img
+            class="sc-img z-upper lazyload" data-sizes="auto" loading="lazy" decoding="async"
+            width="1600"
+            height="900"
+            alt="Milled / Aluminum / Red Anodize"src="https://res.cloudinary.com/tsutshiau/image/upload/v1764661978/kawamasa/showcase/kwms-showcase-7v?width_15,f_auto,q_auto"
+
+              srcset="
+                https://res.cloudinary.com/tsutshiau/image/upload/v1764661978/kawamasa/showcase/kwms-showcase-7v 1600w,
+                https://res.cloudinary.com/tsutshiau/image/upload/v1764661978/kawamasa/showcase/kwms-showcase-7v?width_1200,f_auto,q_auto 1200w,
+                https://res.cloudinary.com/tsutshiau/image/upload/v1764661978/kawamasa/showcase/kwms-showcase-7v?width_1024,f_auto,q_auto 1024w,
+                https://res.cloudinary.com/tsutshiau/image/upload/v1764661978/kawamasa/showcase/kwms-showcase-7v?width_900,f_auto,q_auto 900w,
+                https://res.cloudinary.com/tsutshiau/image/upload/v1764661978/kawamasa/showcase/kwms-showcase-7v?width_750,f_auto,q_auto 750w,
+                https://res.cloudinary.com/tsutshiau/image/upload/v1764661978/kawamasa/showcase/kwms-showcase-7v?width_600,f_auto,q_auto 600w
+              ">
+        </picture>          
+
+        </a>
+
+      </div>
+      
+
+      <div class="sc-item wow"  style="--delay: 0.45s">
+
+        <a class="lightbox-link sc-link wb no-hover-border has-tip" href="https://res.cloudinary.com/tsutshiau/image/upload/v1764661978/kawamasa/showcase/kwms-showcase-12" data-title="Milled / HDPE">
+
+        <picture class="sc-pic wb wa">
+
+          <img
+            class="sc-img z-upper lazyload" data-sizes="auto" loading="lazy" decoding="async"
+            width="1600"
+            height="900"
+            alt="Milled / HDPE"src="https://res.cloudinary.com/tsutshiau/image/upload/v1764661978/kawamasa/showcase/kwms-showcase-12?width_15,f_auto,q_auto"
+
+              srcset="
+                https://res.cloudinary.com/tsutshiau/image/upload/v1764661978/kawamasa/showcase/kwms-showcase-12 1600w,
+                https://res.cloudinary.com/tsutshiau/image/upload/v1764661978/kawamasa/showcase/kwms-showcase-12?width_1200,f_auto,q_auto 1200w,
+                https://res.cloudinary.com/tsutshiau/image/upload/v1764661978/kawamasa/showcase/kwms-showcase-12?width_1024,f_auto,q_auto 1024w,
+                https://res.cloudinary.com/tsutshiau/image/upload/v1764661978/kawamasa/showcase/kwms-showcase-12?width_900,f_auto,q_auto 900w,
+                https://res.cloudinary.com/tsutshiau/image/upload/v1764661978/kawamasa/showcase/kwms-showcase-12?width_750,f_auto,q_auto 750w,
+                https://res.cloudinary.com/tsutshiau/image/upload/v1764661978/kawamasa/showcase/kwms-showcase-12?width_600,f_auto,q_auto 600w
+              ">
+        </picture>          
+
+        </a>
+
+      </div>
+      
+
+      <div class="sc-item wow"  style="--delay: 1.0s">
+
+        <a class="lightbox-link sc-link wb no-hover-border has-tip" href="https://res.cloudinary.com/tsutshiau/image/upload/v1764660994/kawamasa/showcase/kwms-showcase-21" data-title="Lathe / POM">
+
+        <picture class="sc-pic wb wa">
+
+          <img
+            class="sc-img z-upper lazyload" data-sizes="auto" loading="lazy" decoding="async"
+            width="1600"
+            height="900"
+            alt="Lathe / POM"src="https://res.cloudinary.com/tsutshiau/image/upload/v1764660994/kawamasa/showcase/kwms-showcase-21?width_15,f_auto,q_auto"
+
+              srcset="
+                https://res.cloudinary.com/tsutshiau/image/upload/v1764660994/kawamasa/showcase/kwms-showcase-21 1600w,
+                https://res.cloudinary.com/tsutshiau/image/upload/v1764660994/kawamasa/showcase/kwms-showcase-21?width_1200,f_auto,q_auto 1200w,
+                https://res.cloudinary.com/tsutshiau/image/upload/v1764660994/kawamasa/showcase/kwms-showcase-21?width_1024,f_auto,q_auto 1024w,
+                https://res.cloudinary.com/tsutshiau/image/upload/v1764660994/kawamasa/showcase/kwms-showcase-21?width_900,f_auto,q_auto 900w,
+                https://res.cloudinary.com/tsutshiau/image/upload/v1764660994/kawamasa/showcase/kwms-showcase-21?width_750,f_auto,q_auto 750w,
+                https://res.cloudinary.com/tsutshiau/image/upload/v1764660994/kawamasa/showcase/kwms-showcase-21?width_600,f_auto,q_auto 600w
+              ">
+        </picture>          
+
+        </a>
+
+      </div>
+      
+
+    <div class="sc-link-wrapper">
+      <a class="anchor-block no-hover-border link-more sc-link-more" href="product-showcase/index.html">
+      <p class="ef-arrow-wrapper wb">
+        All Photos&nbsp;<span class="ef-arrow ef-next" aria-hidden="true"><span></span></span>
+      </p>
+    </a>
+    </div>
+  </div>
+
+
+</section>
+
+
+
+                  </div><aside class="site-sidebar sidebar-first">
+
+      <div class="sidebar-cont grid-sidebar-fix">
+
+            <ul class="toc accor-group"><li class="accor-set accor-set_toc">
+                  <input name="sidebar-accor_toc" id="sidebar-accor_toc" class="accor-control" type="checkbox" autocomplete="off">
+
+                        <label for="sidebar-accor_toc" class="accor-label title-uppercase ">Company Overview<span class="accor-icon"></span></label>
+            
+                        <div class="accor-cont">
+            
+                              <div class="accor-cont-inner">
+
+                                    <ul class="accor-list">
+                                          
+                                          
+                                          <li class="wb wa wow" style="--delay: 0.1s">
+                                                <a class="toc-link" href="#profile">Profile</a>
+                                          </li>
+                                          
+                                          
+                                          <li class="wb wa wow" style="--delay: 0.2s">
+                                                <a class="toc-link" href="#services">Services</a>
+                                          </li>
+                                          
+                                          
+                                          <li class="wb wa wow" style="--delay: 0.3s">
+                                                <a class="toc-link" href="#capabilities">Capabilities</a>
+                                          </li>
+                                          
+                                          
+                                          <li class="wb wa wow" style="--delay: 0.4s">
+                                                <a class="toc-link" href="#equipment">Equipment</a>
+                                          </li>
+                                          
+                                          
+                                          <li class="wb wa wow" style="--delay: 0.5s">
+                                                <a class="toc-link" href="#certificates">ISO Certificates</a>
+                                          </li>
+                                          
+                                          
+                                          <li class="wb wa wow" style="--delay: 0.6s">
+                                                <a class="toc-link" href="#showcase">Showcase</a>
+                                          </li>
+                                          
+                                          
+                                    </ul>
+            
+                              </div>
+                              
+                        </div>
+
+                  </li><li class="accor-set accor-set_toc">
+            
+                        <input name="sidebar-accor_line-at" id="sidebar-accor_line-at" class="accor-control" type="checkbox" autocomplete="off">
+                        <label for="sidebar-accor_line-at" class="accor-label title-uppercase">Inquiry Now<span class="accor-icon"></span></label>
+            
+                        <div class="accor-cont">
+            
+                              <div class="accor-cont-inner"><h2 class="title-lv6 sidebar-corp-name">Kawamasa CNC Precision<br>Co., Ltd.</h2>
+
+                                    <ul class="sidebar-contact">
+
+                                          <li><span class="contact-item-title">Tel</span><a href="tel:+886222028808">+886 2 2202 8808<span class=" contact-item-cont"></span></a></li>
+
+                                          <li><span class="contact-item-title">Fax</span><span class=" contact-item-cont">+886 2 2202 8836</span></li>
+
+                                          <li class="qrtty sidebar"></li>
+
+                                    </ul><div class="qqqsss-at-wrapper">
+                                          <h2 class="title-lv6 qrcode-action"><span class="wb wow">Email Us</span></h2>
+                                          <svg id="qqqsss-svg" viewBox="0 0 128 128" width="128" height="128"><use xlink:href="#qqqsss"></use></svg>
+                                    </div>
+
+                              </div>
+
+                        </div>
+
+                  </li>
+
+                  
+            </ul>
+
+      </div>
+
+</aside></main><footer class="site-footer z-upper">
+
+      <div class="footer-lang-switcher">
+
+            <div class="lang-switcher-svgs wow">
+
+                  <svg class="svg-icon svg-icon-circle" width="100" height="100" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" stroke-width="1" fill="none"></circle></svg>
+                  <svg class="svg-icon svg-icon-multi-lang" viewBox="0 0 512 512" width="38" height="38"><use xlink:href="#multi-lang"></use></svg>
+
+            </div>
+
+            <div class="lang-switcher-cont">
+                  
+                  <p>This page is also available in the following language:</p>
+
+                  <ul class="lang-list-footer"><li class="lang-footer-item"><a class="mm-snd-link lang-option v2 wb wa" href="index.html" data-lang="zh-Hant-TW"><span>中文 台灣</span></a></li></ul>
+                        
+            </div>
+
+      </div><picture class="footer-deco-pic wa wb wow">
+    
+    <source media="(max-width: 500px)" srcset="
+
+        https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_1400/kawamasa/bg/sketch-home-mobile-sepia-v5 1400w,
+        https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_1284/kawamasa/bg/sketch-home-mobile-sepia-v5 1284w,
+        https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_1080/kawamasa/bg/sketch-home-mobile-sepia-v5 1080w,
+        https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_900/kawamasa/bg/sketch-home-mobile-sepia-v5 900w,
+        https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_640/kawamasa/bg/sketch-home-mobile-sepia-v5 640w
+
+    " width="1400" height="1371">
+
+    <source media="(min-width: 501px)" srcset="
+
+        https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_2400/kawamasa/bg/sketch-home-dktp-sepia-v5 2400w,
+        https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_1600/kawamasa/bg/sketch-home-dktp-sepia-v5 1600w
+
+    " width="2400" height="1371">
+
+    <img class="footer-deco-img lazyload" data-sizes="auto"
+         style="--footer-deco-opacity: ; --footer-deco-position: "
+         loading="lazy" decoding="async"
+         width="2400" height="1371"
+         alt="CNC Illustration"
+         src="https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_2400/kawamasa/bg/sketch-home-dktp-sepia-v5">
+  </picture><h5 class="title-lv3 lh-reduced title-footer-contact wow"><span class="wb" style="--delay: 0.45s">Kawamasa CNC Precision Co., Ltd.</span>
+      </h5>
+
+      <ul class="contact-sns">
+
+            <li class="contact-sns-item wow" style="--delay: 0.15s">
+                  <a class="contact-sns-link anchor-block no-hover-border wow" href="https://www.facebook.com/profile.php?id=100066731870710" target="_blank" rel="noreferrer noopener"><svg class="contact-svg icon-svg contact-svg-fb" viewBox="0 0 24 24" width="45" height="45"><use xlink:href="#fb"></use></svg></a>
+            </li>
+
+            <li class="contact-sns-item wow" style="--delay: 0.22s">
+                  <a class="contact-sns-link anchor-block no-hover-border" href="https://www.linkedin.com/in/%E8%A3%BD%E4%BD%9C-%E5%B7%9D%E6%AD%A3-387624168/" target="_blank" rel="noreferrer noopener"><svg class="contact-svg icon-svg contact-svg-linkedin" viewBox="0 0 24 24" width="45" height="45"><use xlink:href="#linkedin"></use></svg></a>
+            </li>
+
+            <li class="contact-sns-item wow" style="--delay: 0.29s">
+                  <a class="contact-sns-link anchor-block no-hover-border wow" href="https://line.me/ti/p/test" target="_blank" rel="noreferrer noopener"><svg class="contact-svg icon-svg contact-svg-line-app" viewBox="0 0 24 24" widht="47" height="47"><use xlink:href="#line-app"></use></svg></a>
+            </li>
+
+            <li class="contact-sns-item wow" style="--delay: 0.36s">
+                  <a class="contact-sns-link anchor-block no-hover-border wow" href="https://maps.app.goo.gl/teausi1oe2j8hDXLA" target="_blank" rel="noreferrer noopener"><svg class="contact-svg icon-svg contact-svg-gmaps" viewBox="0 0 216.975 216.975" width="33" width="33"><use xlink:href="#google-maps"></use></svg></a>
+            </li>
+
+      </ul><ul class="contact-list contact-list--footer">
+
+            <li class="biz-hours"><span class="contact-item-title contact-item-title--optional">Hours&nbsp;</span><span class=" contact-item-cont">Monday to Friday, 9:00 AM – 6:00 PM (UTC+8), excluding public holidays in Taiwan</span></li>
+            <li><span class="contact-item-title contact-item-title--optional">Email&nbsp;</span><span class="qrtty contact-item-cont"></span></li>
+            <li><span class="contact-item-title">Tel&nbsp;</span><a href="tel:+886222028808">+886 2 2202 8808<span class=" contact-item-cont"></span></a></li>
+
+
+            <li><span class="contact-item-title">Fax&nbsp;</span><span class=" contact-item-cont">+886 2 2202 8836</span></li>
+
+            <li class="addr-long"><span class="contact-item-title contact-item-title--optional">Addr.&nbsp;</span><!-- 
+            -->No. 166, Min'an E. Rd., Xinzhuang Dist., 242 New Taipei City - Taiwan</span></li>
+
+      </ul>
+      
+      <p class="copyright">Copyright &copy; Kawamasa CNC Precision Co., Ltd. All rights reserved.</p><p class="back-to-page-top"><a href="#uni">Back to page top</a></p>
+
+</footer><div class="fcta-wrapper">
+
+      <ul class="fcta-list">
+
+            <li class="fcta-contact wb fcta-item" style="--t-delay: 0.1s">
+                  <a class="fcta-link modal-trigger z-upper" data-modal="contact" href="#footer-contact" role="button" aria-label="聯絡方式"><svg class="fcta-svg" viewBox="0 0 24 24" width="24" height="24"><use xlink:href="#phone"></use></svg></a>
+            </li>
+
+            <li class="fcta-share wb fcta-item" style="--t-delay: 0.2s" >
+                  <a class="fcta-link modal-trigger z-upper" data-modal="social-share" href="#share" role="button" aria-label="社群網站分享"><svg class="fcta-svg" viewBox="0 0 24 24" width="24" height="24"><use xlink:href="#share"></use></svg></a>
+            </li>
+
+            <li class="fcta-page-top wb fcta-item" style="--t-delay: 0.3s">
+                  <a class="fcta-link z-upper" href="#uni" role="button" aria-label="回頁面頂端"><svg class="fcta-svg" viewBox="0 0 24 24" width="24" height="24"><use xlink:href="#arrow-up"></use></svg></a>
+            </li>
+
+      </ul>
+
+</div><aside id="modal-contact" class="modal modal-contact modal-mini wb wa">
+
+      <div class="modal-close-wrapper close-wrapper wb"><button class="modal-close close wb" aria-label="Close"><span class="modal-close-title close-title wb">Close</span></button></div>
+
+      <span class="modal-deco-contact bg-stripes wb" aria-hidden="true"></span>
+
+      <div class="modal-inner wb wa">
+
+            <h2 class="modal-title-prim title-lv3">Contact Us</h2>
+
+            <div class="modal-cont">
+
+                  <ul class="contact-sns">
+            
+                        <li class="contact-sns-item wow" style="--delay: 0.15s">
+                              <a class="contact-sns-link anchor-block no-hover-border wow" href="https://www.facebook.com/profile.php?id=100066731870710" target="_blank" rel="noreferrer noopener"><svg class="contact-svg icon-svg contact-svg-fb" viewBox="0 0 24 24" width="45" height="45"><use xlink:href="#fb"></use></svg></a>
+                        </li>
+
+                        <li class="contact-sns-item wow" style="--delay: 0.22s">
+                              <a class="contact-sns-link anchor-block no-hover-border" href="https://www.linkedin.com/in/%E8%A3%BD%E4%BD%9C-%E5%B7%9D%E6%AD%A3-387624168/" target="_blank" rel="noreferrer noopener"><svg class="contact-svg icon-svg contact-svg-linkedin" viewBox="0 0 24 24" width="45" height="45"><use xlink:href="#linkedin"></use></svg></a>
+                        </li>
+
+                        <li class="contact-sns-item wow" style="--delay: 0.29s">
+                              <a class="contact-sns-link anchor-block no-hover-border wow" href="https://line.me/ti/p/test" target="_blank" rel="noreferrer noopener"><svg class="contact-svg icon-svg contact-svg-line-app" viewBox="0 0 24 24" widht="47" height="47"><use xlink:href="#line-app"></use></svg></a>
+                        </li>
+
+                        <li class="contact-sns-item wow" style="--delay: 0.36s">
+                              <a class="contact-sns-link anchor-block no-hover-border wow" href="https://maps.app.goo.gl/teausi1oe2j8hDXLA" target="_blank" rel="noreferrer noopener"><svg class="contact-svg icon-svg contact-svg-gmaps" viewBox="0 0 216.975 216.975" width="33" width="33"><use xlink:href="#google-maps"></use></svg></a>
+                        </li>
+            
+                  </ul>
+
+                  <h5 class="title-lv6 lh-reduced title-modal-contact wow"><span class="wb" style="--delay: 0.45s">Kawamasa CNC Precision Co., Ltd.</span>
+                  </h5><ul class="contact-list contact-list--footer">
+
+                        <li class="biz-hours"><span class="contact-item-title contact-item-title--optional">Hours&nbsp;</span><span class=" contact-item-cont">Monday to Friday, 9:00 AM – 6:00 PM (UTC+8), excluding public holidays in Taiwan</span></li>
+
+                        <li><span class="contact-item-title contact-item-title--optional">Email&nbsp;</span><span class="qrtty contact-item-cont"></span></li>
+
+                        <li><span class="contact-item-title">Tel&nbsp;</span><a href="tel:+886222028808">+886 2 2202 8808<span class=" contact-item-cont"></span></a></li>
+
+                        <li><span class="contact-item-title">Fax&nbsp;</span><span class=" contact-item-cont">+886 2 2202 8836</span></li>
+                        
+                        <li class="addr-long"><span class="contact-item-title contact-item-title--optional">Addr.&nbsp;</span><!-- 
+                        -->No. 166, Min'an E. Rd., Xinzhuang Dist., 242 New Taipei City - Taiwan</span></li>
+
+                  </ul>
+
+            </div>
+
+           
+
+
+      </div>
+      
+      
+
+</aside><aside id="modal-social-share" class="modal modal-social-share modal-mini wb wa">
+
+      <div class="modal-close-wrapper close-wrapper wb"><button class="modal-close close wb" aria-label="Close"><span class="modal-close-title close-title wb">Close</span></button></div>
+
+      <div class="modal-inner wb wa">
+
+
+            <h2 class="modal-title-prim title-lv3">Social Share</h2>
+
+            <div class="modal-cont">
+
+                  <ul class="share-list">
+
+                  
+                
+                        <li class="share-fb share-item type-btn icon-wrapper wb">
+                            <svg class="share-svg icon-svg share-svg-fb" viewBox="0 0 24 24" width="45" height="45" style="--delay: 0.15s"><use xlink:href="#fb"></use></svg><button aria-label="Share to Facebook" title="Share to Facebook" class="share-link share-fb type-btn" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=https://kawamasa.com.tw/en/', 'fbshare', 'width=555,height=660');"></button>
+                        </li>
+                        
+                        <li class="share-fb-msg share-item type-href icon-wrapper wb">
+                            <a aria-label="Share to Facebook Messenger (Mobile Only)" class="share-link anchor-block no-hover-border" href="fb-messenger://share?link=https://kawamasa.com.tw/en/" target="_blank" rel="noopener noreferrer" title="Share to Facebook Messenger (Mobile Only)">
+                                <svg class="share-svg icon-svg share-svg-fbmsg" viewBox="0 0 24 24" width="45" height="45" style="--delay: 0.25s"><use xlink:href="#fb-msg"></use></svg>
+                            </a>
+                        </li>
+                
+                        <li class="share-linkedin share-item type-btn icon-wrapper wb"><svg class="share-svg icon-svg share-svg-linkedin" viewBox="0 0 24 24" width="45" height="45" style="--delay: 0.35s"><use xlink:href="#linkedin"></use></svg><button aria-label="Share to LinkedIn" title="Share to LinkedIn" class="share-link share-linkedin type-button" onclick="window.open('https://www.linkedin.com/shareArticle?mini=true&amp;url=https://kawamasa.com.tw/en/&amp;display=popup', 'linkedinshare', 'width=555,height=450');"></button>
+                        </li>
+                        
+                        <li class="share-line-app share-item type-btn icon-wrapper wb">
+                            <svg class="share-svg icon-svg share-svg-line-app" viewBox="0 0 24 24" widht="47" height="47" style="--delay: 0.45s"><use xlink:href="#line-app"></use></svg><button aria-label="Share to LINE" title="Share to LINE" class="share-link share-line-app type-btn" onclick="window.open('https://line.me/R/msg/text/%E5%88%86%E4%BA%AB%E7%B5%A6%E6%82%A8%EF%BC%9Ahttps://kawamasa.com.tw/en/', 'lineatshare', 'width=640,height=500');"></button>
+                        </li>
+                
+                  </ul>
+                
+                  <div class="url-copier">
+                
+                        <input id="url-copier-input" class="url-copier-input wb" readonly value="kawamasa.com.tw/en/">
+                
+                        <button id="url-copier-btn" class="url-copier-btn wb wa"><span class="copier-text z-upper"><b>Copy</b></span></button>
+                
+                  </div>
+
+            </div>
+
+      </div>
+
+      <span class="bg-stripes wb modal-deco-social-share" aria-hidden="true"></span>
+
+</aside>
+
+<script src="../assets/js/widgets.min.js" defer></script><script src="../assets/js/simple-lightbox.js" defer></script><script id="svg-inject">
+
+  /* MIT License - https://github.com/iconfu/svg-sprite-inject/blob/master/LICENSE */
+
+  !function(e,s){var t="createElement",u=s[t]("a"),p=s[t]("div");function d(e,t,n){for(var r=0;r<t.length;++r){var o=t[r];o.hasOwnProperty(e)&&n(o[e])}}var c={};function n(e,t){t=t||{};var n,r=(n=e,u.href=n,u.href),o=c[r];if(o){var i=o.svgSprite;i?t.onInjected&&t.onInjected(i):o.optionsArr.push(t)}else{var a=!1;c[r]=o={spriteHandler:{remove:function(){if(!a){var e=o.svgSprite;if(e){var t=e.parentNode;t&&t.removeChild(e),o.svgSprite=null}delete c[r],a=!0}}},svgSprite:null,optionsArr:[t]},function(e,t,n){if(e){var r=new XMLHttpRequest;r.onreadystatechange=function(){4==r.readyState&&200==r.status&&t(r.responseText)},r.onerror=n,r.open("GET",e,!0),r.send()}}(e,function(e){var t=function(e,t){p.innerHTML=e;var n=p.removeChild(p.firstChild);return n.setAttribute("data-inject-url",t),n}(e,r);a||(o.svgSprite=t,s.documentElement.appendChild(t),d("afterInject",o.optionsArr,function(e){e(t)}))},function(t){d("onLoadFail",o.optionsArr,function(e){e(t)})})}return o.spriteHandler}"object"==typeof module&&"object"==typeof module.exports&&(module.exports=n),e.SVGSpriteInject=n}(window,document);
+
+  SVGSpriteInject('../assets/icons/sprites.svg');
+
+  </script><div class="overlay"></div><div id="cookie-consent" class="cookie-consent">
+      <p><span class="cookie-consent-message">By continuing, you agree this site uses cookies to enhance experience</p><!-- 
+            --><button id="accept-cookie" class="ibvt cookie-consent-button">OK</button>
+</div><script type="application/ld+json" id="rs-breadcrumb">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://kawamasa.com.tw/en/"
+      }]
+}
+</script>
+</body>
+
+      
+
+</html>

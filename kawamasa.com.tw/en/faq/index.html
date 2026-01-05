@@ -1,0 +1,1194 @@
+<!DOCTYPE html>
+
+<html lang="en-US"><head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# website: http://ogp.me/ns/website#">
+
+    <meta charset="UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no"><script id="lang-redirect-v8">
+(() => {
+
+    const COOKIE_NAME = 'langPref';
+    const COOKIE_DAYS = 14;
+
+    // --- Cookie Helpers ---
+    function setCookie(name, value, days) {
+        const date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        const expires = "expires=" + date.toUTCString();
+        const secure = window.location.protocol === 'https:' ? ';Secure;SameSite=Lax' : '';
+        document.cookie = name + "=" + value + ";" + expires + ";path=/" + secure;
+    }
+
+    function getCookie(name) {
+        const cname = name + "=";
+        const decodedCookie = decodeURIComponent(document.cookie);
+        const ca = decodedCookie.split(';');
+        for (let i = 0; i < ca.length; i++) {
+            let c = ca[i].trim();
+            if (c.indexOf(cname) === 0) {
+                return c.substring(cname.length, c.length);
+            }
+        }
+        return "";
+    }
+
+    // --- Language Detection ---
+    function getBrowserLanguage() {
+        const lang = navigator.language || navigator.userLanguage;
+        return lang === 'zh-TW' || lang === 'zh-Hant-TW' ? 'zh-Hant-TW' : 'en-US';
+    }
+
+    function getCurrentLangFromUrl() {
+        const path = window.location.pathname;
+        return path.includes('/en/') ? 'en-US' : 'zh-Hant-TW';
+    }
+
+    // --- Environment-based redirect setup ---
+
+    let redirectToLang;
+
+        redirectToLang = function (lang) {
+            const currentPath = window.location.pathname;
+            let newPath;
+
+            if (lang === 'en-US' && !currentPath.includes('/en/')) {
+                newPath = currentPath === '/' ? '/en/' : '/en' + currentPath;
+            } else if (lang === 'zh-Hant-TW' && currentPath.includes('/en/')) {
+                newPath = currentPath.replace('/en', '');
+                if (newPath === '') newPath = '/';
+            } else {
+                return;
+            }
+
+            if (window.location.pathname !== newPath) {
+                window.location.assign(window.location.origin + newPath);
+            }
+        };
+
+
+    // --- Auto redirect logic ---
+    (function () {
+        const cookieLang = getCookie(COOKIE_NAME);
+        const browserLang = getBrowserLanguage();
+        const currentLang = getCurrentLangFromUrl();
+
+        if (cookieLang) {
+            if (cookieLang !== currentLang) {
+                redirectToLang(cookieLang);
+            }
+        } else {
+            if (browserLang !== currentLang) {
+                setCookie(COOKIE_NAME, browserLang, COOKIE_DAYS);
+                // 延遲以確保 iOS 15–17 可讀取 cookie
+                setTimeout(() => redirectToLang(browserLang), 100);
+            }
+        }
+    })();
+
+    // --- DOM-based language switch UI ---
+    document.addEventListener('DOMContentLoaded', function () {
+
+        const languageLinks = document.querySelectorAll('.lang-option');
+
+        if (!languageLinks.length) return;
+
+        const currentLang = getCurrentLangFromUrl();
+        languageLinks.forEach(link => {
+            if (link.getAttribute('data-lang') === currentLang) {
+                link.classList.add('current-option');
+            } else {
+                link.classList.remove('current-option');
+            }
+        });
+
+        languageLinks.forEach(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+                const selectedLang = this.getAttribute('data-lang');
+                setCookie(COOKIE_NAME, selectedLang, COOKIE_DAYS);
+                redirectToLang(selectedLang);
+            });
+        });
+    });
+
+})();
+</script><link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://res.cloudinary.com">
+
+    <!-- reduce google fonts cls payload -->
+    <link rel="preload" as="font" type="font/woff2" href="https://fonts.gstatic.com/s/onest/v9/gNMKW3F-SZuj7xmf-HYoEoey.woff2">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400..700&amp;display=fallback" media="print" onload="media='all'">
+
+
+        <title>FAQ - Kawamasa CNC Precision</title>
+
+        <link rel="stylesheet" href="../../assets/styles/cnc-main.css">
+        <link rel="stylesheet" href="../../assets/styles/cnc-deferred.css" media="print" onload="media='all'"><meta name="description" content="Quote info needed? Fast pricing, no full drawing required. Rapid prototyping assessed quickly. Premium CNC machining—view FAQ or contact us now.">
+
+<meta property="og:locale" content="zh_TW"><meta property="og:type" content="article">
+        <meta property="og:title" content="FAQ - Kawamasa CNC Precision">
+        <meta property="article:publisher" content="https://www.facebook.com/profile.php?id=100066731870710"><meta property="og:description" content="Quote info needed? Fast pricing, no full drawing required. Rapid prototyping assessed quickly. Premium CNC machining—view FAQ or contact us now.">
+        <meta property="og:url" content="https://kawamasa.com.tw/en/faq/"><meta property="og:site_name" content="Kawamasa CNC Precision">
+        <meta property="og:image:width" content="2400">
+        <meta property="og:image:height" content="1260"><meta property="og:image" content="https://kawamasa.com.tw/assets/fbog/kwms-fbog-faq.png"><script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Kawamasa CNC Precision",
+    "legalName": "Kawamasa CNC Precision Co., Ltd.",
+    "telephone": "+886222028808",
+    "faxNumber": "+886222028836",
+    "contactPoint": [
+        {
+        "@type": "ContactPoint",
+        "contactType": "customer service",
+        "telephone": "+886222028808"
+        }
+    ],
+    "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "No. 166, Min'an E. Rd.",
+        "addressLocality": "Xinzhuang District",
+        "addressRegion": "New Taipei City",
+        "postalCode": "242",
+        "addressCountry": "TW"
+    },
+    "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 25.020413421855594,
+        "longitude": 121.43229703481227
+    },
+    "openingHoursSpecification": [
+        {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday"
+        ],
+        "opens": "09:00",
+        "closes": "18:00"
+        }
+    ]
+    }
+    </script><style>:root {
+  
+            
+                
+                
+                
+                    --color-prim: rgb(136, 26, 0);
+                
+            
+                
+                
+                
+                    --color-prim-tl: rgba(136, 26, 0, 0.2);
+                
+            
+                
+                
+                
+                    --color-snd: rgba(223, 247, 210, 0.825);
+                
+            
+                
+                
+                
+                    --color-tert: rgb(80, 0, 160);
+                
+            
+            
+        }
+
+    </style>
+
+
+
+
+
+    <link rel="icon" href="../../favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../../touch-icon-192x192.png"><link rel="alternate" hreflang="zh-TW" href="../../faq/index.html" />
+        <link rel="alternate" hreflang="en-US" href="index.html" />
+        <link rel="alternate" hreflang="x-default" href="index.html" /></head><body id="uni" class="page-body wb wa page-faq has-faq lang-en-us wb"><picture class="fullscreen-bg-pic wb wa">
+
+  <source media="(max-width: 500px)" srcset="
+
+      https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_1400/kawamasa/bg/sketch-faq-mobile 1400w,
+      https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_1284/kawamasa/bg/sketch-faq-mobile 1284w,
+      https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_1080/kawamasa/bg/sketch-faq-mobile 1080w,
+      https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_900/kawamasa/bg/sketch-faq-mobile 900w,
+      https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_640/kawamasa/bg/sketch-faq-mobile 640w
+  
+  " width="1400" height="1371">
+
+  <source media="(min-width: 501px)" srcset="
+  
+      https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_2400/kawamasa/bg/sketch-faq-dktp 2400w,
+      https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_1600/kawamasa/bg/sketch-faq-dktp 1600w
+  
+  " width="2400" height="1371">
+
+
+  <img
+    class="fullscreen-bg-img"
+    alt="Kawamasa CNC Precision Co., Ltd."
+    loading="eager"
+    decoding="sync"
+    fetchpriority="high"
+    src="https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_2400/kawamasa/bg/sketch-faq-dktp"
+    width="2400"
+    height="1371"
+    sizes="100%"
+    >
+
+</picture>
+
+
+
+<div class="aux-outer" aria-hidden="true">
+
+      <div class="aux-inner">
+
+            <div class="aux aux-1"></div>
+            <div class="aux aux-2"></div>
+            <div class="aux aux-3"></div>
+            <div class="aux aux-4"></div>
+      
+      </div>
+
+</div>
+            
+<div class="site-header">
+
+      <a class="back-home" href="../../index.html" aria-label="返回首頁 Back to Homepage"><svg class="svg-logo svg-logo-filled" viewBox="0 0 140 24" width="158" height="27"><use xlink:href="#logo"></use></svg></a>
+      
+      <nav id="site-megamenu" class="vanilla-megamenu v-mm">
+
+            <ul class="mm-prim"><li class="mm-prim-li mm-prim-item ">
+                                    <a href="../index.html">
+                                    Home
+                                    </a>
+                              </li><li class="mm-prim-li mm-prim-item ">
+                                    <a href="../manufacturing-equipment/index.html">
+                                    Equipment
+                                    </a>
+                              </li><li class="mm-prim-li mm-prim-item ">
+                                    <a href="../quality-control/index.html">
+                                    QC
+                                    </a>
+                              </li><li class="mm-prim-li mm-prim-item ">
+                                    <a href="../product-showcase/index.html">
+                                    Showcase
+                                    </a>
+                              </li><li class="mm-prim-li mm-prim-item ">
+                                    <a href="../production-workflow/index.html">
+                                    Workflow
+                                    </a>
+                              </li><li class="mm-prim-li mm-prim-item  mm-prim-current ">
+                                    <a href="index.html">
+                                    FAQ
+                                    </a>
+                              </li><li class="mm-prim-li mm-prim-item ">
+                                    <a href="../contact-us/index.html">
+                                    Contact
+                                    </a>
+                              </li></ul>
+            
+
+            <input type="checkbox" id="mm-trigger-lang" class="mm-trigger mm-trigger-lang"><label for="mm-trigger-lang" class="mm-label" role="button" aria-label="語言選單 Language Selector"><svg class="svg-icon svg-icon-globe" width="22" height="22" viewBox="0 0 24 24"><use xlink:href="#globe"></use></svg><span class="lang-label-span">Languages</span>&nbsp;<span class="lang-arrow" aria-hidden="true"></span></label>
+  
+            <div class="mm-snd mm-snd-lang mm-lang-list">
+
+                  <ul class="mm-snd-list"><li class="mm-snd-item"><a class="mm-snd-link lang-option v2 wb wa" href="index.html" data-lang="zh-Hant-TW"><span>中文 台灣</span></a></li>
+                        
+                        <li class="mm-snd-item"><a class="mm-snd-link lang-option current-option v2 wb wa" href="#current_lang" data-lang="en-US"><span>English - US</span></a></li><li class="cookie-notes lh-reduced"><p>By default, your language preference will be remembered for 14 days.</p>
+
+                  </li>
+            
+                  </ul>
+
+            </div>
+
+
+            <input type="checkbox" id="mm-trigger-mobile" class="mm-trigger mm-trigger-mobile"><label for="mm-trigger-mobile" class="mm-label" role="button" aria-label="行動版選單"><span class="mobile-label-span">&nbsp;</span></label>
+  
+            <div class="mm-snd mm-snd-mobile">
+
+                  <p class="ribbon-outer wb"><span class="ribbon-text">Kawamasa</span></p>
+
+                  <ul class="mm-snd-list mm-menu-mobile"><li class="mm-mobile-li mm-mobile-item wb wa " style="--delay: 0.07s; --delay-slow: 0.3s"><a class="mm-link" href="../index.html">
+                                          
+                                          <span class="mm-icon-wrapper wb"><svg class="mm-icon" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"><use xlink:href="#mm-home"></use></svg></span>
+                                          <span class="mm-title">Home</span>
+
+                                    </a>
+
+                              </li><li class="mm-mobile-li mm-mobile-item wb wa " style="--delay: 0.14s; --delay-slow: 0.4s"><a class="mm-link" href="../manufacturing-equipment/index.html">
+                                          
+                                          <span class="mm-icon-wrapper wb"><svg class="mm-icon" xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"><use xlink:href="#mm-equip"></use></svg></span>
+                                          <span class="mm-title">Equipment</span>
+
+                                    </a>
+
+                              </li><li class="mm-mobile-li mm-mobile-item wb wa " style="--delay: 0.21s; --delay-slow: 0.5s"><a class="mm-link" href="../quality-control/index.html">
+                                          
+                                          <span class="mm-icon-wrapper wb"><svg class="mm-icon" xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"><use xlink:href="#mm-tick"></use></svg></span>
+                                          <span class="mm-title">QC</span>
+
+                                    </a>
+
+                              </li><li class="mm-mobile-li mm-mobile-item wb wa " style="--delay: 0.28s; --delay-slow: 0.6s"><a class="mm-link" href="../product-showcase/index.html">
+                                          
+                                          <span class="mm-icon-wrapper wb"><svg class="mm-icon" xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"><use xlink:href="#mm-showcase"></use></svg></span>
+                                          <span class="mm-title">Showcase</span>
+
+                                    </a>
+
+                              </li><li class="mm-mobile-li mm-mobile-item wb wa " style="--delay: 0.35s; --delay-slow: 0.7s"><a class="mm-link" href="../production-workflow/index.html">
+                                          
+                                          <span class="mm-icon-wrapper wb"><svg class="mm-icon" xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"><use xlink:href="#mm-workflow"></use></svg></span>
+                                          <span class="mm-title">Workflow</span>
+
+                                    </a>
+
+                              </li><li class="mm-mobile-li mm-mobile-item wb wa  mm-mobile-current " style="--delay: 0.42s; --delay-slow: 0.8s"><a class="mm-link" href="index.html">
+                                          
+                                          <span class="mm-icon-wrapper wb"><svg class="mm-icon" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"><use xlink:href="#mm-faq"></use></svg></span>
+                                          <span class="mm-title">FAQ</span>
+
+                                    </a>
+
+                              </li><li class="mm-mobile-li mm-mobile-item wb wa " style="--delay: 0.49s; --delay-slow: 0.9s"><a class="mm-link" href="../contact-us/index.html">
+                                          
+                                          <span class="mm-icon-wrapper wb"><svg class="mm-icon" xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"><use xlink:href="#mm-contact"></use></svg></span>
+                                          <span class="mm-title">Contact</span>
+
+                                    </a>
+
+                              </li><span class="main-menu-deco bg-stripes wb" aria-hidden="true"></span>
+
+                  </ul>
+
+                  
+
+            </div>
+
+
+      </nav>
+
+</div><main id="site-main" class="site-main l-col-triple">
+
+                  
+                  <div class="primary wb wa">
+
+                        <header class="page-header z-upper">
+
+      <p class="title-1st title-uppercase has-blink-cursor hello-world wow"><span>Where Accuracy Meets Innovation<span class="blink-cursor" aria-hidden="true"></span></span><span>Kawamasa <span class="trail-1">CNC </span><span class="trail-2">Precision</span><span class="trail-3"> Co., Ltd.</span></span></p>
+
+      <h1 class="hero-title hero-title-prim title-lv1 wow"><!--
+    --><span><span class="anim-span" data-letters="F" style="--delay: 0.25s">F</span><span class="anim-span" data-letters="A" style="--delay: 0.35s">A</span><span class="anim-span" data-letters="Q" style="--delay: 0.45s">Q</span></h1>
+
+    <div class="header-deco anim-circular">
+
+      <svg class="svg-icon svg-avatar-circle wow" width="125" height="125" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="50" cy="50" r="45"  stroke-width="1" fill="none"/>
+      </svg>
+
+      <picture class="circular-pic wow">
+
+        <img class="circular-img lazyload" data-sizes="auto" srcset="
+        
+        https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_300/kawamasa/general/avatar-v2 300w,
+        https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_200/kawamasa/general/avatar-v2 200w,
+        https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_100/kawamasa/general/avatar-v2 100w
+      
+      " width="300" height="300" loading="eager" alt="Avatar">
+
+      </picture>
+
+    </div>
+
+</header>
+
+
+
+
+
+
+<section class="sec-std" id="rfq">
+
+  <h2 class="sec-title title-mask-reveal title-lv3 wow wa">
+    <span class="inside-title-mask wa">
+      
+        <span style="--delay: 0.42s">Drafting</span>
+        <span style="--delay: 0.49s">&</span>
+        <span style="--delay: 0.56s">RFQ</span>
+    </span>
+  </h2>
+
+  <ul class="accor-group no-bullets accor-faq">
+    
+      
+      
+
+      <li class="accor-set accor-set__1">
+        <input
+          name="accor-rfq-1"
+          id="accor-rfq-1"
+          class="accor-control"
+          type="checkbox"
+          autocomplete="off"
+          
+        >
+
+        <label for="accor-rfq-1" class="accor-label faq-label">
+          <span class="question-title">What information is needed for a quotation?</span><span class="accor-icon"></span>
+        </label>
+
+        <div class="accor-cont">
+          <div class="accor-cont-inner">
+            <p><mark>Please provide complete 2D drawings or 3D files</mark>, and specify the material, dimensions, tolerance requirements, surface treatment, and quantity.</p><p>If there are any special requirements, such as <mark>assembly fit, tolerance inspection, or special packaging</mark>, please include them as well to ensure an accurate quotation. Thank you!</p><p><a href='#contact' class='modal-trigger' data-modal='contact'>Click here for contact information</a></p>
+          </div>
+        </div>
+      </li>
+    
+      
+      
+
+      <li class="accor-set accor-set__2">
+        <input
+          name="accor-rfq-2"
+          id="accor-rfq-2"
+          class="accor-control"
+          type="checkbox"
+          autocomplete="off"
+          checked
+        >
+
+        <label for="accor-rfq-2" class="accor-label faq-label">
+          <span class="question-title">Can I request a quote without complete drawings?</span><span class="accor-icon"></span>
+        </label>
+
+        <div class="accor-cont">
+          <div class="accor-cont-inner">
+            <p><mark>Yes, but please provide a clear sketch, detailed specifications, or a sample</mark> so we can accurately estimate the cost. Complete engineering drawing services may incur an additional fee. Please feel free to contact us to discuss the details.</p>
+          </div>
+        </div>
+      </li>
+    
+      
+      
+
+      <li class="accor-set accor-set__3">
+        <input
+          name="accor-rfq-3"
+          id="accor-rfq-3"
+          class="accor-control"
+          type="checkbox"
+          autocomplete="off"
+          checked
+        >
+
+        <label for="accor-rfq-3" class="accor-label faq-label">
+          <span class="question-title">How long does a quotation take? What factors affect the price?</span><span class="accor-icon"></span>
+        </label>
+
+        <div class="accor-cont">
+          <div class="accor-cont-inner">
+            <p>You can typically expect a quote from us within <mark>1-3 business days</mark>. The exact timeframe depends on the complexity of the project. Pricing is mainly influenced by <mark>material costs, the type of machining (turning, milling, or turn-mill), tolerance requirements, surface finish, quantity, and the required lead time.</mark></p><p>For urgent requests, please let us know in advance for a quick confirmation.</p>
+          </div>
+        </div>
+      </li>
+    
+      
+      
+
+      <li class="accor-set accor-set__4">
+        <input
+          name="accor-rfq-4"
+          id="accor-rfq-4"
+          class="accor-control"
+          type="checkbox"
+          autocomplete="off"
+          checked
+        >
+
+        <label for="accor-rfq-4" class="accor-label faq-label">
+          <span class="question-title">Is there a minimum order quantity (MOQ)?</span><span class="accor-icon"></span>
+        </label>
+
+        <div class="accor-cont">
+          <div class="accor-cont-inner">
+            We don’t have a strict MOQ requirement. Whether it’s prototyping, fixture fabrication, or mass production with thousands of pieces, we’re happy to serve you. For long-term partnerships or large-scale production, we welcome discussions for more favorable pricing options.
+          </div>
+        </div>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+<section class="sec-std" id="prototyping">
+
+  <h2 class="sec-title title-mask-reveal title-lv3 wow wa">
+    <span class="inside-title-mask wa">
+      
+        <span style="--delay: 0.42s">Prototyping</span>
+    </span>
+  </h2>
+
+  <ul class="accor-group no-bullets accor-faq">
+    
+      
+      
+
+      <li class="accor-set accor-set__1">
+        <input
+          name="accor-prototyping-1"
+          id="accor-prototyping-1"
+          class="accor-control"
+          type="checkbox"
+          autocomplete="off"
+          
+        >
+
+        <label for="accor-prototyping-1" class="accor-label faq-label">
+          <span class="question-title">Should I choose 3D printing or CNC machining for rapid prototyping?</span><span class="accor-icon"></span>
+        </label>
+
+        <div class="accor-cont">
+          <div class="accor-cont-inner">
+            <p><mark>3D printing</mark> is ideal for components with <mark>complex structures, hollow interiors, or multiple curved surfaces</mark>, where mechanical strength is not a major requirement. It is also suitable for early-stage designs that require frequent modifications.</p><p><mark>CNC machining</mark> is recommended for components that require <mark>high precision, superior mechanical strength, and materials such as metals or engineering plastics.</mark> It is typically used for final functional or durability testing, when the design is already close to mass production.</p><p>At Kawamasa, we provide high-quality CNC rapid prototyping services. If you are unsure which method best suits your needs, feel free to contact us for further evaluation.</p>
+          </div>
+        </div>
+      </li>
+    
+      
+      
+
+      <li class="accor-set accor-set__2">
+        <input
+          name="accor-prototyping-2"
+          id="accor-prototyping-2"
+          class="accor-control"
+          type="checkbox"
+          autocomplete="off"
+          checked
+        >
+
+        <label for="accor-prototyping-2" class="accor-label faq-label">
+          <span class="question-title">How is the cost of CNC prototyping calculated?</span><span class="accor-icon"></span>
+        </label>
+
+        <div class="accor-cont">
+          <div class="accor-cont-inner">
+            <p>The cost is primarily determined by the <mark>material, machining time, surface finish, technical difficulty</mark>, and whether it's an urgent request. Since prototyping is typically done in small batches or as a single unit, the unit price is usually higher. <mark>For long-term partnerships, we can offer discounts or mass production rates</mark> to reduce future costs.</p>
+          </div>
+        </div>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+<section class="sec-std" id="machining">
+
+  <h2 class="sec-title title-mask-reveal title-lv3 wow wa">
+    <span class="inside-title-mask wa">
+      
+        <span style="--delay: 0.42s">Machining</span>
+        <span style="--delay: 0.49s">&</span>
+        <span style="--delay: 0.56s">Manufacturing</span>
+    </span>
+  </h2>
+
+  <ul class="accor-group no-bullets accor-faq">
+    
+      
+      
+
+      <li class="accor-set accor-set__1">
+        <input
+          name="accor-machining-1"
+          id="accor-machining-1"
+          class="accor-control"
+          type="checkbox"
+          autocomplete="off"
+          
+        >
+
+        <label for="accor-machining-1" class="accor-label faq-label">
+          <span class="question-title">What is the maximum travel range and machining accuracy?</span><span class="accor-icon"></span>
+        </label>
+
+        <div class="accor-cont">
+          <div class="accor-cont-inner">
+            <p>Our current maximum travel range is <mark>X 1,400 mm, Y 700 mm, and Z 630 mm</mark>. For general metal parts, machining tolerances can reach <mark>±5 μm</mark>.</p><p>Specific precision components can be discussed based on requirements. Please indicate critical tolerances on your drawings — we will confirm feasibility according to the process and inspection conditions.</p>
+          </div>
+        </div>
+      </li>
+    
+      
+      
+
+      <li class="accor-set accor-set__2">
+        <input
+          name="accor-machining-2"
+          id="accor-machining-2"
+          class="accor-control"
+          type="checkbox"
+          autocomplete="off"
+          checked
+        >
+
+        <label for="accor-machining-2" class="accor-label faq-label">
+          <span class="question-title">What CNC machining materials are supported?</span><span class="accor-icon"></span>
+        </label>
+
+        <div class="accor-cont">
+          <div class="accor-cont-inner">
+            <p>We work with aluminum, stainless steel, medium-carbon steel, and various plastics such as POM, UPE, Bakelite, fiberglass board, and acrylic. For special materials, please contact us for consultation.</p><p>Common materials can be prepared <mark>within 1–2 hours</mark>, while special materials or those affected by supplier peak seasons may require additional lead time.</p>
+          </div>
+        </div>
+      </li>
+    
+      
+      
+
+      <li class="accor-set accor-set__3">
+        <input
+          name="accor-machining-3"
+          id="accor-machining-3"
+          class="accor-control"
+          type="checkbox"
+          autocomplete="off"
+          checked
+        >
+
+        <label for="accor-machining-3" class="accor-label faq-label">
+          <span class="question-title">What CNC surface finishing options are available?</span><span class="accor-icon"></span>
+        </label>
+
+        <div class="accor-cont">
+          <div class="accor-cont-inner">
+            <p>We offer a wide range of finishes including anodizing, electroless nickel plating, environmentally friendly black zinc, black nickel, painting, electrophoretic coating, and black dyeing. These surface treatments enhance the appearance, performance, and durability of your final products.</p>
+          </div>
+        </div>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+<section class="sec-std" id="quality-control">
+
+  <h2 class="sec-title title-mask-reveal title-lv3 wow wa">
+    <span class="inside-title-mask wa">
+      
+        <span style="--delay: 0.42s">Quality</span>
+        <span style="--delay: 0.49s">Control</span>
+    </span>
+  </h2>
+
+  <ul class="accor-group no-bullets accor-faq">
+    
+      
+      
+
+      <li class="accor-set accor-set__1">
+        <input
+          name="accor-quality-control-1"
+          id="accor-quality-control-1"
+          class="accor-control"
+          type="checkbox"
+          autocomplete="off"
+          
+        >
+
+        <label for="accor-quality-control-1" class="accor-label faq-label">
+          <span class="question-title">How do you ensure machining quality and tolerance adherence? Do you provide inspection reports?</span><span class="accor-icon"></span>
+        </label>
+
+        <div class="accor-cont">
+          <div class="accor-cont-inner">
+            <p>We strictly follow standard operating procedures (SOPs). Products undergo rigorous quality control during material preparation, production, and before shipment.</p><p>We utilize inspection equipment, gauges, and tools appropriate for the specific component, including CMM (Coordinate Measuring Machine).</p><p>Upon your request, we can discuss the provision of documentation such as FAI (First Article Inspection) reports and PPAP (Production Part Approval Process) submissions.</p>
+          </div>
+        </div>
+      </li>
+    
+      
+      
+
+      <li class="accor-set accor-set__2">
+        <input
+          name="accor-quality-control-2"
+          id="accor-quality-control-2"
+          class="accor-control"
+          type="checkbox"
+          autocomplete="off"
+          checked
+        >
+
+        <label for="accor-quality-control-2" class="accor-label faq-label">
+          <span class="question-title">How do you ensure the confidentiality of my design?</span><span class="accor-icon"></span>
+        </label>
+
+        <div class="accor-cont">
+          <div class="accor-cont-inner">
+            Our clients' intellectual property rights are our utmost priority. All our employees are bound by strict confidentiality agreements. If required, <mark>we are more than willing to sign a Non-Disclosure Agreement (NDA) with you.</mark> Please feel free to share your information with confidence.
+          </div>
+        </div>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+<span class="endmark bg-halftone wb" aria-hidden="true"></span>
+
+                  </div><aside class="site-sidebar sidebar-first">
+
+      <div class="sidebar-cont grid-sidebar-fix">
+
+            <ul class="toc accor-group"><li class="accor-set accor-set_toc">
+                  <input name="sidebar-accor_toc" id="sidebar-accor_toc" class="accor-control" type="checkbox" autocomplete="off">
+
+                        <label for="sidebar-accor_toc" class="accor-label title-uppercase ">TOC<span class="accor-icon"></span></label>
+            
+                        <div class="accor-cont">
+            
+                              <div class="accor-cont-inner">
+
+                                    <ul class="accor-list">
+                                          
+                                          
+                                          <li class="wb wa wow" style="--delay: 0.1s">
+                                                <a class="toc-link" href="#rfq">Drafting & RFQ</a>
+                                          </li>
+                                          
+                                          
+                                          <li class="wb wa wow" style="--delay: 0.2s">
+                                                <a class="toc-link" href="#prototyping">Prototyping</a>
+                                          </li>
+                                          
+                                          
+                                          <li class="wb wa wow" style="--delay: 0.3s">
+                                                <a class="toc-link" href="#machining">Machining & Manufacturing</a>
+                                          </li>
+                                          
+                                          
+                                          <li class="wb wa wow" style="--delay: 0.4s">
+                                                <a class="toc-link" href="#quality-control">Quality Control</a>
+                                          </li>
+                                          
+                                          
+                                    </ul>
+            
+                              </div>
+                              
+                        </div>
+
+                  </li><li class="accor-set accor-set_toc">
+            
+                        <input name="sidebar-accor_line-at" id="sidebar-accor_line-at" class="accor-control" type="checkbox" autocomplete="off">
+                        <label for="sidebar-accor_line-at" class="accor-label title-uppercase">Inquiry Now<span class="accor-icon"></span></label>
+            
+                        <div class="accor-cont">
+            
+                              <div class="accor-cont-inner"><h2 class="title-lv6 sidebar-corp-name">Kawamasa CNC Precision<br>Co., Ltd.</h2>
+
+                                    <ul class="sidebar-contact">
+
+                                          <li><span class="contact-item-title">Tel</span><a href="tel:+886222028808">+886 2 2202 8808<span class=" contact-item-cont"></span></a></li>
+
+                                          <li><span class="contact-item-title">Fax</span><span class=" contact-item-cont">+886 2 2202 8836</span></li>
+
+                                          <li class="qrtty sidebar"></li>
+
+                                    </ul><div class="qqqsss-at-wrapper">
+                                          <h2 class="title-lv6 qrcode-action"><span class="wb wow">Email Us</span></h2>
+                                          <svg id="qqqsss-svg" viewBox="0 0 128 128" width="128" height="128"><use xlink:href="#qqqsss"></use></svg>
+                                    </div>
+
+                              </div>
+
+                        </div>
+
+                  </li>
+
+                  
+            </ul>
+
+      </div>
+
+</aside></main><footer class="site-footer z-upper">
+
+      <div class="footer-lang-switcher">
+
+            <div class="lang-switcher-svgs wow">
+
+                  <svg class="svg-icon svg-icon-circle" width="100" height="100" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" stroke-width="1" fill="none"></circle></svg>
+                  <svg class="svg-icon svg-icon-multi-lang" viewBox="0 0 512 512" width="38" height="38"><use xlink:href="#multi-lang"></use></svg>
+
+            </div>
+
+            <div class="lang-switcher-cont">
+                  
+                  <p>This page is also available in the following language:</p>
+
+                  <ul class="lang-list-footer"><li class="lang-footer-item"><a class="mm-snd-link lang-option v2 wb wa" href="index.html" data-lang="zh-Hant-TW"><span>中文 台灣</span></a></li></ul>
+                        
+            </div>
+
+      </div><picture class="footer-deco-pic wa wb wow">
+    
+    <source media="(max-width: 500px)" srcset="
+
+        https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_1400/kawamasa/bg/sketch-faq-mobile 1400w,
+        https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_1284/kawamasa/bg/sketch-faq-mobile 1284w,
+        https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_1080/kawamasa/bg/sketch-faq-mobile 1080w,
+        https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_900/kawamasa/bg/sketch-faq-mobile 900w,
+        https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_640/kawamasa/bg/sketch-faq-mobile 640w
+
+    " width="1400" height="1371">
+
+    <source media="(min-width: 501px)" srcset="
+
+        https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_2400/kawamasa/bg/sketch-faq-dktp 2400w,
+        https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_1600/kawamasa/bg/sketch-faq-dktp 1600w
+
+    " width="2400" height="1371">
+
+    <img class="footer-deco-img lazyload" data-sizes="auto"
+         style="--footer-deco-opacity: 0.65; --footer-deco-position: 0"
+         loading="lazy" decoding="async"
+         width="2400" height="1371"
+         alt="CNC Illustration"
+         src="https://res.cloudinary.com/tsutshiau/image/upload/f_auto,q_auto,w_2400/kawamasa/bg/sketch-faq-dktp">
+  </picture><h5 class="title-lv3 lh-reduced title-footer-contact wow"><span class="wb" style="--delay: 0.45s">Kawamasa CNC Precision Co., Ltd.</span>
+      </h5>
+
+      <ul class="contact-sns">
+
+            <li class="contact-sns-item wow" style="--delay: 0.15s">
+                  <a class="contact-sns-link anchor-block no-hover-border wow" href="https://www.facebook.com/profile.php?id=100066731870710" target="_blank" rel="noreferrer noopener"><svg class="contact-svg icon-svg contact-svg-fb" viewBox="0 0 24 24" width="45" height="45"><use xlink:href="#fb"></use></svg></a>
+            </li>
+
+            <li class="contact-sns-item wow" style="--delay: 0.22s">
+                  <a class="contact-sns-link anchor-block no-hover-border" href="https://www.linkedin.com/in/%E8%A3%BD%E4%BD%9C-%E5%B7%9D%E6%AD%A3-387624168/" target="_blank" rel="noreferrer noopener"><svg class="contact-svg icon-svg contact-svg-linkedin" viewBox="0 0 24 24" width="45" height="45"><use xlink:href="#linkedin"></use></svg></a>
+            </li>
+
+            <li class="contact-sns-item wow" style="--delay: 0.29s">
+                  <a class="contact-sns-link anchor-block no-hover-border wow" href="https://line.me/ti/p/test" target="_blank" rel="noreferrer noopener"><svg class="contact-svg icon-svg contact-svg-line-app" viewBox="0 0 24 24" widht="47" height="47"><use xlink:href="#line-app"></use></svg></a>
+            </li>
+
+            <li class="contact-sns-item wow" style="--delay: 0.36s">
+                  <a class="contact-sns-link anchor-block no-hover-border wow" href="https://maps.app.goo.gl/teausi1oe2j8hDXLA" target="_blank" rel="noreferrer noopener"><svg class="contact-svg icon-svg contact-svg-gmaps" viewBox="0 0 216.975 216.975" width="33" width="33"><use xlink:href="#google-maps"></use></svg></a>
+            </li>
+
+      </ul><ul class="contact-list contact-list--footer">
+
+            <li class="biz-hours"><span class="contact-item-title contact-item-title--optional">Hours&nbsp;</span><span class=" contact-item-cont">Monday to Friday, 9:00 AM – 6:00 PM (UTC+8), excluding public holidays in Taiwan</span></li>
+            <li><span class="contact-item-title contact-item-title--optional">Email&nbsp;</span><span class="qrtty contact-item-cont"></span></li>
+            <li><span class="contact-item-title">Tel&nbsp;</span><a href="tel:+886222028808">+886 2 2202 8808<span class=" contact-item-cont"></span></a></li>
+
+
+            <li><span class="contact-item-title">Fax&nbsp;</span><span class=" contact-item-cont">+886 2 2202 8836</span></li>
+
+            <li class="addr-long"><span class="contact-item-title contact-item-title--optional">Addr.&nbsp;</span><!-- 
+            -->No. 166, Min'an E. Rd., Xinzhuang Dist., 242 New Taipei City - Taiwan</span></li>
+
+      </ul>
+      
+      <p class="copyright">Copyright &copy; Kawamasa CNC Precision Co., Ltd. All rights reserved.</p><p class="back-to-page-top"><a href="#uni">Back to page top</a></p>
+
+</footer><div class="fcta-wrapper">
+
+      <ul class="fcta-list">
+
+            <li class="fcta-contact wb fcta-item" style="--t-delay: 0.1s">
+                  <a class="fcta-link modal-trigger z-upper" data-modal="contact" href="#footer-contact" role="button" aria-label="聯絡方式"><svg class="fcta-svg" viewBox="0 0 24 24" width="24" height="24"><use xlink:href="#phone"></use></svg></a>
+            </li>
+
+            <li class="fcta-share wb fcta-item" style="--t-delay: 0.2s" >
+                  <a class="fcta-link modal-trigger z-upper" data-modal="social-share" href="#share" role="button" aria-label="社群網站分享"><svg class="fcta-svg" viewBox="0 0 24 24" width="24" height="24"><use xlink:href="#share"></use></svg></a>
+            </li>
+
+            <li class="fcta-page-top wb fcta-item" style="--t-delay: 0.3s">
+                  <a class="fcta-link z-upper" href="#uni" role="button" aria-label="回頁面頂端"><svg class="fcta-svg" viewBox="0 0 24 24" width="24" height="24"><use xlink:href="#arrow-up"></use></svg></a>
+            </li>
+
+      </ul>
+
+</div><aside id="modal-contact" class="modal modal-contact modal-mini wb wa">
+
+      <div class="modal-close-wrapper close-wrapper wb"><button class="modal-close close wb" aria-label="Close"><span class="modal-close-title close-title wb">Close</span></button></div>
+
+      <span class="modal-deco-contact bg-stripes wb" aria-hidden="true"></span>
+
+      <div class="modal-inner wb wa">
+
+            <h2 class="modal-title-prim title-lv3">Contact Us</h2>
+
+            <div class="modal-cont">
+
+                  <ul class="contact-sns">
+            
+                        <li class="contact-sns-item wow" style="--delay: 0.15s">
+                              <a class="contact-sns-link anchor-block no-hover-border wow" href="https://www.facebook.com/profile.php?id=100066731870710" target="_blank" rel="noreferrer noopener"><svg class="contact-svg icon-svg contact-svg-fb" viewBox="0 0 24 24" width="45" height="45"><use xlink:href="#fb"></use></svg></a>
+                        </li>
+
+                        <li class="contact-sns-item wow" style="--delay: 0.22s">
+                              <a class="contact-sns-link anchor-block no-hover-border" href="https://www.linkedin.com/in/%E8%A3%BD%E4%BD%9C-%E5%B7%9D%E6%AD%A3-387624168/" target="_blank" rel="noreferrer noopener"><svg class="contact-svg icon-svg contact-svg-linkedin" viewBox="0 0 24 24" width="45" height="45"><use xlink:href="#linkedin"></use></svg></a>
+                        </li>
+
+                        <li class="contact-sns-item wow" style="--delay: 0.29s">
+                              <a class="contact-sns-link anchor-block no-hover-border wow" href="https://line.me/ti/p/test" target="_blank" rel="noreferrer noopener"><svg class="contact-svg icon-svg contact-svg-line-app" viewBox="0 0 24 24" widht="47" height="47"><use xlink:href="#line-app"></use></svg></a>
+                        </li>
+
+                        <li class="contact-sns-item wow" style="--delay: 0.36s">
+                              <a class="contact-sns-link anchor-block no-hover-border wow" href="https://maps.app.goo.gl/teausi1oe2j8hDXLA" target="_blank" rel="noreferrer noopener"><svg class="contact-svg icon-svg contact-svg-gmaps" viewBox="0 0 216.975 216.975" width="33" width="33"><use xlink:href="#google-maps"></use></svg></a>
+                        </li>
+            
+                  </ul>
+
+                  <h5 class="title-lv6 lh-reduced title-modal-contact wow"><span class="wb" style="--delay: 0.45s">Kawamasa CNC Precision Co., Ltd.</span>
+                  </h5><ul class="contact-list contact-list--footer">
+
+                        <li class="biz-hours"><span class="contact-item-title contact-item-title--optional">Hours&nbsp;</span><span class=" contact-item-cont">Monday to Friday, 9:00 AM – 6:00 PM (UTC+8), excluding public holidays in Taiwan</span></li>
+
+                        <li><span class="contact-item-title contact-item-title--optional">Email&nbsp;</span><span class="qrtty contact-item-cont"></span></li>
+
+                        <li><span class="contact-item-title">Tel&nbsp;</span><a href="tel:+886222028808">+886 2 2202 8808<span class=" contact-item-cont"></span></a></li>
+
+                        <li><span class="contact-item-title">Fax&nbsp;</span><span class=" contact-item-cont">+886 2 2202 8836</span></li>
+                        
+                        <li class="addr-long"><span class="contact-item-title contact-item-title--optional">Addr.&nbsp;</span><!-- 
+                        -->No. 166, Min'an E. Rd., Xinzhuang Dist., 242 New Taipei City - Taiwan</span></li>
+
+                  </ul>
+
+            </div>
+
+           
+
+
+      </div>
+      
+      
+
+</aside><aside id="modal-social-share" class="modal modal-social-share modal-mini wb wa">
+
+      <div class="modal-close-wrapper close-wrapper wb"><button class="modal-close close wb" aria-label="Close"><span class="modal-close-title close-title wb">Close</span></button></div>
+
+      <div class="modal-inner wb wa">
+
+
+            <h2 class="modal-title-prim title-lv3">Social Share</h2>
+
+            <div class="modal-cont">
+
+                  <ul class="share-list">
+
+                  
+                
+                        <li class="share-fb share-item type-btn icon-wrapper wb">
+                            <svg class="share-svg icon-svg share-svg-fb" viewBox="0 0 24 24" width="45" height="45" style="--delay: 0.15s"><use xlink:href="#fb"></use></svg><button aria-label="Share to Facebook" title="Share to Facebook" class="share-link share-fb type-btn" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=https://kawamasa.com.tw/en/faq/', 'fbshare', 'width=555,height=660');"></button>
+                        </li>
+                        
+                        <li class="share-fb-msg share-item type-href icon-wrapper wb">
+                            <a aria-label="Share to Facebook Messenger (Mobile Only)" class="share-link anchor-block no-hover-border" href="fb-messenger://share?link=https://kawamasa.com.tw/en/faq/" target="_blank" rel="noopener noreferrer" title="Share to Facebook Messenger (Mobile Only)">
+                                <svg class="share-svg icon-svg share-svg-fbmsg" viewBox="0 0 24 24" width="45" height="45" style="--delay: 0.25s"><use xlink:href="#fb-msg"></use></svg>
+                            </a>
+                        </li>
+                
+                        <li class="share-linkedin share-item type-btn icon-wrapper wb"><svg class="share-svg icon-svg share-svg-linkedin" viewBox="0 0 24 24" width="45" height="45" style="--delay: 0.35s"><use xlink:href="#linkedin"></use></svg><button aria-label="Share to LinkedIn" title="Share to LinkedIn" class="share-link share-linkedin type-button" onclick="window.open('https://www.linkedin.com/shareArticle?mini=true&amp;url=https://kawamasa.com.tw/en/faq/&amp;display=popup', 'linkedinshare', 'width=555,height=450');"></button>
+                        </li>
+                        
+                        <li class="share-line-app share-item type-btn icon-wrapper wb">
+                            <svg class="share-svg icon-svg share-svg-line-app" viewBox="0 0 24 24" widht="47" height="47" style="--delay: 0.45s"><use xlink:href="#line-app"></use></svg><button aria-label="Share to LINE" title="Share to LINE" class="share-link share-line-app type-btn" onclick="window.open('https://line.me/R/msg/text/%E5%88%86%E4%BA%AB%E7%B5%A6%E6%82%A8%EF%BC%9Ahttps://kawamasa.com.tw/en/faq/', 'lineatshare', 'width=640,height=500');"></button>
+                        </li>
+                
+                  </ul>
+                
+                  <div class="url-copier">
+                
+                        <input id="url-copier-input" class="url-copier-input wb" readonly value="kawamasa.com.tw/en/faq/">
+                
+                        <button id="url-copier-btn" class="url-copier-btn wb wa"><span class="copier-text z-upper"><b>Copy</b></span></button>
+                
+                  </div>
+
+            </div>
+
+      </div>
+
+      <span class="bg-stripes wb modal-deco-social-share" aria-hidden="true"></span>
+
+</aside>
+
+<script src="../../assets/js/widgets.min.js" defer></script><script id="svg-inject">
+
+  /* MIT License - https://github.com/iconfu/svg-sprite-inject/blob/master/LICENSE */
+
+  !function(e,s){var t="createElement",u=s[t]("a"),p=s[t]("div");function d(e,t,n){for(var r=0;r<t.length;++r){var o=t[r];o.hasOwnProperty(e)&&n(o[e])}}var c={};function n(e,t){t=t||{};var n,r=(n=e,u.href=n,u.href),o=c[r];if(o){var i=o.svgSprite;i?t.onInjected&&t.onInjected(i):o.optionsArr.push(t)}else{var a=!1;c[r]=o={spriteHandler:{remove:function(){if(!a){var e=o.svgSprite;if(e){var t=e.parentNode;t&&t.removeChild(e),o.svgSprite=null}delete c[r],a=!0}}},svgSprite:null,optionsArr:[t]},function(e,t,n){if(e){var r=new XMLHttpRequest;r.onreadystatechange=function(){4==r.readyState&&200==r.status&&t(r.responseText)},r.onerror=n,r.open("GET",e,!0),r.send()}}(e,function(e){var t=function(e,t){p.innerHTML=e;var n=p.removeChild(p.firstChild);return n.setAttribute("data-inject-url",t),n}(e,r);a||(o.svgSprite=t,s.documentElement.appendChild(t),d("afterInject",o.optionsArr,function(e){e(t)}))},function(t){d("onLoadFail",o.optionsArr,function(e){e(t)})})}return o.spriteHandler}"object"==typeof module&&"object"==typeof module.exports&&(module.exports=n),e.SVGSpriteInject=n}(window,document);
+
+  SVGSpriteInject('../../assets/icons/sprites.svg');
+
+  </script><div class="overlay"></div><div id="cookie-consent" class="cookie-consent">
+      <p><span class="cookie-consent-message">By continuing, you agree this site uses cookies to enhance experience</p><!-- 
+            --><button id="accept-cookie" class="ibvt cookie-consent-button">OK</button>
+</div>
+      
+
+            <script type="application/ld+json" id="rs-faq">
+            {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+            
+                  
+                  {
+                  "@type": "Question",
+                  "name": "What information is needed for a quotation?",
+                  "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "<p><strong>Please provide complete 2D drawings or 3D files</strong>, and specify the material, dimensions, tolerance requirements, surface treatment, and quantity.</p><p>If there are any special requirements, such as <strong>assembly fit, tolerance inspection, or special packaging</strong>, please include them as well to ensure an accurate quotation. Thank you!</p><p><a href='#contact' >Click here for contact information</a></p>"
+                  }
+                  },
+                  
+                  {
+                  "@type": "Question",
+                  "name": "Can I request a quote without complete drawings?",
+                  "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "<p><strong>Yes, but please provide a clear sketch, detailed specifications, or a sample</strong> so we can accurately estimate the cost. Complete engineering drawing services may incur an additional fee. Please feel free to contact us to discuss the details.</p>"
+                  }
+                  },
+                  
+                  {
+                  "@type": "Question",
+                  "name": "How long does a quotation take? What factors affect the price?",
+                  "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "<p>You can typically expect a quote from us within <strong>1-3 business days</strong>. The exact timeframe depends on the complexity of the project. Pricing is mainly influenced by <strong>material costs, the type of machining (turning, milling, or turn-mill), tolerance requirements, surface finish, quantity, and the required lead time.</strong></p><p>For urgent requests, please let us know in advance for a quick confirmation.</p>"
+                  }
+                  },
+                  
+                  {
+                  "@type": "Question",
+                  "name": "Is there a minimum order quantity (MOQ)?",
+                  "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "We don’t have a strict MOQ requirement. Whether it’s prototyping, fixture fabrication, or mass production with thousands of pieces, we’re happy to serve you. For long-term partnerships or large-scale production, we welcome discussions for more favorable pricing options."
+                  }
+                  },
+                  
+            
+                  
+                  {
+                  "@type": "Question",
+                  "name": "Should I choose 3D printing or CNC machining for rapid prototyping?",
+                  "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "<p><strong>3D printing</strong> is ideal for components with <strong>complex structures, hollow interiors, or multiple curved surfaces</strong>, where mechanical strength is not a major requirement. It is also suitable for early-stage designs that require frequent modifications.</p><p><strong>CNC machining</strong> is recommended for components that require <strong>high precision, superior mechanical strength, and materials such as metals or engineering plastics.</strong> It is typically used for final functional or durability testing, when the design is already close to mass production.</p><p>At Kawamasa, we provide high-quality CNC rapid prototyping services. If you are unsure which method best suits your needs, feel free to contact us for further evaluation.</p>"
+                  }
+                  },
+                  
+                  {
+                  "@type": "Question",
+                  "name": "How is the cost of CNC prototyping calculated?",
+                  "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "<p>The cost is primarily determined by the <strong>material, machining time, surface finish, technical difficulty</strong>, and whether it's an urgent request. Since prototyping is typically done in small batches or as a single unit, the unit price is usually higher. <strong>For long-term partnerships, we can offer discounts or mass production rates</strong> to reduce future costs.</p>"
+                  }
+                  },
+                  
+            
+                  
+                  {
+                  "@type": "Question",
+                  "name": "What is the maximum travel range and machining accuracy?",
+                  "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "<p>Our current maximum travel range is <strong>X 1,400 mm, Y 700 mm, and Z 630 mm</strong>. For general metal parts, machining tolerances can reach <strong>±5 μm</strong>.</p><p>Specific precision components can be discussed based on requirements. Please indicate critical tolerances on your drawings — we will confirm feasibility according to the process and inspection conditions.</p>"
+                  }
+                  },
+                  
+                  {
+                  "@type": "Question",
+                  "name": "What CNC machining materials are supported?",
+                  "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "<p>We work with aluminum, stainless steel, medium-carbon steel, and various plastics such as POM, UPE, Bakelite, fiberglass board, and acrylic. For special materials, please contact us for consultation.</p><p>Common materials can be prepared <strong>within 1–2 hours</strong>, while special materials or those affected by supplier peak seasons may require additional lead time.</p>"
+                  }
+                  },
+                  
+                  {
+                  "@type": "Question",
+                  "name": "What CNC surface finishing options are available?",
+                  "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "<p>We offer a wide range of finishes including anodizing, electroless nickel plating, environmentally friendly black zinc, black nickel, painting, electrophoretic coating, and black dyeing. These surface treatments enhance the appearance, performance, and durability of your final products.</p>"
+                  }
+                  },
+                  
+            
+                  
+                  {
+                  "@type": "Question",
+                  "name": "How do you ensure machining quality and tolerance adherence? Do you provide inspection reports?",
+                  "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "<p>We strictly follow standard operating procedures (SOPs). Products undergo rigorous quality control during material preparation, production, and before shipment.</p><p>We utilize inspection equipment, gauges, and tools appropriate for the specific component, including CMM (Coordinate Measuring Machine).</p><p>Upon your request, we can discuss the provision of documentation such as FAI (First Article Inspection) reports and PPAP (Production Part Approval Process) submissions.</p>"
+                  }
+                  },
+                  
+                  {
+                  "@type": "Question",
+                  "name": "How do you ensure the confidentiality of my design?",
+                  "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Our clients' intellectual property rights are our utmost priority. All our employees are bound by strict confidentiality agreements. If required, <strong>we are more than willing to sign a Non-Disclosure Agreement (NDA) with you.</strong> Please feel free to share your information with confidence."
+                  }
+                  }
+                  
+            
+            ]
+            }
+            </script>
+
+      <script type="application/ld+json" id="rs-breadcrumb">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://kawamasa.com.tw/en/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "FAQ",
+        "item": "https://kawamasa.com.tw/en/faq/"
+      }]
+}
+</script>
+</body>
+
+      
+
+</html>

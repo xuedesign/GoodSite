@@ -1,0 +1,21 @@
+{
+  "short_name": "The Way of Code",
+  "name": "The Way of Code | Rick Rubin",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "128x128 96x96 64x64 32x32",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "apple-touch-icon.png",
+      "type": "image/png",
+      "sizes": "160x160"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#1F1E1D",
+  "background_color": "#FAF9F5"
+}
