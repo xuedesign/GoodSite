@@ -1,0 +1,495 @@
+section.keyword01 {
+  background: #3e3e3e;
+}
+section.keyword01 .inner {
+  padding: 8vw;
+  position: relative;
+  max-width: 1300px;
+}
+
+section.keyword02 {
+  background: transparent linear-gradient(180deg, #E2F0F0 0%, #F5EBD7 100%) 0% 0% no-repeat padding-box;
+  margin: 0 0 10rem 0;
+}
+@media screen and (max-width: 767px) {
+  section.keyword02 {
+    padding: 5rem 0 0 0;
+  }
+}
+section.keyword02 .inner {
+  max-width: 100%;
+  position: relative;
+}
+section.keyword02 .leftimage {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 30vw;
+}
+@media screen and (max-width: 767px) {
+  section.keyword02 .leftimage {
+    width: 90%;
+    z-index: 0;
+    top: 400px;
+  }
+}
+section.keyword02 .leftimage img {
+  line-height: 0;
+}
+section.keyword02 .leftimages {
+  position: absolute;
+  left: 0;
+  width: 30vw;
+  line-height: 1;
+}
+section.keyword02 .leftimages img {
+  line-height: 0;
+}
+section.keyword02 .leftimages.l2 {
+  bottom: 0;
+  width: 50vw;
+  left: -8vw;
+}
+
+section.keyword03 {
+  background: transparent linear-gradient(180deg, #F5EBD8 0%, #F1E9F5 100%) 0% 0% no-repeat padding-box;
+  padding: 10rem 0 0 0;
+}
+@media screen and (max-width: 767px) {
+  section.keyword03 {
+    padding: 5rem 0 5rem 0;
+  }
+}
+section.keyword03 .inner {
+  max-width: 100%;
+  position: relative;
+  background: url("../image/keyword/key07.png") no-repeat top center;
+  background-size: 100%;
+}
+@media screen and (max-width: 767px) {
+  section.keyword03 .inner {
+    background: none;
+  }
+}
+
+.ll03 {
+  width: 60%;
+  margin: 0 0 0 auto;
+}
+@media screen and (max-width: 767px) {
+  .ll03 {
+    width: 100%;
+    margin: 0;
+    padding: 0 0 7rem 0;
+  }
+}
+.ll03 h2 {
+  line-height: 1.4;
+}
+.ll03 p {
+  position: relative;
+  right: -20rem;
+}
+@media screen and (max-width: 767px) {
+  .ll03 p {
+    position: static;
+  }
+}
+
+.fflex {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+@media screen and (max-width: 767px) {
+  .fflex {
+    display: block;
+  }
+}
+.fflex .lead {
+  width: 40vw;
+}
+@media screen and (max-width: 767px) {
+  .fflex .lead {
+    width: 100%;
+  }
+}
+.fflex .lead p {
+  width: 100%;
+}
+@media screen and (max-width: 767px) {
+  .fflex .lead p {
+    width: 100%;
+  }
+}
+.fflex .lead.lead21 {
+  width: 50%;
+  margin: auto;
+}
+@media screen and (max-width: 767px) {
+  .fflex .lead.lead21 {
+    width: 100%;
+    position: relative;
+    z-index: 5;
+    padding: 10rem 0 0 0;
+  }
+}
+.fflex .lead.lead21.lead22 {
+  width: 100%;
+}
+.fflex .lead.lead21 h2 {
+  line-height: 1.4;
+}
+@media screen and (max-width: 767px) {
+  .fflex .lead.lead21 p {
+    mix-blend-mode: normal !important;
+    color: #333 !important;
+  }
+}
+
+.lead {
+  color: #F7F6F0;
+  margin: 0 0 3rem 0;
+  position: relative;
+}
+.lead.lead21 {
+  mix-blend-mode: normal;
+  color: #333;
+}
+.lead.lead21 h2 {
+  mix-blend-mode: normal;
+  color: #333;
+  line-height: 1.4;
+}
+.lead.wide p {
+  width: 60%;
+}
+@media screen and (max-width: 767px) {
+  .lead.wide p {
+    width: 100%;
+  }
+}
+.lead .sp_flex {
+  display: flex;
+  margin: 0 0 2rem 0;
+}
+.lead .sp_flex.rv {
+  flex-direction: row-reverse;
+}
+.lead .num {
+  position: absolute;
+}
+@media screen and (max-width: 767px) {
+  .lead .num {
+    position: static;
+  }
+}
+.lead .num p {
+  font-size: 28rem;
+  color: #F7F6F0;
+  line-height: 1;
+  mix-blend-mode: difference;
+}
+@media screen and (max-width: 767px) {
+  .lead .num p {
+    font-size: 12rem;
+  }
+}
+.lead .num.num02 {
+  line-height: 1;
+  top: -14rem;
+  right: 0;
+}
+.lead .num.num03 {
+  position: relative;
+  line-height: 1;
+  top: 0rem;
+  right: 0;
+}
+.lead .num.num21 {
+  position: relative;
+  line-height: 1;
+  top: 0rem;
+  left: 10rem;
+}
+@media screen and (max-width: 767px) {
+  .lead .num.num21 {
+    position: relative;
+    left: 70%;
+    top: 12rem;
+    color: #fff;
+    mix-blend-mode: exclusion;
+  }
+}
+.lead .num.num22 {
+  line-height: 1;
+  top: -14rem;
+  left: 0;
+}
+.lead .num.num23 {
+  line-height: 1;
+  top: -14rem;
+  right: 0;
+}
+.lead .num.num31 {
+  line-height: 1;
+  top: -14rem;
+  left: 50%;
+}
+.lead .num.num32 {
+  line-height: 1;
+  top: 10vw;
+  right: 0%;
+}
+.lead h2 {
+  font-size: 7.7rem;
+  mix-blend-mode: difference;
+  line-height: 1.4;
+}
+@media screen and (max-width: 767px) {
+  .lead h2 {
+    font-size: 5rem;
+    line-height: 1.4;
+  }
+}
+.lead h2.tatets {
+  writing-mode: vertical-rl;
+  line-height: 1.4;
+}
+.lead p {
+  font-size: 1.8rem;
+  width: 40%;
+}
+.lead .tate_flex {
+  display: flex;
+  justify-content: flex-start;
+}
+@media screen and (max-width: 767px) {
+  .lead .tate_flex {
+    display: block;
+  }
+}
+.lead .tate_flex.rv {
+  flex-direction: row-reverse;
+}
+.lead .tate_flex p {
+  width: 50%;
+  margin: 0 0 0 5rem;
+}
+@media screen and (max-width: 767px) {
+  .lead .tate_flex p {
+    width: 100%;
+    margin: 0;
+  }
+}
+
+.keycont {
+  margin: 10rem 0 0 0;
+  position: relative;
+  width: 100%;
+}
+.keycont.three {
+  margin: 20rem 0 0 0;
+}
+@media screen and (max-width: 767px) {
+  .keycont.three {
+    margin: 10rem 0 0 0;
+  }
+}
+.keycont.key22 {
+  padding: 30rem 0 0 0;
+}
+@media screen and (max-width: 767px) {
+  .keycont.key22 {
+    padding: 0 0 0 0;
+  }
+}
+.keycont.key23 {
+  padding: 0rem 0 5rem 0;
+}
+.keycont p {
+  mix-blend-mode: difference !important;
+  color: #FFFFFF !important;
+  display: block;
+}
+@media screen and (max-width: 767px) {
+  .keycont p.spblk {
+    mix-blend-mode: normal !important;
+    color: #333 !important;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .leadmm {
+    padding: 30rem 0 0 0 !important;
+  }
+}
+
+.txtimage {
+  mix-blend-mode: overlay;
+  width: 180px;
+  position: absolute;
+}
+@media screen and (max-width: 767px) {
+  .txtimage {
+    position: static;
+    width: 100px;
+    margin: auto;
+  }
+}
+.txtimage.right {
+  right: 0;
+}
+.txtimage.nom {
+  mix-blend-mode: normal;
+}
+
+.images {
+  position: relative;
+}
+.images.im02 {
+  margin: 0 0 0 auto;
+  top: -20rem;
+  padding: 0 0 20rem 0;
+}
+@media screen and (max-width: 767px) {
+  .images.im02 {
+    margin: 0;
+    padding: 0;
+    top: 0;
+  }
+}
+.images.im02 .image {
+  position: absolute;
+  right: 0;
+}
+@media screen and (max-width: 767px) {
+  .images.im02 .image {
+    position: static;
+  }
+}
+@media screen and (max-width: 767px) {
+  .images.im02 .caption {
+    bottom: 0;
+  }
+}
+.images.im03 {
+  width: 70%;
+  top: 10rem;
+  right: -20rem;
+  padding: 0 0 20rem 0;
+  position: absolute;
+}
+@media screen and (max-width: 767px) {
+  .images.im03 {
+    position: static;
+    padding: 0;
+    width: 100%;
+  }
+}
+.images .num {
+  font-size: 28rem;
+  position: absolute;
+  color: #F7F6F0;
+  line-height: 1;
+  mix-blend-mode: difference;
+}
+@media screen and (max-width: 767px) {
+  .images .num {
+    display: none;
+  }
+}
+.images .num.numb01 {
+  top: 0rem;
+  left: -10rem;
+}
+.images .caption {
+  position: absolute;
+  mix-blend-mode: difference;
+  font-size: 1.4rem;
+}
+.images .caption.cap01 {
+  bottom: 0;
+  left: -3rem;
+  line-height: 1.4;
+  color: #F7F6F0;
+}
+@media screen and (max-width: 767px) {
+  .images .caption.cap01 {
+    left: 0;
+  }
+}
+.images .caption.cap02 {
+  bottom: -30rem;
+  right: 10rem;
+  line-height: 1.4;
+  color: #F7F6F0;
+  z-index: 3;
+}
+@media screen and (max-width: 767px) {
+  .images .caption.cap02 {
+    bottom: 2rem;
+    right: 0;
+  }
+}
+.images .image.shinbun {
+  width: 66%;
+  max-width: 700px;
+}
+@media screen and (max-width: 767px) {
+  .images .image.shinbun {
+    width: 100%;
+  }
+}
+
+.lastlead {
+  width: 70%;
+  margin: 10vw 0 0 auto;
+}
+@media screen and (max-width: 767px) {
+  .lastlead {
+    width: 100%;
+  }
+}
+.lastlead p {
+  position: relative;
+  right: -10rem;
+}
+@media screen and (max-width: 767px) {
+  .lastlead p {
+    position: static;
+  }
+}
+
+.keylast {
+  padding: 40rem 0 8rem 0;
+}
+@media screen and (max-width: 767px) {
+  .keylast {
+    padding: 0;
+  }
+}
+.keylast .num, .keylast h2 {
+  mix-blend-mode: difference !important;
+  color: #ffffff !important;
+}
+@media screen and (max-width: 767px) {
+  .keylast .num, .keylast h2 {
+    mix-blend-mode: normal !important;
+    color: #333 !important;
+  }
+}
+.keylast h2 {
+  margin: 0 0 5rem 0;
+}
+@media screen and (max-width: 767px) {
+  .keylast h2 {
+    margin: 0;
+  }
+}
+@media screen and (max-width: 767px) {
+  .keylast p {
+    mix-blend-mode: normal !important;
+    color: #333 !important;
+  }
+}

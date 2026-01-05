@@ -1,0 +1,275 @@
+img {
+  width: 100%;
+}
+
+section.welfare {
+  background: url("https://www.shochiku.co.jp/company/recruit/newgrad/assets/image/welfare/bg.png") no-repeat 0 0;
+  background-size: cover;
+  min-height: 100vh;
+  position: relative;
+}
+section.welfare .bor {
+  content: "";
+  width: 1px;
+  height: 100%;
+  display: block;
+  background: #A0A0A0;
+  position: absolute;
+  left: 15rem;
+  top: 0;
+  z-index: 0;
+}
+@media screen and (max-width: 767px) {
+  section.welfare .bor {
+    display: none;
+  }
+}
+section.welfare .inner {
+  max-width: 100%;
+  padding: 0;
+}
+section.welfare .qatitles {
+  position: relative;
+  padding: 5rem 0 5rem 10rem;
+  border-top: 1px solid #A0A0A0;
+  border-bottom: 1px solid #A0A0A0;
+  margin: 0 0 10rem 0;
+}
+section.welfare .qatitles.voice {
+  margin: 0;
+}
+@media screen and (max-width: 767px) {
+  section.welfare .qatitles {
+    padding: 5rem 0 5rem 7rem;
+    margin: 0;
+  }
+}
+section.welfare .qatitles::before {
+  content: "";
+  width: 15rem;
+  height: 15rem;
+  display: block;
+  background: #3E3E3E;
+  border-radius: 50%;
+  position: absolute;
+  top: 5rem;
+  left: -7rem;
+}
+@media screen and (max-width: 767px) {
+  section.welfare .qatitles::before {
+    width: 10rem;
+    height: 10rem;
+    left: -5rem;
+    top: 4rem;
+  }
+}
+section.welfare .qatitles p.en {
+  font-size: 12rem;
+  line-height: 1;
+  color: #3E3E3E;
+  font-weight: 300;
+}
+@media screen and (max-width: 767px) {
+  section.welfare .qatitles p.en {
+    font-size: 3rem;
+  }
+}
+section.welfare .qatitles p.jp {
+  font-size: 3rem;
+}
+@media screen and (max-width: 767px) {
+  section.welfare .qatitles p.jp {
+    font-size: 2.4rem;
+  }
+}
+
+.sys_block {
+  position: relative;
+  padding: 0 0 10rem 0;
+}
+@media screen and (max-width: 767px) {
+  .sys_block {
+    padding: 0;
+  }
+}
+.sys_block h3 {
+  background: transparent linear-gradient(90deg, #F8E5BA 0%, #E9DCF2 100%) 0% 0% no-repeat padding-box;
+  padding: 1rem 0 1rem 10rem;
+  font-size: 2.6rem;
+  border-top: 1px solid #A0A0A0;
+  border-bottom: 1px solid #A0A0A0;
+  position: relative;
+  z-index: 2;
+}
+@media screen and (max-width: 767px) {
+  .sys_block h3 {
+    font-size: 2rem;
+    padding: 1rem 2rem;
+  }
+}
+
+.syscont {
+  padding: 0 0 0 15rem;
+}
+@media screen and (max-width: 767px) {
+  .syscont {
+    padding: 0;
+  }
+}
+
+.sys_flex {
+  display: flex;
+  justify-content: space-between;
+}
+@media screen and (max-width: 767px) {
+  .sys_flex {
+    display: block;
+  }
+}
+.sys_flex.tate {
+  display: block;
+}
+.sys_flex.tate .box {
+  width: 100%;
+  display: flex;
+}
+@media screen and (max-width: 767px) {
+  .sys_flex.tate .box {
+    display: block;
+  }
+}
+.sys_flex.tate .box h4 {
+  width: 30%;
+}
+@media screen and (max-width: 767px) {
+  .sys_flex.tate .box h4 {
+    width: 100%;
+  }
+}
+.sys_flex.txt_zu {
+  background: #F7F6F0;
+}
+.sys_flex.txt_zu .txts {
+  width: 30%;
+  padding: 3rem;
+}
+@media screen and (max-width: 767px) {
+  .sys_flex.txt_zu .txts {
+    width: 100%;
+  }
+}
+.sys_flex.txt_zu .zu {
+  flex: 1;
+  padding: 2rem 5rem 2rem 5rem;
+}
+@media screen and (max-width: 767px) {
+  .sys_flex.txt_zu .zu {
+    padding: 2rem;
+  }
+}
+.sys_flex.kanren .box {
+  background: #EDECE4;
+  width: 100%;
+  padding: 5rem;
+  display: flex;
+  align-items: flex-start;
+}
+@media screen and (max-width: 767px) {
+  .sys_flex.kanren .box {
+    display: block;
+    padding: 2rem;
+  }
+}
+.sys_flex.kanren h4 {
+  width: 35%;
+}
+@media screen and (max-width: 767px) {
+  .sys_flex.kanren h4 {
+    width: 100%;
+    margin: 0 0 2rem 0;
+  }
+}
+.sys_flex.kanren .link {
+  flex: 1;
+}
+.sys_flex.kanren .link ul {
+  border-top: 1px solid #A0A0A0;
+}
+.sys_flex.kanren .link ul li a {
+  display: block;
+  border-bottom: 1px solid #A0A0A0;
+  position: relative;
+  padding: 1rem 0 1rem 2rem;
+  transition: all 0.3s ease;
+}
+@media screen and (max-width: 767px) {
+  .sys_flex.kanren .link ul li a {
+    padding: 1rem;
+  }
+}
+.sys_flex.kanren .link ul li a:hover {
+  background: #fff;
+}
+.sys_flex.kanren .link ul li a .icon {
+  width: 10px;
+  position: absolute;
+  top: 50%;
+  right: 5%;
+  transform: translateY(-50%);
+  line-height: 0;
+}
+.sys_flex .box {
+  width: 33.3333%;
+  border-right: 1px solid #A0A0A0;
+  border-bottom: 1px solid #A0A0A0;
+  padding: 3rem;
+  background: #F7F6F0;
+}
+@media screen and (max-width: 767px) {
+  .sys_flex .box {
+    width: 100%;
+    border-right: none;
+  }
+  .sys_flex .box:last-child {
+    border-bottom: none;
+  }
+}
+.sys_flex .box:nth-of-type(2) {
+  background: #EDECE4;
+}
+.sys_flex .box .num {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+}
+.sys_flex .box .num p.num {
+  font-size: 10rem;
+}
+.sys_flex .box .num p.jp {
+  font-weight: bold;
+}
+.sys_flex .box h4 {
+  font-size: 2.2rem;
+  border-left: 3px solid #3E3E3E;
+  padding: 0 0 0 1rem;
+  line-height: 1.2;
+  margin: 0 0 2rem 0;
+}
+@media screen and (max-width: 767px) {
+  .sys_flex .box h4 {
+    font-size: 1.8rem;
+  }
+}
+
+.voices .title {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 0 2rem 0;
+}
+.voices .title h4 {
+  width: 70%;
+}
+.voices .title .image {
+  flex: 1;
+  padding: 0 0 0 1em;
+}

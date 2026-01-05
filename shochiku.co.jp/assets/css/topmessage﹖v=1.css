@@ -1,0 +1,153 @@
+img {
+  width: 100%;
+}
+
+section.visual .image {
+  line-height: 0;
+  border-bottom: 1px solid #A0A0A0;
+}
+section.visual .names {
+  display: flex;
+  border-right: 1px solid #A0A0A0;
+  border-left: 1px solid #A0A0A0;
+  align-items: center;
+  width: 420px;
+  margin: 0 8vw 0 auto;
+  justify-content: center;
+  padding: 1rem 0;
+  font-size: 1.8rem;
+}
+@media screen and (max-width: 767px) {
+  section.visual .names {
+    width: 100%;
+    border: none;
+    font-size: 1.3rem;
+  }
+}
+section.visual .names p.name {
+  margin: 0 0 0 1rem;
+  font-size: 2.4rem;
+}
+@media screen and (max-width: 767px) {
+  section.visual .names p.name {
+    font-size: 2rem;
+  }
+}
+
+section.copy {
+  border-bottom: 1px solid #A0A0A0;
+  border-top: 1px solid #A0A0A0;
+  margin: 0 0 5rem 0;
+  padding: 2rem 0;
+}
+section.copy p {
+  font-size: 4.4rem;
+  text-align: center;
+  font-weight: bold;
+}
+@media screen and (max-width: 767px) {
+  section.copy p {
+    font-size: 2rem;
+  }
+}
+
+section.int {
+  position: relative;
+  padding: 0 0 15rem 0;
+}
+@media screen and (max-width: 767px) {
+  section.int {
+    padding: 0 0 5rem 0;
+  }
+}
+section.int .bgg01 {
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 0;
+}
+section.int .bgg02 {
+  position: absolute;
+  left: 0;
+  top: 20rem;
+  z-index: 0;
+}
+section.int .inner {
+  max-width: 1400px;
+  margin: auto;
+  padding: 0 8vw;
+  z-index: 1;
+  position: relative;
+}
+section.int .int_flex {
+  display: flex;
+  justify-content: space-between;
+}
+@media screen and (max-width: 767px) {
+  section.int .int_flex {
+    display: block;
+  }
+}
+section.int .int_flex.mm {
+  margin: 20rem 0 0 0;
+}
+@media screen and (max-width: 767px) {
+  section.int .int_flex.mm {
+    margin: 0;
+  }
+}
+section.int .int_flex.rv {
+  flex-direction: row-reverse;
+}
+section.int .int_flex h3 {
+  width: 48%;
+}
+section.int .int_flex h3 span {
+  display: block;
+  background: #3E3E3E;
+  font-size: 2.8vw;
+  font-size: clamp(0.175rem, -2.65rem + 9.04vw, 3rem);
+  color: #ffffff;
+  padding: 0 1rem;
+  margin: 0 0 0.5rem 0;
+}
+@media screen and (max-width: 767px) {
+  section.int .int_flex h3 {
+    width: 100%;
+    margin: 0 0 2rem 0;
+  }
+  section.int .int_flex h3 span {
+    font-size: 5vw;
+  }
+}
+section.int .int_flex .txts {
+  width: 45%;
+  background: #F7F6F0;
+}
+@media screen and (max-width: 767px) {
+  section.int .int_flex .txts {
+    width: 100%;
+  }
+}
+section.int .midimage {
+  width: 90%;
+  margin: 10rem -10rem 10rem auto;
+}
+@media screen and (max-width: 767px) {
+  section.int .midimage {
+    width: 100%;
+    margin: 3rem auto;
+  }
+}
+section.int .midimage.m02 {
+  width: 40%;
+  position: absolute;
+  top: 18rem;
+  left: 0;
+}
+@media screen and (max-width: 767px) {
+  section.int .midimage.m02 {
+    width: 100%;
+    position: static;
+  }
+}
