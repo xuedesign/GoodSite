@@ -1,0 +1,1579 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>庇護工場中秋禮盒地圖</title>
+<meta name="description" content="全台庇護工場與社福單位的中秋禮盒總覽。67 個單位、352 項商品，可依縣市、產品類別、關鍵字與金額查詢，直接連到各單位的訂購頁面。">
+<meta name="theme-color" content="#161B2E">
+<link rel="canonical" href="index.html">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="庇護工場中秋禮盒地圖">
+<meta property="og:title" content="庇護工場中秋禮盒地圖">
+<meta property="og:description" content="全台庇護工場與社福單位的中秋禮盒總覽。67 個單位、352 項商品，可依縣市、產品類別、關鍵字與金額查詢，直接連到各單位的訂購頁面。">
+<meta property="og:image" content="hero.jpg">
+<meta property="og:image:alt" content="中秋禮盒與蛋黃酥擺在木桌上">
+<meta property="og:url" content="https://shelter-moon-map.pages.dev/">
+<meta property="og:locale" content="zh_TW">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icon-180.png">
+<link rel="preload" as="image" href="hero.jpg" fetchpriority="high">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link rel="stylesheet" href="../fonts.googleapis.com/css2%EF%B9%96family=Noto+Sans+TC%EF%B9%95wght@400%EF%B9%94500%EF%B9%94700%EF%B9%94900&amp;display=swap.css">
+<style>
+/* ── tokens ─────────────────────────────────────────────── */
+:root{
+  /* 這是刻意單一淺色的設計：不隨系統深色模式反轉，每個顏色都明確指定 */
+  --sans:'Noto Sans TC',-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft JhengHei','Heiti TC',sans-serif;
+  --paper:#F7F4EC; --surface:#FFFFFF; --surface2:#EFEBDF; --sunken:#E7E2D4;
+  --ink:#22202C; --ink2:#4B4657; --muted:#736C7E; --line:#DFD9C8; --line2:#C9C1AC;
+  --gold:#9A6812; --gold-ink:#734D0B; --gold-soft:#F6E8CA;
+  --head:#FBF8F0; --head-ink:#22202C; --head-dim:#5C5568; --head-line:#DCCFAE;
+  --night:#232132; --night-ink:#FBF8F0;
+  --seal:#9E3B2E; --seal-bg:#F8E4DF; --seal-ink:#85301F;
+  --jade:#3C6152; --jade-bg:#E4EFE8; --jade-ink:#2E5144;
+  --slate-bg:#E9E6EE; --slate-ink:#5D5769;
+  --on-gold:#FFFFFF;
+  --hero-img:url('hero.jpg');
+  --shadow-s:0 1px 2px rgba(34,32,44,.06);
+  --shadow-m:0 1px 2px rgba(34,32,44,.05),0 6px 18px rgba(34,32,44,.06);
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font-family:'Noto Sans TC',-apple-system,BlinkMacSystemFont,'PingFang TC','Microsoft JhengHei',sans-serif;
+  font-size:17px;line-height:1.8;font-variant-numeric:tabular-nums}
+a{color:var(--gold-ink)}
+.wrap{max-width:1300px;margin:0 auto;padding:0 26px}
+:where(button,select,input,a):focus-visible{outline:2px solid var(--gold);outline-offset:2px;border-radius:6px}
+
+/* ── hero (大圖主視覺) ───────────────────────────────────── */
+.hero{position:relative;isolation:isolate;min-height:clamp(360px,46vw,520px);
+  display:grid;place-items:center;text-align:center;overflow:hidden;background:var(--night)}
+.hero::before{content:"";position:absolute;inset:0;z-index:-2;
+  background-image:var(--hero-img);background-size:cover;background-position:center 58%}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(180deg,rgba(24,20,14,.62) 0%,rgba(24,20,14,.44) 45%,rgba(24,20,14,.70) 100%)}
+.hero .wrap{padding:clamp(46px,6vw,80px) 22px clamp(38px,5vw,62px);
+  display:flex;flex-direction:column;align-items:center;width:100%}
+.hero .eyebrow{font-size:clamp(11px,1.1vw,12.5px);letter-spacing:.42em;color:#EFD9A4;
+  font-weight:700;margin:0 0 clamp(12px,1.6vw,18px);text-indent:.42em;
+  text-shadow:0 1px 12px rgba(0,0,0,.5)}
+.hero h1{font-weight:900;font-size:clamp(30px,5.6vw,58px);line-height:1.14;letter-spacing:.07em;
+  margin:0;color:#FFFDF7;text-wrap:balance;text-indent:.07em;text-shadow:0 2px 22px rgba(0,0,0,.45)}
+.hero .rule{width:56px;height:3px;background:#E3B45E;border-radius:2px;
+  margin:clamp(18px,2.4vw,26px) 0 clamp(14px,1.9vw,20px)}
+.hero .lead{max-width:42ch;margin:0;color:rgba(255,253,247,.92);
+  font-size:clamp(15px,1.65vw,19px);line-height:1.78;text-shadow:0 1px 14px rgba(0,0,0,.5)}
+
+/* 整合式搜尋列 */
+.hsearch{margin:clamp(26px,3.4vw,36px) 0 0;width:min(720px,100%);
+  display:flex;align-items:stretch;background:#FFFDF7;border-radius:999px;
+  box-shadow:0 12px 34px rgba(24,20,14,.3);overflow:hidden}
+.hsearch .loc{flex:0 0 auto;display:flex;align-items:center;gap:6px;padding:0 6px 0 20px;
+  border-right:1px solid var(--line);color:var(--muted)}
+.hsearch select,.hsearch input{border:0;background:none;font:inherit;color:var(--ink);
+  padding:17px 9px;min-width:0}
+.hsearch select{font-size:14px;max-width:130px;cursor:pointer}
+.hsearch input{flex:1 1 0;width:0;min-width:0;font-size:16.5px;padding-left:20px}
+.hsearch input::placeholder{color:#9C94A6}
+.hsearch select:focus-visible,.hsearch input:focus-visible{outline:2px solid var(--gold);outline-offset:-3px}
+.hsearch button{flex:0 0 auto;border:0;background:var(--gold);color:var(--on-gold);
+  width:60px;display:grid;place-items:center;cursor:pointer;transition:filter .12s}
+.hsearch button:hover{filter:brightness(1.1)}
+.hsearch svg{width:20px;height:20px}
+
+/* 幫我挑一家 */
+.pickwrap{margin:clamp(18px,2.4vw,26px) 0 0;width:min(720px,100%)}
+.pickcta{display:inline-flex;align-items:center;gap:10px;background:rgba(255,253,247,.14);
+  border:1px solid rgba(243,236,218,.42);color:#FFFDF7;border-radius:999px;
+  padding:13px 26px;font:inherit;font-size:16px;font-weight:700;cursor:pointer;
+  backdrop-filter:blur(3px);transition:background .16s,border-color .16s}
+.pickcta:hover{background:rgba(255,253,247,.24);border-color:#F3ECDA}
+.pickcta svg{width:19px;height:19px}
+.pickcta[aria-expanded="true"]{background:var(--gold);border-color:var(--gold);color:var(--on-gold)}
+.pickpanel{margin:16px 0 0;background:rgba(255,253,247,.97);border-radius:16px;
+  padding:20px 22px 22px;box-shadow:0 16px 44px rgba(24,20,14,.34);text-align:left}
+.pickpanel[hidden]{display:none}
+.pickrow{display:flex;flex-wrap:wrap;align-items:center;gap:9px}
+.pickrow + .pickrow{margin-top:13px}
+.pickrow > b{flex:0 0 62px;font-size:13.5px;letter-spacing:.06em;color:var(--muted);font-weight:700}
+.pk{border:1px solid var(--line2);background:var(--paper);color:var(--ink2);border-radius:999px;
+  padding:8px 16px;font:inherit;font-size:14.5px;cursor:pointer;white-space:nowrap;
+  transition:background .12s,border-color .12s,color .12s}
+.pk:hover{border-color:var(--gold);color:var(--gold-ink)}
+.pk[aria-pressed="true"]{background:var(--gold);border-color:var(--gold);color:var(--on-gold);font-weight:700}
+.pickgo{margin-top:18px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.pickgo button{background:var(--night);color:var(--night-ink);border:0;border-radius:11px;
+  padding:13px 30px;font:inherit;font-size:16px;font-weight:700;cursor:pointer;transition:filter .14s}
+.pickgo button:hover{filter:brightness(1.22)}
+.pickgo span{font-size:13.5px;color:var(--muted)}
+
+/* 結果卡 ─ 走「摺頁小卡」的感覺：沒有大色塊、資訊靠字級與細線分層 */
+dialog.pdlg{border:1px solid var(--line);border-radius:16px;padding:0;
+  max-width:min(524px,92vw);width:100%;margin:auto;
+  max-height:min(88vh,760px);overflow:auto;overscroll-behavior:contain;
+  background:var(--surface);color:var(--ink);
+  box-shadow:0 26px 74px -14px rgba(34,32,44,.5),0 2px 6px rgba(34,32,44,.08);
+  animation:pdIn .24s cubic-bezier(.2,.85,.3,1)}
+dialog.pdlg:not([open]){display:none}
+@keyframes pdIn{from{opacity:0;transform:translateY(10px) scale(.984)}to{opacity:1;transform:none}}
+dialog.pdlg::backdrop{background:rgba(28,24,18,.52);backdrop-filter:blur(3px)}
+@media (prefers-reduced-motion:reduce){dialog.pdlg{animation:none}}
+
+.pdlg .hd{position:sticky;top:0;z-index:2;background:var(--surface);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:16px 18px 4px 26px}
+.pdlg .hd .eyebrow{display:inline-flex;align-items:center;gap:7px;
+  font-size:11.5px;letter-spacing:.2em;font-weight:700;color:var(--muted)}
+.pdlg .hd .eyebrow svg{width:13px;height:13px;color:var(--gold);flex:0 0 auto}
+.pdlg .flag{margin-left:auto;margin-right:6px;font-size:12px;font-weight:700;
+  color:var(--jade-ink);background:var(--jade-bg);padding:4px 10px;border-radius:6px;
+  white-space:nowrap}
+.pdlg .flag[hidden]{display:none}
+.pdlg .x{border:0;background:none;color:var(--muted);font:inherit;font-size:19px;line-height:1;
+  width:34px;height:34px;border-radius:8px;cursor:pointer;flex:0 0 auto;
+  transition:background .12s,color .12s}
+.pdlg .x:hover{background:var(--surface2);color:var(--ink)}
+
+.pdlg .body{padding:2px 26px 4px}
+.pdlg .why{margin:0 0 12px;font-size:14px;line-height:1.7;color:var(--gold-ink);
+  padding-left:15px;border-left:2px solid var(--gold);}
+.pdlg h2{margin:0;font-size:25px;font-weight:900;line-height:1.36;letter-spacing:.01em}
+.pdlg .pdmeta{margin:9px 0 0;font-size:14px;line-height:1.8;color:var(--muted)}
+.pdlg .pdmeta b{color:var(--ink2);font-weight:700}
+.pdlg .pdmeta i{font-style:normal;color:var(--line2);margin:0 5px 0 7px}
+.pdlg .pdmeta span{white-space:nowrap}
+
+.pdlg dl{margin:20px 0 0;padding:19px 0 4px;border-top:1px solid var(--line);
+  display:grid;grid-template-columns:64px 1fr;gap:15px 16px;font-size:15px;line-height:1.72}
+.pdlg dt{color:var(--muted);font-size:13px;font-weight:700;letter-spacing:.05em;padding-top:2px}
+.pdlg dd{margin:0;min-width:0}
+.pdlg dd .note{display:block;font-size:13px;color:var(--muted);line-height:1.65;margin-top:2px}
+
+/* 品項：像菜單一樣用點線把品名和價格連起來 */
+.pdlg .menu{display:flex;flex-direction:column;gap:5px}
+.pdlg .menu .it{display:flex;align-items:baseline;gap:0}
+.pdlg .menu .nm{flex:0 1 auto;min-width:0}
+.pdlg .menu .ld{flex:1 1 auto;min-width:14px;height:0;margin:0 8px;
+  border-bottom:1px dotted var(--line2);transform:translateY(-5px)}
+.pdlg .menu .pr{flex:0 0 auto;font-weight:700;color:var(--ink2)}
+
+.pdlg .tel{display:inline-flex;align-items:center;gap:8px;
+  border:1px solid var(--line2);background:var(--paper);color:var(--gold-ink);
+  text-decoration:none;font-weight:700;font-size:16px;padding:8px 15px;border-radius:9px;
+  transition:border-color .12s,background .12s}
+.pdlg .tel:hover{border-color:var(--gold);background:#FFFDF7}
+.pdlg .tel svg{width:15px;height:15px;flex:0 0 auto}
+
+.pdlg .foot{position:sticky;bottom:0;background:var(--surface);
+  padding:16px 26px 20px;margin-top:18px;
+  display:flex;flex-wrap:wrap;gap:10px;align-items:center;
+  box-shadow:0 -1px 0 var(--line),0 -16px 22px -16px rgba(34,32,44,.16)}
+.pdlg .foot .primary{background:var(--gold);color:var(--on-gold);border:0;
+  font:inherit;font-size:15px;font-weight:700;padding:12px 22px;border-radius:10px;
+  text-decoration:none;cursor:pointer;transition:filter .13s}
+.pdlg .foot .primary:hover{filter:brightness(1.1)}
+.pdlg .foot .again{margin-left:auto;display:inline-flex;align-items:center;gap:7px;
+  background:none;border:0;color:var(--ink2);font:inherit;font-size:15px;cursor:pointer;
+  padding:12px 6px;border-radius:8px;transition:color .12s}
+.pdlg .foot .again:hover{color:var(--gold-ink)}
+.pdlg .foot .again svg{width:15px;height:15px}
+
+@media (max-width:560px){
+  .pickrow > b{flex:0 0 100%}
+  dialog.pdlg{max-width:100%;border-radius:14px}
+  .pdlg .hd{padding:14px 14px 4px 20px}
+  .pdlg .body{padding:2px 20px 4px}
+  .pdlg h2{font-size:22px}
+  .pdlg .pdmeta .cats{display:none}
+  .pdlg dl{grid-template-columns:1fr;gap:3px;padding-top:17px}
+  .pdlg dt{margin-top:13px}
+  .pdlg .foot{padding:14px 20px 18px}
+  .pdlg .foot .primary{flex:1 1 100%;text-align:center;order:-1}
+  .pdlg .foot .again{margin-left:0}
+}
+
+.figs{display:flex;flex-wrap:wrap;justify-content:center;gap:clamp(18px,3.2vw,44px);
+  margin:clamp(24px,3.2vw,34px) 0 0}
+.figs div{display:flex;flex-direction:column;align-items:center;gap:2px}
+.figs b{font-size:clamp(23px,2.9vw,33px);font-weight:900;color:#F2DDA9;letter-spacing:-.02em;
+  line-height:1;text-shadow:0 1px 14px rgba(0,0,0,.45)}
+.figs span{font-size:clamp(11.5px,1.1vw,13px);color:rgba(255,253,247,.78);letter-spacing:.13em}
+
+/* ── 類別頁籤（一排，像目錄站的 tab） ─────────────────────── */
+.tabs{background:var(--surface);border-bottom:1px solid var(--line2)}
+.tabs .wrap{padding:24px 26px;overflow-x:auto;overflow-y:hidden;
+  scrollbar-width:none;-ms-overflow-style:none;
+  /* 兩側淡出，暗示還可以捲 */
+  mask-image:linear-gradient(90deg,transparent 0,#000 18px,#000 calc(100% - 18px),transparent 100%);
+  -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 18px,#000 calc(100% - 18px),transparent 100%)}
+.tabs .wrap::-webkit-scrollbar{display:none}
+.tabrow{display:inline-flex;gap:10px;flex-wrap:nowrap;
+  min-width:100%;justify-content:center}
+.tab{flex:0 0 auto;border:1px solid var(--line2);background:var(--paper);color:var(--ink2);
+  border-radius:999px;padding:12px 20px;font:inherit;font-size:15.5px;font-weight:500;
+  cursor:pointer;white-space:nowrap;transition:background .13s,border-color .13s,color .13s}
+.tab:hover{border-color:var(--gold);color:var(--gold-ink)}
+.tab[aria-pressed="true"]{background:var(--gold);border-color:var(--gold);
+  color:var(--on-gold);font-weight:700}
+.tab .n{font-size:13px;opacity:.68;margin-left:8px}
+
+/* ── 工具列（一排下拉，不再用一堆膠囊） ───────────────────── */
+.bar{position:sticky;top:0;z-index:30;background:var(--paper);
+  border-bottom:1px solid var(--line2);box-shadow:var(--shadow-s)}
+.bar .wrap{padding:16px 26px;display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+.ctl{display:flex;align-items:center;gap:7px}
+.ctl > span{font-size:13.5px;letter-spacing:.08em;color:var(--muted);
+  font-weight:700;white-space:nowrap}
+.fld{background:var(--surface);color:var(--ink);border:1px solid var(--line2);
+  border-radius:10px;padding:11px 36px 11px 15px;font:inherit;font-size:15.5px;line-height:1.3;
+  cursor:pointer;appearance:none;
+  background-image:linear-gradient(45deg,transparent 50%,var(--muted) 50%),
+                   linear-gradient(135deg,var(--muted) 50%,transparent 50%);
+  background-position:calc(100% - 17px) 52%,calc(100% - 12px) 52%;
+  background-size:5px 5px,5px 5px;background-repeat:no-repeat}
+.fld:hover{border-color:var(--gold)}
+.seg{display:flex;border:1px solid var(--line2);border-radius:9px;overflow:hidden;
+  background:var(--surface)}
+.seg button{border:0;background:none;font:inherit;font-size:15px;font-weight:500;
+  padding:11px 19px;cursor:pointer;color:var(--ink2);white-space:nowrap}
+.seg button+button{border-left:1px solid var(--line2)}
+.seg button[aria-pressed="true"]{background:var(--night);color:var(--night-ink);font-weight:700}
+.reshuffle{border:1px solid var(--line2);background:var(--surface);color:var(--ink2);
+  border-radius:10px;padding:11px 17px;font:inherit;font-size:15px;cursor:pointer;
+  transition:border-color .12s,color .12s;white-space:nowrap}
+.reshuffle:hover{border-color:var(--gold);color:var(--gold-ink)}
+.reshuffle[hidden]{display:none}
+.grow{flex:1}
+.count{font-size:15px;color:var(--muted);white-space:nowrap}
+.count b{font-size:20px;color:var(--ink);font-weight:900;letter-spacing:-.01em}
+
+/* 已選條件（只在有條件時出現） */
+.active-row{border-top:1px dashed var(--line);background:var(--paper)}
+.active-row .wrap{padding:12px 22px;display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.active-row[hidden]{display:none}
+.pill{display:inline-flex;align-items:center;gap:6px;font-size:14.5px;
+  background:var(--gold-soft);color:var(--gold-ink);border-radius:999px;
+  padding:6px 8px 6px 15px;font-weight:500}
+.pill button{border:0;background:none;cursor:pointer;color:inherit;font:inherit;
+  line-height:1;padding:2px 5px;border-radius:50%;opacity:.65;font-size:14px}
+.pill button:hover{opacity:1;background:rgba(0,0,0,.09)}
+.clr{background:none;border:0;color:var(--gold-ink);cursor:pointer;font:inherit;
+  font-size:13.5px;text-decoration:underline;padding:0}
+.ftog{display:none}
+
+/* ── shared state marks ─────────────────────────────────── */
+.st{display:inline-block;font-size:12.5px;padding:4px 10px;border-radius:6px;
+  font-weight:700;letter-spacing:.02em;white-space:nowrap}
+.st-now{background:var(--seal-bg);color:var(--seal-ink)}
+.st-old{background:var(--jade-bg);color:var(--jade-ink)}
+.st-non{background:var(--slate-bg);color:var(--slate-ink)}
+.cat{display:inline-block;font-size:12.5px;color:var(--muted);border:1px solid var(--line);
+  border-radius:6px;padding:3px 9px;white-space:nowrap}
+.wda{display:inline-block;font-size:12.5px;color:var(--gold-ink);background:var(--gold-soft);
+  border-radius:6px;padding:3px 9px;white-space:nowrap}
+.amt{font-weight:700;font-size:20px;color:var(--gold-ink);
+  white-space:nowrap;letter-spacing:-.015em}
+.amt small{font-size:12.5px;font-weight:500;color:var(--muted);letter-spacing:.06em}
+.amt.none{font-size:14.5px;font-weight:400;color:var(--muted)}
+.go{background:var(--gold);color:var(--on-gold);text-decoration:none;font-weight:700;
+  font-size:14.5px;padding:10px 19px;border-radius:10px;white-space:nowrap;display:inline-block;
+  transition:filter .12s}
+.go:hover{filter:brightness(1.09)}
+.go.ghost{background:transparent;color:var(--gold-ink);border:1px solid var(--gold);
+  font-weight:500}
+.go.ghost:hover{background:var(--gold-soft);filter:none}
+.lnk{display:inline-flex;align-items:center;font-size:14px;color:var(--gold-ink);
+  text-decoration:none;border:1px solid var(--line);
+  border-radius:7px;padding:5px 10px;background:var(--surface);white-space:nowrap}
+.lnk:hover{border-color:var(--gold)}
+.lnk.alt{font-size:11.5px;padding:4px 8px}
+
+/* ── mode: 商品列表 ─────────────────────────────────────── */
+main{padding-bottom:104px}
+.sheet{margin-top:34px;border:1px solid var(--line2);border-radius:12px;
+  background:var(--surface);box-shadow:var(--shadow-m)}
+.sheet-h,.row{display:grid;gap:16px;align-items:center;
+  grid-template-columns:62px minmax(0,1fr) 240px 168px 112px 104px;
+  padding:16px 22px}
+.sheet-h{background:var(--surface2);border-bottom:1px solid var(--line2);
+  font-size:13.5px;letter-spacing:.12em;color:var(--muted);font-weight:700;
+  position:sticky;top:var(--barh,0px);z-index:2;border-radius:11px 11px 0 0}
+.sheet-h .r{text-align:right}
+.row{border-bottom:1px solid color-mix(in srgb,var(--line) 55%,transparent)}
+.row:last-child{border-bottom:0;border-radius:0 0 11px 11px}
+.row:nth-child(even of .row){background:color-mix(in srgb,var(--surface2) 32%,transparent)}
+.row:hover{background:var(--gold-soft)}
+/* 縮圖：有照片就放照片，沒有就用刻意設計的字體版型，不留破圖 */
+.th{width:62px;height:62px;border-radius:9px;overflow:hidden;flex:0 0 auto;
+  background:var(--surface2);display:block;position:relative}
+.th img{width:100%;height:100%;object-fit:cover;display:block;
+  background:var(--surface2)}
+.th.nop{display:grid;place-items:center;border:1px solid var(--line);
+  background:linear-gradient(155deg,var(--paper),var(--surface2))}
+.th.nop span{font-size:20px;font-weight:900;color:var(--line2);letter-spacing:-.04em;
+  line-height:1;user-select:none}
+
+.pn{font-weight:500;font-size:17px;line-height:1.5}
+.pn a{color:inherit;text-decoration:none;border-bottom:1px solid color-mix(in srgb,var(--gold) 45%,transparent)}
+.pn a:hover{color:var(--gold-ink);border-bottom-color:var(--gold)}
+.pd{display:block;font-size:14px;color:var(--muted);font-weight:400;margin-top:6px;
+  line-height:1.7;
+  overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.org{font-size:15px;color:var(--ink2);line-height:1.55}
+.org .cty{display:block;font-size:13.5px;color:var(--muted);margin-top:4px}
+.meta{display:flex;flex-direction:column;gap:7px;align-items:flex-start}
+.r{text-align:right}
+.cellend{display:flex;flex-direction:column;align-items:flex-end;gap:7px}
+
+
+/* ── mode: 商品卡片 ─────────────────────────────────────── */
+.pgrid{margin-top:34px;display:grid;gap:22px;
+  grid-template-columns:repeat(auto-fill,minmax(238px,1fr))}
+.pcard{display:flex;flex-direction:column;height:100%;background:var(--surface);
+  border:1px solid var(--line);border-radius:14px;overflow:hidden;
+  box-shadow:var(--shadow-s);transition:box-shadow .16s,border-color .16s,transform .16s}
+.pcard:hover{box-shadow:var(--shadow-m);border-color:var(--line2);transform:translateY(-2px)}
+.pcard .ph{aspect-ratio:1/1;background:var(--surface2);position:relative;display:block}
+.pcard .ph img{width:100%;height:100%;object-fit:cover;display:block}
+/* 沒照片的卡：用類別字＋紙紋色塊，做成刻意的版型而不是缺口 */
+.pcard a{text-decoration:none}
+.pcard .ph.nop{display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:15px;text-align:center;border-bottom:1px solid var(--line);
+  background:linear-gradient(158deg,var(--paper) 0%,var(--surface2) 100%)}
+.pcard .ph.nop .big{width:38%;aspect-ratio:1/1;border-radius:50%;background:var(--surface);
+  border:1px solid color-mix(in srgb,var(--gold) 30%,var(--line));
+  box-shadow:0 1px 0 rgba(255,255,255,.7) inset;
+  display:grid;place-items:center;font-size:clamp(26px,3.4vw,34px);font-weight:900;
+  color:color-mix(in srgb,var(--gold-ink) 60%,var(--line2));line-height:1;user-select:none}
+.pcard .ph.nop .lb{font-size:12px;letter-spacing:.22em;font-weight:700;
+  color:var(--muted);text-indent:.22em}
+.pcard .ph.nop::after{content:"尚無照片";font-size:11.5px;letter-spacing:.14em;
+  color:color-mix(in srgb,var(--muted) 62%,transparent);text-indent:.14em}
+.pcard .bd{padding:15px 16px 4px;flex:1 1 auto;display:flex;flex-direction:column;gap:7px}
+.pcard h3{margin:0;font-size:16px;font-weight:700;line-height:1.5}
+.pcard h3 a{color:inherit;text-decoration:none}
+.pcard h3 a:hover{color:var(--gold-ink)}
+.pcard .who{font-size:13.5px;color:var(--muted);line-height:1.6}
+.pcard .who b{color:var(--ink2);font-weight:500}
+.pcard .cft2{padding:12px 16px 14px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.pcard .cft2 .amt{margin-right:auto}
+.pcard .credit{padding:0 16px 12px;font-size:11.5px;color:var(--muted);line-height:1.5}
+
+/* ── mode: 單位卡片 ─────────────────────────────────────── */
+/* 單位卡走瀑布流：容器是幾個等寬欄，JS 把每張卡放進當下最短的那一欄，
+   所以卡片高度不同也不會留下大片空白，而且排序的先後順序大致保留 */
+.grid{display:flex;align-items:flex-start;gap:24px;margin-top:34px}
+.gcol{flex:1 1 0;min-width:0;display:flex;flex-direction:column;gap:24px}
+.card{background:var(--surface);border:1px solid var(--line2);border-radius:12px;
+  box-shadow:var(--shadow-m);overflow:hidden;display:flex;flex-direction:column}
+.chd{padding:21px 23px 17px;border-bottom:1px solid var(--line)}
+.cmk{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:7px;align-items:center}
+.cty-b{font-size:11px;font-weight:700;background:var(--night);color:var(--night-ink);
+  border-radius:5px;padding:2px 8px;letter-spacing:.04em}
+.card h3{margin:0;font-size:20px;font-weight:700;line-height:1.45;
+  letter-spacing:.015em;text-wrap:balance}
+.chd .ord{font-size:14px;color:var(--muted);margin-top:9px;line-height:1.75}
+.plist{list-style:none;margin:0;padding:8px 23px;flex:1}
+.plist li{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;
+  padding:14px 0;border-bottom:1px solid color-mix(in srgb,var(--line) 45%,transparent)}
+.plist li:last-child{border-bottom:0}
+.plist .amt{font-size:18px;flex:0 0 auto;padding-top:1px}
+/* 單位名稱＝跳到那家的單位卡（看得到全部連結） */
+.ulink{background:none;border:0;padding:0;margin:0;font:inherit;color:inherit;
+  text-align:left;cursor:pointer;
+  border-bottom:1px solid color-mix(in srgb,var(--gold) 38%,transparent)}
+.ulink:hover{color:var(--gold-ink);border-bottom-color:var(--gold)}
+.pcard .who .ulink{color:var(--ink2);font-weight:500}
+
+/* 連結上的平台小圖示 */
+.lnk .li{width:14px;height:14px;flex:0 0 auto;margin-right:6px;opacity:.72}
+.lnk:hover .li{opacity:1}
+.plist .th{width:44px;height:44px;border-radius:7px;margin-top:2px}
+.plist .th.nop span{font-size:15px}
+.plist .pn{flex:1 1 auto;min-width:0}
+.expand{margin:0 16px 10px;width:calc(100% - 32px);background:var(--surface2);
+  border:1px solid var(--line);border-radius:8px;padding:6px;font:inherit;font-size:12.5px;
+  color:var(--ink2);cursor:pointer}
+.expand:hover{border-color:var(--gold);color:var(--gold-ink)}
+.nop{padding:12px 16px;color:var(--muted);font-size:12.5px}
+.svc{margin:0 16px 11px;padding:8px 11px;background:var(--sunken);border-radius:8px;
+  font-size:12px;color:var(--ink2);line-height:1.5}
+.svc b{font-size:11px;letter-spacing:.1em;color:var(--muted);display:block;margin-bottom:2px}
+.cft{padding:17px 23px 19px;border-top:1px solid var(--line);
+  background:color-mix(in srgb,var(--surface2) 45%,var(--surface));
+  display:flex;flex-wrap:wrap;gap:7px;align-items:center}
+
+.empty{text-align:center;color:var(--muted);padding:76px 20px;font-size:14.5px}
+.empty b{display:block;font-size:20px;color:var(--ink);
+  margin-bottom:9px;font-weight:900;letter-spacing:.02em}
+/* ── 分頁 ────────────────────────────────────────────────── */
+.pager{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:7px;
+  margin:42px 0 10px}
+.pager button{min-width:46px;height:46px;padding:0 15px;border:1px solid var(--line2);
+  background:var(--surface);color:var(--ink2);border-radius:10px;font:inherit;font-size:15.5px;
+  font-weight:500;cursor:pointer;transition:border-color .12s,background .12s}
+.pager button:hover:not(:disabled){border-color:var(--gold);color:var(--gold-ink)}
+.pager button[aria-current="page"]{background:var(--gold);border-color:var(--gold);
+  color:var(--on-gold);font-weight:700}
+.pager button:disabled{opacity:.38;cursor:default}
+.pager .gap{color:var(--muted);padding:0 3px;font-size:13px;align-self:center}
+.pager .of{font-size:14.5px;color:var(--muted);margin-left:10px;white-space:nowrap}
+
+/* ── 三格說明 ────────────────────────────────────────────── */
+.hows{background:var(--surface);border-top:1px solid var(--line2)}
+.hows .wrap{padding:clamp(58px,7.2vw,92px) 22px clamp(54px,6.6vw,84px)}
+.hows h2{text-align:center;margin:0;font-size:clamp(25px,3vw,34px);font-weight:900;
+  letter-spacing:.05em}
+.hows .hrule{width:50px;height:3px;background:var(--gold);border-radius:2px;
+  margin:20px auto clamp(40px,5vw,58px)}
+.howgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:clamp(30px,4.2vw,56px);max-width:1020px;margin:0 auto}
+.how{text-align:center;display:flex;flex-direction:column;align-items:center;gap:16px}
+.how .ic{width:72px;height:72px;border-radius:50%;background:var(--gold-soft);
+  display:grid;place-items:center;color:var(--gold-ink)}
+.how .ic svg{width:34px;height:34px}
+.how h3{margin:0;font-size:19.5px;font-weight:700;letter-spacing:.03em}
+.how p{margin:0;font-size:15.5px;color:var(--muted);line-height:1.9;max-width:28ch}
+.how b{color:var(--gold-ink);font-weight:700}
+
+footer{border-top:1px solid var(--line2);background:var(--night);
+  color:rgba(251,248,240,.64);font-size:15px;line-height:1.9}
+footer .wrap{padding:clamp(48px,6vw,72px) 22px clamp(30px,3.4vw,40px)}
+.fgrid{display:grid;gap:clamp(30px,4.4vw,56px);
+  grid-template-columns:minmax(240px,1.5fr) repeat(auto-fit,minmax(160px,1fr))}
+.fcol h3{margin:0 0 18px;font-size:13.5px;letter-spacing:.2em;font-weight:700;
+  color:#E3B45E;text-transform:uppercase}
+.fcol p{margin:0;font-size:15px;line-height:1.95;max-width:36ch}
+.fcol ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:13px}
+.fcol a{color:rgba(251,248,240,.8);text-decoration:none;font-size:15px;
+  transition:color .14s}
+.fcol a:hover{color:#F2DDA9}
+.fcol .ext::after{content:" ↗";font-size:11px;opacity:.55}
+.repcta{display:inline-block;border:1px solid rgba(227,180,94,.45);border-radius:9px;
+  padding:9px 18px;font-size:13.5px;font-weight:700;color:#F2DDA9!important;
+  text-decoration:none;transition:background .14s,border-color .14s}
+.repcta:hover{background:rgba(227,180,94,.14);border-color:#E3B45E}
+.fcol button{background:none;border:0;padding:0;font:inherit;font-size:15px;
+  color:rgba(251,248,240,.78);cursor:pointer;text-align:left;transition:color .14s}
+.fcol button:hover{color:#F2DDA9}
+.fcol button .c{font-size:12px;opacity:.5;margin-left:6px}
+.caveat{margin:clamp(36px,4.4vw,52px) 0 0;padding-top:28px;
+  border-top:1px solid rgba(227,180,94,.2)}
+.caveat p{margin:0;font-size:14.5px;line-height:1.95;max-width:82ch;
+  color:rgba(251,248,240,.58)}
+.caveat b{color:#F2DDA9;font-weight:700}
+.fbot{border-top:1px solid rgba(227,180,94,.2);background:rgba(0,0,0,.22)}
+.fbot .wrap{padding:18px 22px;display:flex;flex-wrap:wrap;gap:10px 28px;
+  align-items:center;font-size:14px;color:rgba(251,248,240,.52)}
+.kbd{font-family:ui-monospace,Menlo,monospace;font-size:11.5px;
+  background:rgba(251,248,240,.12);border:1px solid rgba(227,180,94,.3);
+  border-radius:4px;padding:2px 6px;color:#F2DDA9}
+
+@media (max-width:1000px){
+  .fgrid{grid-template-columns:minmax(220px,1fr) minmax(150px,1fr)}
+}
+@media (max-width:860px){
+  .sheet-h{display:none}
+  .row{grid-template-columns:54px 1fr auto;gap:8px 13px;padding:15px 15px}
+  .row .th{grid-column:1;grid-row:1/span 4;align-self:start;width:54px;height:54px}
+  .row .pn{grid-column:2}
+  .row .cellend{grid-column:3;grid-row:1/span 4;align-self:center}
+  .row .org{grid-column:2}
+  .row .meta{grid-column:2;flex-direction:row;flex-wrap:wrap;align-items:center}
+  .row .r{grid-column:2;text-align:left}
+  .pgrid{grid-template-columns:repeat(auto-fill,minmax(158px,1fr));gap:14px}
+  .pcard .ph.nop .big{font-size:68px}
+  .grid{gap:18px}
+  .gcol{gap:18px}
+  .bar .wrap{gap:10px}
+  .ctl > span{display:none}          /* 窄螢幕靠下拉本身的文字辨識即可 */
+}
+@media (max-width:640px){
+  /* 搜尋列：讓輸入框可壓縮，避免最小內容寬度撐開整個版面 */
+  .hsearch{border-radius:14px}
+  .hsearch .loc{padding:0 2px 0 13px}
+  .hsearch select{max-width:96px;font-size:13.5px;padding:13px 4px}
+  .hsearch input{font-size:14.5px;padding:13px 6px 13px 12px;flex:1 1 0;width:0}
+  .hsearch button{width:50px}
+  .hsearch svg{width:18px;height:18px}
+}
+@media (max-width:560px){
+  .wrap{padding:0 16px}
+  .hero .wrap{padding:38px 16px 32px}
+  .tabs .wrap{padding:16px 16px}
+  .bar .wrap{padding:12px 16px}
+  .active-row .wrap{padding:11px 16px}
+  .fgrid{grid-template-columns:1fr;gap:32px}
+  .fbot .wrap{padding:16px 16px}
+  .fbot .wrap span:last-child{margin-left:0!important}
+  .pager button{min-width:38px;height:38px;font-size:13.5px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+
+
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow">2026 中秋・公益採購指南</p>
+    <h1>庇護工場中秋禮盒地圖</h1>
+    <div class="rule" aria-hidden="true"></div>
+    <p class="lead">全台庇護工場與社福單位的中秋禮盒總覽，直接連到各單位的訂購頁面。</p>
+
+    <form class="hsearch" id="hform" role="search">
+      <span class="loc" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="17" height="17">
+          <path d="M12 21s7-5.4 7-11a7 7 0 1 0-14 0c0 5.6 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/>
+        </svg>
+      </span>
+      <select id="hCounty" aria-label="縣市"><option value="">全部縣市</option></select>
+      <input type="search" id="hq" placeholder="搜尋商品、單位或口味…" aria-label="關鍵字">
+      <button type="submit" aria-label="搜尋">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1">
+          <circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.6 15.6 21 21"/>
+        </svg>
+      </button>
+    </form>
+
+    <div class="pickwrap">
+      <button type="button" class="pickcta" id="pickCta" aria-expanded="false" aria-controls="pickPanel">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round">
+          <path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.9 5.9l1.4 1.4M16.7 16.7l1.4 1.4M18.1 5.9l-1.4 1.4M7.3 16.7l-1.4 1.4"/>
+          <circle cx="12" cy="12" r="3.6"/></svg>
+        幫我挑一家
+      </button>
+      <div class="pickpanel" id="pickPanel" hidden>
+        <div class="pickrow"><b>預算</b><div class="chips" id="pkBudget"></div></div>
+        <div class="pickrow"><b>地區</b><div class="chips" id="pkRegion"></div></div>
+        <div class="pickrow"><b>寄送</b><div class="chips" id="pkShip"></div></div>
+        <div class="pickgo">
+          <button type="button" id="pickGo">幫我挑</button>
+          <span id="pkCount"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="figs" id="figs"></div>
+  </div>
+</header>
+
+<nav class="tabs" aria-label="產品類別">
+  <div class="wrap"><div class="tabrow" id="tabs"></div></div>
+</nav>
+
+<nav class="bar" aria-label="篩選與排序">
+  <div class="wrap">
+    <div class="ctl"><span>金額</span>
+      <select id="band" class="fld" aria-label="金額範圍">
+        <option value="">不限</option>
+        <option value="b1">300 元以下</option>
+        <option value="b2">301 – 500 元</option>
+        <option value="b3">501 – 800 元</option>
+        <option value="b4">801 元以上</option>
+      </select>
+    </div>
+    <div class="ctl"><span>狀態</span>
+      <select id="status" class="fld" aria-label="商品狀態">
+        <option value="">全部</option>
+        <option value="2026中秋">已上架 2026 中秋</option>
+        <option value="待更新">最新商品（待更新）</option>
+        <option value="未找到商品資訊">僅提供電洽</option>
+      </select>
+    </div>
+    <div class="ctl"><span>排序</span>
+      <select id="sort" class="fld" aria-label="排序方式">
+        <option value="random">隨機（每次不同）</option>
+        <option value="default">2026 優先</option>
+        <option value="pAsc">價格低 → 高</option>
+        <option value="pDesc">價格高 → 低</option>
+        <option value="county">依縣市</option>
+      </select>
+    </div>
+    <div class="seg" role="group" aria-label="檢視方式">
+      <button type="button" id="vProd" aria-pressed="true">列表</button>
+      <button type="button" id="vCard" aria-pressed="false">卡片</button>
+      <button type="button" id="vUnit" aria-pressed="false">單位</button>
+    </div>
+    <button type="button" class="reshuffle" id="reshuffle" hidden>重新洗牌</button>
+    <span class="grow"></span>
+    <span class="count" id="count" role="status" aria-live="polite"></span>
+  </div>
+  <div class="active-row" id="activeRow" hidden>
+    <div class="wrap">
+      <span style="font-size:11.5px;letter-spacing:.12em;color:var(--muted);font-weight:700">已選</span>
+      <div class="chips" id="active" style="display:flex;flex-wrap:wrap;gap:8px"></div>
+      <button type="button" class="clr" id="clear">清除全部</button>
+    </div>
+  </div>
+</nav>
+
+<main class="wrap">
+  <div id="out"></div>
+</main>
+
+<dialog class="pdlg" id="pickResult" aria-labelledby="pdName">
+  <div class="hd">
+    <span class="eyebrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path
+      d="M21 14.2A8.6 8.6 0 0 1 9.8 3 8.6 8.6 0 1 0 21 14.2z" fill="currentColor"/></svg>幫你挑的</span>
+    <span class="flag" id="pdFlag" hidden>2026 已上架</span>
+    <button type="button" class="x" id="pdClose" aria-label="關閉">&#10005;</button>
+  </div>
+  <div class="body">
+    <p class="why" id="pdWhy"></p>
+    <h2 id="pdName"></h2>
+    <p class="pdmeta" id="pdMeta"></p>
+    <dl id="pdInfo"></dl>
+  </div>
+  <div class="foot">
+    <a class="primary" id="pdSee" href="#">看他們的商品</a>
+    <button type="button" class="again" id="pdAgain"><svg viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"
+      aria-hidden="true"><path d="M21 12a9 9 0 1 1-3.2-6.9"/><path d="M21 3v5h-5"/></svg>再挑一家</button>
+  </div>
+</dialog>
+
+<section class="hows">
+  <div class="wrap">
+    <h2>這個網站怎麼用</h2>
+    <div class="hrule" aria-hidden="true"></div>
+    <div class="howgrid">
+      <div class="how">
+        <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.6 15.6 21 21"/><path d="M8 10.5h5M10.5 8v5"/></svg></div>
+        <h3>先篩出你要的那一盒</h3>
+        <p>預設<b>隨機排序</b>，每次進來順序都不同，每家都有機會排在前面。想比價就切成「價格低 → 高」。</p>
+      </div>
+      <div class="how">
+        <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 6h16M4 12h16M4 18h10"/><circle cx="19" cy="18" r="2.4"/></svg></div>
+        <h3>看清楚按鈕帶你去哪</h3>
+        <p>實心的<b>購買</b>直達那一項商品頁；外框的<b>看商店</b>、<b>看公告</b>代表該單位沒有獨立商品頁，要到那邊再找一下。</p>
+      </div>
+      <div class="how">
+        <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/>
+          <circle cx="12" cy="12" r="3.4"/></svg></div>
+        <h3>價格以官方為準</h3>
+        <p>標<b>官方型錄價</b>的來自勞動部庇護工場產品型錄的建議售價；其餘取自單位官網，多為早鳥價。訂購前請看該單位最新公告。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div class="fcol">
+        <h3>關於</h3>
+        <p>把全台庇護工場與社福單位的中秋禮盒整理在一起，讓想支持的人不必一家一家找。每一筆都連到單位自己的訂購頁面，這裡不經手金流、不收任何費用。</p>
+        <p style="margin-top:14px">商品圖片與文字資訊皆由 AI 從各單位官網、商城與勞動部庇護工場產品型錄抓取整理，難免有誤；圖片版權屬各來源單位。若有錯誤或需要撤除，請來訊更正。</p>
+        <p style="margin-top:16px"><a id="reportLink" class="repcta" href="#">回報資料問題</a></p>
+      </div>
+      <div class="fcol">
+        <h3>資料來源</h3>
+        <ul id="srcs"></ul>
+      </div>
+      <div class="fcol">
+        <h3>熱門縣市</h3>
+        <ul id="fcounties"></ul>
+      </div>
+      <div class="fcol">
+        <h3>快速篩選</h3>
+        <ul id="fquick"></ul>
+      </div>
+    </div>
+    <div class="caveat">
+      <p><b>價格僅供參考。</b>多為早鳥或優惠價，實際品項、運費與到貨日請以各單位最新公告為準；熱門品項可能已完售。標「2026 待更新」者為該單位目前最新可查到的商品，中秋檔期建議先電洽。</p>
+    </div>
+  </div>
+  <div class="fbot">
+    <div class="wrap">
+      <span>資料整理 2026-08-23</span>
+      <span>2026 中秋節 9 月 25 日</span>
+      <span id="fstat"></span>
+      <span style="margin-left:auto">按 <span class="kbd">/</span> 搜尋</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ── 更正回報（僅 Cloudflare Pages 版啟用） ───────────────── -->
+<script src="../challenges.cloudflare.com/turnstile/v0/b/e694063b5082/api.js" async defer></script>
+<style>
+.rep{background:none;border:0;padding:0;margin:0;font:inherit;font-size:12.5px;
+  color:var(--muted);cursor:pointer;text-decoration:underline dotted;white-space:nowrap}
+.rep:hover{color:var(--seal-ink)}
+.repbar{margin-left:auto}
+dialog.rd{border:1px solid var(--line);border-radius:16px;padding:0;
+  max-width:min(524px,92vw);width:100%;margin:auto;
+  max-height:min(90vh,820px);overflow:auto;overscroll-behavior:contain;
+  background:var(--surface);color:var(--ink);
+  box-shadow:0 26px 74px -14px rgba(34,32,44,.5),0 2px 6px rgba(34,32,44,.08);
+  animation:pdIn .24s cubic-bezier(.2,.85,.3,1)}
+dialog.rd:not([open]){display:none}
+dialog.rd::backdrop{background:rgba(28,24,18,.52);backdrop-filter:blur(3px)}
+@media (prefers-reduced-motion:reduce){dialog.rd{animation:none}}
+.rd form{margin:0;display:flex;flex-direction:column}
+.rd header{padding:22px 26px 0;position:relative}
+.rd .x{position:absolute;top:14px;right:14px;
+  border:0;background:none;color:var(--muted);font:inherit;font-size:19px;line-height:1;
+  width:34px;height:34px;border-radius:8px;cursor:pointer;transition:background .12s,color .12s}
+.rd .x:hover{background:var(--surface2);color:var(--ink)}
+.rd h2{margin:0;padding-right:40px;font-size:21px;font-weight:900;letter-spacing:.02em}
+.rd .sub{margin:8px 0 0;font-size:13.5px;line-height:1.7;color:var(--muted)}
+.rd .body{padding:20px 26px 4px;display:flex;flex-direction:column;gap:17px}
+.rd label{display:flex;flex-direction:column;gap:7px;font-size:13px;
+  font-weight:700;color:var(--muted);letter-spacing:.05em}
+.rd select,.rd textarea,.rd input[type=text],.rd input[type=email]{
+  font:inherit;font-size:15px;font-weight:400;color:var(--ink);background:var(--surface);
+  border:1px solid var(--line2);border-radius:10px;padding:11px 13px;width:100%;
+  transition:border-color .12s,box-shadow .12s}
+.rd select:focus,.rd textarea:focus,.rd input:focus{outline:0;border-color:var(--gold);
+  box-shadow:0 0 0 3px rgba(154,104,18,.13)}
+.rd select{cursor:pointer}
+.rd textarea{min-height:92px;resize:vertical;line-height:1.7}
+.rd ::placeholder{color:#A49CAE}
+.rd .hint{font-size:12.5px;color:var(--muted);font-weight:400;letter-spacing:0;line-height:1.65}
+.rd footer{position:sticky;bottom:0;background:var(--surface);
+  padding:16px 26px 20px;margin-top:20px;
+  display:flex;flex-wrap:wrap;gap:10px;align-items:center;
+  box-shadow:0 -1px 0 var(--line),0 -16px 22px -16px rgba(34,32,44,.16)}
+.rd .msg{flex:1 1 100%;font-size:13.5px;line-height:1.65;margin:0}
+.rd .msg:empty{display:none}
+.rd .msg.err{color:var(--seal-ink)}
+.rd .msg.ok{color:var(--jade-ink)}
+.rd .grow{flex:1}
+.rd button.send{background:var(--gold);color:var(--on-gold);border:0;border-radius:10px;
+  padding:12px 22px;font:inherit;font-size:15px;font-weight:700;cursor:pointer;
+  transition:filter .13s}
+.rd button.send:hover:not(:disabled){filter:brightness(1.1)}
+.rd button.send:disabled{opacity:.45;cursor:default}
+.rd button.cancel{background:none;border:0;border-radius:8px;
+  padding:12px 10px;font:inherit;font-size:15px;color:var(--ink2);cursor:pointer;
+  transition:color .12s}
+.rd button.cancel:hover{color:var(--gold-ink)}
+.rd .target{font-size:14px;line-height:1.7;color:var(--gold-ink);
+  padding-left:15px;border-left:2px solid var(--gold)}
+/* 蜜罐：真人看不到也 tab 不到，機器人才會填 */
+.rd .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+</style>
+
+<dialog class="rd" id="rd" aria-labelledby="rdTitle">
+  <form id="rdForm" novalidate>
+    <header>
+      <button type="button" class="x" id="rdX" aria-label="關閉">&#10005;</button>
+      <h2 id="rdTitle">回報更正</h2>
+      <p class="sub">資料是人工透過 AI 整理的，一定有錯。發現問題請告訴我們，會逐筆核對後更新。</p>
+    </header>
+    <div class="body">
+      <div class="target" id="rdTarget"></div>
+      <label>問題類型
+        <select id="rdKind" required>
+          <option value="">請選擇…</option>
+          <option value="price">價格不對</option>
+          <option value="link">連結失效或連錯</option>
+          <option value="soldout">已完售或停售</option>
+          <option value="info">商品資訊有誤</option>
+          <option value="missing">有漏掉的單位或商品</option>
+          <option value="other">其他</option>
+        </select>
+      </label>
+      <label>說明
+        <textarea id="rdMsg" required maxlength="2000"
+          placeholder="例如：這盒實際是 480 元不是 520 元，官網 8/20 已改價。"></textarea>
+        <span class="hint">至少 5 個字。寫得越具體，我們越快能改對。</span>
+      </label>
+      <label>正確的內容（選填）
+        <input type="text" id="rdFix" maxlength="500" placeholder="正確價格、正確網址…">
+      </label>
+      <label>你的 Email（選填）
+        <input type="email" id="rdMail" maxlength="254" placeholder="想知道處理結果再填" autocomplete="email">
+        <span class="hint">不填也能送出。留了我們處理完會通知你，不會用於任何其他用途。</span>
+      </label>
+      <div class="hp" aria-hidden="true">
+        <label>Website<input type="text" id="rdHp" tabindex="-1" autocomplete="off"></label>
+      </div>
+      <div id="rdTs"></div>
+    </div>
+    <footer>
+      <p class="msg" id="rdMsgOut" role="status" aria-live="polite"></p>
+      <span class="grow"></span>
+      <button type="button" class="cancel" id="rdCancel">取消</button>
+      <button type="submit" class="send" id="rdSend">送出回報</button>
+    </footer>
+  </form>
+</dialog>
+
+<script>
+(() => {
+  const SITE_KEY = "0x4AAAAAAEZLk7p7q8IZEwI6";
+  const dlg = document.getElementById("rd");
+  const f = document.getElementById("rdForm");
+  const out = document.getElementById("rdMsgOut");
+  const send = document.getElementById("rdSend");
+  let widgetId = null, target = {};
+
+  function say(t, cls) { out.textContent = t || ""; out.className = "msg" + (cls ? " " + cls : ""); }
+
+  function mountTurnstile() {
+    if (!window.turnstile || !SITE_KEY || SITE_KEY.startsWith("__")) return;
+    if (widgetId !== null) { window.turnstile.reset(widgetId); return; }
+    widgetId = window.turnstile.render("#rdTs", { sitekey: SITE_KEY, theme: "light", size: "flexible" });
+  }
+
+  window.openReport = (t) => {
+    target = t || {};
+    document.getElementById("rdTarget").textContent = target.unitName
+      ? `回報對象：${target.unitName}${target.productName ? "　／　" + target.productName : ""}`
+      : "一般回報（沒有指定特定單位或商品）";
+    f.reset(); say(""); send.disabled = false;
+    dlg.showModal();
+    dlg.scrollTop = 0;
+    document.getElementById("rdKind").focus({preventScroll:true});
+    setTimeout(mountTurnstile, 60);
+  };
+  document.getElementById("rdCancel").addEventListener("click", () => dlg.close());
+  document.getElementById("rdX").addEventListener("click", () => dlg.close());
+
+  f.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const kind = document.getElementById("rdKind").value;
+    const message = document.getElementById("rdMsg").value.trim();
+    const email = document.getElementById("rdMail").value.trim();
+    if (!kind) return say("請先選擇問題類型。", "err");
+    if (message.length < 5) return say("請至少寫 5 個字說明問題。", "err");
+    if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return say("Email 格式看起來不對，不想留可以清空。", "err");
+
+    const token = widgetId !== null && window.turnstile ? window.turnstile.getResponse(widgetId) : "";
+    if (!token) return say("請先完成人機驗證。", "err");
+
+    send.disabled = true; say("送出中…");
+    try {
+      const r = await fetch("/api/report", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({
+          kind, message,
+          suggested: document.getElementById("rdFix").value.trim(),
+          email,
+          website: document.getElementById("rdHp").value,
+          unitId: Number.isInteger(target.unitId) ? target.unitId : null,
+          unitName: target.unitName || "", productName: target.productName || "",
+          turnstileToken: token,
+        }),
+      });
+      const d = await r.json().catch(() => ({}));
+      if (!r.ok) { say(d.error || "送出失敗，請稍後再試。", "err"); send.disabled = false;
+                   if (window.turnstile && widgetId !== null) window.turnstile.reset(widgetId); return; }
+      say(d.message || "收到了，謝謝你。", "ok");
+      setTimeout(() => dlg.close(), 4200);
+    } catch {
+      say("連不上伺服器，請檢查網路後再試。", "err"); send.disabled = false;
+    }
+  });
+})();
+</script>
+
+
+<script>
+const DATA = {"meta":{"title":"2026 中秋庇護工場公益禮盒總覽","source":"總統府「好事成圓 全民挺公益」62 家庇護工場/社福單位清單，另收錄 Threads 自薦單位","updated":"2026-08-23","moon_festival":"2026-09-25","official_links":[{"label":"衛福部 愛福好商城","url":"https://ptps.sfaa.gov.tw/festival/2026moonfestival"},{"label":"勞動部 庇護工場產品型錄","url":"https://orsd.wda.gov.tw/sheltered_products"},{"label":"礙優網 高雄社福平台","url":"https://www.iustore.com.tw/"}],"sources_note":"新增勞動部「庇護工場產品型錄」全站 488 筆商品資料（orsd.wda.gov.tw），比對後補入 159 項含官方建議售價的商品。","ship_note":"寄送分級由訂購方式與備註的文字證據推斷，非向單位查證。likely 表示有線上管道但未明寫運費。"},"units":[{"id":1,"name":"中華啟能基金會（春暉啟能中心）","county":"新北市","region":"北部","website":"https://www.spris.org.tw/","facebook":"https://www.facebook.com/dapu220","links":[],"buy":"https://www.spris.org.tw/news_show.php?id=61","status":"2026中秋","order":"電話訂購（春暉烘焙坊）；官網公告附訂購單 DM 圖檔","phone":"02-2671-3001#2209","products":[{"name":"春暉禮讚・115 年中秋禮盒","desc":"春暉烘焙坊 2026（115年）官方中秋禮盒公告，2026-07-09 發布；DM 為圖檔，品項與價格需電洽","price":null,"cat":"月餅禮盒","url":"https://www.spris.org.tw/news_show.php?id=61","lk":"notice"}],"notes":"位於新北市三峽區。2026 中秋公告已於官網發布，禮盒明細以 DM 圖檔與電話洽詢為準。","lk":"notice","ship":{"tier":"ask","basis":"訂購方式只提到電話／傳真／私訊，需電話確認"}},{"id":2,"name":"中華民國唐氏症基金會（愛不囉嗦）","county":"新北市","region":"北部","website":"https://www.rocdown-syndrome.org.tw/","facebook":"https://www.facebook.com/downbaby","links":[{"label":"蝦皮商城","url":"https://shopee.tw/abrazoshop"},{"label":"勞動部型錄","url":"https://orsd.wda.gov.tw/sheltered_products"}],"buy":"https://www.downdown.tw/categories/%E4%B8%AD%E7%A7%8B%E7%A6%AE%E7%9B%92mid-autumn-festival-gift-box","status":"2026中秋","order":"愛不囉嗦購物網線上訂購（超商取貨/宅配，滿3000常溫免運）、蝦皮、電話","phone":"02-2278-9321#135","products":[{"name":"A3 藍海星月鳳梨酥禮盒","desc":"土鳳梨酥5入＋蜜香柚子酥5入（原價550）","price":525,"cat":"鳳梨酥","lk":"shop","img":"eb3c79f8343dc2","imgsrc":"img.shoplineapp.com"},{"name":"A2 雀羽夜眠綜合酥禮盒","desc":"綜合酥餅禮盒（原價650），預購中","price":618,"cat":"蛋黃酥/糕餅","lk":"shop","img":"4942b27152f6c6","imgsrc":"img.shoplineapp.com"},{"name":"A4 同心映月典藏禮盒","desc":"桃山月餅3入＋多款餅乾（原價740），查詢時已售完","price":703,"cat":"月餅禮盒","lk":"shop","img":"127a0f1fd0ae05","imgsrc":"img.shoplineapp.com"},{"name":"A1 秋好月圓禮盒","desc":"蛋黃酥＋鳳梨酥＋餅乾（原價420），查詢時已售完","price":399,"cat":"蛋黃酥/糕餅","lk":"shop","img":"94ea6555013224","imgsrc":"img.shoplineapp.com"},{"name":"B3 海洋夢境健康堅果禮盒","desc":"健康堅果禮盒（原價510），預購中","price":485,"cat":"農產/加工食品","lk":"shop"},{"name":"F1 秋節暖心送愛募集","desc":"認購禮盒轉贈特教學校與弱勢家庭（購買者不收到商品）","price":420,"cat":"其他","lk":"shop"},{"name":"愛不囉嗦-恬茶時光 鐵觀音拿鐵禮盒","desc":"草莓法蘭酥x5片、巧克力法蘭酥x5片、香草法蘭酥x5片、杏仁花生脆片x5片、牛奶捲心酥x12支、鐵觀音拿鐵即溶包x5包；保存 6個月","price":420,"cat":"咖啡/飲品","url":"https://orsd.wda.gov.tw/sheltered_products/detail/289","src":"勞動部型錄","lk":"catalog","alt":{"label":"訂購（粉專）","url":"https://www.facebook.com/abrazo05/"},"img":"4bac50a494803e","imgsrc":"orsd.wda.gov.tw"},{"name":"愛不囉嗦-擁抱幸福手工餅乾禮盒","desc":"魔幻巧豆70g*1罐、香草奶酥60g*1罐、蔓越莓雪球85g*1罐、起司奶酥60g*1罐、可可雪球85g*1罐、南瓜子餅乾90g*1罐；保存 45天","price":499,"cat":"蛋捲/餅乾/點心","url":"https://orsd.wda.gov.tw/sheltered_products/detail/290","src":"勞動部型錄","lk":"catalog","alt":{"label":"訂購（粉專）","url":"https://www.facebook.com/abrazo05/"},"img":"887a758046defa","imgsrc":"img.shoplineapp.com"},{"name":"星耀月圓 麻吉貓午茶禮盒","desc":"脆脆黑米x6片；保存 餅乾6個月 咖啡18個月","price":430,"cat":"其他","url":"https://orsd.wda.gov.tw/sheltered_products/detail/520","src":"勞動部型錄","lk":"catalog","img":"bdc28e013933d8","imgsrc":"img.shoplineapp.com"}],"notes":"烘焙品牌「愛不囉嗦」，2026 中秋早鳥預購進行中，部分品項已完售。","lk":"shop","ship":{"tier":"yes","basis":"訂購方式提到「超商取貨」"}},{"id":3,"name":"新北市喜憨兒庇護工場","county":"新北市","region":"北部","website":"https://www.c-are-us.org.tw/","facebook":"https://www.facebook.com/careus/","links":[{"label":"樂天市場","url":"https://www.rakuten.com.tw/shop/cshop/category/g4bhj/"},{"label":"送愛到部落募集","url":"https://www.c-are-us.org.tw/civicrm/contribute/transact?reset=1&id=163"},{"label":"勞動部型錄","url":"https://orsd.wda.gov.tw/sheltered_products"}],"buy":"https://www.sefunnet.com/Goods/Index?Type=0&CategoryId=59c60bef-0c9e-467b-b292-68e91e7a619a","status":"2026中秋","order":"喜歡你購物網／樂天市場線上訂購；電話、傳真 02-2223-8286","phone":"02-8221-7676#111","products":[{"name":"喜憨兒×幾米 月餅鐵盒．剛好幸福(E1)","desc":"幾米聯名中秋月餅鐵盒","price":660,"cat":"月餅禮盒","lk":"shop"},{"name":"喜憨兒×幾米 蛋黃酥禮盒．剛好出發(C1)","desc":"幾米聯名蛋黃酥禮盒","price":690,"cat":"蛋黃酥/糕餅","lk":"shop"},{"name":"喜憨兒×幾米 曲奇禮盒．剛好想你(A3)","desc":"幾米聯名手工曲奇餅乾禮盒","price":890,"cat":"蛋捲/餅乾/點心","lk":"shop"},{"name":"喜憨兒×幾米 綜合禮盒．剛好有你(B1)","desc":"幾米聯名月餅西點綜合禮盒","price":760,"cat":"月餅禮盒","lk":"shop"},{"name":"喜憨兒AI公益 3入月餅禮盒．逐月(H2)","desc":"AI 公益設計 3 入月餅禮盒（特價）","price":299,"cat":"月餅禮盒","lk":"shop"},{"name":"喜憨兒×幾米 雙層旋轉禮盒．剛好有光(A+)","desc":"幾米聯名雙層旋轉造型禮盒","price":1380,"cat":"月餅禮盒","lk":"shop"},{"name":"送愛到部落 中秋禮盒募集","desc":"認購禮盒送偏鄉部落（購買者不收到商品）","price":499,"cat":"其他","lk":"shop"},{"name":"特色米禮盒-喜穀豐藏禮盒","desc":"富里白米300g*1+越光十穀米300g*1；保存 六個月以上；喜憨兒創作料理庇護商店","price":210,"cat":"其他","url":"https://orsd.wda.gov.tw/sheltered_products/detail/48","src":"勞動部型錄","lk":"catalog","img":"392d6a2e6b962f","imgsrc":"orsd.wda.gov.tw"},{"name":"花悅繽紛","desc":"千層蝴蝶酥 24入；保存 20~30天；喜憨兒和發庇護工場","price":450,"cat":"其他","url":"https://www.sefunnet.com/Goods/Detail?id=7f052efa-3d30-4201-9082-4eb995ddfbbf","src":"勞動部型錄","lk":"detail","ref":"https://orsd.wda.gov.tw/sheltered_products/detail/54","img":"66336f357a328e","imgsrc":"orsd.wda.gov.tw"},{"name":"喜憨兒南門-茶點禮盒．恬靜花園(B)","desc":"禮盒內容(附贈提袋)奶蛋素；保存 餅乾保存約20天/花草茶約12個月；桃園南門公園庇護商店","price":460,"cat":"其他","url":"https://orsd.wda.gov.tw/sheltered_products/detail/294","src":"勞動部型錄","lk":"catalog","img":"3053dd75622abe","imgsrc":"orsd.wda.gov.tw"},{"name":"喜憨兒市府-咖啡餅乾禮盒・啡嚐甜蜜","desc":"加勒比微風-濾掛式咖啡(10g)×6入；保存 餅乾保存約20天/咖啡包約12個月；桃園市府庇護商店","price":499,"cat":"咖啡/飲品","url":"https://orsd.wda.gov.tw/sheltered_products/detail/296","src":"勞動部型錄","lk":"catalog","img":"6920d935aec1a4","imgsrc":"orsd.wda.gov.tw"},{"name":"幾米完美小孩．雙層鐵盒(經典版)","desc":"鐵盒設計雙層法式小點(附贈提袋)；保存 14天；桃園市府庇護商店","price":630,"cat":"其他","url":"https://orsd.wda.gov.tw/sheltered_products/detail/491","src":"勞動部型錄","lk":"catalog"},{"name":"手工餅乾・愛戀朵朵(B)","desc":"禮盒內容(附贈提袋)；保存 20；埔心庇護商店","price":530,"cat":"蛋捲/餅乾/點心","url":"https://orsd.wda.gov.tw/sheltered_products/detail/492","src":"勞動部型錄","lk":"catalog"},{"name":"微笑三重奏．餅乾鐵盒","desc":"﻿﻿手提盒設計；保存 20天；桃園南門公園庇護商店","price":450,"cat":"蛋捲/餅乾/點心","url":"https://orsd.wda.gov.tw/sheltered_products/detail/493","src":"勞動部型錄","lk":"catalog"}],"notes":"喜憨兒基金會烘焙中央廚房（新莊），2026 中秋為幾米聯名系列。","lk":"shop","ship":{"tier":"likely","basis":"有線上管道「樂天」，多數線上店可寄，但未明寫運費"}},{"id":4,"name":"愛肯樂活工場（台北市自閉兒基金會）","county":"台北市","region":"北部","website":"https://www.ican.org.tw/","facebook":"https://www.facebook.com/ican25993803","links":[{"label":"台北市微笑商城","url":"https://www.taipeishelteredworkshops.com/store/view/8"}],"buy":"https://www.ican.url.tw/140778/index.php?action=product_sort&prod_sort_uid=5108","status":"2026中秋","order":"官方商城「2026中秋好禮」專區線上訂購、電話","phone":"02-2599-3803#18","products":[{"name":"《皇樓》禾豐之月禮盒","desc":"聯名月餅禮盒，8/27後供貨（原價670）","price":530,"cat":"月餅禮盒","lk":"shop","img":"974e04798f51d5","imgsrc":"jooshop.url.com.tw"},{"name":"《皇樓》凌閣之月禮盒","desc":"聯名月餅禮盒，9/7後供貨（原價700）","price":560,"cat":"月餅禮盒","lk":"shop","img":"2eb74ca47e700b","imgsrc":"jooshop.url.com.tw"},{"name":"《伊莎貝爾》月之曉夢禮盒","desc":"聯名月餅禮盒（原價600）","price":480,"cat":"月餅禮盒","lk":"shop","img":"601a3e508bb10e","imgsrc":"jooshop.url.com.tw"},{"name":"潤木手工皂禮盒（木盒）","desc":"庇護學員手工皂木盒裝（原價888）","price":720,"cat":"手工皂/清潔用品","lk":"shop","img":"677bf10343c6f9","imgsrc":"jooshop.url.com.tw"},{"name":"天然果物罐裝二入禮盒","desc":"綜合果乾＋堅果罐裝 2 入","price":500,"cat":"農產/加工食品","lk":"shop"},{"name":"古法直火咖啡豆禮盒","desc":"直火烘焙咖啡豆禮盒","price":598,"cat":"咖啡/飲品","lk":"shop"},{"name":"2026中秋轉贈：平安麵＋皇樓月餅","desc":"公益轉贈組合（原價1230）","price":1000,"cat":"其他","lk":"shop","img":"2fd2b87761044f","imgsrc":"jooshop.url.com.tw"}],"notes":"台北市大同區。列入勞動部 2026 庇護工場中秋採購型錄。","lk":"shop","ship":{"tier":"likely","basis":"有線上管道「商城」，多數線上店可寄，但未明寫運費"}},{"id":5,"name":"中華善愛社福協會（小豆苗工作坊）","county":"新北市","region":"北部","website":"https://sanlove.sino1.com.tw/","facebook":"https://www.facebook.com/106747397944219","links":[],"buy":"https://sanlove.sino1.com.tw/ShopList.aspx","status":"常態商品(2026待更新)","order":"電話訂購（週一至五 08:30-17:30）、現場購買（板橋南門街31號）、官網購物車；禮盒可客製","phone":"02-2966-2058","products":[{"name":"香脆卡拉棒","desc":"帕馬森起司／日式芝麻牛奶口味","price":120,"cat":"蛋捲/餅乾/點心","lk":"shop","img":"befa876445bf10","imgsrc":"sanlove.sino1.com.tw"},{"name":"手工法式牛軋餅","desc":"綜合口味","price":120,"cat":"蛋捲/餅乾/點心","lk":"shop"},{"name":"手工養身堅果塔 6 入","desc":"手工堅果塔","price":288,"cat":"蛋捲/餅乾/點心","lk":"shop"},{"name":"豆苗職人伴手禮","desc":"綜合手作點心伴手禮盒","price":268,"cat":"其他","lk":"shop","img":"9f38ad8e2f978a","imgsrc":"sanlove.sino1.com.tw"}],"notes":"中秋禮盒建議電洽客製。","lk":"shop","ship":{"tier":"likely","basis":"有線上管道「購物車」，多數線上店可寄，但未明寫運費"}},{"id":6,"name":"育仁啟能中心（光仁社會福利基金會）","county":"台北市","region":"北部","website":"https://www.kjswf.org.tw/","facebook":"https://www.facebook.com/kjswf","links":[],"buy":"https://www.kjswf.org.tw/ShopList.aspx?id=143","status":"2026中秋","order":"光仁公益商城線上下單、訂購單傳真 02-2314-3303、電話；8/27 前早鳥優惠","phone":"02-2382-1090#12","products":[{"name":"光仁×Mandie 微光祝福A","desc":"蛋黃酥2＋帕瑪森雪月沙2＋紫晶酥2＋餅乾12片（定價650，早鳥600）","price":600,"cat":"蛋黃酥/糕餅","lk":"shop","img":"1b72f83fe7c48a","imgsrc":"www.kjswf.org.tw"},{"name":"光仁×Mandie 微光祝福B","desc":"蛋黃酥2＋帕瑪森雪月沙2＋紫晶酥2＋紅麴餅乾6片（定價560，早鳥510）","price":510,"cat":"蛋黃酥/糕餅","lk":"shop","img":"5ae00634b8374d","imgsrc":"www.kjswf.org.tw"},{"name":"光仁×Mandie 微光祝福C","desc":"蛋黃酥2＋蛋捲2支＋餅乾6片（定價380，早鳥330）","price":330,"cat":"蛋黃酥/糕餅","lk":"shop","img":"55e79db1c60687","imgsrc":"www.kjswf.org.tw"}],"notes":"與插畫家 Mandie 聯名，由身障青年於中心工坊製作。","lk":"shop","ship":{"tier":"likely","basis":"有線上管道「商城」，多數線上店可寄，但未明寫運費"}},{"id":7,"name":"小愉兒社會福利基金會（熊米屋）","county":"基隆市","region":"北部","website":"https://papid.com.tw/","facebook":"https://www.facebook.com/papid.com.tw","links":[],"buy":"https://papid.com.tw/moon-festival/","status":"2026中秋","order":"熊米屋官網線上購物車、電話、傳真 02-2428-9123","phone":"02-2422-0310","products":[{"name":"圓月如意","desc":"鳳梨酥、蛋黃酥、綠豆椪各 2 入","price":390,"cat":"蛋黃酥/糕餅","url":"https://papid.com.tw/product/%e3%80%90%e5%9c%93%e6%9c%88%e5%a6%82%e6%84%8f%e3%80%91%e9%b3%b3%e6%a2%a8%e9%85%a5%e3%80%81%e8%9b%8b%e9%bb%83%e9%85%a5%e3%80%81%e7%b6%a0%e8%b1%86%e6%a4%aa%e5%90%842/","lk":"detail","img":"6f3f7a73631a60","imgsrc":"papid.com.tw"},{"name":"品月禮盒","desc":"鳳梨酥、蛋黃酥、綠豆椪各 3 入","price":560,"cat":"蛋黃酥/糕餅","lk":"shop","img":"9206b7add79f91","imgsrc":"papid.com.tw"},{"name":"喜樂禮盒","desc":"鳳梨酥6入＋蛋黃酥3入＋綠豆椪3入","price":780,"cat":"蛋黃酥/糕餅","lk":"shop","img":"7e839c269709ba","imgsrc":"papid.com.tw"},{"name":"傳愛禮盒","desc":"手工餅乾6入＋鳳梨酥6入","price":720,"cat":"蛋捲/餅乾/點心","lk":"shop","img":"9d1992d4fba41b","imgsrc":"papid.com.tw"},{"name":"家園雙層禮盒","desc":"手工餅乾6入＋蛋黃酥3入＋綠豆椪3入＋鳳梨酥3入","price":980,"cat":"蛋黃酥/糕餅","lk":"shop"}],"notes":"熊米屋愛心烘焙坊（基隆孝三路），滿額禮活動至 8/31。","lk":"shop","ship":{"tier":"likely","basis":"有線上管道「線上購」，多數線上店可寄，但未明寫運費"}},{"id":8,"name":"育成社會福利基金會（好事育成）","county":"台北市","region":"北部","website":"https://www.ycswf.org.tw/","facebook":"https://www.facebook.com/profile.php?id=100090290270390","links":[],"buy":"https://www.ycstore.com.tw/pages/2026%20Mid-Autumn","status":"2026中秋","order":"好事育成官方商城線上訂購；企業訂購洽事業部","phone":"02-2705-2588#27","products":[{"name":"綜合精裝大禮盒．月餅款","desc":"月餅綜合精裝大禮盒（原價1040）","price":915,"cat":"月餅禮盒","lk":"shop"},{"name":"綜合精裝大禮盒．鳳凰酥款","desc":"鳳凰酥綜合精裝大禮盒（原價1040）","price":915,"cat":"鳳梨酥","lk":"shop"},{"name":"人氣蛋黃酥 9 入禮盒","desc":"蛋黃酥9入（原價760）","price":669,"cat":"蛋黃酥/糕餅","lk":"shop"},{"name":"經典月餅 9 入禮盒","desc":"經典月餅9入（原價760）","price":669,"cat":"月餅禮盒","lk":"shop"},{"name":"酥餅綜合 8 入禮盒（月餅款）","desc":"酥餅綜合8入含月餅（原價620）","price":546,"cat":"蛋黃酥/糕餅","lk":"shop"},{"name":"經典月餅 3 入禮盒","desc":"經典月餅3入（原價250）","price":220,"cat":"月餅禮盒","lk":"shop"}],"notes":"旗下含慈育庇護工場；查詢時部分品項售完/待補貨。","lk":"shop","ship":{"tier":"likely","basis":"有線上管道「商城」，多數線上店可寄，但未明寫運費"}},{"id":9,"name":"糕菲庇護工廠","county":"台北市","region":"北部","website":"https://gofe.com.tw/","facebook":"https://www.facebook.com/gofeorg/","links":[],"buy":"https://www.taipeishelteredworkshops.com/store/view/15","status":"常態商品(2026待更新)","order":"台北市微笑商城、電話訂購（官網 SSL 憑證異常暫無法開啟）","phone":"02-2785-2499#9","products":[{"name":"愛喜樂禮盒","desc":"手工蛋捲/餅乾綜合禮盒（特價）","price":399,"cat":"蛋捲/餅乾/點心","lk":"shop"},{"name":"愛微笑禮盒","desc":"綜合手工烘焙禮盒（特價）","price":519,"cat":"蛋捲/餅乾/點心","lk":"shop"},{"name":"糕菲QQ餅隨手盒","desc":"QQ 餅隨手盒","price":150,"cat":"蛋捲/餅乾/點心","lk":"shop"},{"name":"手工蛋捲分享隨手包","desc":"手工蛋捲隨手包","price":100,"cat":"蛋捲/餅乾/點心","lk":"shop"}],"notes":"位於台北市內湖區（總統府清單註記桃園應為誤植）。","lk":"shop","ship":{"tier":"likely","basis":"有線上管道「商城」，多數線上店可寄，但未明寫運費"}},{"id":10,"name":"基隆聾啞福利協進會 勵聲美饌","county":"基隆市","region":"北部","website":"http://www.kldeaf.artcom.tw/","facebook":"https://www.facebook.com/groups/391870854203778/","links":[],"buy":"https://ptps.sfaa.gov.tw/mall/storePage/34E2BEE5-DB35-4555-8FE4-CC584D96CE21","status":"2026中秋","order":"衛福部愛福好商城線上訂購、電話/傳真（訂購窗口黃小姐）","phone":"02-2429-1433","products":[{"name":"蛋黃酥 6 入","desc":"聽障朋友手工烘焙","price":340,"cat":"蛋黃酥/糕餅","lk":"shop","img":"73c43bede5b956","imgsrc":"ptps.sfaa.gov.tw"},{"name":"蛋黃酥 12 入","desc":"聽障朋友手工烘焙","price":655,"cat":"蛋黃酥/糕餅","lk":"shop","img":"73c43bede5b956","imgsrc":"ptps.sfaa.gov.tw"},{"name":"蛋黃酥 15 入","desc":"聽障朋友手工烘焙","price":815,"cat":"蛋黃酥/糕餅","lk":"shop","img":"73c43bede5b956","imgsrc":"ptps.sfaa.gov.tw"},{"name":"鳳梨酥 6 入","desc":"聽障朋友手工烘焙","price":270,"cat":"鳳梨酥","lk":"shop","img":"1e49675d62a340","imgsrc":"ptps.sfaa.gov.tw"},{"name":"鳳梨酥 12 入","desc":"聽障朋友手工烘焙","price":520,"cat":"鳳梨酥","lk":"shop","img":"1e49675d62a340","imgsrc":"ptps.sfaa.gov.tw"},{"name":"鳳梨酥 15 入","desc":"聽障朋友手工烘焙","price":630,"cat":"鳳梨酥","lk":"shop","img":"1e49675d62a340","imgsrc":"ptps.sfaa.gov.tw"}],"notes":"由聽障朋友組成的烘焙坊，另有團體認購轉贈弱勢方案。","lk":"shop","ship":{"tier":"likely","basis":"有線上管道「商城」，多數線上店可寄，但未明寫運費"}},{"id":11,"name":"伊甸社會福利基金會（伊甸烘焙咖啡屋）","county":"台北市","region":"北部","website":"https://www.eden.org.tw/","facebook":"https://www.facebook.com/edenfan","links":[{"label":"中秋活動頁","url":"https://www.eden.org.tw/news/event/detail-3kQ/"},{"label":"勞動部型錄","url":"https://orsd.wda.gov.tw/sheltered_products"},{"label":"桃園easy購","url":"https://easygo.tycg.gov.tw/store-product.aspx?id=3"}],"buy":"https://edenmall.eden.org.tw/products_70_110.htm","status":"2026中秋","order":"伊甸公益MaLL線上商城；9/24 前預訂 95 折；桃園工場 03-427-8229#101","phone":"02-2239-0235","products":[{"name":"月圓禮盒","desc":"蛋黃酥、綠豆椪、麻吉月餅、流心月餅、廣式月餅共6入（預訂95折399）","price":420,"cat":"月餅禮盒","lk":"shop","img":"e0b52f387d6869","imgsrc":"edenmall.eden.org.tw"},{"name":"喜樂禮盒","desc":"水果酥3入＋豬肉絲（預訂95折380）","price":400,"cat":"月餅禮盒","lk":"shop","img":"132d21fee7feb3","imgsrc":"edenmall.eden.org.tw"},{"name":"幸福禮盒","desc":"庇護工場烘焙點心組合（預訂95折342）","price":360,"cat":"月餅禮盒","lk":"shop","img":"2de5f127989894","imgsrc":"edenmall.eden.org.tw"},{"name":"喜悅禮盒","desc":"庇護工場烘焙點心組合（預訂95折570）","price":600,"cat":"月餅禮盒","lk":"shop","img":"45495ccbdd4b1b","imgsrc":"edenmall.eden.org.tw"},{"name":"福星禮盒","desc":"庇護工場烘焙點心組合（預訂95折580）","price":610,"cat":"月餅禮盒","lk":"shop","img":"8416852f2702e7","imgsrc":"edenmall.eden.org.tw"},{"name":"福氣禮盒","desc":"多款精緻烘焙點心（預訂95折608）","price":640,"cat":"月餅禮盒","lk":"shop","img":"6030369d7eee60","imgsrc":"edenmall.eden.org.tw"},{"name":"福至禮盒","desc":"庇護工場烘焙點心組合（預訂95折741）","price":780,"cat":"月餅禮盒","lk":"shop","img":"0d92c168e14acb","imgsrc":"edenmall.eden.org.tw"},{"name":"三米共月 有機健康米禮盒","desc":"有機白米、糙米、黑糙米各 1 入","price":500,"cat":"農產/加工食品","lk":"shop"},{"name":"玫瑰雙層禮盒C款","desc":"巧克力雪山餅乾*6片；保存 常溫保存45天","price":620,"cat":"蛋捲/餅乾/點心","url":"https://orsd.wda.gov.tw/sheltered_products/detail/236","src":"勞動部型錄","lk":"catalog","img":"ba79c7b4a50c90","imgsrc":"edenmall.eden.org.tw"},{"name":"塔Q提盒","desc":"太妃核果塔（30g±9%）*4個(蛋奶素)；保存 常溫保存45天","price":350,"cat":"其他","url":"https://orsd.wda.gov.tw/sheltered_products/detail/237","src":"勞動部型錄","lk":"catalog","img":"af3bd785167175","imgsrc":"edenmall.eden.org.tw"},{"name":"心心相蝶禮袋","desc":"12片/袋；保存 常溫45天","price":180,"cat":"其他","url":"https://edenmall.eden.org.tw/products_detail_70_98_2203.htm","src":"勞動部型錄","lk":"detail","ref":"https://orsd.wda.gov.tw/sheltered_products/detail/240","img":"c556aa7dafc7ba","imgsrc":"orsd.wda.gov.tw"},{"name":"雪Q餅禮袋","desc":"200克±4.5%/包；保存 常溫45天","price":200,"cat":"蛋黃酥/糕餅","url":"https://edenmall.eden.org.tw/products_detail_70_98_2204.htm","src":"勞動部型錄","lk":"detail","ref":"https://orsd.wda.gov.tw/sheltered_products/detail/241","img":"d2a37e77cd41c4","imgsrc":"orsd.wda.gov.tw"},{"name":"牛奶黑芝麻阿拉棒","desc":"內容物重量：100g±4.5%；保存 常溫45天","price":150,"cat":"其他","url":"https://edenmall.eden.org.tw/products_detail_70_98_1703.htm","src":"勞動部型錄","lk":"detail","ref":"https://orsd.wda.gov.tw/sheltered_products/detail/242","img":"61a556c0ff56e5","imgsrc":"orsd.wda.gov.tw"},{"name":"花月緣曲奇小圓鐵盒","desc":"280g±9g/盒（圓鐵盒含提袋）；保存 常溫30天","price":280,"cat":"蛋捲/餅乾/點心","url":"https://edenmall.eden.org.tw/products_detail_70_94_2200.htm","src":"勞動部型錄","lk":"detail","ref":"https://orsd.wda.gov.tw/sheltered_products/detail/244"},{"name":"手工餅乾","desc":"淨重70g~100g±4.5g~9g；保存 製造日期+44天","price":100,"cat":"蛋捲/餅乾/點心","url":"https://edenmall.eden.org.tw/products_catalog_70.htm","src":"勞動部型錄","lk":"shop","ref":"https://orsd.wda.gov.tw/sheltered_products/detail/304"},{"name":"心心向榮提盒","desc":"包裝盒尺寸：29.5cm x 16.6cm x 5cm（附提繩，無另附提袋）；保存 製造日期+44天","price":350,"cat":"其他","url":"https://edenmall.eden.org.tw/products_detail_70_94_2115.htm","src":"勞動部型錄","lk":"detail","ref":"https://orsd.wda.gov.tw/sheltered_products/detail/305","img":"a18d11338b6291","imgsrc":"orsd.wda.gov.tw"},{"name":"客製化餐盒","desc":"依預算搭配鹹甜點心，也可加購飲料。；保存 3天","price":100,"cat":"蛋捲/餅乾/點心","url":"https://easygo.tycg.gov.tw/product-info.aspx?id=40952","src":"勞動部型錄","lk":"shop","ref":"https://orsd.wda.gov.tw/sheltered_products/detail/482"},{"name":"巧蝶珍藏提盒","desc":"460g±4.5%/盒；保存 45天","price":299,"cat":"其他","url":"https://easygo.tycg.gov.tw/product-info.aspx?id=41221","src":"勞動部型錄","lk":"shop","ref":"https://orsd.wda.gov.tw/sheltered_products/detail/483"},{"name":"寵愛日常B款","desc":"紅鐵盒外徑：17*17*6.5cm；保存 30天","price":500,"cat":"其他","url":"https://easygo.tycg.gov.tw/product-info.aspx?id=41222","src":"勞動部型錄","lk":"shop","ref":"https://orsd.wda.gov.tw/sheltered_products/detail/484"}],"notes":"全國型基金會（總會台北），參與單位為桃園中壢伊甸烘焙咖啡屋。","lk":"shop","ship":{"tier":"likely","basis":"有線上管道「商城」，多數線上店可寄，但未明寫運費"}},{"id":12,"name":"觀音愛心家園","county":"桃園市","region":"北部","website":"https://www.kindgarden.org.tw/","facebook":"https://www.facebook.com/kindgarden/","links":[],"buy":"https://kindgardenloveshop.org.tw/","status":"2026中秋","order":"官方商城線上訂購（宅配/自取，可貨到付款），中秋預購 95 折；雙北桃竹滿 3200 免運","phone":"03-483-3820","products":[{"name":"月圓禮盒","desc":"鳳梨酥4入、雪花Q餅2包、法式水果軟糖","price":330,"cat":"月餅禮盒","lk":"shop","img":"0eb3b23abcf687","imgsrc":"img3.shop2000.com.tw"},{"name":"旺吧!禮盒","desc":"鳳梨酥 8 入","price":360,"cat":"鳳梨酥","lk":"shop"},{"name":"賞月A禮盒","desc":"雪花Q餅＋鳳梨酥3入等組合","price":420,"cat":"月餅禮盒","lk":"shop","img":"f02411075518fe","imgsrc":"img3.shop2000.com.tw"},{"name":"賞月B禮盒","desc":"蛋黃酥3入、鳳梨酥3入、肉燥綠豆椪3入","price":480,"cat":"月餅禮盒","lk":"shop","img":"47c823088dd5f1","imgsrc":"img3.shop2000.com.tw"},{"name":"吉祥禮盒","desc":"蛋黃酥 9 入（新鮮鴨蛋黃）","price":600,"cat":"蛋黃酥/糕餅","lk":"shop","img":"8545bd9e406d19","imgsrc":"img3.shop2000.com.tw"},{"name":"土鳳梨酥禮盒（精裝版）","desc":"土鳳梨酥 10 入","price":480,"cat":"鳳梨酥","lk":"shop","img":"a96dfd6824b4a9","imgsrc":"img3.shop2000.com.tw"},{"name":"大四喜A禮盒","desc":"鳳梨酥、素綠豆椪、水果酥各3入＋雪花Q餅","price":520,"cat":"月餅禮盒","lk":"shop","img":"15d338ded0fb80","imgsrc":"img3.shop2000.com.tw"},{"name":"大四喜B禮盒","desc":"肉燥綠豆椪、蛋黃酥、鳳梨酥、廣式月餅各3入","price":580,"cat":"月餅禮盒","lk":"shop","img":"54dcb4474d8327","imgsrc":"img3.shop2000.com.tw"},{"name":"五福臨門（雙層禮盒）","desc":"鳳梨酥6入、糖果、千層派、餅乾、果仁","price":720,"cat":"月餅禮盒","lk":"shop","img":"58d21af4ee55e2","imgsrc":"img3.shop2000.com.tw"},{"name":"富貴雙全（雙層禮盒）","desc":"素綠豆椪3入、蛋黃酥3入、鳳梨酥6入等","price":880,"cat":"月餅禮盒","lk":"shop"},{"name":"圓滿（圓桶）禮盒","desc":"圓桶造型綜合點心禮盒","price":360,"cat":"蛋捲/餅乾/點心","lk":"shop","img":"e217934ab9ca44","imgsrc":"img3.shop2000.com.tw"},{"name":"喜福會禮盒","desc":"起酥條、果仁、糖果、餅乾組合","price":520,"cat":"蛋捲/餅乾/點心","lk":"shop"},{"name":"郭元益聯名 夢駒之紫","desc":"與郭元益聯名公益中秋禮盒","price":600,"cat":"月餅禮盒","lk":"shop"}],"notes":"商城中秋禮盒專區 14 項，頁面更新至 2026/08/21。","lk":"shop","ship":{"tier":"yes","basis":"訂購方式提到「宅配」"}},{"id":13,"name":"路得啟智學園（陪你走一段路生活坊）","county":"桃園市","region":"北部","website":"https://ruth.eoffering.org.tw/","facebook":"https://www.facebook.com/ruthlove.1995","links":[{"label":"勞動部型錄","url":"https://orsd.wda.gov.tw/sheltered_products"}],"buy":"https://ruth.eoffering.org.tw/contents/goods","status":"2026中秋","order":"線上義購商城下單，或電洽生活坊（桃園八德）","phone":"03-498-0096#115","products":[{"name":"福心伴月禮盒","desc":"土鳳梨酥、鳳芒酥、廣式抹茶、烏豆沙核桃、酒釀桂圓各3入","price":920,"cat":"月餅禮盒","lk":"shop","img":"9995792605c59d","imgsrc":"ruth.eoffering.org.tw"},{"name":"廣式小月餅禮盒","desc":"柚香、酒釀桂圓、抹茶、烏豆沙核桃各2入","price":520,"cat":"月餅禮盒","lk":"shop"},{"name":"金芒好運禮盒","desc":"鳳梨芒果酥禮盒","price":540,"cat":"鳳梨酥","lk":"shop","img":"7fb80b60e82140","imgsrc":"ruth.eoffering.org.tw"},{"name":"共享良食禮盒","desc":"學員手作點心組合","price":540,"cat":"蛋捲/餅乾/點心","lk":"shop","img":"9379e97d2d4b3c","imgsrc":"ruth.eoffering.org.tw"},{"name":"幸福菓子禮盒","desc":"手工菓子/餅乾組合","price":500,"cat":"蛋捲/餅乾/點心","lk":"shop","img":"255b6971993e8d","imgsrc":"ruth.eoffering.org.tw"},{"name":"綜合水果鳳梨酥禮盒","desc":"綜合水果酥＋鳳梨酥","price":660,"cat":"鳳梨酥","lk":"shop"},{"name":"米相逢禮盒","desc":"健康十穀米1包、；保存 一年","price":350,"cat":"其他","url":"https://orsd.wda.gov.tw/sheltered_products/detail/284","src":"勞動部型錄","lk":"catalog","img":"c7f583fc4c65b2","imgsrc":"orsd.wda.gov.tw"},{"name":"品茗聚福禮盒","desc":"綜合堅果1罐、；保存 綜合堅果：6個月，紅玉紅茶：1年","price":900,"cat":"農產/加工食品","url":"https://orsd.wda.gov.tw/sheltered_products/detail/285","src":"勞動部型錄","lk":"catalog","img":"71665faef538a2","imgsrc":"orsd.wda.gov.tw"},{"name":"春意果香禮盒","desc":"綜合堅果1罐、；保存 綜合堅果：6個月蔬果脆片：9個月","price":650,"cat":"農產/加工食品","url":"https://orsd.wda.gov.tw/sheltered_products/detail/286","src":"勞動部型錄","lk":"catalog","img":"20e1a148150f85","imgsrc":"orsd.wda.gov.tw"},{"name":"陪你-日式豬排定食","desc":"日式豬排定食一份+紅茶1杯；保存 當餐","price":230,"cat":"咖啡/飲品","url":"https://orsd.wda.gov.tw/sheltered_products/detail/287","src":"勞動部型錄","lk":"catalog","img":"55c2b14d0664b0","imgsrc":"orsd.wda.gov.tw"},{"name":"傳統鳳梨酥禮盒","desc":"傳統鳳梨酥*10；保存 30天","price":450,"cat":"鳳梨酥","url":"https://orsd.wda.gov.tw/sheltered_products/detail/529","src":"勞動部型錄","lk":"catalog"},{"name":"好運土鳳梨酥禮盒","desc":"土鳳梨酥*10；保存 30天","price":550,"cat":"鳳梨酥","url":"https://orsd.wda.gov.tw/sheltered_products/detail/546","src":"勞動部型錄","lk":"catalog"}],"notes":"2026 年目標銷售 3,000 盒；列入勞動部中秋採購型錄。","lk":"shop","ship":{"tier":"likely","basis":"有線上管道「商城」，多數線上店可寄，但未明寫運費"}},{"id":14,"name":"心燈啟智教養院","county":"桃園市","region":"北部","website":"https://shin-deng.org/","facebook":"https://www.facebook.com/heartlight328/","links":[],"buy":"https://shin-deng.org/category/%E7%A6%AE%E7%9B%92%E7%B5%84","status":"常態商品(2026待更新)","order":"官方商城線上訂購（超商取貨、多元支付）、電話","phone":"03-420-5558#116","products":[{"name":"手工餅乾／禮盒組","desc":"商城設「心燈義賣」「手工餅乾」「禮盒組」分類，品項價格見商城","price":null,"cat":"蛋捲/餅乾/點心","lk":"shop"}],"notes":"桃園觀音。商城為動態網站，中秋品項建議看 FB 最新公告。","lk":"shop","ship":{"tier":"yes","basis":"訂購方式提到「超商取貨」"}},{"id":15,"name":"樂桃桃咖啡簡餐坊（桃園療養院）","county":"桃園市","region":"北部","website":"https://www.typc.mohw.gov.tw/","facebook":"https://www.facebook.com/letaotaocafeworkshop/","links":[{"label":"桃園easy購庇護商店頁","url":"https://easygo.tycg.gov.tw/store-1.aspx?id=4"},{"label":"勞動部型錄","url":"https://orsd.wda.gov.tw/sheltered_products"}],"buy":"https://easygo.tycg.gov.tw/store-1.aspx?id=4","status":"常態商品(2026待更新)","order":"電話訂購/現場消費（週一至五 08:00-16:00）","phone":"03-369-8553#2633","products":[{"name":"樂桃桃-團圓酥餅禮盒","desc":"蘭姆蔓越莓酥餅2入、雜糧堅果酥餅2入；保存 冷藏7天/冷凍14天","price":399,"cat":"蛋黃酥/糕餅","url":"https://orsd.wda.gov.tw/sheltered_products/detail/298","src":"勞動部型錄","lk":"catalog","img":"ad93b18f2b2d7d","imgsrc":"orsd.wda.gov.tw"},{"name":"樂桃桃-聚寶堅果塔禮盒","desc":"五穀珍寶堅果塔6入；保存 冷藏7天/冷凍14天","price":399,"cat":"農產/加工食品","url":"https://orsd.wda.gov.tw/sheltered_products/detail/299","src":"勞動部型錄","lk":"catalog","img":"678ba6e390c4e4","imgsrc":"orsd.wda.gov.tw"},{"name":"樂桃桃-苦甜巧克力塔禮盒","desc":"巧克力核果4入、南棗核桃糕8入；保存 冷藏7天/冷凍14天","price":399,"cat":"其他","url":"https://orsd.wda.gov.tw/sheltered_products/detail/300","src":"勞動部型錄","lk":"catalog","img":"d7d6e719ef018d","imgsrc":"orsd.wda.gov.tw"},{"name":"樂桃桃健康水煮餐","desc":"水煮餐內容參考：；保存 建議當日食用","price":110,"cat":"其他","url":"https://orsd.wda.gov.tw/sheltered_products/detail/301","src":"勞動部型錄","lk":"catalog","img":"e1a8b7efb9a50c","imgsrc":"orsd.wda.gov.tw"},{"name":"中西活動餐盒(可客製)","desc":"*中餐盒內容參考：；保存 *中餐盒建議勿隔餐食用 *西餐盒建議3天內食用","price":100,"cat":"其他","url":"https://orsd.wda.gov.tw/sheltered_products/detail/302","src":"勞動部型錄","lk":"catalog","alt":{"label":"訂購（粉專）","url":"https://www.facebook.com/letaotaocafeworkshop/"},"img":"383730e491480c","imgsrc":"orsd.wda.gov.tw"}],"notes":"衛福部桃園療養院附設，營業項目為咖啡、簡餐、點心，中秋品項請電洽。","services":["環境清潔"],"lk":"shop","ship":{"tier":"local","basis":"訂購方式以「現場消費」為主"}},{"id":16,"name":"香園紀念教養院（香園烘焙坊）","county":"新竹縣","region":"北部","website":"http://www.hsiangyuan.org.tw/","facebook":"https://www.facebook.com/hsiangyuan3344/","links":[],"buy":"https://forms.gle/JW9bfwriu8LeYN8o6","status":"2026中秋","order":"Google 表單「香園烘焙-中秋禮盒訂購表」或電話訂購","phone":"03-569-0951#118","products":[{"name":"香園中秋禮盒","desc":"2026/7/29 公告開放訂購，品項價格見訂購表單","price":null,"cat":"月餅禮盒","lk":"form"},{"name":"香園愛心好米","desc":"教養院愛心好米義賣，2 包含運","price":580,"cat":"農產/加工食品","lk":"form"},{"name":"幸福好浴皂","desc":"院生參與製作手工浴皂，價格電洽","price":null,"cat":"手工皂/清潔用品","lk":"form"}],"notes":"新竹湖口。中秋禮盒明細以訂購表單為準。","lk":"form","ship":{"tier":"likely","basis":"有線上管道「表單」，多數線上店可寄，但未明寫運費"}},{"id":17,"name":"幼安歡喜兒咖啡屋（苗栗幼安教養院）","county":"苗栗縣","region":"中部","website":"https://www.yuan.org.tw/","facebook":"https://www.facebook.com/yuanbakeshop","links":[{"label":"商品總覽","url":"https://www.yuan.org.tw/prodlist/all"},{"label":"預購表單","url":"https://www.surveycake.com/s/Q4Voy"},{"label":"蝦皮聯名禮盒","url":"https://shopee.tw/%E5%B9%BC%E5%AE%89%E6%AD%A1%E5%96%9C%E5%85%92%E5%92%96%E5%95%A1%E5%B1%8B-x-%E5%AE%87%E7%8E%96%E5%92%96%E5%95%A1-%F0%9F%92%9D-%E4%B8%AD%E7%A7%8B%E5%85%AC%E7%9B%8A%E7%A6%AE%E7%9B%92-i.99939788.27160044217"}],"buy":"https://www.yuan.org.tw/news/339","status":"2026中秋","order":"SurveyCake 預購表單、電話、FB 私訊、蝦皮；8/28 前預購全品項 9 折","phone":"037-366995","products":[{"name":"2026 中秋禮盒「月落心間、愛在人間」","desc":"學員手作點心＋有機掛耳咖啡組合，8/28 前 9 折，明細見表單","price":null,"cat":"蛋捲/餅乾/點心","lk":"notice"},{"name":"幼安×宇玖咖啡 中秋公益禮盒","desc":"聯名咖啡禮盒（蝦皮販售）","price":null,"cat":"咖啡/飲品","lk":"notice"}],"notes":"另一電話 037-338180#128。","lk":"notice","ship":{"tier":"likely","basis":"有線上管道「表單」，多數線上店可寄，但未明寫運費"}},{"id":18,"name":"瑪利亞社會福利基金會（瑪利MAMA）","county":"台中市","region":"中部","website":"https://www.maria.org.tw/","facebook":"https://www.facebook.com/mariaswf/","links":[{"label":"蝦皮","url":"https://shopee.tw/sea_csrc"},{"label":"勞動部型錄","url":"https://orsd.wda.gov.tw/sheltered_products"}],"buy":"https://maria.org.tw/index.php?ID=1833&incfn=cms%2Fviewmain.php&wkmode=1","status":"常態商品(2026待更新)","order":"電話訂購專線、傳真 04-24715667、蝦皮","phone":"04-22517909","products":[{"name":"瑪利MAMA 月餅","desc":"手作烘焙工坊月餅，口味/入數/價格電洽索取訂購單","price":null,"cat":"月餅禮盒","lk":"shop"},{"name":"瑪利MAMA樂咖啡","desc":"8包掛耳咖啡；保存 依產品標示","price":300,"cat":"咖啡/飲品","url":"https://orsd.wda.gov.tw/sheltered_products/detail/196","src":"勞動部型錄","lk":"catalog","img":"0107504eda5e9c","imgsrc":"orsd.wda.gov.tw"},{"name":"咖啡餅乾禮盒","desc":"二盒餅乾+8包掛耳咖啡；保存 餅乾45天、香草茶2年","price":520,"cat":"咖啡/飲品","url":"https://orsd.wda.gov.tw/sheltered_products/detail/197","src":"勞動部型錄","lk":"catalog","img":"39a13eb230d98c","imgsrc":"orsd.wda.gov.tw"},{"name":"香草茶餅乾禮盒","desc":"二盒餅乾+1盒香草茶；保存 餅乾45天、 香草茶1年","price":500,"cat":"蛋捲/餅乾/點心","url":"https://orsd.wda.gov.tw/sheltered_products/detail/198","src":"勞動部型錄","lk":"catalog","img":"57d080e757e813","imgsrc":"orsd.wda.gov.tw"},{"name":"紅茶餅乾禮盒","desc":"二盒餅乾+1盒紅茶；保存 餅乾45天、 紅茶1年","price":400,"cat":"咖啡/飲品","url":"https://orsd.wda.gov.tw/sheltered_products/detail/199","src":"勞動部型錄","lk":"catalog","img":"126104d9ff67e8","imgsrc":"orsd.wda.gov.tw"},{"name":"土鳳梨酥禮盒(12入)","desc":"12入；保存 30天","price":520,"cat":"鳳梨酥","url":"https://orsd.wda.gov.tw/sheltered_products/detail/200","src":"勞動部型錄","lk":"catalog","img":"7d3651ba24e3fc","imgsrc":"orsd.wda.gov.tw"}],"notes":"台中北屯。中秋明細需電洽。","services":["住家及公共區域等環境清潔","做好事媽媽安心清潔禮盒組","其他環境及資源回收處理、防疫消毒","地毯清洗/地板打蠟","地毯清潔","校園清潔","洗地上臘"],"lk":"shop","ship":{"tier":"likely","basis":"有線上管道「蝦皮」，多數線上店可寄，但未明寫運費"}},{"id":19,"name":"十方社會福利基金會（十方啟能中心）","county":"台中市","region":"中部","website":"https://www.sfang.org.tw/","facebook":"https://www.facebook.com/sfang.fans/","links":[],"buy":"https://www.sfang.org.tw/ShopList.aspx?id=129","status":"2026中秋","order":"官網商城線上訂購、電話、Email、傳真 04-2239-5738","phone":"04-2239-3008","products":[{"name":"中秋禮盒：讓愛成禮","desc":"2026 十方中秋禮盒","price":680,"cat":"月餅禮盒","lk":"shop","img":"36ff10696bdff6","imgsrc":"www.sfang.org.tw"},{"name":"中秋禮盒：靜好相伴","desc":"2026 十方中秋禮盒","price":550,"cat":"月餅禮盒","lk":"shop","img":"76dff57d5e1e0a","imgsrc":"www.sfang.org.tw"},{"name":"中秋禮盒：時光同行","desc":"2026 十方中秋禮盒","price":560,"cat":"月餅禮盒","lk":"shop","img":"e6c4c9b2b00dd1","imgsrc":"www.sfang.org.tw"},{"name":"歡洗系列 柑橘洗碗精","desc":"庇護學員製作（大瓶 750）","price":120,"cat":"手工皂/清潔用品","lk":"shop","img":"4fb41a1fce2931","imgsrc":"www.sfang.org.tw"}],"notes":"官網首頁掛 2026 十方中秋 banner。","lk":"shop","ship":{"tier":"likely","basis":"有線上管道「商城」，多數線上店可寄，但未明寫運費"}},{"id":20,"name":"微笑天使烘焙坊","county":"台中市","region":"中部","website":"https://smileangel.org.tw/","facebook":"https://www.facebook.com/profile.php?id=61574051654698","links":[{"label":"Pinkoi","url":"https://en.pinkoi.com/store/tchwca"}],"buy":"https://smileangel.org.tw/","status":"2026中秋","order":"官網商城（全台宅配）、LINE、電話；8/31 前早鳥 95 折","phone":"04-2260-7321","products":[{"name":"9 入蛋黃酥禮盒","desc":"蛋黃酥 9 入（原價699，早鳥95折）","price":665,"cat":"蛋黃酥/糕餅","lk":"shop","img":"160a8b6ee04e6d","imgsrc":"smileangel.org.tw"},{"name":"金秋紅韻禮盒","desc":"果仁塔3入＋糙米堅果酥3入（原價520）","price":494,"cat":"蛋黃酥/糕餅","lk":"shop","img":"0c5424817b9d38","imgsrc":"smileangel.org.tw"},{"name":"月映啡香禮盒","desc":"蛋黃酥3入＋手工餅乾＋飲品（原價650）","price":618,"cat":"月餅禮盒","lk":"shop","img":"54491dabacad9f","imgsrc":"smileangel.org.tw"},{"name":"蒔韻好農禮盒（龍井農會聯名）","desc":"茶品＋果醬＋手工餅乾","price":798,"cat":"農產/加工食品","lk":"shop","img":"11d3df5abf44f4","imgsrc":"smileangel.org.tw"}],"notes":"台中大里，臺中市身心障礙者福利關懷協會附設。","lk":"shop","ship":{"tier":"yes","basis":"訂購方式提到「宅配」"}},{"id":21,"name":"立達啟能訓練中心（慢兔兔）","county":"台中市","region":"中部","website":"https://www.saint-coletta.org.tw/","facebook":"https://www.facebook.com/saintcoletta","links":[{"label":"訂購表單","url":"https://docs.google.com/forms/d/19aJ_xHJ-2MG9pxEWDSXbP63JgyDj9_Qk0z25CK6HWEg"}],"buy":"https://www.saint-coletta.org.tw/OnePage.aspx?tid=159&id=2688","status":"2026中秋","order":"Google 表單、電話、官網購物車；黑貓常溫宅配，30 盒以上同址免運","phone":"04-2202-8888","products":[{"name":"慢兔兔・月好時光限定禮盒","desc":"太陽餅3入＋蛋黃酥3入＋糙米堅果酥3入，蛋奶素（原價520，早鳥9/14前取貨）","price":480,"cat":"月餅禮盒","lk":"shop","img":"45fb7f40d1dffa","imgsrc":"www.saint-coletta.org.tw"},{"name":"太陽餅禮盒","desc":"慢兔兔太陽餅（常態商品）","price":300,"cat":"蛋黃酥/糕餅","lk":"shop","img":"03d275f3c08b4e","imgsrc":"www.saint-coletta.org.tw"},{"name":"手作餅乾禮盒","desc":"慢兔兔手作餅乾（常態商品）","price":580,"cat":"蛋捲/餅乾/點心","lk":"shop","img":"f1a434f7499585","imgsrc":"www.saint-coletta.org.tw"},{"name":"伯爵茶酥禮盒（6入）","desc":"伯爵茶酥 6 入（原價300）","price":280,"cat":"蛋捲/餅乾/點心","lk":"shop"}],"notes":"月餅義賣已 32 年，台中北區。","lk":"shop","ship":{"tier":"yes","basis":"訂購方式提到「黑貓」"}},{"id":22,"name":"蓮心自強服務協會（台中大甲）","county":"台中市","region":"中部","website":"https://www.lotusheart.org.tw/","facebook":"https://www.facebook.com/dajia.lianxin/","links":[],"buy":"https://www.lotusheart.org.tw/shop_tw.php","status":"常態商品(2026待更新)","order":"官網商城（免會員結帳）、訂購單電話/Email","phone":"04-2680-5843","products":[{"name":"肉粽禮盒","desc":"5 顆入，真空包裝附提盒","price":450,"cat":"農產/加工食品","lk":"shop"},{"name":"素粽禮盒","desc":"5 顆入","price":450,"cat":"農產/加工食品","lk":"shop"},{"name":"蓮心香菇禮盒","desc":"新社香菇半斤裝（小280／中400／大500）","price":280,"cat":"農產/加工食品","lk":"shop"}],"notes":"勿與台南蓮心園基金會混淆；中秋檔期建議電洽。","lk":"shop","ship":{"tier":"likely","basis":"有線上管道「商城」，多數線上店可寄，但未明寫運費"}},{"id":23,"name":"慈生仁愛院（老居工坊）","county":"彰化縣","region":"中部","website":"https://www.cisheng.org.tw/","facebook":"https://www.facebook.com/mariposa047222735/","links":[{"label":"中秋DM與訂購單","url":"https://www.cisheng.org.tw/files/common_unit/6d5fbda9-5e29-4e15-9c1a-c4c9f4089b13/doc/115%e4%b8%ad%e7%a7%8bDM%e5%8f%8a%e8%a8%82%e8%b3%bc%e5%96%ae.pdf"}],"buy":"https://www.cisheng.org.tw/ap/news_view.aspx?bid=12&sn=e8b13dea-2318-4654-a8ea-fdcbf5e85c8a","status":"2026中秋","order":"下載訂購單後電話/傳真訂購（傳真 04-7225832）；9/22 前特價","phone":"04-7222735","products":[{"name":"115 年老居工坊・慈生手作中秋禮盒","desc":"2026/8/20 公告，品項價格見 DM/訂購單，需電洽","price":null,"cat":"月餅禮盒","lk":"notice"}],"notes":"彰化市。","lk":"notice","ship":{"tier":"ask","basis":"訂購方式只提到電話／傳真／私訊，需電話確認"}},{"id":24,"name":"喜樂保育院（彰化二林）","county":"彰化縣","region":"中部","website":"https://www.joyce929.org.tw/","facebook":"https://www.facebook.com/joyce1358/","links":[],"buy":"https://www.joyce929.org.tw/OnePage.aspx?tid=152&id=179","status":"2026中秋","order":"官網禮盒頁訂購、電話、傳真 04-8950203","phone":"04-8960271","products":[{"name":"喜樂圓滿禮盒","desc":"中秋期間商品，蛋奶素，效期 14 天","price":500,"cat":"月餅禮盒","lk":"shop","img":"79e8ee76db43cb","imgsrc":"www.joyce929.org.tw"},{"name":"菓珍莓好禮盒","desc":"中秋期間商品，蛋奶素，效期 21 天","price":400,"cat":"蛋捲/餅乾/點心","lk":"shop","img":"0102ffd43bd35a","imgsrc":"www.joyce929.org.tw"},{"name":"喜樂真愛禮盒","desc":"中秋期間商品，蛋奶素，效期 14 天","price":680,"cat":"月餅禮盒","lk":"shop","img":"a3c5e6e34c0924","imgsrc":"www.joyce929.org.tw"},{"name":"喜樂堅果禮盒","desc":"常態商品，純素（450-570）","price":450,"cat":"農產/加工食品","lk":"shop","img":"a36cc9d872fa13","imgsrc":"www.joyce929.org.tw"}],"notes":"另有喜樂水餃等常態商品。","lk":"shop","ship":{"tier":"ask","basis":"訂購方式只提到電話／傳真／私訊，需電話確認"}},{"id":25,"name":"彰化肯納兒烘焙坊","county":"彰化縣","region":"中部","website":"https://www.ckbakery.com.tw/","facebook":"https://www.facebook.com/ckbakery209/","links":[{"label":"i郵購","url":"https://www.postmall.com.tw/shopIndex.aspx?uid=3819"},{"label":"勞動部型錄","url":"https://orsd.wda.gov.tw/sheltered_products"}],"buy":"https://reurl.cc/Le4edL","status":"2026中秋","order":"電話訂購、官網、i郵購","phone":"04-7223460","products":[{"name":"手工餅乾禮盒","desc":"巧克力、芝麻、抹茶、起司各 1 包（10片/包）","price":340,"cat":"蛋捲/餅乾/點心","lk":"shop","img":"e1cc872cc64822","imgsrc":"orsd.wda.gov.tw"},{"name":"肯納綜合禮盒","desc":"手工餅乾2＋土鳳梨酥4＋夏威夷豆塔3","price":460,"cat":"蛋捲/餅乾/點心","lk":"shop","img":"88253c4cd63735","imgsrc":"orsd.wda.gov.tw"},{"name":"夏威夷豆塔禮盒","desc":"夏威夷豆塔9入；保存 20天","price":500,"cat":"蛋捲/餅乾/點心","url":"https://www.ckbakery.com.tw/","src":"勞動部型錄","lk":"shop","ref":"https://orsd.wda.gov.tw/sheltered_products/detail/162","img":"9c7fe57c74d4c9","imgsrc":"orsd.wda.gov.tw"},{"name":"土鳳梨酥禮盒","desc":"土鳳梨酥12入；保存 20天","price":360,"cat":"鳳梨酥","url":"https://www.ckbakery.com.tw/","src":"勞動部型錄","lk":"shop","ref":"https://orsd.wda.gov.tw/sheltered_products/detail/163","img":"3d16b353730de5","imgsrc":"orsd.wda.gov.tw"}],"notes":"彰化縣自閉症肯納家長協會附設；列入勞動部 2026 中秋型錄。","lk":"shop","ship":{"tier":"likely","basis":"有線上管道「i郵購」，多數線上店可寄，但未明寫運費"}},{"id":26,"name":"雲林縣聲暉協進會（愛心烘焙屋）","county":"雲林縣","region":"中部","website":"https://yunlinsound.webnode.tw/","facebook":"https://www.facebook.com/profile.php?id=100067083310823","links":[{"label":"愛福好商城","url":"https://ptp.sfaa.gov.tw/internet/store/index.aspx?oid=864"}],"buy":"https://www.facebook.com/permalink.php?story_fbid=pfbid0iR8kgf8VR1r5r1GxxuXDZ758wP3eefHEpHpjqGh7ojuHcH5mdnsxaM9cHttyXQiSl&id=100064447851433","status":"2026中秋","order":"電話/傳真向愛心烘焙屋訂購（郵局劃撥 0301116-0658061）","phone":"05-5974861","products":[{"name":"堅果塔 8 入","desc":"一口月餅系列","price":450,"cat":"蛋捲/餅乾/點心","lk":"social"},{"name":"甜蜜組合","desc":"一口月餅組合禮盒","price":460,"cat":"月餅禮盒","lk":"social"},{"name":"暢銷組合","desc":"一口月餅組合禮盒（500/520 兩款）","price":500,"cat":"月餅禮盒","lk":"social"},{"name":"堅實圓滿禮盒","desc":"12 入組合","price":630,"cat":"月餅禮盒","lk":"social"},{"name":"尊禮禮盒","desc":"12 入組合","price":660,"cat":"月餅禮盒","lk":"social"}],"notes":"2026/7/17 FB 公告中秋禮盒預購開跑。","lk":"social","ship":{"tier":"ask","basis":"訂購方式只提到電話／傳真／私訊，需電話確認"}},{"id":27,"name":"若竹兒智能發展中心","county":"嘉義縣","region":"南部","website":"https://www.rjrc.org.tw/","facebook":null,"links":[{"label":"訂購單下載","url":"https://www.rjrc.org.tw/ap/download_list.aspx"}],"buy":"https://www.rjrc.org.tw/ap/news_view.aspx?bid=11&sn=48637606-6b49-4c0d-93c7-2bf5c9480e49","status":"2026中秋","order":"電話或 LINE 訂購（LINE ID: 0988064063）","phone":"05-2209987","products":[{"name":"115 年中秋節禮盒","desc":"2026/8/4 官網公告開放訂購，品項價格需電洽","price":null,"cat":"月餅禮盒","lk":"notice"}],"notes":"嘉義民雄。","lk":"notice","ship":{"tier":"ask","basis":"訂購方式只提到電話／傳真／私訊，需電話確認"}},{"id":28,"name":"再耕園咖啡庇護工場（嘉義基督教醫院）","county":"嘉義市","region":"南部","website":"https://department.cych.org.tw/index.aspx?unitNo=Z2","facebook":"https://www.facebook.com/%E5%86%8D%E8%80%95%E5%9C%92%E5%92%96%E5%95%A1%E5%BA%87%E8%AD%B7%E5%B7%A5%E5%A0%B4","links":[{"label":"愛福好商城","url":"https://ptps.sfaa.gov.tw/mall/storePage/013374B6-E630-42D2-8F66-99D10CF53E0D"},{"label":"勞動部型錄","url":"https://orsd.wda.gov.tw/sheltered_products"}],"buy":"https://www.cych-love.org.tw/news_content.aspx?id=143","status":"2026中秋","order":"電話訂購","phone":"05-2852698#115","products":[{"name":"中秋手作賞月點心","desc":"蛋黃酥/芋頭酥/金薯酥，無添加預購，價格電洽","price":null,"cat":"蛋黃酥/糕餅","lk":"notice"},{"name":"阿里山茶包","desc":"2.5g×100 包/袋","price":550,"cat":"咖啡/飲品","lk":"notice"},{"name":"摩卡咖啡豆","desc":"1 磅/包","price":470,"cat":"咖啡/飲品","lk":"notice"},{"name":"咖啡豆","desc":"內容物：咖啡豆；保存 八個月","price":1030,"cat":"咖啡/飲品","url":"https://orsd.wda.gov.tw/sheltered_products/detail/108","src":"勞動部型錄","lk":"catalog","alt":{"label":"訂購（粉專）","url":"https://www.facebook.com/B4-404584359590899/"},"img":"c3b000c487b38a","imgsrc":"orsd.wda.gov.tw"},{"name":"喜餅禮盒","desc":"內容物：喜餅禮盒；保存 一個月","price":850,"cat":"其他","url":"https://orsd.wda.gov.tw/sheltered_products/detail/109","src":"勞動部型錄","lk":"catalog","alt":{"label":"訂購（粉專）","url":"https://www.facebook.com/B4-404584359590899/"},"img":"59fc31a4acc919","imgsrc":"www.cych-love.org.tw"}],"notes":"列入勞動部 2026 中秋型錄。","services":["二手商品"],"lk":"notice","ship":{"tier":"ask","basis":"訂購方式只提到電話／傳真／私訊，需電話確認"}},{"id":29,"name":"漁光小舖（瑞復益智中心）","county":"台南市","region":"南部","website":"https://www.straphael.org.tw/","facebook":"https://www.facebook.com/st.raphopc/","links":[{"label":"7-11 賣貨便","url":"https://myship.7-11.com.tw/general/detail/GM2504176459231"}],"buy":"https://www.straphael.org.tw/shop/product/3","status":"2026中秋","order":"官網商城、7-11 賣貨便、電話、傳真/匯款","phone":"06-3911531","products":[{"name":"月の河流禮盒","desc":"南棗核桃糕＋綜合堅果＋堅果塔5入（青年畫作設計）","price":530,"cat":"農產/加工食品","lk":"detail"},{"name":"平安花結禮盒","desc":"精選禮盒系列","price":280,"cat":"其他","lk":"detail"},{"name":"幸福來敲門禮盒","desc":"藝術家設計禮盒（原價350）","price":320,"cat":"其他","lk":"detail"},{"name":"形狀王國禮盒","desc":"共 5 款（480-550）","price":480,"cat":"其他","lk":"detail"}],"notes":"台南安平，招牌南棗核桃糕。","lk":"detail","ship":{"tier":"yes","basis":"訂購方式提到「賣貨便」"}},{"id":30,"name":"嘉南療養院 愛的集團","county":"台南市","region":"南部","website":"https://www.cnpc.mohw.gov.tw/","facebook":"https://www.facebook.com/jianan.love/","links":[],"buy":"https://www.facebook.com/jianan.love/","status":"2026中秋","order":"電話訂購（轉 1227 王小姐）或 FB 粉專訂購","phone":"06-2795019#1227","products":[{"name":"愛的集團中秋月餅禮盒","desc":"精障病友手作：金黃起司彩酥、Q心抹茶彩酥等，價格電洽","price":null,"cat":"月餅禮盒","lk":"social"}],"notes":"2026/8 媒體報導開賣，盈餘投入病友復健基金。","lk":"social","ship":{"tier":"ask","basis":"訂購方式只提到電話／傳真／私訊，需電話確認"}},{"id":31,"name":"鴻佳啟能庇護中心（喜鵲兒之屋）","county":"台南市","region":"南部","website":"http://hc.eoffering.org.tw/","facebook":null,"links":[{"label":"LINE 訂購","url":"https://line.me/R/ti/p/@hc062623456"}],"buy":"https://docs.google.com/forms/d/e/1FAIpQLSfwAoi-CZ04Vl5svqE0WZ-rKU6XoniNwdWOa0qey88uJCG64A/viewform","status":"2025中秋(2026待更新)","order":"電話（06-2628657 轉社工組）、LINE、Google 表單；自取 98 折、30 盒以上 85 折","phone":"06-2628657","products":[{"name":"澄月禮盒","desc":"手工餅乾＋柚香酥＋土鳳梨酥＋豆塔等（2025 價格）","price":410,"cat":"蛋捲/餅乾/點心","lk":"form"},{"name":"綺麗禮盒","desc":"夏威夷豆塔3＋堅果塔1＋柚香酥3（2025 價格）","price":595,"cat":"蛋黃酥/糕餅","lk":"form"},{"name":"緋月禮盒","desc":"蛋黃酥3＋紫芋麻糬酥3＋土鳳梨酥3（2025 價格）","price":595,"cat":"蛋黃酥/糕餅","lk":"form"},{"name":"童趣蒔光禮盒","desc":"蛋黃酥3＋紫芋麻糬酥3＋柚香酥3＋土鳳梨酥3（2025 價格）","price":740,"cat":"蛋黃酥/糕餅","lk":"form"}],"notes":"少糖少油少鹽手工點心；2026 品項請電洽確認。","lk":"form","ship":{"tier":"likely","basis":"有線上管道「表單」，多數線上店可寄，但未明寫運費"}},{"id":32,"name":"展翼庇護工場烘焙坊","county":"台南市","region":"南部","website":"https://zhanyi.flyangel.org.tw/","facebook":"https://www.facebook.com/zhanyibakery/","links":[{"label":"勞動部型錄","url":"https://orsd.wda.gov.tw/sheltered_products"},{"label":"LINE 官方帳號","url":"https://page.line.me/per1187u"}],"buy":"https://zhanyi.flyangel.org.tw/index.php?option=product&lang=cht&task=showlist&id=193&index=1","status":"2026中秋","order":"官網、FB、LINE、電話；滿 5000 免運，9/1 起出貨","phone":"06-2014060","products":[{"name":"迎秋饗月禮盒（環保提盒）","desc":"蛋黃酥3顆＋三款經典手工餅乾","price":470,"cat":"蛋黃酥/糕餅","lk":"shop","img":"0f779a0ce8bc8d","imgsrc":"zhanyi.flyangel.org.tw"},{"name":"集愛中秋禮盒","desc":"蛋黃酥8入（蛋奶素），附環保提袋；20盒以上95折起","price":690,"cat":"蛋黃酥/糕餅","lk":"shop","img":"0139d0fa6b6ee9","imgsrc":"zhanyi.flyangel.org.tw"},{"name":"多寶閣禮盒","desc":"蛋黃酥6顆＋手工餅乾6片","price":880,"cat":"蛋黃酥/糕餅","lk":"shop"},{"name":"蛋黃酥（單顆）","desc":"蛋奶素，常溫 15 天","price":65,"cat":"蛋黃酥/糕餅","lk":"shop"},{"name":"公益餐盒","desc":"精緻餐盒100元起；保存 當日未食用完畢請冷藏保存,冷藏保存3天。；展翼烘焙坊","price":100,"cat":"其他","url":"https://page.line.me/per1187u?openQrModal=true","src":"勞動部型錄","lk":"form","ref":"https://orsd.wda.gov.tw/sheltered_products/detail/84"},{"name":"希望寶盒","desc":"燕麥核桃餅乾40g *1包；保存 手工餅乾常溫30天,請依照包裝上有效日期為準。；展翼烘焙坊","price":400,"cat":"蛋捲/餅乾/點心","url":"https://page.line.me/per1187u?openQrModal=true","src":"勞動部型錄","lk":"form","ref":"https://orsd.wda.gov.tw/sheltered_products/detail/85","img":"70b85d7f5c2282","imgsrc":"zhanyi.flyangel.org.tw"},{"name":"手工餅乾","desc":"共6種口味；保存 手工餅乾常溫30天,請依照包裝上有效日期為準。；展翼烘焙坊","price":80,"cat":"蛋捲/餅乾/點心","url":"https://page.line.me/per1187u?openQrModal=true","src":"勞動部型錄","lk":"form","ref":"https://orsd.wda.gov.tw/sheltered_products/detail/86","img":"1d61223374113d","imgsrc":"zhanyi.flyangel.org.tw"}],"notes":"台南永康；官網設 2026 中秋公益禮盒專區。","lk":"shop","ship":{"tier":"yes","basis":"訂購方式提到「免運」"}},{"id":33,"name":"台南蓮心園基金會","county":"台南市","region":"南部","website":"https://www.lsy.org.tw/","facebook":"https://www.facebook.com/lansin97/","links":[{"label":"勞動部型錄","url":"https://orsd.wda.gov.tw/sheltered_products"}],"buy":"https://www.lsy.org.tw/shop/ShopList.aspx?id=122","status":"2026中秋","order":"官網線上義賣專區、電話/傳真","phone":"06-6882727","products":[{"name":"紫蘇梅＋蛋捲禮盒","desc":"2026 中秋送禮推薦公益禮盒","price":500,"cat":"蛋捲/餅乾/點心","lk":"shop"},{"name":"日曬米＋紫蘇梅禮盒","desc":"自然日曬米與紫蘇梅組合","price":450,"cat":"農產/加工食品","lk":"shop"},{"name":"日曬米禮盒","desc":"蓮心園日曬米","price":500,"cat":"農產/加工食品","lk":"shop","img":"c10a399982980d","imgsrc":"www.lsy.org.tw"},{"name":"無毒米禮盒","desc":"無毒栽培白米","price":500,"cat":"農產/加工食品","lk":"shop","img":"9ea173336d7dd0","imgsrc":"www.lsy.org.tw"},{"name":"經典蛋捲","desc":"原味5入＋芝麻5入","price":250,"cat":"蛋捲/餅乾/點心","lk":"shop"},{"name":"頂級老欉文旦 早鳥3箱組","desc":"台南麻豆老欉文旦（原價2250）","price":2049,"cat":"農產/加工食品","lk":"shop","img":"85fe06917760a6","imgsrc":"www.lsy.org.tw"},{"name":"柚來了禮盒 早鳥4箱組","desc":"文旦柚禮盒（原價2200）","price":2000,"cat":"農產/加工食品","lk":"shop","img":"3276b6916b4138","imgsrc":"www.lsy.org.tw"},{"name":"綜合生菜盒","desc":"250g/盒；保存 7天；蓮心園庇護農藝工場","price":240,"cat":"其他","url":"https://www.lsy.org.tw/shop/ShopDetail.aspx?id=122&amp;sn=142","src":"勞動部型錄","lk":"shop","ref":"https://orsd.wda.gov.tw/sheltered_products/detail/77","img":"136bacb4f496b9","imgsrc":"orsd.wda.gov.tw"},{"name":"季節蔬菜箱","desc":"250g*5包；保存 7天；蓮心園庇護農藝工場","price":600,"cat":"農產/加工食品","url":"https://www.lsy.org.tw/shop/ShopDetail.aspx?id=122&amp;sn=180","src":"勞動部型錄","lk":"shop","ref":"https://orsd.wda.gov.tw/sheltered_products/detail/78"}],"notes":"台南新營；另設蓮心園庇護農藝工場（白河）。","lk":"shop","ship":{"tier":"likely","basis":"有線上管道「線上義賣」，多數線上店可寄，但未明寫運費"}},{"id":34,"name":"高雄夢想起飛商行（凱旋醫院附設社區復健中心）","county":"高雄市","region":"南部","website":null,"facebook":null,"links":[],"buy":"https://ptps.sfaa.gov.tw/mall/storePage/B59EBD01-A1FA-4335-9107-77BC6850C465","status":"2026中秋","order":"衛福部愛福好商城線上訂購、電話","phone":"07-7261053","products":[{"name":"鳳梨酥禮盒（8入）","desc":"精神康復學員參與製作","price":420,"cat":"鳳梨酥","lk":"shop","img":"8d3d012c959d6b","imgsrc":"ptps.sfaa.gov.tw"},{"name":"芳香純淨禮盒（大）","desc":"清潔/香氛禮盒","price":500,"cat":"手工皂/清潔用品","lk":"shop","img":"7f22fc75cbfd9b","imgsrc":"ptps.sfaa.gov.tw"},{"name":"芳香純淨綜合禮盒","desc":"清潔/香氛綜合禮盒","price":400,"cat":"手工皂/清潔用品","lk":"shop","img":"7cbff772aa3184","imgsrc":"ptps.sfaa.gov.tw"}],"notes":"協助精神障礙者回歸社會的社區復健中心商行。","lk":"shop","ship":{"tier":"likely","basis":"有線上管道「商城」，多數線上店可寄，但未明寫運費"}},{"id":35,"name":"中外餅舖庇護工場","county":"高雄市","region":"南部","website":"http://xn--w2xs0d761ckod.tw/","facebook":"https://www.facebook.com/joywell1905/","links":[{"label":"高鐵T-Shopping","url":"https://tshopping.thsrc.com.tw/%E4%B8%AD%E5%A4%96%E9%A4%85%E8%88%96"},{"label":"勞動部型錄","url":"https://orsd.wda.gov.tw/sheltered_products"}],"buy":"https://www.iustore.com.tw/product/detail/1558602","status":"2026中秋","order":"礙優網線上訂購、電話","phone":"07-5886366","products":[{"name":"旺月禮盒","desc":"棗泥核桃、蓮蓉、豆沙小月餅各 2 顆","price":360,"cat":"月餅禮盒","lk":"detail"},{"name":"秋賞酥皮月餅禮盒","desc":"香菇鹹綠豆椪2＋蛋黃酥2＋芋頭酥2","price":420,"cat":"月餅禮盒","lk":"detail"},{"name":"棋餅禮盒","desc":"百年老店招牌象棋造型糕餅","price":270,"cat":"蛋黃酥/糕餅","lk":"detail"},{"name":"花漾綠豆糕","desc":"綠豆糕禮盒","price":380,"cat":"蛋黃酥/糕餅","lk":"detail"},{"name":"花樣綠豆糕禮盒","desc":"芝麻糕綠豆糕X2；保存 45天","price":380,"cat":"其他","url":"http://xn--w2xs0d761ckod.tw/s?p=pf&amp;fdn=&amp;pn=&amp;c=0&amp;cc=u&amp;fs=&amp;n=2013110440195","src":"勞動部型錄","lk":"shop","ref":"https://orsd.wda.gov.tw/sheltered_products/detail/39","img":"1ce84eab5546b2","imgsrc":"orsd.wda.gov.tw"},{"name":"蕉蕉女禮盒","desc":"蕉蕉女x6；保存 常溫28度12天","price":420,"cat":"其他","url":"http://xn--w2xs0d761ckod.tw/s?p=pf&amp;fdn=&amp;pn=&amp;c=0&amp;cc=u&amp;fs=&amp;n=2013110440195","src":"勞動部型錄","lk":"shop","ref":"https://orsd.wda.gov.tw/sheltered_products/detail/40","img":"b4113bbe748b70","imgsrc":"orsd.wda.gov.tw"},{"name":"貴妃笑禮盒","desc":"貴妃笑x6；保存 常溫28度12天","price":420,"cat":"其他","url":"http://xn--w2xs0d761ckod.tw/s?p=pf&amp;fdn=&amp;pn=&amp;c=0&amp;cc=u&amp;fs=&amp;n=2013110440195","src":"勞動部型錄","lk":"shop","ref":"https://orsd.wda.gov.tw/sheltered_products/detail/41","img":"433c095812b95c","imgsrc":"orsd.wda.gov.tw"},{"name":"就是茶餅禮盒","desc":"青山烏龍茶手工餅乾X1；熟香金萱手工餅乾X1；；保存 常溫28度60天","price":420,"cat":"蛋捲/餅乾/點心","url":"http://xn--w2xs0d761ckod.tw/s?p=pf&amp;fdn=&amp;pn=&amp;c=0&amp;cc=u&amp;fs=&amp;n=2013110440195","src":"勞動部型錄","lk":"shop","ref":"https://orsd.wda.gov.tw/sheltered_products/detail/42","img":"4d95f74767877a","imgsrc":"orsd.wda.gov.tw"}],"notes":"1885 年創立百年餅舖（高雄蓮池潭旁）。","lk":"detail","ship":{"tier":"likely","basis":"有線上管道「礙優網」，多數線上店可寄，但未明寫運費"}},{"id":36,"name":"小草關懷協會（加點巧食）","county":"高雄市","region":"南部","website":"https://grasscare.org.tw/","facebook":"https://www.facebook.com/grasscare98/","links":[{"label":"愛福好商城","url":"https://ptps.sfaa.gov.tw/mall/storePage/0E6FFFCC-A740-4EF4-B434-F57E39E65E4C"}],"buy":"https://www.iustore.com.tw/category/52441","status":"2026中秋","order":"礙優網選購、電話或 FB 私訊","phone":"07-8061733","products":[{"name":"加點巧食 中秋禮盒","desc":"高雄「月映匠心・雄好禮」參與單位，品項價格請電洽或見礙優網","price":null,"cat":"其他","lk":"shop"}],"notes":"2026/8 媒體報導原總統府訂單遭取消、盼民眾認購。","lk":"shop","ship":{"tier":"likely","basis":"有線上管道「礙優網」，多數線上店可寄，但未明寫運費"}},{"id":37,"name":"高雄市心理復健協會","county":"高雄市","region":"南部","website":"http://www.cilifuza.org.tw/","facebook":null,"links":[{"label":"官網社企商品","url":"http://www.cilifuza.org.tw/index.php/goods/index/6ab38705-7d4d-11ea-bf4d-525400fc6395"}],"buy":"https://www.igiving.org.tw/npo/goods_ct?g_id=4215","status":"2026中秋","order":"igiving 公益網線上義購、官網社企商品頁、電話洽詢","phone":null,"products":[{"name":"鳳梨酥禮盒（10入/12入）","desc":"價格見官網或電洽","price":540,"cat":"鳳梨酥","url":"https://www.igiving.org.tw/npo/goods_ct?g_id=4215","lk":"shop"},{"name":"喜愛綜合禮盒／囍愛餅乾禮盒","desc":"囍愛餅乾禮盒 A/B/C 三種規格，義賣價 550 元","price":550,"cat":"蛋捲/餅乾/點心","url":"https://www.igiving.org.tw/npo/goods_ct?g_id=4215","lk":"shop"},{"name":"咖啡禮盒","desc":"價格見官網","price":null,"cat":"咖啡/飲品","lk":"shop"},{"name":"手工香皂禮盒（3入）","desc":"玫瑰橄欖皂、海洋渲染皂等","price":null,"cat":"手工皂/清潔用品","lk":"shop"}],"notes":"官網「社企商品」頁列多項禮盒。","lk":"shop","ship":{"tier":"likely","basis":"有線上管道「igiving」，多數線上店可寄，但未明寫運費"}},{"id":38,"name":"心路一家工場（心路基金會）","county":"高雄市","region":"南部","website":"https://eshop.syinlu.org.tw/","facebook":null,"links":[{"label":"蝦皮","url":"https://shopee.tw/syinlu"},{"label":"勞動部型錄","url":"https://orsd.wda.gov.tw/sheltered_products"}],"buy":"https://eshop.syinlu.org.tw/product/index/76","status":"2026中秋","order":"心路「幸福+工場」官網（預購截止 9/13）、蝦皮、電話 (02)2290-0185","phone":"07-790-2239","products":[{"name":"中秋限定 花好月圓．伴（綜合大款）","desc":"蛋黃酥2入＋手工餅乾12片＋米葉果果＋蛋捲","price":880,"cat":"蛋黃酥/糕餅","url":"https://eshop.syinlu.org.tw/product/detail/76/1103","lk":"detail","img":"5c2fc8f0343199","imgsrc":"eshop.syinlu.org.tw"},{"name":"中秋限定 花好月圓．伴（單盒款）","desc":"2026 中秋限定禮盒","price":460,"cat":"蛋黃酥/糕餅","url":"https://eshop.syinlu.org.tw/product/detail/76/1104","lk":"detail","img":"912324c15e4de7","imgsrc":"eshop.syinlu.org.tw"},{"name":"中秋限定 花好月圓．伴（精選蛋捲款）","desc":"精選手工蛋捲禮盒","price":360,"cat":"蛋捲/餅乾/點心","url":"https://eshop.syinlu.org.tw/product/detail/76/1105","lk":"detail","img":"5e8a15aa5a6b39","imgsrc":"eshop.syinlu.org.tw"},{"name":"中秋限定 花好月圓．伴（綜合蛋捲款）","desc":"綜合口味手工蛋捲禮盒","price":370,"cat":"蛋捲/餅乾/點心","url":"https://eshop.syinlu.org.tw/product/detail/76/1106","lk":"detail","img":"b3142c839f8d2d","imgsrc":"eshop.syinlu.org.tw"},{"name":"✦ 星空✦ 心路×阿布布思義聯名禮盒(小蛋捲)","desc":"小蛋捲9支(芝麻、咖啡、巧克力蛋捲各3支)；保存 45天；心路社會福利基金會經營管理一家工場","price":170,"cat":"咖啡/飲品","url":"https://eshop.syinlu.org.tw/product/detail/rolls/853","src":"勞動部型錄","lk":"detail","ref":"https://orsd.wda.gov.tw/sheltered_products/detail/447","img":"a6596d49b82ce7","imgsrc":"eshop.syinlu.org.tw"},{"name":"【銀髮友善食品】幸福+蛋捲紅禮盒(芝麻)","desc":"12入芝麻口味長蛋捲；保存 45天；心路社會福利基金會經營管理一家工場","price":300,"cat":"蛋捲/餅乾/點心","url":"https://eshop.syinlu.org.tw/product/detail/rolls/957","src":"勞動部型錄","lk":"detail","ref":"https://orsd.wda.gov.tw/sheltered_products/detail/448","img":"54b79bb4528ede","imgsrc":"eshop.syinlu.org.tw"},{"name":"✦ 星空✦ 幸福+蛋捲鐵盒(綜合經典)","desc":"芝麻/原味/咖啡/巧克力；保存 45天；心路社會福利基金會經營管理一家工場","price":500,"cat":"咖啡/飲品","url":"https://eshop.syinlu.org.tw/product/detail/rolls/810","src":"勞動部型錄","lk":"detail","ref":"https://orsd.wda.gov.tw/sheltered_products/detail/449","img":"434609c7ab2141","imgsrc":"eshop.syinlu.org.tw"},{"name":"✦ 星空✦ 幸福+蛋捲鐵盒(綜合小農)","desc":"20入蛋捲4種口味(香蕉/紅茶/紅藜/抹茶)；保存 45天；心路社會福利基金會經營管理一家工場","price":500,"cat":"咖啡/飲品","url":"https://eshop.syinlu.org.tw/product/detail/rolls/1048","src":"勞動部型錄","lk":"detail","ref":"https://orsd.wda.gov.tw/sheltered_products/detail/450","img":"3a417f988e671a","imgsrc":"eshop.syinlu.org.tw"},{"name":"Wonderful World-精采世界思磨塊聯名禮盒","desc":"24入蛋捲；保存 45天；心路社會福利基金會經營管理一家工場","price":600,"cat":"蛋捲/餅乾/點心","url":"https://eshop.syinlu.org.tw/product/detail/cooperation/103","src":"勞動部型錄","lk":"detail","ref":"https://orsd.wda.gov.tw/sheltered_products/detail/451","img":"cebee7fbad75d5","imgsrc":"eshop.syinlu.org.tw"},{"name":"喜上玫梢-心路×芒果的日常 聯名禮盒（蛋捲與咖啡包款）","desc":"原味長蛋捲6支、芝麻短蛋捲10支、濾掛式咖啡6包；心路社會福利基金會經營管理一家工場","price":660,"cat":"咖啡/飲品","url":"https://eshop.syinlu.org.tw/product/detail/69/911","src":"勞動部型錄","lk":"detail","ref":"https://orsd.wda.gov.tw/sheltered_products/detail/452"},{"name":"遇見幸福的童話．愛麗絲夢遊仙境（麵包樹聯名蛋捲禮盒）","desc":"20入短蛋捲2種口味(芝麻咖啡)；保存 45天；心路社會福利基金會經營管理一家工場","price":400,"cat":"咖啡/飲品","url":"https://eshop.syinlu.org.tw/product/detail/rolls/763","src":"勞動部型錄","lk":"detail","ref":"https://orsd.wda.gov.tw/sheltered_products/detail/453","img":"c9e2fb055a3daf","imgsrc":"eshop.syinlu.org.tw"},{"name":"幸福+蛋捲紅禮盒(胡椒款)","desc":"胡椒蛋捲12支；保存 45天；心路社會福利基金會經營管理一家工場","price":350,"cat":"蛋捲/餅乾/點心","url":"https://orsd.wda.gov.tw/sheltered_products/detail/548","src":"勞動部型錄","lk":"catalog"},{"name":"Happy Together麵包樹聯名禮盒（綜合蛋捲-海木耳款）","desc":"芝麻/咖啡/巧克力/香蕉/阿薩姆紅茶/紅藜蛋捲；保存 45天；心路社會福利基金會經營管理一家工場","price":520,"cat":"咖啡/飲品","url":"https://orsd.wda.gov.tw/sheltered_products/detail/550","src":"勞動部型錄","lk":"catalog","img":"2de177f664fb93","imgsrc":"eshop.syinlu.org.tw"}],"notes":"心智障礙青年製作，無防腐劑；低碳生產、FSC 認證紙材。","lk":"shop","ship":{"tier":"likely","basis":"有線上管道「蝦皮」，多數線上店可寄，但未明寫運費"}},{"id":39,"name":"三山烘焙坊（高雄三山脊損重建協會）","county":"高雄市","region":"南部","website":"http://www.kscsci.org/","facebook":"https://www.facebook.com/ksbmbs/","links":[],"buy":"http://www.kscsci.org/","status":"常態商品(2026待更新)","order":"官網購物車（貨到付款/轉帳）、電話；高雄市區滿 7 盒免運","phone":"07-7191039","products":[{"name":"中秋禮盒（6入/8入/12入）","desc":"蛋奶素可食，價格電洽","price":null,"cat":"蛋黃酥/糕餅","lk":"shop"},{"name":"手工餅乾（10入）","desc":"價格電洽","price":null,"cat":"蛋捲/餅乾/點心","lk":"shop"}],"notes":"脊髓損傷者團體經營（高雄鳳山）。","lk":"shop","ship":{"tier":"yes","basis":"訂購方式提到「貨到付款」"}},{"id":40,"name":"高雄長庚 湖畔咖啡屋","county":"高雄市","region":"南部","website":null,"facebook":"https://www.facebook.com/coffee8995","links":[{"label":"愛福好商城","url":"https://ptps.sfaa.gov.tw/festival/2026moonfestival"},{"label":"勞動部型錄","url":"https://orsd.wda.gov.tw/sheltered_products"}],"buy":"https://www.facebook.com/coffee8995","status":"2026中秋","order":"電話預訂或 Facebook 粉專私訊","phone":"07-7317123#8769","products":[{"name":"湖畔牛軋餅禮盒-小(原味/抹茶，12入)","desc":"原味／抹茶；保存 製造日起 45 天","price":150,"cat":"蛋捲/餅乾/點心","url":"https://www.facebook.com/coffee8995","src":"店家提供","lk":"social","alt":{"label":"訂購（粉專）","url":"https://www.facebook.com/coffee8995"},"img":"1e305ac777aef8","imgsrc":"orsd.wda.gov.tw"},{"name":"湖畔牛軋餅禮盒-大(原味/抹茶，20入)","desc":"原味／抹茶；保存 製造日起 45 天","price":240,"cat":"蛋捲/餅乾/點心","url":"https://www.facebook.com/coffee8995","src":"店家提供","lk":"social","alt":{"label":"訂購（粉專）","url":"https://www.facebook.com/coffee8995"},"img":"4f6505d2c1d321","imgsrc":"orsd.wda.gov.tw"},{"name":"湖畔歡喜禮盒","desc":"牛軋餅 10 入、蛋黃酥 3 入、耳掛咖啡包 5 入","price":null,"cat":"月餅禮盒","url":"https://www.facebook.com/coffee8995","lk":"social","src":"店家提供"},{"name":"湖畔吉祥禮盒","desc":"牛軋餅 10 入、蛋黃酥 3 入、鳳梨酥 2 入、果香Q餅 2 入","price":null,"cat":"月餅禮盒","url":"https://www.facebook.com/coffee8995","lk":"social","src":"店家提供"},{"name":"湖畔如意禮盒","desc":"牛軋餅 10 入、堅果塔 3 入、鳳梨酥 2 入、果香Q餅 2 入","price":null,"cat":"月餅禮盒","url":"https://www.facebook.com/coffee8995","lk":"social","src":"店家提供"},{"name":"湖畔暖心禮盒","desc":"牛軋餅 12 入、鳳梨酥 2 入、果香Q餅 2 入","price":null,"cat":"月餅禮盒","url":"https://www.facebook.com/coffee8995","lk":"social","src":"店家提供"}],"notes":"高雄長庚醫院附設庇護工場（鳥松區大埤路123號，長庚復健大樓 1F／11F）。2026-08 由店家行銷人員提供更新。","lk":"social","ship":{"tier":"ask","basis":"訂購方式為電話或粉專私訊，寄送請一併確認"}},{"id":41,"name":"向陽啟能協會","county":"屏東縣","region":"南部","website":null,"facebook":"https://www.facebook.com/tosun7217361/","links":[],"buy":"https://www.facebook.com/tosun7217361/","status":"2026中秋","order":"電話（石小姐/李先生/陳總幹事）或 FB 粉專私訊；據點：屏東小作、麟洛/萬丹/內埔布建等","phone":"08-7217361","products":[{"name":"蛋黃酥禮盒","desc":"6入 390／12入 780","price":390,"cat":"蛋黃酥/糕餅","lk":"social","img":"d288052ec1ddec","imgsrc":"orsd.wda.gov.tw"},{"name":"綠豆椪禮盒","desc":"6入 330／12入 660","price":330,"cat":"月餅禮盒","lk":"social"},{"name":"麻糬酥禮盒","desc":"6入 360／12入 720","price":360,"cat":"蛋黃酥/糕餅","lk":"social"},{"name":"綜合禮盒","desc":"蛋黃酥＋綠豆椪＋麻糬酥，6入 360／12入 720","price":360,"cat":"月餅禮盒","lk":"social"},{"name":"鳳梨酥 12 入","desc":"中秋公益禮盒","price":520,"cat":"鳳梨酥","lk":"social"}],"notes":"位於屏東市（總統府清單註記高雄應為誤植）。","lk":"social","ship":{"tier":"ask","basis":"訂購方式只提到電話／傳真／私訊，需電話確認"}},{"id":42,"name":"屏東勝利之家（膳工坊）","county":"屏東縣","region":"南部","website":"https://www.vhome.org.tw/","facebook":"https://www.facebook.com/vhome50","links":[{"label":"勞動部型錄","url":"https://orsd.wda.gov.tw/sheltered_products"}],"buy":"https://vhomeshop.tw/","status":"2026中秋","order":"官方商城 vhomeshop.tw 線上購買、電話；8/25 前早鳥優惠","phone":"08-736-6294#226","products":[{"name":"綜合月餅禮盒（12入）","desc":"養生烏豆核桃、蜜香牛奶、Q心芋泥（優惠價，原價630）","price":600,"cat":"月餅禮盒","url":"https://vhomeshop.tw/products/%E7%B6%9C%E5%90%88%E6%9C%88%E9%A4%85%E7%A6%AE%E7%9B%92-9%E5%85%A5","lk":"detail","img":"3ae88ebf410d32","imgsrc":"vhomeshop.tw"},{"name":"土鳳梨酥禮盒（12入）","desc":"優惠價（原價720）","price":680,"cat":"鳳梨酥","url":"https://vhomeshop.tw/products/%E5%9C%9F%E9%B3%B3%E6%A2%A8%E9%85%A5%E7%A6%AE%E7%9B%92-9%E5%85%A5","lk":"detail","img":"7d3651ba24e3fc","imgsrc":"orsd.wda.gov.tw"},{"name":"綠豆椪禮盒（12入）","desc":"優惠價（原價580）","price":550,"cat":"月餅禮盒","url":"https://vhomeshop.tw/products/%E7%B6%A0%E8%B1%86%E6%A4%AA%E7%A6%AE%E7%9B%92","lk":"detail","img":"c35a04dfa79f17","imgsrc":"vhomeshop.tw"},{"name":"雙層土鳳梨酥禮盒","desc":"優惠價（原價850）","price":800,"cat":"鳳梨酥","url":"https://vhomeshop.tw/products/%E7%BE%8E%E5%A5%BD%E6%99%82%E5%85%89%E7%A6%AE%E7%9B%92-%E5%9C%9F%E9%B3%B3%E6%A2%A8%E9%85%A5","lk":"detail","img":"a7a8d1a7d3c54d","imgsrc":"vhomeshop.tw"},{"name":"雙層綠豆椪禮盒","desc":"優惠價（原價760）","price":720,"cat":"月餅禮盒","url":"https://vhomeshop.tw/products/%E7%BE%8E%E5%A5%BD%E6%99%82%E5%85%89%E7%A6%AE%E7%9B%92-%E7%B6%A0%E8%B1%86%E6%A4%AA","lk":"detail","img":"db2b639b7db6f9","imgsrc":"vhomeshop.tw"},{"name":"雙層綜合月餅禮盒","desc":"優惠價（原價780）","price":750,"cat":"月餅禮盒","url":"https://vhomeshop.tw/products/%E7%BE%8E%E5%A5%BD%E6%99%82%E5%85%89%E7%A6%AE%E7%9B%92-%E7%B6%9C%E5%90%88%E6%9C%88%E9%A4%85","lk":"detail","img":"8bd16342cdbf11","imgsrc":"vhomeshop.tw"},{"name":"挪威手工蛋捲禮盒","desc":"手工蛋捲","price":500,"cat":"蛋捲/餅乾/點心","url":"https://vhomeshop.tw/products/%E6%8C%AA%E5%A8%81%E6%89%8B%E5%B7%A5%E8%9B%8B%E6%8D%B2","lk":"detail","img":"2171217c0d70ea","imgsrc":"orsd.wda.gov.tw"},{"name":"小勝日禮盒","desc":"小型伴手禮盒","price":360,"cat":"其他","url":"https://vhomeshop.tw/products/%E5%A4%AA%E9%99%BD%E9%A4%85","lk":"detail","img":"4f63b0de7ed59e","imgsrc":"vhomeshop.tw"},{"name":"Mini太陽餅","desc":"單顆30公克 x 8入；保存 15天；膳工坊庇護工場","price":250,"cat":"蛋黃酥/糕餅","url":"https://vhomeshop.tw/products/%E5%A4%AA%E9%99%BD%E9%A4%85","src":"勞動部型錄","lk":"detail","ref":"https://orsd.wda.gov.tw/sheltered_products/detail/18","img":"5cd91202d9c1cd","imgsrc":"orsd.wda.gov.tw"},{"name":"香橙檸檬磅蛋糕","desc":"分享裝520公克(適合4-6人享用)；保存 冷藏7天 / 冷凍30天；膳工坊庇護工場","price":350,"cat":"蛋捲/餅乾/點心","url":"https://vhomeshop.tw/products/%E7%A3%85%E8%9B%8B%E7%B3%95","src":"勞動部型錄","lk":"detail","ref":"https://orsd.wda.gov.tw/sheltered_products/detail/19","img":"a4f0148b4452f3","imgsrc":"orsd.wda.gov.tw"},{"name":"冷凍厚片吐司","desc":"《香濃可可巧克力、花生熔岩、經典奶酥、養生堅果、義式香蒜、伯爵奶酥、火腿乳酪、燻雞乳酪、夏威夷》；保存 4個月；膳工坊庇護工場","price":25,"cat":"蛋捲/餅乾/點心","url":"https://vhomeshop.tw/products/%E6%8C%AA%E5%A8%81%E6%89%8B%E5%B7%A5%E8%9B%8B%E6%8D%B2","src":"勞動部型錄","lk":"detail","ref":"https://orsd.wda.gov.tw/sheltered_products/detail/20"}],"notes":"膳工坊庇護工場身障員工手工製作。","services":["布品清洗"],"lk":"shop","ship":{"tier":"likely","basis":"有線上管道「商城」，多數線上店可寄，但未明寫運費"}},{"id":43,"name":"慢慢恆春烘焙坊（琪拉庇護工場）","county":"屏東縣","region":"南部","website":null,"facebook":"https://www.facebook.com/kila052","links":[{"label":"Instagram","url":"https://www.instagram.com/slowly_angel/"},{"label":"勞動部型錄","url":"https://orsd.wda.gov.tw/sheltered_products"}],"buy":"https://www.instagram.com/slowly_angel/","status":"常態商品(2026待更新)","order":"門市購買或電話訂購（恆春恆南路，週三公休）","phone":"0927-558-828","products":[{"name":"手工歐式麵包／貝果／吐司","desc":"慢飛天使手工製作，常態商品","price":null,"cat":"蛋捲/餅乾/點心","lk":"social"},{"name":"甜點蛋糕／司康","desc":"現點現做","price":null,"cat":"蛋捲/餅乾/點心","lk":"social"},{"name":"咖啡／飲品","desc":"現做飲品","price":null,"cat":"咖啡/飲品","lk":"social"},{"name":"桂圓核桃糕禮盒","desc":"9入；保存 常溫5天","price":400,"cat":"其他","url":"https://orsd.wda.gov.tw/sheltered_products/detail/13","src":"勞動部型錄","lk":"catalog","alt":{"label":"訂購（粉專）","url":"https://www.facebook.com/kila052?locale=zh_TW"},"img":"ac5fe845c110a3","imgsrc":"orsd.wda.gov.tw"},{"name":"杏仁千層酥","desc":"120克；保存 常溫14天","price":100,"cat":"其他","url":"https://orsd.wda.gov.tw/sheltered_products/detail/14","src":"勞動部型錄","lk":"catalog","alt":{"label":"訂購（粉專）","url":"https://www.facebook.com/kila052?locale=zh_TW"},"img":"9f06f09374ebc6","imgsrc":"orsd.wda.gov.tw"},{"name":"繽紛馬卡龍","desc":"140克；保存 常溫14天","price":100,"cat":"其他","url":"https://orsd.wda.gov.tw/sheltered_products/detail/15","src":"勞動部型錄","lk":"catalog","alt":{"label":"訂購（粉專）","url":"https://www.facebook.com/kila052?locale=zh_TW"},"img":"998de3ae3de2ef","imgsrc":"orsd.wda.gov.tw"},{"name":"包餡吐司","desc":"220克；保存 常溫2天","price":130,"cat":"蛋捲/餅乾/點心","url":"https://orsd.wda.gov.tw/sheltered_products/detail/16","src":"勞動部型錄","lk":"catalog","alt":{"label":"訂購（粉專）","url":"https://www.facebook.com/kila052?locale=zh_TW"},"img":"deb086013db63a","imgsrc":"orsd.wda.gov.tw"}],"notes":"屏南地區唯一庇護工場，中秋商品洽 FB/IG。","lk":"social","ship":{"tier":"local","basis":"訂購方式以「門市」為主"}},{"id":44,"name":"蘭智社會福利基金會","county":"宜蘭縣","region":"東部","website":"https://lan-chui.org.tw/","facebook":"https://www.facebook.com/lanchui.yilan/","links":[{"label":"勞動部型錄","url":"https://orsd.wda.gov.tw/sheltered_products"}],"buy":"https://lan-chui.org.tw/shop/123-2/","status":"2026中秋","order":"官網商城（ECPay、街口、LinePay），大量訂購電洽烘焙坊；4 處自取據點、滿額免運","phone":"03-953-0129","products":[{"name":"田心好芝味禮盒","desc":"芝麻酥＋鐵觀音焦糖夾心餅乾，限量，九月起出貨（2026 新品，價格見商城）","price":null,"cat":"蛋捲/餅乾/點心","lk":"shop"},{"name":"田心歡喜禮盒（綜合鐵盒）","desc":"人氣點心綜合鐵盒（價格見商城）","price":null,"cat":"蛋捲/餅乾/點心","lk":"shop"},{"name":"雙面茄芷袋","desc":"材質：印花棉布、茄芷袋；保存 永久；玩美布工坊","price":450,"cat":"其他","url":"https://lan-chui.org.tw/lanchuiplaypretty/","src":"勞動部型錄","lk":"shop","ref":"https://orsd.wda.gov.tw/sheltered_products/detail/334","img":"d22bd6a24f1c35","imgsrc":"lan-chui.org.tw"},{"name":"束口收納袋","desc":"材質：印花棉布；保存 永久；玩美布工坊","price":350,"cat":"其他","url":"https://lan-chui.org.tw/lanchuiplaypretty/","src":"勞動部型錄","lk":"shop","ref":"https://orsd.wda.gov.tw/sheltered_products/detail/335","img":"e447b2d28784a1","imgsrc":"orsd.wda.gov.tw"},{"name":"可愛擦手巾","desc":"擦手巾顏色：嫩膚粉、寶寶藍；保存 永久；玩美布工坊","price":60,"cat":"其他","url":"https://lan-chui.org.tw/lanchuiplaypretty/","src":"勞動部型錄","lk":"shop","ref":"https://orsd.wda.gov.tw/sheltered_products/detail/336","img":"f520aa51836925","imgsrc":"orsd.wda.gov.tw"},{"name":"親膚毛巾","desc":"顏色：嫩膚粉、寶寶藍；保存 永久；玩美布工坊","price":280,"cat":"其他","url":"https://lan-chui.org.tw/lanchuiplaypretty/","src":"勞動部型錄","lk":"shop","ref":"https://orsd.wda.gov.tw/sheltered_products/detail/337","img":"f026b305c04595","imgsrc":"orsd.wda.gov.tw"},{"name":"抹布","desc":"纖維成份：85%縲縈纖維、15%聚乙烯纖維；保存 永久；玩美布工坊","price":120,"cat":"其他","url":"https://lan-chui.org.tw/lanchuiplaypretty/","src":"勞動部型錄","lk":"shop","ref":"https://orsd.wda.gov.tw/sheltered_products/detail/338","img":"17ddf28660b44c","imgsrc":"orsd.wda.gov.tw"}],"notes":"宜蘭羅東；2026/7/22 發布中秋公告。","lk":"shop","ship":{"tier":"yes","basis":"訂購方式提到「免運」"}},{"id":45,"name":"宜蘭蘭馨婦幼中心（老懂烘焙坊）","county":"宜蘭縣","region":"東部","website":"http://www.roton.tw/","facebook":"https://www.facebook.com/lanshin235/","links":[{"label":"勞動部型錄","url":"https://orsd.wda.gov.tw/sheltered_products"}],"buy":"https://ptps.sfaa.gov.tw/mall/storePage/9AEF5E55-97B2-4675-B9BC-F58D4BB0A3E8","status":"常態商品(2026待更新)","order":"衛福部愛福好商城、電話訂購","phone":"03-951-0518#225","products":[{"name":"手工餅乾","desc":"老懂烘焙坊","price":120,"cat":"蛋捲/餅乾/點心","lk":"shop","img":"d6a2f4f80d94dd","imgsrc":"ptps.sfaa.gov.tw"},{"name":"西點餐盒","desc":"會議/活動餐盒","price":100,"cat":"蛋捲/餅乾/點心","lk":"shop","img":"0933607083d725","imgsrc":"ptps.sfaa.gov.tw"},{"name":"肉粽","desc":"單顆","price":60,"cat":"農產/加工食品","lk":"shop","img":"41324597ac2c13","imgsrc":"ptps.sfaa.gov.tw"},{"name":"Ronton spread your wings 擴香瓶禮盒款","desc":"100ml+5支擴香棒；保存 115/12/31；老懂展翅庇護工場","price":390,"cat":"其他","url":"https://ptps.sfaa.gov.tw/mall/itemDetail/4118773100050006","src":"勞動部型錄","lk":"detail","ref":"https://orsd.wda.gov.tw/sheltered_products/detail/324","img":"aa8fb3de177584","imgsrc":"orsd.wda.gov.tw"},{"name":"Ronton spread your wings 擴香瓶提袋款","desc":"100ml+3支擴香棒；保存 115/12/31；老懂展翅庇護工場","price":290,"cat":"其他","url":"https://ptps.sfaa.gov.tw/mall/itemDetail/4118773100050005","src":"勞動部型錄","lk":"detail","ref":"https://orsd.wda.gov.tw/sheltered_products/detail/325","img":"1e44039008d647","imgsrc":"orsd.wda.gov.tw"},{"name":"手工精油隨身皂","desc":"18g；保存 18個月；老懂展翅庇護工場","price":80,"cat":"手工皂/清潔用品","url":"https://ptps.sfaa.gov.tw/mall/itemDetail/4118773100050003","src":"勞動部型錄","lk":"detail","ref":"https://orsd.wda.gov.tw/sheltered_products/detail/327","img":"9a052efad1672d","imgsrc":"orsd.wda.gov.tw"},{"name":"鼻要蚊我-精油噴霧","desc":"30ml；保存 3年；老懂展翅庇護工場","price":80,"cat":"其他","url":"https://ptps.sfaa.gov.tw/mall/itemDetail/4118773100050004","src":"勞動部型錄","lk":"detail","ref":"https://orsd.wda.gov.tw/sheltered_products/detail/328","img":"c67b158ae17917","imgsrc":"orsd.wda.gov.tw"},{"name":"空間香氛精油噴霧","desc":"規格：30ML；保存 未開封通常可保存 2 至 3 年 ，開封後建議在 6 個月內使用完畢。；老懂展翅庇護工場","price":100,"cat":"其他","url":"https://ptps.sfaa.gov.tw/mall/itemDetail/4118773100050007","src":"勞動部型錄","lk":"detail","ref":"https://orsd.wda.gov.tw/sheltered_products/detail/477"}],"notes":"曾供應中秋月餅禮盒，2026 中秋品項需電洽。","services":["清潔服務"],"lk":"shop","ship":{"tier":"likely","basis":"有線上管道「商城」，多數線上店可寄，但未明寫運費"}},{"id":46,"name":"北榮員山分院庇護工場（愛工坊）","county":"宜蘭縣","region":"東部","website":"https://org.vghtpe.gov.tw/ysvh","facebook":null,"links":[{"label":"勞動部型錄","url":"https://orsd.wda.gov.tw/sheltered_products"}],"buy":"https://ptps.sfaa.gov.tw/mall/storePage/078A834E-1EE5-4245-ABB9-3DC90654F864","status":"2026中秋","order":"衛福部愛福好商城線上訂購、電話","phone":"03-923-3791","products":[{"name":"2026中秋 沐月軟心分享禮盒","desc":"中秋限定","price":450,"cat":"月餅禮盒","lk":"shop","img":"476b3ec6ac62e9","imgsrc":"ptps.sfaa.gov.tw"},{"name":"2026中秋 沐月軟心澎拜禮盒","desc":"中秋限定","price":600,"cat":"月餅禮盒","lk":"shop","img":"476b3ec6ac62e9","imgsrc":"ptps.sfaa.gov.tw"},{"name":"憨豆職人禮盒A／B","desc":"咖啡點心禮盒","price":600,"cat":"咖啡/飲品","lk":"shop","img":"0f2e69fe82255f","imgsrc":"ptps.sfaa.gov.tw"},{"name":"愛・選物 精品咖啡禮盒","desc":"精品咖啡","price":900,"cat":"咖啡/飲品","lk":"shop","img":"6cce908c2b52ba","imgsrc":"ptps.sfaa.gov.tw"},{"name":"愛工坊真愛鳳梨酥禮盒（15入）","desc":"天然原料手工製作","price":580,"cat":"鳳梨酥","lk":"shop","img":"79910cbaadfd6f","imgsrc":"ptps.sfaa.gov.tw"},{"name":"金磚鳳韻鳳梨酥禮盒（10入）","desc":"天然原料手工製作","price":400,"cat":"鳳梨酥","lk":"shop","img":"a7b64a0f349f72","imgsrc":"ptps.sfaa.gov.tw"},{"name":"鳳梨酥禮盒（12入）","desc":"天然原料手工製作","price":500,"cat":"鳳梨酥","lk":"shop","img":"a7b64a0f349f72","imgsrc":"ptps.sfaa.gov.tw"},{"name":"卡杜拉精品濾掛咖啡","desc":"10入；保存 如盒裝標示","price":400,"cat":"咖啡/飲品","url":"https://s.ccat.com.tw/G/15581","src":"勞動部型錄","lk":"shop","ref":"https://orsd.wda.gov.tw/sheltered_products/detail/339","img":"e9aa3cfb591b5c","imgsrc":"orsd.wda.gov.tw"},{"name":"夏威夷豆塔禮盒","desc":"9入；保存 7天","price":400,"cat":"蛋捲/餅乾/點心","url":"https://s.ccat.com.tw/G/15246","src":"勞動部型錄","lk":"shop","ref":"https://orsd.wda.gov.tw/sheltered_products/detail/340","img":"0ee5e0dce2a376","imgsrc":"orsd.wda.gov.tw"},{"name":"四方珍選禮盒","desc":"4種口味手工餅乾任選；保存 25天","price":300,"cat":"蛋捲/餅乾/點心","url":"https://s.ccat.com.tw/G/14994","src":"勞動部型錄","lk":"shop","ref":"https://orsd.wda.gov.tw/sheltered_products/detail/341","img":"997942ce71fbb3","imgsrc":"orsd.wda.gov.tw"},{"name":"愛綻幸福 - 愛工坊手工餅乾","desc":"保存 30天","price":620,"cat":"蛋捲/餅乾/點心","url":"https://s.ccat.com.tw/G/14994","src":"勞動部型錄","lk":"shop","ref":"https://orsd.wda.gov.tw/sheltered_products/detail/476"}],"notes":"宜蘭第一間庇護工場，服務精障與智能障礙者；場內設「心咖啡」。","lk":"shop","ship":{"tier":"likely","basis":"有線上管道「商城」，多數線上店可寄，但未明寫運費"}},{"id":47,"name":"花蓮黎明庇護工場（黎明教養院）","county":"花蓮縣","region":"東部","website":"https://www.newdawnone.com/","facebook":"https://www.facebook.com/happynewdawn/","links":[{"label":"勞動部型錄","url":"https://orsd.wda.gov.tw/sheltered_products"}],"buy":"https://www.newdawnone.com/buy/main.php?cat=24&subcatdiv=5","status":"2026中秋","order":"官網團購網線上訂購、電話；滿額免運、30 盒以上免費客製小卡","phone":"03-846-0527","products":[{"name":"團圓美滿禮盒","desc":"蔥香綠豆月餅3入＋茶香豆沙月餅3入（優惠389）","price":410,"cat":"月餅禮盒","url":"https://www.newdawnone.com/buy/main_products.php?pid=167","lk":"detail","img":"d9c8156de77575","imgsrc":"www.newdawnone.com"},{"name":"百年傳奇公益聯名款","desc":"花生酥6入＋青柚沙其馬6入＋蔥香綠豆月餅（優惠522）","price":550,"cat":"月餅禮盒","url":"https://www.newdawnone.com/buy/main_products.php?pid=168","lk":"detail","img":"abbcd2fb96ebeb","imgsrc":"www.newdawnone.com"},{"name":"彩悅花樣禮盒","desc":"咖啡6入＋洋蔥餅乾＋伯爵茶餅乾＋檸檬乾（優惠712）","price":750,"cat":"咖啡/飲品","url":"https://www.newdawnone.com/buy/main_products.php?pid=170","lk":"detail","img":"d14ad512c06aae","imgsrc":"www.newdawnone.com"},{"name":"幸福果實禮盒","desc":"蔓越莓＋橘果乾牛軋餅各8片（優惠332）","price":350,"cat":"蛋捲/餅乾/點心","url":"https://www.newdawnone.com/buy/main_products.php?pid=169","lk":"detail","img":"5c430811bbb6fc","imgsrc":"www.newdawnone.com"},{"name":"原味牛軋餅","desc":"8入；保存 30天；花蓮縣黎明身心障礙者庇護工場","price":150,"cat":"蛋捲/餅乾/點心","url":"https://orsd.wda.gov.tw/sheltered_products/detail/463","src":"勞動部型錄","lk":"catalog","img":"d68c321da5a1de","imgsrc":"ae3.okweb.asia"},{"name":"青蔥牛軋餅","desc":"8入；保存 30天；花蓮縣黎明身心障礙者庇護工場","price":150,"cat":"蛋捲/餅乾/點心","url":"https://orsd.wda.gov.tw/sheltered_products/detail/464","src":"勞動部型錄","lk":"catalog","img":"6b40d0e4bd2797","imgsrc":"www.newdawnone.com"},{"name":"紅藜牛軋餅","desc":"8入；保存 30天；花蓮縣黎明身心障礙者庇護工場","price":150,"cat":"蛋捲/餅乾/點心","url":"https://orsd.wda.gov.tw/sheltered_products/detail/465","src":"勞動部型錄","lk":"catalog","img":"979050347a89e5","imgsrc":"www.newdawnone.com"},{"name":"抹茶牛軋餅","desc":"8入；保存 30天；花蓮縣黎明身心障礙者庇護工場","price":150,"cat":"蛋捲/餅乾/點心","url":"https://orsd.wda.gov.tw/sheltered_products/detail/466","src":"勞動部型錄","lk":"catalog","img":"4560081cb38642","imgsrc":"ae3.okweb.asia"},{"name":"咖啡牛軋餅","desc":"8入；保存 30天；花蓮縣黎明身心障礙者庇護工場","price":150,"cat":"咖啡/飲品","url":"https://orsd.wda.gov.tw/sheltered_products/detail/467","src":"勞動部型錄","lk":"catalog"},{"name":"海苔牛軋餅","desc":"8入；保存 30天；花蓮縣黎明身心障礙者庇護工場","price":150,"cat":"蛋捲/餅乾/點心","url":"https://orsd.wda.gov.tw/sheltered_products/detail/468","src":"勞動部型錄","lk":"catalog"},{"name":"牛奶堅果餅乾","desc":"10入；保存 30天；花蓮縣黎明身心障礙者庇護工場","price":160,"cat":"蛋捲/餅乾/點心","url":"https://orsd.wda.gov.tw/sheltered_products/detail/469","src":"勞動部型錄","lk":"catalog"},{"name":"伯爵茶餅乾","desc":"10入；保存 30天；花蓮縣黎明身心障礙者庇護工場","price":160,"cat":"蛋捲/餅乾/點心","url":"https://orsd.wda.gov.tw/sheltered_products/detail/470","src":"勞動部型錄","lk":"catalog"},{"name":"巧克力杏片餅乾","desc":"10入；保存 30天；花蓮縣黎明身心障礙者庇護工場","price":175,"cat":"蛋捲/餅乾/點心","url":"https://orsd.wda.gov.tw/sheltered_products/detail/471","src":"勞動部型錄","lk":"catalog"},{"name":"伯爵茶磅蛋糕","desc":"450±5克/條；保存 常溫7天；冷藏14天；冷凍30天；花蓮縣黎明身心障礙者庇護工場","price":295,"cat":"蛋捲/餅乾/點心","url":"https://orsd.wda.gov.tw/sheltered_products/detail/472","src":"勞動部型錄","lk":"catalog"},{"name":"古早味肉粽","desc":"7入；保存 30天；花蓮縣黎明身心障礙者庇護工場","price":530,"cat":"農產/加工食品","url":"https://orsd.wda.gov.tw/sheltered_products/detail/473","src":"勞動部型錄","lk":"catalog"},{"name":"辣姨下滷豆乾","desc":"300克/包；保存 30天；花蓮縣黎明身心障礙者庇護工場","price":140,"cat":"其他","url":"https://orsd.wda.gov.tw/sheltered_products/detail/474","src":"勞動部型錄","lk":"catalog"}],"notes":"門諾會黎明機構；青蔥牛軋餅曾獲花蓮百大伴手禮優等。","lk":"shop","ship":{"tier":"yes","basis":"訂購方式提到「免運」"}},{"id":48,"name":"台東牧心烘焙庇護工場（牧心智能發展中心）","county":"台東縣","region":"東部","website":"https://www.mindfarm.org.tw/","facebook":"https://www.facebook.com/mindfarm888","links":[{"label":"官網購物區","url":"https://www.mindfarm.org.tw/ShopList.aspx?id=115"},{"label":"勞動部型錄","url":"https://orsd.wda.gov.tw/sheltered_products"}],"buy":"https://www.mindfarm.org.tw/OnePage.aspx?tid=131&id=2573","status":"2026中秋","order":"電話/傳真、FB 私訊；與「草民」聯名愛心月餅認購（目標 500 盒送台東偏鄉）","phone":"089-237-121#160","products":[{"name":"2026 中秋禮盒「慢慢團圓」","desc":"草民×牧心聯名：烏豆沙蛋黃酥、奶黃流心、芋頭流心、堅果塔，價格電洽","price":null,"cat":"蛋黃酥/糕餅","lk":"shop"},{"name":"乳酪堅果饅頭","desc":"減油減糖低鈉（10/32/70 顆裝，含運）","price":null,"cat":"農產/加工食品","lk":"shop","img":"3933c58eba5a6f","imgsrc":"orsd.wda.gov.tw"}],"notes":"台東市。","services":["環境清潔"],"lk":"shop","ship":{"tier":"ask","basis":"訂購方式只提到電話／傳真／私訊，需電話確認"}},{"id":49,"name":"澎湖慢飛天使服務協會（集愛工坊）","county":"澎湖縣","region":"離島","website":"http://www.phchildrencare.artcom.tw/","facebook":"https://www.facebook.com/people/%E6%BE%8E%E6%B9%96%E7%B8%A3%E6%85%A2%E9%A3%9B%E5%A4%A9%E4%BD%BF%E6%9C%8D%E5%8B%99%E5%8D%94%E6%9C%83-%E9%9B%86%E6%84%9B%E5%B7%A5%E5%9D%8A/100064887992612/","links":[],"buy":"https://www.facebook.com/permalink.php?story_fbid=pfbid0F6PQEyoyghkMhxibD11AZWukNwe4PeHBosXkY5CbeJAchG1wJD8juAUrG2kvwkEpl&id=100064887992612","status":"2026中秋","order":"電話訂購（集愛工坊門市：馬公市大勇街20號）","phone":"06-9269855","products":[{"name":"集愛工坊中秋禮盒（3/6/9/12入）","desc":"鳳梨酥、蔓越莓冬瓜酥、堅果塔、2026 新品桃酥，可組合；價格電洽","price":null,"cat":"蛋黃酥/糕餅","lk":"social"}],"notes":"2026/8/3 舉行中秋產品發表會，副縣長率先認購 450 盒。","lk":"social","ship":{"tier":"local","basis":"訂購方式以「門市」為主"}},{"id":50,"name":"妙妙屋庇護工場（金門・晨光基金會）","county":"金門縣","region":"離島","website":"https://www.sun-rise.org.tw/index.php?route=information/bakery","facebook":"https://www.facebook.com/261931352068675","links":[{"label":"宅配預購單","url":"https://forms.gle/bncD1NFCrhNgcF246"},{"label":"LINE 官方帳號","url":"https://line.me/R/ti/p/@875iswbt"},{"label":"勞動部型錄","url":"https://orsd.wda.gov.tw/sheltered_products"}],"buy":"https://myship.7-11.com.tw/general/detail/GM2607233312520","status":"2026中秋","order":"7-11 賣貨便、LINE、電話、Google 宅配預購單","phone":"082-331345","products":[{"name":"金鳳禮盒 8 入","desc":"鳳梨酥4＋鳳凰酥4（參考價，最新以賣貨便為準）","price":320,"cat":"鳳梨酥","lk":"detail"},{"name":"金兔禮盒 6 入","desc":"鳳梨酥3＋鳳凰酥3（參考價）","price":240,"cat":"鳳梨酥","lk":"detail"},{"name":"郭元益 八月元滿禮盒","desc":"聯名：餅乾3＋月餅6＋包種茶1（參考價）","price":470,"cat":"月餅禮盒","lk":"detail"},{"name":"果乾禮盒（金獅3入／金獺5入）","desc":"番茄、芭樂、葡萄、鳳梨、蜜棗果乾（330/499）","price":330,"cat":"農產/加工食品","lk":"detail"},{"name":"妙妙屋X圓頭公益聯名福袋","desc":"金門高粱酸白菜x2；保存 詳見產品包裝","price":499,"cat":"其他","url":"https://forms.gle/swinouoZyUPQPRDk8","src":"勞動部型錄","lk":"form","ref":"https://orsd.wda.gov.tw/sheltered_products/detail/306","img":"b78b6e92284496","imgsrc":"orsd.wda.gov.tw"},{"name":"海苔脆片5入禮盒","desc":"鮮魚海苔脆片40g x2；保存 詳見產品包裝","price":450,"cat":"其他","url":"https://forms.gle/swinouoZyUPQPRDk8","src":"勞動部型錄","lk":"form","ref":"https://orsd.wda.gov.tw/sheltered_products/detail/307","img":"bcd9bb36aa6ef6","imgsrc":"orsd.wda.gov.tw"},{"name":"綜合果乾5入禮盒","desc":"葡萄乾150g，番茄乾80g，芭樂乾80g，芒果乾80g，鳳梨乾70g；保存 詳見產品包裝","price":499,"cat":"農產/加工食品","url":"https://forms.gle/swinouoZyUPQPRDk8","src":"勞動部型錄","lk":"form","ref":"https://orsd.wda.gov.tw/sheltered_products/detail/308","img":"c16c47cfd248ee","imgsrc":"orsd.wda.gov.tw"},{"name":"堅果塔6入禮盒","desc":"堅果塔，6入/盒；保存 40天","price":260,"cat":"農產/加工食品","url":"https://forms.gle/swinouoZyUPQPRDk8","src":"勞動部型錄","lk":"form","ref":"https://orsd.wda.gov.tw/sheltered_products/detail/309","img":"d41b50366baccb","imgsrc":"orsd.wda.gov.tw"},{"name":"金門手工麵線禮盒","desc":"金門手工麵線200g/份，4入/盒；保存 3個月","price":280,"cat":"其他","url":"https://forms.gle/swinouoZyUPQPRDk8","src":"勞動部型錄","lk":"form","ref":"https://orsd.wda.gov.tw/sheltered_products/detail/310","img":"556cd7a343bcfd","imgsrc":"orsd.wda.gov.tw"}],"notes":"金門唯一烘焙庇護工場，9 位身障者＋3 位夥伴組成。","lk":"detail","ship":{"tier":"yes","basis":"訂購方式提到「賣貨便」"}},{"id":51,"name":"更生少年關懷協會（貓培你飛）","county":"台北市","region":"北部","website":"https://616.org.tw/","facebook":"https://www.facebook.com/616bornanew","links":[{"label":"預購表單","url":"https://forms.gle/iem1X7fMsHsH6iWU8"}],"buy":"https://616.org.tw/newsroom/details.php?id=487","status":"2026中秋","order":"Google 表單預購（至完售止，9/10 起出貨）、電話、Email","phone":"02-2567-6750","products":[{"name":"金秋滿月・培你圓悅 公益中秋禮盒","desc":"月餅9入（鹹蛋黃×3、芋頭慕斯流心×3、卡士達×3）＋貓咪帆布袋，限量 200 盒","price":890,"cat":"月餅禮盒","lk":"notice"}],"notes":"職培少年微創品牌「貓培你飛」，收入投入少年職業培訓。","lk":"notice","ship":{"tier":"yes","basis":"訂購方式提到「出貨」"}},{"id":52,"name":"失親兒福利基金會","county":"台北市","region":"北部","website":"https://www.orphan.org.tw/","facebook":"https://www.facebook.com/orphan.tw/","links":[{"label":"中秋送愛活動","url":"https://www.orphan.org.tw/post/news20190719-1"}],"buy":"https://orphan.eoffering.org.tw/","status":"常態商品(2026待更新)","order":"失親兒線上義賣商城訂購、電話洽詢中秋認購方案","phone":"02-2747-7555","products":[{"name":"2026 嘟嘟小鵝包","desc":"基金會義賣文創商品","price":300,"cat":"其他","url":"https://orphan.eoffering.org.tw/","lk":"shop"},{"name":"光之行李牌","desc":"基金會義賣文創商品","price":300,"cat":"其他","url":"https://orphan.eoffering.org.tw/","lk":"shop","img":"9341fa78a7ac43","imgsrc":"orphan.eoffering.org.tw"},{"name":"Believe 潮 T","desc":"基金會義賣服飾","price":500,"cat":"其他","url":"https://orphan.eoffering.org.tw/","lk":"shop"}],"notes":"全國型基金會（台北松山）。以「認購月餅送失親兒家庭」等送愛活動為主，另有線上義賣商城文創品；中秋認購方案請電洽。","lk":"shop","ship":{"tier":"likely","basis":"有線上管道「線上義賣」，多數線上店可寄，但未明寫運費"}},{"id":53,"name":"菩提澄園庇護工場（澄食蔬園）","county":"台南市","region":"南部","website":"https://joo.tw/puti/","facebook":"https://www.facebook.com/profile.php?id=100069086903841","links":[{"label":"勞動部型錄","url":"https://orsd.wda.gov.tw/sheltered_products"}],"buy":"https://joo.tw/puti/index.php?action=product_sort&prod_sort_ou=1253","status":"2026中秋","order":"官方商城（刷卡/ATM/超商取貨），禮盒滿 5000 免運、買 10 送 1；門市：台南麻豆","phone":"06-5712342","products":[{"name":"【中秋】月見澄意禮盒（純素）","desc":"香脆腰果＋蜂蜜柚子爆米花＋黑芝麻藜麥豆奶酥（原價580，早鳥）","price":490,"cat":"農產/加工食品","url":"https://joo.tw/puti/index.php?action=product_detail&prod_no=P0005400032159","lk":"detail","img":"a8e0042528c9d1","imgsrc":"cdn.joo.tw"},{"name":"【中秋】柚見澄心禮盒（純素）","desc":"腰果＋柚子爆米花＋蜜漬柚子乾＋柚皮黑糖磚（原價690，8/24 前早鳥）","price":590,"cat":"農產/加工食品","url":"https://joo.tw/puti/index.php?action=product_detail&prod_no=P0005400032158","lk":"detail","img":"748ecd17609671","imgsrc":"cdn.joo.tw"},{"name":"香滷豆干","desc":"250g/包；保存 1個月(冷凍)","price":50,"cat":"其他","url":"https://orsd.wda.gov.tw/sheltered_products/detail/67","src":"勞動部型錄","lk":"catalog","alt":{"label":"訂購（粉專）","url":"https://www.facebook.com/profile.php?id=100069086903841"},"img":"82c64a87fe64d1","imgsrc":"cdn.joo.tw"},{"name":"香脆腰果","desc":"120g/包；保存 6個月","price":100,"cat":"其他","url":"https://orsd.wda.gov.tw/sheltered_products/detail/68","src":"勞動部型錄","lk":"catalog","alt":{"label":"訂購（粉專）","url":"https://www.facebook.com/profile.php?id=100069086903841"},"img":"fd069c999c23a1","imgsrc":"cdn.joo.tw"},{"name":"手工包子饅頭","desc":"6顆/包；保存 1個月(冷凍)","price":110,"cat":"蛋捲/餅乾/點心","url":"https://orsd.wda.gov.tw/sheltered_products/detail/69","src":"勞動部型錄","lk":"catalog","alt":{"label":"訂購（粉專）","url":"https://www.facebook.com/profile.php?id=100069086903841"},"img":"b00231173a767f","imgsrc":"orsd.wda.gov.tw"},{"name":"澄心菩提禮盒","desc":"1盒；保存 6個月","price":590,"cat":"其他","url":"https://orsd.wda.gov.tw/sheltered_products/detail/70","src":"勞動部型錄","lk":"catalog","alt":{"label":"訂購（粉專）","url":"https://www.facebook.com/profile.php?id=100069086903841"},"img":"7e7c350430c1a0","imgsrc":"cdn.joo.tw"}],"notes":"蔬食庇護工場；列入勞動部 2026 中秋型錄。","lk":"shop","ship":{"tier":"yes","basis":"訂購方式提到「超商取貨」"}},{"id":54,"name":"台灣福氣社區關懷協會（福氣烘焙坊）","county":"台中市","region":"中部","website":"https://www.fortune0619.com.tw/portal/","facebook":"https://www.facebook.com/fortunesocialwork/","links":[],"buy":"https://www.fortune0619.com.tw/portal/shopall.php","status":"常態商品(2026待更新)","order":"官方商城（轉帳/刷卡，黑貓宅配）、電話","phone":"04-26268178","products":[{"name":"福氣飽飽 15 入咖啡禮盒","desc":"身障學員製作濾掛咖啡","price":550,"cat":"咖啡/飲品","lk":"shop","img":"c2650175d34748","imgsrc":"www.fortune0619.com.tw"},{"name":"福氣咖啡濾掛包（8入）","desc":"另有單包 35、10 入散裝 350","price":290,"cat":"咖啡/飲品","lk":"shop","img":"ef644c38ff7447","imgsrc":"www.fortune0619.com.tw"},{"name":"福氣柑橘天然洗潔精","desc":"小瓶 85／大瓶 210","price":85,"cat":"手工皂/清潔用品","lk":"shop","img":"88dbb7a7667832","imgsrc":"www.fortune0619.com.tw"}],"notes":"台中清水；中秋禮盒請關注 FB 公告。","lk":"shop","ship":{"tier":"yes","basis":"訂購方式提到「黑貓」"}},{"id":55,"name":"臺中市私立信望愛智能發展中心（慢慢烘焙屋）","county":"台中市","region":"中部","website":"https://www.fhl.org.tw/","facebook":"https://www.facebook.com/FHL.smile.angle/","links":[{"label":"手工皂預訂","url":"https://fhl.pse.is/NLUWP"}],"buy":"https://www.beclass.com/rid=294db366752ae00bcf30","status":"2026中秋","order":"BeClass 線上訂購（最後接單 9/18）；現金自取/劃撥/匯款/LinePay；未滿 3000 本島運費 150","phone":"04-2535-5030","products":[{"name":"A. 經典 4 入禮盒","desc":"手工餅乾2罐＋鳳梨酥4顆＋高山茶6包","price":500,"cat":"蛋捲/餅乾/點心","lk":"form"},{"name":"B. 慢慢鳳梨酥 10 入禮盒","desc":"單顆另售 45","price":470,"cat":"鳳梨酥","lk":"form"},{"name":"C. 經典咖啡禮盒","desc":"抹茶杏仁酥＋手工餅乾＋濾掛咖啡5包","price":320,"cat":"咖啡/飲品","lk":"form"},{"name":"D. 經典 2 入禮盒","desc":"手工餅乾1罐＋鳳梨酥4入","price":310,"cat":"蛋捲/餅乾/點心","lk":"form"},{"name":"E. 手工餅乾 2 入禮盒","desc":"乳酪杏仁角/伯爵紅茶/蔓越莓/可可杏仁（單罐110）","price":240,"cat":"蛋捲/餅乾/點心","lk":"form"}],"notes":"台中潭子；師生共同製作、接單後新鮮製作。","lk":"form","ship":{"tier":"yes","basis":"訂購方式提到「運費」"}},{"id":56,"name":"台灣技職教育產學研合作發展協會","county":"台中市","region":"中部","website":null,"facebook":"https://www.facebook.com/taiwanvea/","links":[],"buy":"https://www.facebook.com/taiwanvea/","status":"未找到商品資訊","order":"電話洽詢","phone":"04-26805153","products":[],"notes":"查無公開販售商品，建議直接電洽。","lk":"social","ship":{"tier":"ask","basis":"訂購方式只提到電話／傳真／私訊，需電話確認"}},{"id":57,"name":"屏東縣自閉症協進會（星光工坊）","county":"屏東縣","region":"南部","website":"https://www.autismpt.artcom.tw/","facebook":"https://www.facebook.com/autismpt/","links":[{"label":"星兒平安麵（愛麵族商城）","url":"https://www.lux.com.tw/zh-TW/products/peace-noodle-charity-set"},{"label":"愛福好商城","url":"https://ptps.sfaa.gov.tw/mall/storePage/E6BE88D1-21D0-464A-B006-33360DDC2E99"}],"buy":"https://www.autismpt.artcom.tw/ap/news_view.aspx?bid=12&sn=886fb1e7-c43e-4e6e-b154-cb23e7d7232e","status":"2026中秋","order":"電話/Email（郵局匯款），滿 30 盒免運；平安麵於愛麵族商城線上購","phone":"08-7351024","products":[{"name":"星兒平安麵公益聯名組","desc":"3入輕享包 179／8入禮盒 499，每組提撥 20% 公益","price":179,"cat":"農產/加工食品","lk":"notice"},{"name":"星兒禮盒（鳳凰酥10入）","desc":"星兒畫作包裝＋感謝小卡","price":550,"cat":"鳳梨酥","lk":"notice"},{"name":"鳳凰酥＋綜合雪Q餅禮盒","desc":"鳳凰酥5入＋雪Q餅8入","price":520,"cat":"鳳梨酥","lk":"notice"},{"name":"綜合水果酥禮盒","desc":"水果酥15入（5 種口味）","price":550,"cat":"蛋黃酥/糕餅","lk":"notice"},{"name":"費南雪禮盒（×LA ONE）","desc":"費南雪12入（鳳梨/鹽之花）","price":880,"cat":"蛋黃酥/糕餅","lk":"notice"},{"name":"老奶奶雙檸糖霜蛋糕（×必勝烘焙）","desc":"4 吋蛋糕","price":450,"cat":"蛋黃酥/糕餅","lk":"notice"},{"name":"濾掛咖啡禮盒（×本質咖啡）","desc":"濾掛 12 包（6 種口味）","price":580,"cat":"咖啡/飲品","lk":"notice"}],"notes":"115 年星光工坊禮盒型錄 2026/8/20 發布。","lk":"notice","ship":{"tier":"yes","basis":"訂購方式提到「免運」"}},{"id":58,"name":"伊甸社會福利基金會－創皂工坊","county":"屏東縣","region":"南部","website":"https://www.eden.org.tw/","facebook":"https://www.facebook.com/edenpingtung/","links":[],"buy":"https://ptps.sfaa.gov.tw/mall/storePage/0FA348E9-F8B6-4DB1-9373-A22954918C1C","status":"2026中秋","order":"衛福部愛福好商城、電話（鍾小姐；大量訂購提前約三個月）","phone":"08-8711612","products":[{"name":"手工皂三入禮盒組","desc":"七子白、備長炭、青黛、左手香、艾草平安等皂款任搭 3 入，學員畫作包裝","price":540,"cat":"手工皂/清潔用品","lk":"shop"}],"notes":"伊甸屏南服務中心（東港）社區日間作業設施品牌。","lk":"shop","ship":{"tier":"likely","basis":"有線上管道「商城」，多數線上店可寄，但未明寫運費"}},{"id":59,"name":"屏東縣啟智協進會","county":"屏東縣","region":"南部","website":"https://pamr.org.tw/","facebook":"https://www.facebook.com/PTIDA1988/","links":[{"label":"萬丹紅豆（愛福好）","url":"https://ptps.sfaa.gov.tw/mall/itemDetail/OA000028464750001"}],"buy":"https://pamr.org.tw/%e5%b9%b8%e7%a6%8f%e7%be%a9%e8%b3%a3/","status":"2026中秋","order":"電話向各據點社工訂購（秋節專線 08-7872388）","phone":"08-7380778","products":[{"name":"溫馨秋節・皂訪幸福禮盒","desc":"精油防蚊噴霧組＋帆布袋＋左手香手工皂＋香皂袋","price":399,"cat":"手工皂/清潔用品","lk":"shop"},{"name":"萬丹紅豆禮盒","desc":"在地紅豆 600g（協會價 160，愛福好 200）","price":160,"cat":"農產/加工食品","lk":"shop"},{"name":"花好月圓手工皂禮盒（3入）","desc":"潮州欣寶工坊手工皂","price":350,"cat":"手工皂/清潔用品","lk":"shop"},{"name":"大武山 Smile 禮盒","desc":"白鶴靈芝草本洗手慕斯 450ml×2","price":450,"cat":"手工皂/清潔用品","lk":"shop"}],"notes":"各日間作業設施（晴天、欣寶、紅豆、崙川工坊）製作。","lk":"shop","ship":{"tier":"ask","basis":"訂購方式只提到電話／傳真／私訊，需電話確認"}},{"id":60,"name":"屏東縣私立基督教伯大尼之家","county":"屏東縣","region":"南部","website":"https://www.bethany-pt.org/","facebook":"https://www.facebook.com/bethany.pt/","links":[],"buy":"https://www.bethany-pt.org/product.php","status":"2026中秋","order":"官網商城線上訂購（支援刷卡）或電話","phone":"08-7367264","products":[{"name":"旺萊酥 中秋禮盒","desc":"旺萊酥（鳳梨酥）10 入","price":700,"cat":"鳳梨酥","url":"https://www.bethany-pt.org/product/%E6%84%9B%E5%BF%83%E7%BE%A9%E8%B3%A3/%E6%84%9B%E5%BF%83%E4%BC%B4%E6%89%8B%E7%A6%AE%E7%9B%92%E7%B5%84/%E6%97%BA%E8%90%8A%E9%85%A5+%E4%B8%AD%E7%A7%8B%E7%A6%AE%E7%9B%92","lk":"shop"},{"name":"傳愛咖啡紅豆禮盒","desc":"咖啡＋紅豆伴手禮盒","price":800,"cat":"咖啡/飲品","url":"https://www.bethany-pt.org/product/%E6%84%9B%E5%BF%83%E7%BE%A9%E8%B3%A3/%E6%84%9B%E5%BF%83%E4%BC%B4%E6%89%8B%E7%A6%AE%E7%9B%92%E7%B5%84/%E5%82%B3%E6%84%9B%E5%92%96%E5%95%A1%E7%B4%85%E8%B1%86%E7%A6%AE%E7%9B%92","lk":"shop"},{"name":"耳掛濾泡咖啡禮盒","desc":"耳掛咖啡 16 包","price":1090,"cat":"咖啡/飲品","url":"https://www.bethany-pt.org/product/%E6%84%9B%E5%BF%83%E7%BE%A9%E8%B3%A3/%E6%84%9B%E5%BF%83%E4%BC%B4%E6%89%8B%E7%A6%AE%E7%9B%92%E7%B5%84/%E8%80%B3%E6%8E%9B%E6%BF%BE%E6%B3%A1%E5%92%96%E5%95%A1%E7%A6%AE%E7%9B%92","lk":"shop"},{"name":"玫瑰茶包組","desc":"玫瑰複方茶包 12 包×2 袋","price":600,"cat":"咖啡/飲品","lk":"shop"}],"notes":"另有羊肉爐、放養土雞、荔枝蜜等常態義賣。","lk":"shop","ship":{"tier":"likely","basis":"有線上管道「商城」，多數線上店可寄，但未明寫運費"}},{"id":61,"name":"屏東縣向陽康復之友協會（誠欣工作坊）","county":"屏東縣","region":"南部","website":null,"facebook":"https://www.facebook.com/ptsunnymra/","links":[],"buy":"https://ptps.sfaa.gov.tw/mall/itemDetail/3675751400020003","status":"常態商品(2026待更新)","order":"電話訂購、愛福好商城（寄送前先聯絡）","phone":"08-7551200","products":[{"name":"檸檬精油蘆薈洗碗精 1000ml","desc":"工作坊成員參與製作，保存 1 年","price":180,"cat":"手工皂/清潔用品","lk":"detail","img":"c36ad518cb14b5","imgsrc":"ptps.sfaa.gov.tw"}],"notes":"屏東第一家精神障礙者小作所；2025 曾手作蛋黃酥，2026 品項電洽。","lk":"detail","ship":{"tier":"yes","basis":"訂購方式提到「寄送」"}},{"id":62,"name":"屏東縣微笑關懷協會（礙・微笑手作烘焙坊）","county":"屏東縣","region":"南部","website":"https://pingdongweixiaoguanhuaixiehui5.webnode.tw/","facebook":"https://www.facebook.com/smileca1015/","links":[{"label":"烘焙坊連結頁","url":"https://portaly.cc/smilebakery"}],"buy":"https://forms.gle/VW79ufTnirUmizVp8","status":"2026中秋","order":"Google 表單預購＋電話/LINE；可自取（9/18–9/25）或黑貓宅配","phone":"08-7325100","products":[{"name":"微甜月圓禮盒","desc":"減糖手作蛋黃酥 6 入（MASALU 中秋禮盒）","price":480,"cat":"蛋黃酥/糕餅","lk":"form"},{"name":"可可暖享禮盒","desc":"可咖豆6入＋可可燕麥餅乾10入（屏東在地可可）","price":480,"cat":"蛋捲/餅乾/點心","lk":"form"},{"name":"可可燕麥雜糧餅乾","desc":"常態商品","price":180,"cat":"蛋捲/餅乾/點心","lk":"form"}],"notes":"屏東原鄉唯一身障小作所（禮納里部落），2026/8/11 發布預購。","lk":"form","ship":{"tier":"yes","basis":"訂購方式提到「黑貓」"}},{"id":63,"name":"無薇不至青年庇護工場","county":"台北市","region":"北部","extra":true,"website":"https://everywei.cc/","facebook":null,"links":[{"label":"線上客服","url":"http://everywei.cc/zzfyn"}],"buy":"https://everywei.cc/l54yr9","status":"2026中秋","order":"線上訂購（早鳥優惠、可指定到貨週期）、電話；門市：台北市萬華區青年路152巷6號","phone":"02-7752-2518","products":[{"name":"中秋禮盒（6入/8入/10入）","desc":"師傅與庇護夥伴共同製作，三款規格，價格見訂購頁","price":null,"cat":"蛋黃酥/糕餅","lk":"shop"}],"notes":"清單外・Threads 自薦：支持庇護就業的烘焙工場。","lk":"shop","ship":{"tier":"likely","basis":"有線上管道「線上訂購」，多數線上店可寄，但未明寫運費"}},{"id":64,"name":"沁心小站庇護餐坊（國軍桃園總醫院）","county":"桃園市","region":"北部","extra":true,"website":null,"facebook":null,"links":[{"label":"勞動部型錄","url":"https://orsd.wda.gov.tw/sheltered_products"}],"buy":null,"status":"2026中秋","order":"電話訂購（古小姐），可寄送","phone":"03-4799595#325290","products":[{"name":"沁心小站中秋禮盒","desc":"庇護性就業者製作，價格經濟實惠，明細電洽","price":null,"cat":"蛋黃酥/糕餅","lk":"phone"},{"name":"雪Q餅禮盒","desc":"雪Q餅1入*8 +牛軋糖10入*1盒 +手工餅乾1入*8+手工瓦片 *6；保存 30天","price":480,"cat":"蛋黃酥/糕餅","url":"https://orsd.wda.gov.tw/sheltered_products/detail/261","src":"勞動部型錄","lk":"catalog","img":"b759df45831e87","imgsrc":"orsd.wda.gov.tw"},{"name":"蛋黃酥餅乾禮盒","desc":"蛋黃酥3入 手工餅乾5入*6；保存 15天","price":480,"cat":"蛋黃酥/糕餅","url":"https://orsd.wda.gov.tw/sheltered_products/detail/262","src":"勞動部型錄","lk":"catalog","img":"81d4f62d37b83f","imgsrc":"orsd.wda.gov.tw"},{"name":"白玉紅豆酥禮盒","desc":"麻糬紅豆酥6入；保存 15天","price":380,"cat":"農產/加工食品","url":"https://orsd.wda.gov.tw/sheltered_products/detail/263","src":"勞動部型錄","lk":"catalog"},{"name":"蛋黃酥禮盒","desc":"蛋黃酥6入；保存 15天","price":400,"cat":"蛋黃酥/糕餅","url":"https://orsd.wda.gov.tw/sheltered_products/detail/264","src":"勞動部型錄","lk":"catalog"},{"name":"手工餅乾","desc":"南瓜子杏仁瓦片(6 入)，黑芝麻杏仁瓦片(6 入)，可可杏仁餅乾(100g)，蔓越莓杏仁餅乾(100g)，核桃餅乾(100g)，抹茶杏仁餅乾(100g)","price":450,"cat":"蛋捲/餅乾/點心","url":"https://orsd.wda.gov.tw/sheltered_products/detail/303","src":"勞動部型錄","lk":"catalog","img":"80139be1d07f43","imgsrc":"orsd.wda.gov.tw"}],"notes":"清單外・Threads 自薦。","lk":"phone","ship":{"tier":"yes","basis":"訂購方式提到「寄送」"}},{"id":65,"name":"超越巔峰關懷協會（閃電包子舖）","county":"高雄市","region":"南部","extra":true,"website":"https://keaepilepsy.org.tw/service/lightningbun/","facebook":"https://www.facebook.com/lightningbun/","links":[{"label":"LINE 官方帳號","url":"https://lin.ee/5fcGMxu"},{"label":"Instagram","url":"https://www.instagram.com/lightningbun/"},{"label":"Pinkoi","url":"https://www.pinkoi.com/store/lightningbunshope"}],"buy":"https://www.iustore.com.tw/category/117863","status":"常態商品(2026待更新)","order":"礙優網訂購、LINE 私訊","phone":null,"products":[{"name":"手工包子／年節禮盒","desc":"協助癲癇朋友自立生活與就業，品項見礙優網","price":null,"cat":"其他","lk":"shop"}],"notes":"清單外・Threads 自薦。","lk":"shop","ship":{"tier":"likely","basis":"有線上管道「礙優網」，多數線上店可寄，但未明寫運費"}},{"id":66,"name":"苗栗縣特殊教育關懷協會","county":"苗栗縣","region":"中部","extra":true,"website":null,"facebook":null,"links":[],"buy":null,"status":"2026中秋","order":"電話訂購/認購（協會 037-720830；夢想屋 037-279229）；可認購送弱勢家庭","phone":"037-720830","products":[{"name":"蛋黃酥（紅豆餡）","desc":"6入 360／12入 680","price":360,"cat":"蛋黃酥/糕餅","lk":"phone"},{"name":"芋頭千層酥","desc":"6入 360／12入 680","price":360,"cat":"蛋黃酥/糕餅","lk":"phone"},{"name":"秋月（綠豆餡/奶素）","desc":"6入 280／12入 510","price":280,"cat":"月餅禮盒","lk":"phone"},{"name":"鳳梨酥 12 入","desc":"中秋預購品項","price":510,"cat":"鳳梨酥","lk":"phone"},{"name":"綜合禮盒","desc":"芋頭千層＋綠豆＋紅豆蛋黃酥，6入 380／12入 700","price":380,"cat":"月餅禮盒","lk":"phone"},{"name":"愛心認購（6入蛋黃酥）","desc":"認購送弱勢家庭過中秋","price":360,"cat":"其他","lk":"phone"}],"notes":"清單外・Threads 自薦：身障社福團體與廠商合作製作。","lk":"phone","ship":{"tier":"ask","basis":"訂購方式只提到電話／傳真／私訊，需電話確認"}},{"id":67,"name":"礙優網「月映匠心・雄好禮」聯合禮盒","county":"高雄市","region":"南部","extra":true,"website":"https://www.iustore.com.tw/","facebook":null,"links":[],"buy":"https://www.iustore.com.tw/product/detail/2304589","status":"2026中秋","order":"礙優網線上訂購（07-552-3732）","phone":"07-552-3732","products":[{"name":"秋意好食禮盒","desc":"高雄市社會局×6 家社福單位聯合中秋禮盒","price":null,"cat":"月餅禮盒","lk":"detail"}],"notes":"清單外：高雄社會局 2026「月映匠心・雄好禮」23 家團體聯合開賣。","lk":"detail","ship":{"tier":"likely","basis":"有線上管道「礙優網」，多數線上店可寄，但未明寫運費"}},{"id":68,"name":"小貝殼庇護工場（台北市自閉症家長協會）","county":"台北市","region":"北部","status":"2026中秋","buy":"https://lovesoap.org/product-category/%e8%bf%8e%e4%b8%ad%e7%a7%8b/","lk":"shop","website":"https://lovesoap.org/","facebook":"https://www.facebook.com/tpaasoap/","links":[{"label":"Instagram","url":"https://www.instagram.com/tpaa_soap"},{"label":"LINE 官方帳號","url":"https://line.me/R/ti/p/@heo2372i"}],"phone":"02-2595-3954","order":"官網線上訂購（線上刷卡／超商取貨付款／轉帳）或 LINE@ 訂購","ship":{"tier":"yes","basis":"官網明載新竹物流配送，單筆滿 2,000 元免運"},"notes":"台北市大同區酒泉街197號1樓。手工皂庇護工場，2026-08 由工場主動提供資料。","extra":true,"products":[{"name":"迎中秋．植萃淨潤潔顏禮盒","desc":"＼ 中秋限定 ｜ 從臉龐到全身的漢方洗沐儀式 ／ 漢方潔顏皂以積雪草、薏仁與荷荷芭油，融合山茶花與乳香的空靈氣息，給予熟齡肌溫潤奢華的洗顏呵護；限定草本月餅皂則以青黛、梔子花與蒲公英萃取(隨機出貨)，將團圓意境轉化為全身","price":450,"cat":"手工皂/清潔用品","url":"https://lovesoap.org/shop/%e7%b2%be%e7%b7%bb%e7%a6%ae%e7%9b%92/%e8%bf%8e%e4%b8%ad%e7%a7%8b%ef%bc%8e%e6%a4%8d%e8%90%83%e6%b7%a8%e6%bd%a4%e6%bd%94%e9%a1%8f%e7%a6%ae%e7%9b%92/","lk":"detail","src":"單位官網","img":"2d43a46771de49","imgsrc":"lovesoap.org"},{"name":"迎中秋．草本月餅皂｜三入禮盒","desc":"節慶限定「草本月餅皂」優雅登場 承襲傳統月餅的經典意象，將大自然的氣息揉入皂體。以青黛、梔子花等植物粉末，暈染出古樸而沉靜的天然色澤；搭配蒲公英萃取與精心調配的草本精油，將中秋的團圓意境，轉化為日常潔膚的儀式感。讓每一次","price":300,"cat":"手工皂/清潔用品","url":"https://lovesoap.org/shop/%e8%bf%8e%e4%b8%ad%e7%a7%8b/%e8%bf%8e%e4%b8%ad%e7%a7%8b%ef%bc%8e%e8%8d%89%e6%9c%ac%e6%9c%88%e9%a4%85%e7%9a%82%ef%bd%9c%e4%b8%89%e5%85%a5%e7%a6%ae%e7%9b%92/","lk":"detail","src":"單位官網","img":"bb3aee4aeba77f","imgsrc":"lovesoap.org"},{"name":"迎中秋．草本月餅皂｜二入禮盒","desc":"節慶限定「草本月餅皂」優雅登場 承襲傳統月餅的經典意象，將大自然的氣息揉入皂體。以青黛、梔子花等植物粉末，暈染出古樸而沉靜的天然色澤；搭配蒲公英萃取與精心調配的草本精油，將中秋的團圓意境，轉化為日常潔膚的儀式感。讓每一次","price":250,"cat":"手工皂/清潔用品","url":"https://lovesoap.org/shop/%e8%bf%8e%e4%b8%ad%e7%a7%8b/%e8%bf%8e%e4%b8%ad%e7%a7%8b%ef%bc%8e%e8%8d%89%e6%9c%ac%e6%9c%88%e9%a4%85%e7%9a%82%ef%bd%9c%e4%ba%8c%e5%85%a5%e7%a6%ae%e7%9b%92/","lk":"detail","src":"單位官網","img":"dfc812b3213460","imgsrc":"lovesoap.org"},{"name":"花漾系列-花賞禮盒 | 四入組","desc":"溫潤手作，綻放心意的花漾皂晶瑩如茶凍的花漾皂 揉合花、果、茶香，搭配月餅模造型、四款祝福語，送上中秋節最輕盈的心意。","price":459,"cat":"手工皂/清潔用品","url":"https://lovesoap.org/shop/%e8%bf%8e%e4%b8%ad%e7%a7%8b/%e8%8a%b1%e6%bc%be%e7%b3%bb%e5%88%97-%e8%8a%b1%e8%b3%9e%e7%a6%ae%e7%9b%92-%e5%9b%9b%e5%85%a5%e7%b5%84/","lk":"detail","src":"單位官網","img":"2c47a8bbfd6230","imgsrc":"lovesoap.org"},{"name":"花漾系列-雅賞禮盒 | 三入組","desc":"蠟菊入皂×花香祝福，一盒雙享雅緻心意結合透明感花邊皂與富含天然植萃的蠟菊QQ皂 洗出柔嫩好膚質，也洗出屬於你的好心情。 四款祝福語隨機搭配，讓每一份送禮都充滿驚喜。 *本產品含天然蠟菊花材，顏色變化屬正常現象，請安心使用；官網目前顯示缺貨","price":329,"cat":"手工皂/清潔用品","url":"https://lovesoap.org/shop/%e8%bf%8e%e4%b8%ad%e7%a7%8b/%e8%8a%b1%e6%bc%be%e7%b3%bb%e5%88%97-%e9%9b%85%e8%b3%9e%e7%a6%ae%e7%9b%92-%e4%b8%89%e5%85%a5%e7%b5%84/","lk":"detail","src":"單位官網","img":"8927f6203f79a9","imgsrc":"lovesoap.org"},{"name":"花漾系列-清賞禮盒 | 二入組","desc":"溫潤手作，綻放心意的花漾皂晶瑩如茶凍的花漾皂 揉合花、果、茶香，搭配月餅模造型，四款祝福語隨機出貨，送上中秋節最輕盈的心意。","price":240,"cat":"手工皂/清潔用品","url":"https://lovesoap.org/shop/%e7%b2%be%e7%b7%bb%e7%a6%ae%e7%9b%92/%e8%8a%b1%e6%bc%be%e7%b3%bb%e5%88%97-%e6%b8%85%e8%b3%9e%e7%a6%ae%e7%9b%92-%e4%ba%8c%e5%85%a5%e7%b5%84/","lk":"detail","src":"單位官網","img":"a835d182fe5581","imgsrc":"lovesoap.org"},{"name":"窗花系列禮盒-繁花禮盒","desc":"＼窗花系列禮盒–繁花禮盒／以窗花的美好寓意，傳遞祝福與心意 內含經典方形皂、圓形皂、花邊皂，嚴選六種獨特色香，香氣清新不膩。 特別添加積雪草萃取液，洗後水潤不緊繃，溫和修護肌膚。六款香味與花紋造型交織成細膩儀式感，每一顆","price":590,"cat":"手工皂/清潔用品","url":"https://lovesoap.org/shop/%e8%bf%8e%e4%b8%ad%e7%a7%8b/%e7%aa%97%e8%8a%b1%e7%b3%bb%e5%88%97%e7%a6%ae%e7%9b%92-%e7%b9%81%e8%8a%b1%e7%a6%ae%e7%9b%92/","lk":"detail","src":"單位官網","img":"17ce5c1d3cd3f2","imgsrc":"lovesoap.org"},{"name":"窗花系列禮盒-團花禮盒","desc":"＼窗花系列禮盒–團花禮盒／以窗花的美好寓意，傳遞祝福與心意 內含經典方形皂、圓形皂、花邊皂，嚴選六種獨特色香，香氣清新不膩。 特別添加積雪草萃取液，洗後水潤不緊繃，溫和修護肌膚。六款香味與花紋造型交織成細膩儀式感，每一顆","price":375,"cat":"手工皂/清潔用品","url":"https://lovesoap.org/shop/%e7%b2%be%e7%b7%bb%e7%a6%ae%e7%9b%92/%e7%aa%97%e8%8a%b1%e7%b3%bb%e5%88%97%e7%a6%ae%e7%9b%92-%e5%9c%98%e8%8a%b1%e7%a6%ae%e7%9b%92/","lk":"detail","src":"單位官網","img":"8a2812563a4af6","imgsrc":"lovesoap.org"},{"name":"窗花系列禮盒-雙花禮盒","desc":"＼窗花系列禮盒–雙花禮盒／以窗花的美好寓意，傳遞祝福與心意 內含經典方形皂、圓形皂、花邊皂，嚴選六種獨特色香，香氣清新不膩。 特別添加積雪草萃取液，洗後水潤不緊繃，溫和修護肌膚。六款香味與花紋造型交織成細膩儀式感，每一顆","price":215,"cat":"手工皂/清潔用品","url":"https://lovesoap.org/shop/%e7%b2%be%e7%b7%bb%e7%a6%ae%e7%9b%92/%e7%aa%97%e8%8a%b1%e7%b3%bb%e5%88%97%e7%a6%ae%e7%9b%92-%e9%9b%99%e8%8a%b1%e7%a6%ae%e7%9b%92/","lk":"detail","src":"單位官網","img":"1374592df31d79","imgsrc":"lovesoap.org"}]}],"image_note":"商品圖片自各單位官網／商城與勞動部庇護工場產品型錄擷取，版權屬各來源單位。"};
+
+const CATS = ["月餅禮盒","蛋黃酥/糕餅","鳳梨酥","蛋捲/餅乾/點心","咖啡/飲品","手工皂/清潔用品","農產/加工食品","其他"];
+const REGION_ORDER = ["北部","中部","南部","東部","離島"];
+const COUNTY_BY_REGION = {
+  "北部":["台北市","新北市","基隆市","桃園市","新竹縣"],
+  "中部":["苗栗縣","台中市","彰化縣","雲林縣"],
+  "南部":["嘉義市","嘉義縣","台南市","高雄市","屏東縣"],
+  "東部":["宜蘭縣","花蓮縣","台東縣"],
+  "離島":["澎湖縣","金門縣"]
+};
+const BANDS = [
+  {k:"b1",label:"≤ 300",min:null,max:300},
+  {k:"b2",label:"301–500",min:301,max:500},
+  {k:"b3",label:"501–800",min:501,max:800},
+  {k:"b4",label:"801 +",min:801,max:null}
+];
+const PAGE = 24;        // 列表每頁筆數
+const PAGE_CARD = 24;   // 卡片每頁筆數
+
+const $ = s => document.querySelector(s);
+
+/* 每次載入產生一個種子，讓順序在這次瀏覽期間穩定（翻頁不會重複或漏項）；
+   重新整理或按「重新洗牌」才換新順序。 */
+let SEED = (Math.random() * 2 ** 32) >>> 0;
+function shuffleKey(n){
+  let h = (SEED ^ n) >>> 0;
+  h = Math.imul(h ^ (h >>> 16), 2246822507);
+  h = Math.imul(h ^ (h >>> 13), 3266489909);
+  return (h ^ (h >>> 16)) >>> 0;
+}
+const esc = t => String(t==null?"":t).replace(/&/g,"&amp;").replace(/</g,"&lt;")
+                  .replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+
+const S = { q:"", county:"", status:"", cat:"", band:"",
+            view:"prod", sort:"random", page:1, open:new Set() };
+
+/* flatten products once, keeping a link back to the unit */
+const FLAT = [];
+DATA.units.forEach(u => u.products.forEach((p, i) => FLAT.push({p, u, key: u.id * 1000 + i})));
+const TOTAL_P = FLAT.length;
+const PRICED = FLAT.filter(x => x.p.price!=null).length;
+
+/* headline figures */
+{
+  const counties=new Set(DATA.units.map(u=>u.county)).size;
+  const now=DATA.units.filter(u=>u.status==="2026中秋").length;
+  $("#figs").innerHTML=[
+    [DATA.units.length,"收錄單位"],[TOTAL_P,"商品品項"],
+    [counties,"縣市"],[now,"已上架 2026 中秋"]
+  ].map(([n,l])=>`<div><b>${n}</b><span>${l}</span></div>`).join("");
+}
+
+/* masthead source chips */
+$("#srcs").innerHTML = DATA.meta.official_links
+  .map(l => `<li><a class="ext" href="${esc(l.url)}" target="_blank" rel="noopener">${esc(l.label)}</a></li>`).join("");
+
+/* county select, grouped by region */
+{
+  const sel = $("#hCounty"), have = new Set(DATA.units.map(u=>u.county));
+  REGION_ORDER.forEach(r => {
+    const list = (COUNTY_BY_REGION[r]||[]).filter(c=>have.has(c));
+    if(!list.length) return;
+    const g = document.createElement("optgroup"); g.label = r;
+    list.forEach(c => { const o=document.createElement("option"); o.value=c; o.textContent=c; g.appendChild(o); });
+    sel.appendChild(g);
+  });
+}
+
+/* 類別頁籤：一排、單選，附各類數量 */
+function buildTabs(){
+  const box=$("#tabs"); box.innerHTML="";
+  const counts={};
+  FLAT.forEach(({p})=>{counts[p.cat]=(counts[p.cat]||0)+1;});
+  const items=[["","全部",TOTAL_P],...CATS.map(c=>[c,c,counts[c]||0])];
+  for(const [val,label,n] of items){
+    if(val && !n) continue;
+    const b=document.createElement("button");
+    b.type="button"; b.className="tab";
+    b.appendChild(document.createTextNode(label));
+    const sp=document.createElement("span"); sp.className="n"; sp.textContent=n;
+    b.appendChild(sp);
+    b.setAttribute("aria-pressed", S.cat===val ? "true":"false");
+    b.addEventListener("click",()=>{ S.cat = S.cat===val ? "" : val; reset(); });
+    box.appendChild(b);
+  }
+}
+function reset(){ S.page=1; S.open.clear(); buildTabs(); render(); }
+
+/* 控制項事件 */
+$("#hform").addEventListener("submit", e=>{
+  e.preventDefault();
+  S.q=$("#hq").value.trim().toLowerCase();
+  S.county=$("#hCounty").value;
+  reset();
+  document.querySelector(".tabs").scrollIntoView({behavior:"smooth",block:"start"});
+});
+$("#hq").addEventListener("input", e=>{ S.q=e.target.value.trim().toLowerCase(); reset(); });
+$("#hCounty").addEventListener("change", e=>{ S.county=e.target.value; reset(); });
+$("#band").addEventListener("change", e=>{ S.band=e.target.value; reset(); });
+$("#status").addEventListener("change", e=>{ S.status=e.target.value; reset(); });
+$("#sort").addEventListener("change", e=>{ S.sort=e.target.value; syncShuffleBtn(); reset(); });
+$("#reshuffle").addEventListener("click", ()=>{
+  SEED = (Math.random() * 2 ** 32) >>> 0;
+  S.page = 1; render();
+  document.querySelector(".tabs").scrollIntoView({behavior:"smooth", block:"start"});
+});
+function syncShuffleBtn(){ $("#reshuffle").hidden = S.sort !== "random"; }
+$("#vProd").addEventListener("click", ()=>setView("prod"));
+$("#vCard").addEventListener("click", ()=>setView("card"));
+$("#vUnit").addEventListener("click", ()=>setView("unit"));
+$("#clear").addEventListener("click", clearAll);
+function setView(v){
+  S.view=v;
+  $("#vProd").setAttribute("aria-pressed", v==="prod"?"true":"false");
+  $("#vCard").setAttribute("aria-pressed", v==="card"?"true":"false");
+  $("#vUnit").setAttribute("aria-pressed", v==="unit"?"true":"false");
+  reset();
+}
+function clearAll(){
+  S.q=""; S.county=""; S.status=""; S.cat=""; S.band="";
+  $("#hq").value=""; $("#hCounty").value=""; $("#status").value=""; $("#band").value="";
+  reset();
+}
+document.addEventListener("keydown", e=>{
+  if(e.key==="/" && document.activeElement!==$("#hq")){ e.preventDefault(); $("#hq").focus(); }
+  if(e.key==="Escape" && document.activeElement===$("#hq")){ $("#hq").value=""; S.q=""; reset(); }
+});
+
+/* ── filtering ─────────────────────────────────────────── */
+function priceRange(){
+  const b=BANDS.find(x=>x.k===S.band);
+  return b ? [b.min,b.max] : [null,null];
+}
+function unitPasses(u){
+  if(S.county && u.county!==S.county) return false;
+  if(S.status==="2026中秋" && u.status!=="2026中秋") return false;
+  if(S.status==="待更新" && !u.status.includes("待更新")) return false;
+  if(S.status==="未找到商品資訊" && u.status!=="未找到商品資訊") return false;
+  return true;
+}
+function prodPasses(u,p){
+  if(S.cat && p.cat!==S.cat) return false;
+  const [lo,hi]=priceRange();
+  if(lo!=null || hi!=null){
+    if(p.price==null) return false;
+    if(lo!=null && p.price<lo) return false;
+    if(hi!=null && p.price>hi) return false;
+  }
+  if(S.q){
+    const hay=(u.name+" "+p.name+" "+(p.desc||"")+" "+p.cat+" "+u.county).toLowerCase();
+    if(!hay.includes(S.q)) return false;
+  }
+  return true;
+}
+const STORD={"2026中秋":0,"2025中秋(2026待更新)":1,"常態商品(2026待更新)":2,"未找到商品資訊":3};
+const CORD=[].concat(...REGION_ORDER.map(r=>COUNTY_BY_REGION[r]));
+
+function collect(){
+  const rows=[], units=[];
+  for(const u of DATA.units){
+    if(!unitPasses(u)) continue;
+    let ps=u.products.filter(p=>prodPasses(u,p));
+    const filterOn = !!S.cat || !!S.band || S.q!=="";
+    if(!ps.length){
+      const hit = S.q && (u.name+" "+(u.notes||"")+" "+u.county).toLowerCase().includes(S.q)
+                  && !S.cat && !S.band;
+      if(filterOn && !hit) continue;
+      if(hit || !filterOn) ps=u.products;
+    }
+    ps.forEach(p=>rows.push({p, u, key: u.id * 1000 + u.products.indexOf(p)}));
+    units.push({u,ps});
+  }
+  const cmpP=(a,b)=>{const x=a.p.price,y=b.p.price;
+    if(x==null&&y==null)return 0; if(x==null)return 1; if(y==null)return -1; return x-y;};
+  const sink = o => (o.u.status==="未找到商品資訊" || o.u.products.length===0) ? 1 : 0;
+  if(S.sort==="random") rows.sort((a,b)=> sink(a)-sink(b) || shuffleKey(a.key)-shuffleKey(b.key));
+  else if(S.sort==="pAsc") rows.sort(cmpP);
+  else if(S.sort==="pDesc") rows.sort((a,b)=>{const r=cmpP(a,b); return a.p.price==null||b.p.price==null?r:-r;});
+  else if(S.sort==="county") rows.sort((a,b)=>CORD.indexOf(a.u.county)-CORD.indexOf(b.u.county)||a.u.id-b.u.id);
+  else rows.sort((a,b)=>STORD[a.u.status]-STORD[b.u.status]||a.u.id-b.u.id);
+
+  const minP=o=>{const v=o.ps.filter(p=>p.price!=null).map(p=>p.price); return v.length?Math.min(...v):Infinity;};
+  if(S.sort==="random") units.sort((a,b)=>
+    ((a.u.products.length?0:1)-(b.u.products.length?0:1)) || shuffleKey(a.u.id)-shuffleKey(b.u.id));
+  else if(S.sort==="pAsc") units.sort((a,b)=>minP(a)-minP(b));
+  else if(S.sort==="pDesc") units.sort((a,b)=>{const x=minP(b),y=minP(a);
+    return (x===Infinity?-1:x)-(y===Infinity?-1:y);});
+  else if(S.sort==="county") units.sort((a,b)=>CORD.indexOf(a.u.county)-CORD.indexOf(b.u.county)||a.u.id-b.u.id);
+  else units.sort((a,b)=>STORD[a.u.status]-STORD[b.u.status]||a.u.id-b.u.id);
+  return {rows,units};
+}
+
+/* ── pieces ────────────────────────────────────────────── */
+function stMark(s){
+  const c = s==="2026中秋" ? "st-now" : (s==="未找到商品資訊" ? "st-non" : "st-old");
+  const t = s==="2026中秋" ? "2026 已上架" : (s==="未找到商品資訊" ? "需電洽" : s.replace("(2026待更新)","・待更新"));
+  return `<span class="st ${c}">${esc(t)}</span>`;
+}
+/* 圖片：有就用抓到的檔案，沒有就給一個刻意設計的字塊 */
+const CAT_GLYPH={"月餅禮盒":"月","蛋黃酥/糕餅":"酥","鳳梨酥":"鳳","蛋捲/餅乾/點心":"捲",
+  "咖啡/飲品":"咖","手工皂/清潔用品":"皂","農產/加工食品":"農","其他":"物"};
+/* 線上用 /img/…；單檔離線版會注入 window.IMG_INLINE 直接吃 data URI */
+function imgurl(kind,h){
+  return (window.IMG_INLINE && window.IMG_INLINE[h]) || `/img/${kind}/${h}.webp`;
+}
+function thumb(p){
+  if(p.img) return `<span class="th"><img src="${imgurl("t",esc(p.img))}" alt="${esc(p.name)}"
+    loading="lazy" decoding="async" width="62" height="62"></span>`;
+  return `<span class="th nop" aria-hidden="true"><span>${esc(CAT_GLYPH[p.cat]||"禮")}</span></span>`;
+}
+function photo(p){
+  if(p.img) return `<span class="ph"><img src="${imgurl("c",esc(p.img))}" alt="${esc(p.name)}"
+    loading="lazy" decoding="async" width="560" height="560"></span>`;
+  return `<span class="ph nop"><span class="big" aria-hidden="true">${esc(CAT_GLYPH[p.cat]||"禮")}</span>`
+    + `<span class="lb">${esc(p.cat)}</span></span>`;   /* ::after 補上「尚無照片」 */
+}
+
+function money(p){
+  if(p!=null) return `<span class="amt"><small>NT$</small> ${p.toLocaleString()}</span>`;
+  const bargain = /^議價/.test(p===null?(arguments[1]||""):"");
+  return `<span class="amt none">${bargain?"議價":"價格電洽"}</span>`;
+}
+const LK={
+  detail:{t:"購買",solid:true, tip:"直接前往這項商品的購買頁面"},
+  catalog:{t:"看規格",solid:false,tip:"勞動部型錄的商品頁：有規格與官方建議售價，但不能在上面結帳"},
+  form:  {t:"訂購表單",solid:true, tip:"開啟線上訂購表單"},
+  shop:  {t:"看商店",solid:false,tip:"前往該單位商店／分類頁，需自行找這項商品"},
+  notice:{t:"看公告",solid:false,tip:"前往官網公告頁，訂購方式寫在公告裡"},
+  social:{t:"看粉專",solid:false,tip:"前往社群貼文，訂購方式寫在貼文裡"},
+  phone: {t:"電洽",solid:false,tip:"僅提供電話訂購"},
+  none:  {t:"",solid:false,tip:""}
+};
+const CAN_REPORT = true;   // 表單已內建，回報鈕一律顯示
+function repBtn(u,p){
+  if(!CAN_REPORT) return "";
+  const pn=p?p.name:"";
+  return `<button type="button" class="rep" data-u="${u.id}" data-p="${esc(pn)}"
+    title="這筆資料有誤？回報更正">回報</button>`;
+}
+function orderBtn(p,u){
+  const k=LK[p.lk]||LK.shop, url=p.url||u.buy;
+  const alt = p.alt ? `<a class="lnk alt" href="${esc(p.alt.url)}" target="_blank" rel="noopener">${esc(p.alt.label)}</a>` : "";
+  if(p.lk==="phone"||!url){
+    return u.phone?`<a class="lnk" href="tel:${esc(u.phone.replace(/[^0-9+#]/g,""))}" title="僅提供電話訂購">電洽</a>`:"";
+  }
+  return `<a class="${k.solid?"go":"go ghost"}" href="${esc(url)}" target="_blank" rel="noopener" title="${esc(k.tip)}">${k.t}</a>${alt}`;
+}
+
+const TEL=(s)=>s.replace(/[^0-9+#]/g,"");
+/* 平台辨識：同一個網址不重複出現，並依平台給對應的圖示與名稱 */
+const PLAT=[
+  {re:/facebook\.com/i,      name:"Facebook", ic:"fb"},
+  {re:/instagram\.com/i,     name:"Instagram",ic:"ig"},
+  {re:/(line\.me|lin\.ee|liff\.line)/i, name:"LINE",  ic:"line"},
+  {re:/threads\.(com|net)/i, name:"Threads",  ic:"th"},
+  {re:/shopee\./i,           name:"蝦皮",     ic:"bag"},
+  {re:/pinkoi\.com/i,        name:"Pinkoi",   ic:"bag"},
+  {re:/rakuten|樂天/i,        name:"樂天市場", ic:"bag"},
+  {re:/momoshop/i,           name:"momo",     ic:"bag"},
+  {re:/(forms\.gle|docs\.google\.com|beclass)/i, name:"線上表單", ic:"form"},
+  {re:/orsd\.wda\.gov\.tw/i,  name:"勞動部型錄", ic:"gov"},
+  {re:/ptps\.sfaa\.gov\.tw/i, name:"愛福好商城", ic:"gov"},
+  {re:/\.gov\.tw/i,          name:"政府平台", ic:"gov"},
+  {re:/myship\.7-11/i,       name:"賣貨便",   ic:"bag"},
+];
+const ICON={
+  fb:'<path d="M14 8.5h2V6h-2a3.5 3.5 0 0 0-3.5 3.5V11H9v2.5h1.5V18H13v-4.5h2l.5-2.5H13V9.7c0-.7.3-1.2 1-1.2z"/>',
+  ig:'<rect x="5.2" y="5.2" width="13.6" height="13.6" rx="4" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="12" r="3.2" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="16.3" cy="7.8" r="1" />',
+  line:'<path d="M12 5c-4 0-7.2 2.6-7.2 5.8 0 2.9 2.3 5.3 5.5 5.8.3.1.7.2.6.6l-.2 1c-.1.3.1.4.4.3 1.9-.9 5.1-3 6.5-5A5.4 5.4 0 0 0 19.2 11C19.2 7.6 16 5 12 5z" fill="none" stroke="currentColor" stroke-width="1.6"/>',
+  th:'<path d="M12 5c-3.9 0-6.4 2.6-6.4 7s2.5 7 6.4 7c3.3 0 5.4-1.7 5.4-4 0-2-1.5-3.2-3.8-3.2-1.7 0-2.8.8-2.8 1.9 0 .9.7 1.5 1.7 1.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>',
+  bag:'<path d="M6.5 8.5h11l-1 9.5h-9z" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M9.5 8.5V7a2.5 2.5 0 0 1 5 0v1.5" fill="none" stroke="currentColor" stroke-width="1.6"/>',
+  form:'<rect x="6" y="4.5" width="12" height="15" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M9 9h6M9 12.5h6M9 16h3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>',
+  gov:'<path d="M4.5 10 12 5.5 19.5 10M6.5 10v8M17.5 10v8M4.5 18.5h15" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>',
+  web:'<circle cx="12" cy="12" r="7" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M5 12h14M12 5c2 2.4 2 11.6 0 14M12 5c-2 2.4-2 11.6 0 14" fill="none" stroke="currentColor" stroke-width="1.5"/>',
+  tel:'<path d="M20 16.4v2.2a1.6 1.6 0 0 1-1.8 1.6 16 16 0 0 1-7-2.5 15.7 15.7 0 0 1-4.8-4.8A16 16 0 0 1 3.9 5.8 1.6 1.6 0 0 1 5.5 4h2.2a1.6 1.6 0 0 1 1.6 1.4c.1.8.3 1.5.6 2.2a1.6 1.6 0 0 1-.4 1.7l-.9.9a13 13 0 0 0 4.8 4.8l.9-.9a1.6 1.6 0 0 1 1.7-.4c.7.3 1.4.5 2.2.6A1.6 1.6 0 0 1 20 16.4z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>',
+};
+function glyph(k){
+  return `<svg class="li" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">${ICON[k]||ICON.web}</svg>`;
+}
+function platOf(url){
+  for(const p of PLAT) if(p.re.test(url)) return p;
+  return null;
+}
+function keyOf(url){ return String(url||"").trim().replace(/\/+$/,"").replace(/^https?:\/\/(www\.)?/i,"").toLowerCase(); }
+
+function unitLinks(u){
+  const seen=new Set(), a=[];
+  const push=(html,url)=>{ const k=keyOf(url); if(!k||seen.has(k)) return; seen.add(k); a.push(html); };
+  if(u.buy){
+    const k=LK[u.lk]||LK.shop;
+    push(`<a class="${k.solid?"go":"go ghost"}" href="${esc(u.buy)}" target="_blank" rel="noopener" title="${esc(k.tip)}">${k.t} ↗</a>`, u.buy);
+  }
+  if(u.website){
+    const pl=platOf(u.website);
+    push(`<a class="lnk" href="${esc(u.website)}" target="_blank" rel="noopener">${glyph(pl?pl.ic:"web")}${pl&&pl.ic!=="gov"?esc(pl.name):"官網"}</a>`, u.website);
+  }
+  if(u.facebook) push(`<a class="lnk" href="${esc(u.facebook)}" target="_blank" rel="noopener">${glyph("fb")}Facebook</a>`, u.facebook);
+  (u.links||[]).forEach(l=>{
+    const pl=platOf(l.url);
+    push(`<a class="lnk" href="${esc(l.url)}" target="_blank" rel="noopener">${glyph(pl?pl.ic:"web")}${esc(l.label)}</a>`, l.url);
+  });
+  if(u.phone) a.push(`<a class="lnk" href="tel:${esc(TEL(u.phone))}">${glyph("tel")}${esc(u.phone)}</a>`);
+  return a.join("");
+}
+
+
+/* ── render ────────────────────────────────────────────── */
+function render(){
+  const {rows,units}=collect();
+  const out=$("#out");
+
+  // count strip
+  const nU=units.length, nP=rows.length;
+  $("#count").innerHTML = S.view!=="unit"
+    ? `<b>${nP}</b> 項商品，來自 <b>${nU}</b> 個單位`
+    : `<b>${nU}</b> 個單位，共 <b>${nP}</b> 項商品`;
+
+  // 已選條件膠囊
+  const pills=[];
+  const add=(label,fn)=>pills.push({label,fn});
+  if(S.q)      add(`關鍵字：${S.q}`, ()=>{S.q="";$("#hq").value="";});
+  if(S.county) add(S.county,          ()=>{S.county="";$("#hCounty").value="";});
+  if(S.cat)    add(S.cat,             ()=>{S.cat="";});
+  if(S.band)   add($("#band").selectedOptions[0].textContent, ()=>{S.band="";$("#band").value="";});
+  if(S.status) add($("#status").selectedOptions[0].textContent, ()=>{S.status="";$("#status").value="";});
+  const ac=$("#active"); ac.innerHTML="";
+  pills.forEach(({label,fn})=>{
+    const s=document.createElement("span"); s.className="pill";
+    s.appendChild(document.createTextNode(label));
+    const b=document.createElement("button"); b.type="button"; b.textContent="×";
+    b.setAttribute("aria-label","移除條件 "+label);
+    b.addEventListener("click",()=>{fn();reset();});
+    s.appendChild(b); ac.appendChild(s);
+  });
+  $("#activeRow").hidden = pills.length===0;
+
+  if(!nU){
+    out.innerHTML=`<div class="empty"><b>沒有符合的禮盒</b>
+      試著放寬金額級距、少選一個類別，或清除全部條件重新開始。</div>`;
+    return;
+  }
+
+  const PG = S.view==="card" ? PAGE_CARD : PAGE;
+  const totalPages = Math.max(1, Math.ceil((S.view!=="unit"?rows.length:units.length)/PG));
+  if(S.page>totalPages) S.page=totalPages;
+  const from=(S.page-1)*PG, to=from+PG;
+
+  if(S.view==="prod"){
+    const slice=rows.slice(from,to);
+    out.innerHTML=`<div class="sheet">
+      <div class="sheet-h"><span></span><span>商品</span><span>單位</span><span>類別・狀態</span>
+        <span class="r">價格</span><span class="r" title="實心「購買」＝可直接下單；外框＝要到商店、公告或型錄頁再找">訂購</span></div>
+      ${slice.map(({p,u})=>{
+        const url=p.url||u.buy;
+        const nm=url?`<a href="${esc(url)}" target="_blank" rel="noopener">${esc(p.name)}</a>`:esc(p.name);
+        return `<div class="row">
+          ${thumb(p)}
+          <div class="pn">${nm}<span class="pd">${esc(p.desc||"")}</span></div>
+          <div class="org"><button type="button" class="ulink" data-u="${u.id}"
+            title="看這家的所有連結與商品">${esc(u.name)}</button><span class="cty">${esc(u.county)}</span></div>
+          <div class="meta"><span class="cat">${esc(p.cat)}</span>${
+            p.src==="勞動部型錄"?`<span class="wda">官方型錄價</span>`:stMark(u.status)}</div>
+          <div class="r">${money(p.price,p.desc)}</div>
+          <div class="cellend">${orderBtn(p,u)}${repBtn(u,p)}</div>
+        </div>`;}).join("")}
+    </div>
+    <div class="pager" id="pager"></div>`;
+  } else if(S.view==="card"){
+    const slice=rows.slice(from,to);
+    out.innerHTML=`<div class="pgrid">
+      ${slice.map(({p,u})=>{
+        const url=p.url||u.buy;
+        const nm=url?`<a href="${esc(url)}" target="_blank" rel="noopener">${esc(p.name)}</a>`:esc(p.name);
+        return `<article class="pcard">
+          ${url?`<a href="${esc(url)}" target="_blank" rel="noopener" aria-label="${esc(p.name)}">${photo(p)}</a>`:photo(p)}
+          <div class="bd">
+            <h3>${nm}</h3>
+            <p class="who"><button type="button" class="ulink" data-u="${u.id}"
+              title="看這家的所有連結與商品">${esc(u.name)}</button><br>${esc(u.county)}　${esc(p.cat)}</p>
+          </div>
+          <div class="cft2">${money(p.price,p.desc)}${orderBtn(p,u)}${repBtn(u,p)}</div>
+        </article>`;}).join("")}
+    </div>
+    <div class="pager" id="pager"></div>`;
+  } else {
+    out.innerHTML=`<div class="grid">${units.slice(from,to).map(({u,ps})=>{
+      const isOpen=S.open.has(u.id), cap=6;
+      const show=isOpen?ps:ps.slice(0,cap);
+      const li=show.map(p=>{
+        const url=p.url||u.buy;
+        const nm=url?`<a href="${esc(url)}" target="_blank" rel="noopener">${esc(p.name)}</a>`:esc(p.name);
+        return `<li>${thumb(p)}<div class="pn">${nm}<span class="pd">
+          <span class="cat">${esc(p.cat)}</span>
+          ${p.src==="勞動部型錄"?`<span class="wda">官方型錄價</span> `:""}${esc(p.desc||"")}</span></div>
+          ${money(p.price,p.desc)}</li>`;}).join("");
+      return `<article class="card">
+        <div class="chd">
+          <div class="cmk"><span class="cty-b">${esc(u.county)}</span>${stMark(u.status)}
+            ${u.extra?`<span class="st st-non">社群自薦</span>`:""}</div>
+          <h3>${esc(u.name)}</h3>
+          ${u.order?`<p class="ord">${esc(u.order)}</p>`:""}
+        </div>
+        ${ps.length?`<ul class="plist">${li}</ul>`:`<div class="nop">尚未查得公開商品明細，請電洽或見粉專最新公告。</div>`}
+        ${ps.length>cap?`<button type="button" class="expand" data-u="${u.id}">${
+          isOpen?"收合":`顯示全部 ${ps.length} 項商品`}</button>`:""}
+        ${u.services?`<div class="svc"><b>另提供服務（電洽報價）</b>${esc(u.services.join("、"))}</div>`:""}
+        <div class="cft">${unitLinks(u)}${CAN_REPORT?`<span class="repbar">${repBtn(u,null)}</span>`:""}</div>
+      </article>`;}).join("")}</div><div class="pager" id="pager"></div>`;
+    out.querySelectorAll(".expand").forEach(b=>b.addEventListener("click",()=>{
+      const id=+b.dataset.u; S.open.has(id)?S.open.delete(id):S.open.add(id); render();}));
+    layoutMasonry();
+  }
+
+  drawPager(totalPages, S.view!=="unit"?rows.length:units.length);
+}
+
+/* 瀑布流：一張一張丟進「目前最短」的欄位。高度要在欄寬下量才準，
+   所以先把空欄建好，再逐張 append 並讀當下欄高。 */
+function masonryCols(w){ return w>=1080 ? 3 : (w>=700 ? 2 : 1); }
+function layoutMasonry(){
+  const g=document.querySelector(".grid");
+  if(!g) return;
+  const cards=[...g.querySelectorAll(".card")];
+  if(!cards.length) return;
+  const cols=masonryCols(g.clientWidth);
+  g.textContent="";
+  if(cols<=1){
+    const d=document.createElement("div"); d.className="gcol";
+    cards.forEach(c=>d.appendChild(c)); g.appendChild(d);
+    g.dataset.cols="1"; return;
+  }
+  const colEls=[];
+  for(let i=0;i<cols;i++){
+    const d=document.createElement("div"); d.className="gcol"; g.appendChild(d); colEls.push(d);
+  }
+  for(const c of cards){
+    let best=0;
+    for(let i=1;i<cols;i++) if(colEls[i].offsetHeight < colEls[best].offsetHeight) best=i;
+    colEls[best].appendChild(c);
+  }
+  g.dataset.cols=String(cols);
+}
+{
+  let t=null;
+  window.addEventListener("resize", ()=>{
+    const g=document.querySelector(".grid");
+    if(!g) return;
+    if(String(masonryCols(g.clientWidth))===g.dataset.cols) return;   // 欄數沒變就不用重排
+    clearTimeout(t); t=setTimeout(layoutMasonry,120);
+  });
+}
+
+/* sticky offset for the sheet header, measured from the toolbar */
+const bar=document.querySelector(".bar");
+function syncBarH(){
+  document.documentElement.style.setProperty("--barh", bar.offsetHeight+"px");
+}
+if(window.ResizeObserver) new ResizeObserver(syncBarH).observe(bar);
+window.addEventListener("resize", syncBarH);
+
+
+/* 點單位名稱 → 切到單位檢視並只留那一家，所有連結一次看到 */
+function gotoUnit(id){
+  const u=DATA.units.find(x=>x.id===id);
+  if(!u) return;
+  clearAll();
+  $("#hq").value=u.name; S.q=u.name.toLowerCase();
+  setView("unit");
+  document.querySelector(".tabs").scrollIntoView({behavior:"smooth",block:"start"});
+}
+$("#out").addEventListener("click", e=>{
+  const b=e.target.closest(".ulink");
+  if(b) gotoUnit(+b.dataset.u);
+});
+
+/* 回報按鈕：事件委派，重繪後仍有效 */
+$("#out").addEventListener("click", e => {
+  const b = e.target.closest(".rep");
+  if(!b || typeof window.openReport!=="function") return;
+  const u = DATA.units.find(x => x.id === +b.dataset.u);
+  window.openReport({ unitId: u?u.id:null, unitName: u?u.name:"", productName: b.dataset.p||"" });
+});
+
+/* 回報入口：Pages 版開內建表單；Artifact 版退回 mailto；都沒有就不顯示 */
+{
+  const a=$("#reportLink");
+  a.hidden=false;
+  a.addEventListener("click",e=>{e.preventDefault();window.openReport({});});
+}
+
+/* 分頁：首末頁 + 當前頁鄰近，中間以 … 省略 */
+function drawPager(total, itemCount){
+  const box=$("#pager"); if(!box) return;
+  box.innerHTML="";
+  const of=(t)=>Object.assign(document.createElement("span"),{className:"of",textContent:t});
+  if(total<=1){ if(itemCount) box.appendChild(of(`共 ${itemCount} 筆`)); return; }
+  const mk=(label,pageNo,{cur=false,dis=false,aria=null}={})=>{
+    const b=document.createElement("button"); b.type="button"; b.textContent=label;
+    if(aria) b.setAttribute("aria-label",aria);
+    if(cur) b.setAttribute("aria-current","page");
+    b.disabled=dis;
+    if(!dis && !cur) b.addEventListener("click",()=>{
+      S.page=pageNo; render();
+      document.querySelector(".bar").scrollIntoView({behavior:"smooth",block:"start"});
+    });
+    return b;
+  };
+  box.appendChild(mk("\u2039",S.page-1,{dis:S.page===1,aria:"上一頁"}));
+  const want=new Set([1,total,S.page,S.page-1,S.page+1]);
+  if(S.page<=3) [2,3,4].forEach(n=>want.add(n));
+  if(S.page>=total-2) [total-1,total-2,total-3].forEach(n=>want.add(n));
+  const list=[...want].filter(n=>n>=1&&n<=total).sort((a,b)=>a-b);
+  let prev=0;
+  for(const n of list){
+    if(n-prev>1) box.appendChild(Object.assign(document.createElement("span"),
+      {className:"gap",textContent:"\u2026"}));
+    box.appendChild(mk(String(n),n,{cur:n===S.page}));
+    prev=n;
+  }
+  box.appendChild(mk("\u203a",S.page+1,{dis:S.page===total,aria:"下一頁"}));
+  box.appendChild(of(`共 ${itemCount} 筆・第 ${S.page}/${total} 頁`));
+}
+
+/* footer：熱門縣市與快速篩選，點了直接套用並捲回列表 */
+function applyAndScroll(){
+  reset();
+  document.querySelector(".tabs").scrollIntoView({behavior:"smooth",block:"start"});
+}
+{
+  const cnt={};
+  DATA.units.forEach(u=>{cnt[u.county]=(cnt[u.county]||0)+1;});
+  const top=Object.entries(cnt).sort((a,b)=>b[1]-a[1]).slice(0,5);
+  $("#fcounties").innerHTML=top.map(([c,n])=>
+    `<li><button type="button" data-county="${esc(c)}">${esc(c)}<span class="c">${n}</span></button></li>`).join("");
+  $("#fcounties").addEventListener("click",e=>{
+    const b=e.target.closest("button[data-county]"); if(!b) return;
+    S.county=b.dataset.county; $("#hCounty").value=S.county; applyAndScroll();
+  });
+
+  const quick=[
+    {label:"已上架 2026 中秋", fn:()=>{S.status="2026中秋"; $("#status").value="2026中秋";}},
+    {label:"500 元以下",       fn:()=>{S.band="b2"; $("#band").value="b2";}},
+    {label:"月餅禮盒",         fn:()=>{S.cat="月餅禮盒";}},
+    {label:"蛋黃酥・糕餅",     fn:()=>{S.cat="蛋黃酥/糕餅";}},
+    {label:"價格低 → 高",      fn:()=>{S.sort="pAsc"; $("#sort").value="pAsc";}},
+  ];
+  $("#fquick").innerHTML=quick.map((q,i)=>
+    `<li><button type="button" data-i="${i}">${esc(q.label)}</button></li>`).join("");
+  $("#fquick").addEventListener("click",e=>{
+    const b=e.target.closest("button[data-i]"); if(!b) return;
+    quick[+b.dataset.i].fn(); applyAndScroll();
+  });
+
+  const counties=new Set(DATA.units.map(u=>u.county)).size;
+  $("#fstat").textContent=`${DATA.units.length} 個單位・${TOTAL_P} 項商品・${counties} 縣市`;
+}
+
+$("#sort").value = S.sort;
+syncShuffleBtn();
+/* ══ 幫我挑一家 ══════════════════════════════════════════
+   加權隨機：偏向平常不容易被找到的單位。權重與理由都寫在卡片上。 */
+const PK = { budget:"", region:"", ship:"" };
+const PK_BUDGET=[["","不限"],["b1","300 以下"],["b2","300–500"],["b3","500–800"],["b4","800 以上"]];
+const PK_REGION=[["","不限"],["北部","北部"],["中部","中部"],["南部","南部"],["東部","東部"],["離島","離島"]];
+const PK_SHIP  =[["","不限"],["mail","要能寄到我家"],["online","要能線上下單"]];
+const SHIP_LB={yes:"確定可寄",likely:"可能可寄",local:"門市為主",ask:"要打電話問"};
+const ORDERABLE=new Set(["detail","form","shop"]);
+
+function pkChips(box, opts, key){
+  box.innerHTML="";
+  opts.forEach(([v,label])=>{
+    const b=document.createElement("button");
+    b.type="button"; b.className="pk"; b.textContent=label;
+    b.setAttribute("aria-pressed", PK[key]===v ? "true":"false");
+    b.addEventListener("click",()=>{ PK[key]=v; pkRender(); });
+    box.appendChild(b);
+  });
+}
+function pkPool(){
+  const [lo,hi] = PK.budget ? (BANDS.find(b=>b.k===PK.budget) ? [BANDS.find(b=>b.k===PK.budget).min, BANDS.find(b=>b.k===PK.budget).max] : [null,null]) : [null,null];
+  return DATA.units.filter(u=>{
+    if(!u.products.length) return false;
+    if(PK.region && u.region!==PK.region) return false;
+    const t=(u.ship&&u.ship.tier)||"ask";
+    if(PK.ship==="mail" && !(t==="yes"||t==="likely")) return false;
+    if(PK.ship==="online" && !ORDERABLE.has(u.lk)) return false;
+    if(lo!=null||hi!=null){
+      const ok=u.products.some(p=>p.price!=null &&
+        (lo==null||p.price>=lo) && (hi==null||p.price<=hi));
+      if(!ok) return false;
+    }
+    return true;
+  });
+}
+function pkWeight(u){
+  const t=(u.ship&&u.ship.tier)||"ask";
+  let w=1, why=[];
+  if(t==="ask"){ w*=2.0; why.push("只能電話訂購"); }
+  if(t==="local"){ w*=1.5; why.push("以門市販售為主"); }
+  if(u.products.length<=2){ w*=1.6; why.push("品項少"); }
+  if(u.region==="東部"||u.region==="離島"){ w*=1.4; why.push(u.region); }
+  if(u.products.length>=10 && (t==="yes"||t==="likely")) w*=0.6;
+  return {w, why};
+}
+function pkRender(){
+  pkChips($("#pkBudget"), PK_BUDGET, "budget");
+  pkChips($("#pkRegion"), PK_REGION, "region");
+  pkChips($("#pkShip"),   PK_SHIP,   "ship");
+  const n=pkPool().length;
+  $("#pkCount").textContent = n ? `符合條件的有 ${n} 家` : "這些條件下沒有符合的單位，放寬一點試試";
+  $("#pickGo").disabled = n===0;
+}
+$("#pickCta").addEventListener("click", ()=>{
+  const b=$("#pickCta"), open=b.getAttribute("aria-expanded")==="true";
+  b.setAttribute("aria-expanded", open?"false":"true");
+  $("#pickPanel").hidden = open;
+  if(!open) pkRender();
+});
+
+let pkLast=null;
+function pkPick(){
+  const pool=pkPool(); if(!pool.length) return;
+  const scored=pool.map(u=>({u, ...pkWeight(u)}));
+  // 避免連按兩次抽到同一家
+  const avoid = pool.length>1 && pkLast ? scored.filter(s=>s.u.id!==pkLast) : scored;
+  const tot=avoid.reduce((s,x)=>s+x.w,0);
+  let r=Math.random()*tot, hit=avoid[avoid.length-1];
+  for(const s of avoid){ r-=s.w; if(r<=0){ hit=s; break; } }
+  pkLast=hit.u.id;
+  pkShow(hit);
+}
+function pkShow({u, w, why}){
+  const t=(u.ship&&u.ship.tier)||"ask";
+  const prices=u.products.filter(p=>p.price!=null).map(p=>p.price);
+  const cats=[...new Set(u.products.map(p=>p.cat))];
+  const lo=prices.length?Math.min(...prices):null, hi=prices.length?Math.max(...prices):null;
+
+  $("#pdWhy").textContent = why.length
+    ? `這家${why.join("、")}，平常比較不容易被看到，所以優先推給你。`
+    : "從符合你條件的單位裡隨機挑出來的。";
+  $("#pdName").textContent = u.name;
+
+  const bits=[
+    {c:"", h:`<b>${esc(u.county)}</b>`},
+    {c:"cats", h:esc(cats.slice(0,2).join("、")) + (cats.length>2?" 等":"")},
+    {c:"", h:`${u.products.length} 項`}];
+  if(prices.length) bits.push({c:"", h: lo===hi
+    ? `NT$ ${lo.toLocaleString()}` : `NT$ ${lo.toLocaleString()}–${hi.toLocaleString()}`});
+  $("#pdMeta").innerHTML = bits.map((x,i)=>
+    `<span class="${x.c}">${x.h}${i<bits.length-1?'<i>·</i>':''}</span>`).join('');
+  $("#pdFlag").hidden = u.status!=="2026中秋";
+
+  const rows=[];
+  rows.push(["怎麼訂", esc(u.order || "請電話洽詢")]);
+  if(u.phone) rows.push(["電話", `<a class="tel" href="tel:${esc(TEL(u.phone))}">`
+      + `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"`
+      + ` stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1`
+      + ` 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1`
+      + `L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>`
+      + `${esc(u.phone)}</a>`]);
+  rows.push(["寄送", esc(SHIP_LB[t]) + (u.ship&&u.ship.basis ? `<span class="note">${esc(u.ship.basis)}</span>` : "")]);
+  const top=u.products.filter(p=>p.price!=null).sort((a,b)=>a.price-b.price).slice(0,3);
+  if(top.length) rows.push(["品項", `<div class="menu">` + top.map(p=>
+      `<span class="it"><span class="nm">${esc(p.name)}</span><span class="ld"></span>`
+      + `<span class="pr">${p.price.toLocaleString()}</span></span>`).join("") + `</div>`]);
+  $("#pdInfo").innerHTML = rows.map(([k,v])=>`<dt>${k}</dt><dd>${v}</dd>`).join("");
+
+  const see=$("#pdSee");
+  const SEE_LB={detail:"前往訂購 ↗",form:"填訂購表單 ↗",shop:"前往他們的商店 ↗",
+    catalog:"看官方型錄規格 ↗",notice:"看中秋公告 ↗",social:"看他們的粉專 ↗"};
+  if(u.buy){ see.href=u.buy; see.target="_blank"; see.rel="noopener";
+    see.textContent=SEE_LB[u.lk]||"前往訂購 ↗"; }
+  else if(u.phone){ see.href="tel:"+TEL(u.phone); see.removeAttribute("target");
+    see.textContent="打電話訂購 ☎"; }
+  else { see.href="#"; see.removeAttribute("target"); see.textContent="看他們的商品"; }
+  see.onclick = (u.buy || u.phone) ? null : (e)=>{
+    e.preventDefault(); $("#pickResult").close();
+    clearAll(); $("#hq").value=u.name; S.q=u.name.toLowerCase(); reset();
+    document.querySelector(".tabs").scrollIntoView({behavior:"smooth",block:"start"});
+  };
+  $("#pickResult").scrollTop = 0;
+  if(!$("#pickResult").open) $("#pickResult").showModal();
+}
+$("#pickGo").addEventListener("click", pkPick);
+$("#pdAgain").addEventListener("click", pkPick);
+$("#pdClose").addEventListener("click", ()=>$("#pickResult").close());
+
+buildTabs();
+render();
+syncBarH();
+</script>
+
+<!-- Cloudflare Pages Analytics --><script defer src='../static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "22c2e70a558f4dfb97dbe91e26646a0c"}'></script><!-- Cloudflare Pages Analytics --></body>
+</html>
